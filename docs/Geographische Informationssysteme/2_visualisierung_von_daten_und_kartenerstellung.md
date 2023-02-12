@@ -7,3 +7,4 @@
 - Exportieren der thematischen Karte als Bilddatei bzw. PDF-Dokument
 
 ## Vorbereitung
+Das ist ein Test
