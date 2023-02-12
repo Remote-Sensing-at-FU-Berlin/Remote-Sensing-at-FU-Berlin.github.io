@@ -3,13 +3,33 @@ site_name: Fernerkundung und Geoinformatik
 nav:
     - Home: 'index.md'
     - Geographische Informationssysteme:
-        - '1. Einführung ArcGIS': '1_einfuerung_in_arcmap.md'
-        - '2. Kartenerstellung': '2_visualisierung_von_daten_und_kartenerstellung.md'
-        - '3. Abfragen': '3_abfragen.md'
-        - '4. Digitalisierung': '4_digitalisierung.md'
-        - '5. Geoprozessierung und Projektionen': '5_geoprozessierung_und_projektionen.md'
-        - '6. Interpolationen und Höhenmodelle': '6_interpolationen_und_hoehenmodelle.md'
-        - '7. Abschlussaufgabe': '7_abschlussaufgabe.md'
+        - '1. Einführung ArcGIS': 'einfuerung_in_arcmap.md'
+        - '2. Kartenerstellung': 'visualisierung_von_daten_und_kartenerstellung.md'
+        - '3. Abfragen': 'abfragen.md'
+        - '4. Digitalisierung': 'digitalisierung.md'
+        - '5. Geoprozessierung und Projektionen': 'geoprozessierung_und_projektionen.md'
+        - '6. Interpolationen und Höhenmodelle': 'interpolationen_und_hoehenmodelle.md'
+        - '7. Abschlussaufgabe': 'abschlussaufgabe.md'
+    - Fernerkundung und digitale Bildverarbeitung:
+        - '1. Google Earth': 'google_earth'
+        - '2. Erdas': 'erdas'
+        - '3. Profile': 'profile'
+        - '4. Kontrast': 'kontrast'
+        - '5. Geometrische Korrektur': 'geometrische_korrektur'
+        - '6. Vegetationsindizes': 'vegetationsindizes'
+        - '7. Datenraumtransformationen': 'datenraumtransformationen'
+        - '8. Unüberwachte Klassifikation': 'unueberwachte_klassifikation'
+        - '9./10. Überwachte Klassifikation': 'ueberwachte_klassifikation'
+        - '11. Validierung': 'Validierung'
+        - '12. Abschlussaufgabe': 'abschlussaufgabe'
+        - '15. Seminarabschluss': 'seminarabschluss'
+    - Regionale Themen der Fernerkundung:
+        - 'Test': 'test.md'
+    - Speziele Themen der Fernerkundung:
+        - 'Test': 'test.md'
+    - Projektbezogenes Arbeiten:
+        - 'Test': 'test.md'
+
 
 theme:
   name: material
