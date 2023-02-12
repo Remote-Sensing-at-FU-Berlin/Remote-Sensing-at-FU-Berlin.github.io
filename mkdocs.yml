@@ -1,7 +1,7 @@
 site_name: Fernerkundung und Geoinformatik
 
 nav:
-    - Home: 'index.md'
+    
     - Geographische Informationssysteme:
         - '1. Einführung ArcGIS': 'einfuerung_in_arcmap.md'
         - '2. Kartenerstellung': 'visualisierung_von_daten_und_kartenerstellung.md'
@@ -30,10 +30,26 @@ nav:
     - Projektbezogenes Arbeiten:
         - 'Test': 'test.md'
 
-
+copyright: Copyright - 2023 Fernerkundung und Geoinformatik
 theme:
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.highlight
+    - navigation.footer
+    
+  logo: assets/logo.png
   name: material
   language: de 
   palette:
-    primary: light green
+    primary: white
     accent: light green
+
+
+extra:
+  generator: false
