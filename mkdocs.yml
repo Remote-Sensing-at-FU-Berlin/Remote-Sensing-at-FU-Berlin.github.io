@@ -3,13 +3,13 @@ site_name: Fernerkundung und Geoinformatik
 nav:
     - Home: 'index.md'
     - Geographische Informationssysteme:
-        - '01 Einführung ArcGIS': '1_einfuerung_in_arcmap.md'
-        - '02 Kartenerstellung': '2_visualisierung_von_daten_und_kartenerstellung.md'
-        - '03 Abfragen': '03_abfragen.md'
-        - '04 Digitalisierung 1 + 2': '04_digitalisierung.md'
-        - '05 Geoprozessierung und Projektionen': '05_geoprozessierung_und_projektionen.md'
-        - '06 Interpolationen und Höhenmodelle': '06_interpolationen_und_hoehenmodelle.md'
-        - '07 Abschlussaufgabe': '07_abschlussaufgabe.md'
+        - '1. Einführung ArcGIS': '1_einfuerung_in_arcmap.md'
+        - '2. Kartenerstellung': '2_visualisierung_von_daten_und_kartenerstellung.md'
+        - '3. Abfragen': '3_abfragen.md'
+        - '4. Digitalisierung 1 + 2': '4_digitalisierung.md'
+        - '5. Geoprozessierung und Projektionen': '5_geoprozessierung_und_projektionen.md'
+        - '6. Interpolationen und Höhenmodelle': '6_interpolationen_und_hoehenmodelle.md'
+        - '7. Abschlussaufgabe': '7_abschlussaufgabe.md'
 
 theme:
   name: material
