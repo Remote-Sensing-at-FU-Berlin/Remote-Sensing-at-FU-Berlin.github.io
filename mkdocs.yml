@@ -2,7 +2,7 @@ site_name: Fernerkundung und Geoinformatik
 
 nav:
     - Inhaltsverzeichnis: 'index.md'
-    - Geographische Informationssysteme: './Geographische Informationssysteme'
+    - Geographische Informationssysteme: '/Geographische Informationssysteme'
 
 theme:
   name: material
