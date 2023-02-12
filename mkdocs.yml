@@ -1,5 +1,9 @@
 site_name: Fernerkundung und Geoinformatik
 
+nav:
+    - Home: 'index.md'
+    - About: 'about.md'
+
 theme:
   name: material
   language: de 
