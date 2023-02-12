@@ -3,6 +3,7 @@ site_name: Fernerkundung und Geoinformatik
 nav:
     
     - Geographische Informationssysteme:
+        - '0. Bildinterpretation mit Google Earth': 'bildinterpretation_mit_google_earth.md'
         - '1. Einführung ArcGIS': 'einfuerung_in_arcmap.md'
         - '2. Kartenerstellung': 'visualisierung_von_daten_und_kartenerstellung.md'
         - '3. Abfragen': 'abfragen.md'
@@ -11,18 +12,18 @@ nav:
         - '6. Interpolationen und Höhenmodelle': 'interpolationen_und_hoehenmodelle.md'
         - '7. Abschlussaufgabe': 'abschlussaufgabe.md'
     - Fernerkundung und digitale Bildverarbeitung:
-        - '1. Google Earth': 'google_earth'
-        - '2. Erdas': 'erdas'
-        - '3. Profile': 'profile'
-        - '4. Kontrast': 'kontrast'
-        - '5. Geometrische Korrektur': 'geometrische_korrektur'
-        - '6. Vegetationsindizes': 'vegetationsindizes'
-        - '7. Datenraumtransformationen': 'datenraumtransformationen'
-        - '8. Unüberwachte Klassifikation': 'unueberwachte_klassifikation'
-        - '9./10. Überwachte Klassifikation': 'ueberwachte_klassifikation'
-        - '11. Validierung': 'Validierung'
-        - '12. Abschlussaufgabe': 'abschlussaufgabe'
-        - '15. Seminarabschluss': 'seminarabschluss'
+        - '1. Google Earth': 'google_earth.md'
+        - '2. Erdas': 'erdas.md'
+        - '3. Profile': 'profile.md'
+        - '4. Kontrast': 'kontrast.md'
+        - '5. Geometrische Korrektur': 'geometrische_korrektur.md'
+        - '6. Vegetationsindizes': 'vegetationsindizes.md'
+        - '7. Datenraumtransformationen': 'datenraumtransformationen.md'
+        - '8. Unüberwachte Klassifikation': 'unueberwachte_klassifikation.md'
+        - '9./10. Überwachte Klassifikation': 'ueberwachte_klassifikation.md'
+        - '11. Validierung': 'Validierung.md'
+        - '12. Abschlussaufgabe': 'abschlussaufgabe.md'
+        - '15. Seminarabschluss': 'seminarabschluss.md'
     - Regionale Themen der Fernerkundung:
         - 'Test': 'test.md'
     - Speziele Themen der Fernerkundung:
@@ -30,7 +31,7 @@ nav:
     - Projektbezogenes Arbeiten:
         - 'Test': 'test.md'
 
-copyright: Copyright - 2023 Fernerkundung und Geoinformatik
+copyright: Copyright - 2023 Fabian Faßnacht & Anika Sieber
 theme:
   features:
     - navigation.instant
@@ -53,3 +54,7 @@ theme:
 
 extra:
   generator: false
+
+markdown_extensions:
+  - attr_list
+  - md_in_html  

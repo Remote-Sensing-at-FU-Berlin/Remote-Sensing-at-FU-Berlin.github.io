@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-einfuhrung-in-arcmap" class="md-skip">
+        <a href="#1-bildinterpretation-mit-google-earth" class="md-skip">
           Zum Inhalt
         </a>
       
@@ -345,36 +345,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vorbereitung" class="md-nav__link">
-    Vorbereitung
+  <a href="#zeitliche-und-raumliche-orientierung-in-google-earth-pro" class="md-nav__link">
+    Zeitliche und räumliche Orientierung in Google Earth Pro
   </a>
   
-    <nav class="md-nav" aria-label="Vorbereitung">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#digitalisieren-in-google-earth" class="md-nav__link">
+    Digitalisieren in Google Earth
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daten-in-arcgis-bzw-qgis-offnen" class="md-nav__link">
+    Daten in ArcGIS bzw. QGIS öffnen
+  </a>
+  
+    <nav class="md-nav" aria-label="Daten in ArcGIS bzw. QGIS öffnen">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#anlegen-eines-gis-ordners" class="md-nav__link">
-    Anlegen eines GIS-Ordners
+  <a href="#arcmap" class="md-nav__link">
+    ArcMap
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#daten" class="md-nav__link">
-    Daten
+  <a href="#qgis" class="md-nav__link">
+    QGIS
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#aufbau-arcmap" class="md-nav__link">
-    Aufbau ArcMap
-  </a>
   
 </li>
       
@@ -869,36 +876,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vorbereitung" class="md-nav__link">
-    Vorbereitung
+  <a href="#zeitliche-und-raumliche-orientierung-in-google-earth-pro" class="md-nav__link">
+    Zeitliche und räumliche Orientierung in Google Earth Pro
   </a>
   
-    <nav class="md-nav" aria-label="Vorbereitung">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#digitalisieren-in-google-earth" class="md-nav__link">
+    Digitalisieren in Google Earth
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daten-in-arcgis-bzw-qgis-offnen" class="md-nav__link">
+    Daten in ArcGIS bzw. QGIS öffnen
+  </a>
+  
+    <nav class="md-nav" aria-label="Daten in ArcGIS bzw. QGIS öffnen">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#anlegen-eines-gis-ordners" class="md-nav__link">
-    Anlegen eines GIS-Ordners
+  <a href="#arcmap" class="md-nav__link">
+    ArcMap
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#daten" class="md-nav__link">
-    Daten
+  <a href="#qgis" class="md-nav__link">
+    QGIS
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#aufbau-arcmap" class="md-nav__link">
-    Aufbau ArcMap
-  </a>
   
 </li>
       
@@ -918,49 +932,143 @@
 
 
 
-<h1 id="1-einfuhrung-in-arcmap">1 Einführung in ArcMap</h1>
-<p>Hinweis: Lesen Sie sich dieses Handout ausführlich bis zum Ende durch, bevor Sie mit der Übung be- ginnen! Sehr häufig klären sich Ihre aufkommenden Fragen in den nächsten Arbeitsschritten!</p>
+<h1 id="1-bildinterpretation-mit-google-earth">1 Bildinterpretation mit Google Earth</h1>
+<ul>
+<li><strong>Lesen Sie sich dieses Handout ausführlich bis zum Ende durch</strong> , <strong>bevor</strong> Sie mit der Übung beginnen!
+    Sehr häufig klären sich Ihre aufkommenden Fragen in den nächsten Arbeitsschritten!</li>
+<li>Legen Sie einen Ordner auf Ihrem Computer an, in dem Sie alle zukünftigen Daten für unseren
+    Fernerkundungskurs speichern. Wir empfehlen, diesen Ordner <strong>FE_Kurs</strong> zu nennen und in diesem
+    weitere Unterordner für jede einzelne Sitzung anzulegen (z.B. ...\FE_Kurs\ <strong>01 _GoogleEarth</strong> für die
+    heutige Sitzung).</li>
+<li><strong>Wichtig für alle Sitzungen:</strong> Bitte achten Sie auf die korrekte Benennung Ihrer Ordnernamen: erlaubt
+    sind Zahlen, gängige Buchstaben sowie Unterstriche. Zu Problemen mit ERDAS bzw. einzelnen Tools
+    in ERDAS (Absturz!!) kann es kommen, wenn Sie Umlaute, Leerzeichen oder Sonderzeichen in Ihren
+    Ordnernamen verwenden!</li>
+</ul>
 <h2 id="lernziele">Lernziele</h2>
 <ul>
-<li>Kennenlernen der ArcMap-Benutzeroberfläche</li>
-<li>Öffnen diverser Geodaten in ArcMap</li>
-<li>Visualisieren dieser Geodaten in ArcMap</li>
-<li>Speichern eines eigenen Projektes</li>
+<li>Kennenlernen der Google Earth-Benutzeroberfläche</li>
+<li>Satellitenbilder zeitlich einordnen können</li>
+<li>Geoobjekte in Satellitenbildern erkennen</li>
+<li>Digitalisieren in Google Earth</li>
 </ul>
-<h2 id="vorbereitung">Vorbereitung</h2>
-<h3 id="anlegen-eines-gis-ordners">Anlegen eines GIS-Ordners</h3>
-<p>Legen Sie einen Ordner auf Ihrem Computer an, in dem Sie alle zukünftigen Daten für unseren GIS-Kurs speichern. Wir empfehlen, diesen Ordner GIS_Kurs zu nennen und in diesem weitere Unterordner für jede einzelne Sitzung anzulegen (z.B. 01_Einfuehrung für die heutige Sitzung).</p>
-<h3 id="daten">Daten</h3>
+<h2 id="zeitliche-und-raumliche-orientierung-in-google-earth-pro">Zeitliche und räumliche Orientierung in Google Earth Pro</h2>
 <ul>
 <li>
-<p>Die Daten, die wir heute verwenden wollen, finden Sie auf <strong>Blackboard</strong> im entsprechenden Ordner der Kursmaterialen unter „<strong>01 Einführung_ArcGIS</strong>“. Wir stellen Ihnen diese Daten in einem komprimierten Datenformat (z.B. .zip) zur Verfügung.</p>
+<p>Starten Sie Google Earth Pro und machen Sie sich mit der Oberfläche vertraut.</p>
 </li>
 <li>
-<p>Bitte laden Sie die Daten herunter und speichern Sie diese in Ihrem zuvor angelegten Ordner unter: <strong>...\GIS_Kurs\01_Einfuehrung</strong> [Anlegen eines GIS-Ordners].</p>
+<p>Nutzen Sie die Tipps zum Programmstart.</p>
 </li>
 <li>
-<p>Nun können Sie die Daten entpacken, also die Datenkomprimierung aufheben, um die Daten für unseren Kurs zu benutzen.</p>
+<p>Deaktivieren Sie alle Ebenen (im Fenster auf der linken Seite alle Häkchen entfernen) und
+schalten Sie nun nach und nach Ebenen hinzu, um diese besser kennenzulernen.</p>
 </li>
+<li>
+<p>Betrachten Sie mehrere Gebiete Ihrer Wahl in <strong>Berlin</strong> , um nur anhand der Bilder folgende Fragen zu
+    beantworten:</p>
+</li>
+<li>
+<p>Zu welcher Jahreszeit wurde die jeweilige Bildaufnahme gemacht? Woran können die
+einzelnen Jahreszeiten generell erkannt werden?</p>
+</li>
+<li>Können Sie Monat und Jahr feststellen?</li>
+<li>Woran haben Sie die Mensa erkannt?</li>
+<li>Wie beurteilen Sie die Qualität der Bilddaten?</li>
 </ul>
-<p>Die Daten für den heutigen Kurs sind:</p>
+<p>➔ Notieren Sie sich Ihre Antworten, wir besprechen diese im Seminar.</p>
+<p>In der <em>Google Earth</em> - Statusleiste rechts unten sind Informationen über die verwendeten Bilddaten</p>
+<p>(Aufnahmedatum, Koordinaten, die Höhe über NN und die Sichthöhe) ablesbar, z.B.:</p>
+<p><img alt="" src="../assets/Screenshot%202023-02-12%20at%2019.03.40.png" /></p>
+<p><strong>Tipps:</strong></p>
 <ul>
-<li>
-<p><strong>bezirke_ortsteile.shp</strong> (Vektordatensatz mit den Verwaltungsgrenzen der Berliner
-Ortsteile)</p>
-</li>
-<li>
-<p><strong>bahnstationen.shp</strong> (Vektordatensatz mit S- und U-Bahnstationen in Berlin und Bran-
-denburg)</p>
-</li>
-<li>
-<p><strong>wanderwege.shp</strong> (Vektordatensatz mit Wanderwegen in Berlin)</p>
-</li>
-<li>
-<p><strong>laermindex.tif</strong> (Rasterdatensatz mit der Strategischen Lärmkarte 2017 von Berlin)</p>
+<li>Google Earth verwendet in der Voreinstellung geographische Koordinaten mit WGS84 als Ellipsoid.
+    In der Google Earth Menüleiste unter <code>Tools &gt; Optionen &gt; 3D-Ansicht</code> lässt sich die Anzeige von
+    Breite und Länge auf das UTM Koordinatensystem („ <strong>Universales transversales Mercator-</strong>
+    <strong>Koordinatensystem</strong> “) umstellen.</li>
+<li>Beim Zoomen wird die Ansicht automatisch geneigt. Dies können Sie ausstellen unter <code>Tools &gt;
+    Optionen &gt; Navigation</code>: „ <strong>Beim Zoomen nicht automatisch neigen</strong> “.</li>
+</ul>
+<h2 id="digitalisieren-in-google-earth">Digitalisieren in Google Earth</h2>
+<p>In Google Earth können Geodaten selbst erstellt und in einem Datenformat gespeichert werden, welches</p>
+<p>anschließend in ein Geographisches Informationssystem (GIS, z.B. <em>ArcGIS</em> oder <em>QGIS</em> ) importiert werden</p>
+<p>kann.</p>
+<ul>
+<li>Links unter „My Places (Meine Orte)“ können Sie selbsterstellte <strong>Punkte</strong> , <strong>Polygone</strong> und <strong>Linien</strong>
+    speichern.</li>
+<li>Fügen Sie unter <code>My Places (Meine Orte) &gt; Rechtsklick &gt; Hinzufügen</code> einen neuen Ordner in
+    My Places ( <em>Meine Orte)</em> hinzu und erstellen Sie die folgenden Digitalisierungen in diesem Ordner.</li>
+<li>Nutzen Sie die Werkzeugleiste um...<ul>
+<li>die S-Bahn (einen Abschnitt) als Linie zu digitalisieren.</li>
+</ul>
 </li>
 </ul>
-<p><strong>Bitte beachten Sie, dass die Vektor- und Rasterdatensätze immer aus mehreren Dateien be- stehen!</strong></p>
-<h2 id="aufbau-arcmap">Aufbau ArcMap</h2>
+<p><img alt="" src="../assets/Screenshot%202023-02-12%20at%2019.09.02.png" /></p>
+<ul>
+<li>den FU Campus Lankwitz als Polygon zu digitalisieren (halb transparent, mit Umrandung).</li>
+<li>die Gebäude des Geocampus‘ zu markieren (vergeben Sie als Namen die Gebäudenamen,
+wählen Sie die Symbole entsprechend der Fachbereiche bzw. Nutzung aus).</li>
+<li>Symbole und Farben können in dem sich</li>
+</ul>
+<p><img alt="" src="../assets/Screenshot%202023-02-12%20at%2019.10.25.png" /></p>
+<p>öffnenden Fenster angepasst werden:</p>
+<p>Tipp: Punkte, Polygone und Linien können bearbeitet und
+auch ergänzt werden, solange dieses Fenster geöffnet ist!</p>
+<ul>
+<li>Speichern Sie nach der Digitalisierung Ihren Ordner <code>Rechtsklick &gt; Ort speichern unter...</code>_ in einer</li>
+</ul>
+<p>kmz - Datei (Keyhole Markup Language, Dateiendungen: .kmz, .kml) in Ihrem persönlichen FE-Ordner
+z.B.:</p>
+<pre><code> ...\FE_Kurs\01_GoogleEarth
+</code></pre>
+<ul>
+<li>Schließen Sie <em>Google Earth</em> und starten Sie das Programm erneut. Rekonstruieren Sie Ihre</li>
+</ul>
+<p>digitalisierten Geoobjekte über die kmz-Datei. Die kmz-Datei kann über <code>Datei &gt; Öffnen</code> wieder in</p>
+<p>Google Earth importiert werden.</p>
+<h2 id="daten-in-arcgis-bzw-qgis-offnen">Daten in ArcGIS bzw. QGIS öffnen</h2>
+<h3 id="arcmap">ArcMap</h3>
+<ul>
+<li>Öffnen Sie <em>ArcMap</em> und importieren Sie dort die gerade erstellte kmz-Datei. Benutzen Sie die</li>
+</ul>
+<p>Suchfunktion, um das Tool KML to Layer aufzurufen.</p>
+<ul>
+<li>Input- Datensatz z.B.:</li>
+</ul>
+<pre><code>...\FE_Kurs\01_GoogleEarth\... .kmz
+</code></pre>
+<ul>
+<li>Output- Ordner z.B.:</li>
+</ul>
+<pre><code>...\FE_Kurs\01_GoogleEarth\...
+</code></pre>
+<p><img alt="" src="../assets/Screenshot%202023-02-12%20at%2019.11.35.png" /></p>
+<ul>
+<li>Die importierten Dateien werden in ArcGIS in einer Geodatenbank (.gdb) temporär abgelegt.</li>
+<li>Exportieren Sie danach die Layer-Dateien (jeweils Punkte, Polygon(e) und Polylines) als Shapefiles
+    <code>Data &gt; Export Data</code> und speichern Sie diese Dateien in Ihrem FE-Ordner.</li>
+<li>Beachten Sie die Projektion der neuen Datensätze. Was müssen Sie tun, um diese ggf. zu ändern?</li>
+</ul>
+<h3 id="qgis">QGIS</h3>
+<ul>
+<li>Öffnen Sie QGIS und importieren Sie dort die gerade erstellte kmz-Datei.</li>
+<li>Wählen Sie in der oberen <code>Menüleiste &gt; Layer &gt; Add Layer &gt; Add Vector Layer</code></li>
+<li>
+<p>Im sich öffnenden Fenster des <code>Data Source Manager &gt; Vector &gt; Vector</code> klicken Sie auf den Browse-Button. Navigieren Sie hier zu Ihrem Ordner und laden Sie Ihre erstellte kmz-Datei.</p>
+</li>
+<li>
+<p>Exportieren Sie nun die Layer-Dateien (jeweils Punkte, Polygon(e) und Polylines) als Shapefiles
+    <code>Rechtsklick &gt; Export &gt; Save Features as... &gt; ESRI Shapefile</code> und speichern Sie diese Dateien in
+    Ihrem FE-Ordner.</p>
+</li>
+<li>Beachten Sie die Projektion der neuen Datensätze. Was müssen Sie tun, um diese ggf. zu ändern?</li>
+</ul>
+<p>Das waren die Inhalte der ersten Sitzung „Bildinterpretation mit Google Earth“.</p>
+<p>Wenn Sie dieses Handout durchgearbeitet haben, haben Sie</p>
+<ul>
+<li>sich damit beschäftigt, wie man Satellitenbilder zeitlich und räumlich einordnen kann und</li>
+<li>gelernt, Geodaten in Google Earth für Ihr eigenes Projekt zu nutzen.</li>
+</ul>
 
 
 
@@ -1010,7 +1118,7 @@ denburg)</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright - 2023 Fernerkundung und Geoinformatik
+      Copyright - 2023 Fabian Faßnacht & Anika Sieber
     </div>
   
   
