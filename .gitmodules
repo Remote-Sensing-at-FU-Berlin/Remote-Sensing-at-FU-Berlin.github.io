@@ -1,0 +1,6 @@
+[submodule "docs/qgis-tutorials"]
+	path = docs/qgis-tutorials
+	url = https://github.com/Remote-Sensing-at-FU-Berlin/qgis-tutorials
+[submodule "docs/planetary-sciences-tutorials"]
+	path = docs/planetary-sciences-tutorials
+	url = https://github.com/Remote-Sensing-at-FU-Berlin/planetary-sciences-tutorials
