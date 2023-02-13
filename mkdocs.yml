@@ -3,33 +3,45 @@ site_name: Fernerkundung und Geoinformatik
 nav:
     
     - Geographische Informationssysteme:
-        - '0. Bildinterpretation mit Google Earth': 'bildinterpretation_mit_google_earth.md'
-        - '1. Einführung ArcGIS': 'einfuerung_in_arcmap.md'
-        - '2. Kartenerstellung': 'visualisierung_von_daten_und_kartenerstellung.md'
-        - '3. Abfragen': 'abfragen.md'
-        - '4. Digitalisierung': 'digitalisierung.md'
-        - '5. Geoprozessierung und Projektionen': 'geoprozessierung_und_projektionen.md'
-        - '6. Interpolationen und Höhenmodelle': 'interpolationen_und_hoehenmodelle.md'
-        - '7. Abschlussaufgabe': 'abschlussaufgabe.md'
+        - ArcMap:
+            - 'Bildinterpretation mit Google Earth': './arcmap-tutorials/bildinterpretation_mit_google_earth.md'
+            - 'Einführung ArcGIS': './arcmap-tutorials/einfuerung_in_arcmap.md'
+            - 'Kartenerstellung': './arcmap-tutorials/visualisierung_von_daten_und_kartenerstellung.md'
+            - 'Abfragen': './arcmap-tutorials/abfragen.md'
+            - 'Digitalisierung': './arcmap-tutorials/digitalisierung.md'
+            - 'Geoprozessierung und Projektionen': './arcmap-tutorials/geoprozessierung_und_projektionen.md'
+            - 'Interpolationen und Höhenmodelle': './arcmap-tutorials/interpolationen_und_hoehenmodelle.md'
+            - 'Abschlussaufgabe': './arcmap-tutorials/abschlussaufgabe.md'
+        - QGIS:
+            - 'GUI': './qgis-tutorials/01-GUI.md'
+            - 'Vector Data': './qgis-tutorials/02-vector-data.md'
+            - 'Raster Data': './qgis-tutorials/03-raster-data.md'
+            - 'General Tools': './qgis-tutorials/04-general-tools.md'
+            - 'Digitizing': './qgis-tutorials/05-digitizing.md'
+            - 'Selections': './qgis-tutorials/06-selections.md'
+            - 'Elevation': './qgis-tutorials/07-elevation.md'
+            - 'Map Making': './qgis-tutorials/08-map-making.md'
+            - 'Spatial Interpolation': './qgis-tutorials/09-spatial-interpolation.md'
     - Fernerkundung und digitale Bildverarbeitung:
-        - '1. Google Earth': 'google_earth.md'
-        - '2. Erdas': 'erdas.md'
-        - '3. Profile': 'profile.md'
-        - '4. Kontrast': 'kontrast.md'
-        - '5. Geometrische Korrektur': 'geometrische_korrektur.md'
-        - '6. Vegetationsindizes': 'vegetationsindizes.md'
-        - '7. Datenraumtransformationen': 'datenraumtransformationen.md'
-        - '8. Unüberwachte Klassifikation': 'unueberwachte_klassifikation.md'
-        - '9./10. Überwachte Klassifikation': 'ueberwachte_klassifikation.md'
-        - '11. Validierung': 'Validierung.md'
-        - '12. Abschlussaufgabe': 'abschlussaufgabe.md'
-        - '15. Seminarabschluss': 'seminarabschluss.md'
+        - 'Google Earth': 'google_earth.md'
+        - 'Erdas': 'erdas.md'
+        - 'Profile': 'profile.md'
+        - 'Kontrast': 'kontrast.md'
+        - 'Geometrische Korrektur': 'geometrische_korrektur.md'
+        - 'Vegetationsindizes': 'vegetationsindizes.md'
+        - 'Datenraumtransformationen': 'datenraumtransformationen.md'
+        - 'Unüberwachte Klassifikation': 'unueberwachte_klassifikation.md'
+        - 'Überwachte Klassifikation': 'ueberwachte_klassifikation.md'
+        - 'Validierung': 'Validierung.md'
+        - 'Abschlussaufgabe': 'abschlussaufgabe.md'
     - Regionale Themen der Fernerkundung:
         - 'Test': 'test.md'
     - Speziele Themen der Fernerkundung:
         - 'Test': 'test.md'
     - Projektbezogenes Arbeiten:
         - 'Test': 'test.md'
+    - Planetary Sciences:
+        - 'Download': './planetary-sciences-tutorials/01-download-ls-and-s2.md'
 
 copyright: Copyright - 2023 Fabian Faßnacht & Anika Sieber
 theme:
