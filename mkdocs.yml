@@ -2,7 +2,7 @@ site_name: Fernerkundung und Geoinformatik
 
 nav:
     
-    - Geographische Informationssysteme:
+    - Geo. Informationssysteme:
         - ArcMap:
             - 'Bildinterpretation mit Google Earth': './arcmap-tutorials/bildinterpretation_mit_google_earth.md'
             - 'Einführung ArcGIS': './arcmap-tutorials/einfuerung_in_arcmap.md'
@@ -22,7 +22,7 @@ nav:
             - 'Elevation': './qgis-tutorials/07-elevation.md'
             - 'Map Making': './qgis-tutorials/08-map-making.md'
             - 'Spatial Interpolation': './qgis-tutorials/09-spatial-interpolation.md'
-    - Fernerkundung und digitale Bildverarbeitung:
+    - Fern. und digitale Bildverarbeitung:
         - 'Google Earth': 'google_earth.md'
         - 'Erdas': 'erdas.md'
         - 'Profile': 'profile.md'
@@ -34,9 +34,9 @@ nav:
         - 'Überwachte Klassifikation': 'ueberwachte_klassifikation.md'
         - 'Validierung': 'Validierung.md'
         - 'Abschlussaufgabe': 'abschlussaufgabe.md'
-    - Regionale Themen der Fernerkundung:
+    - Regionale Themen der Fern.:
         - 'Test': 'test.md'
-    - Speziele Themen der Fernerkundung:
+    - Speziele Themen der Fern.:
         - 'Test': 'test.md'
     - Projektbezogenes Arbeiten:
         - 'Test': 'test.md'
