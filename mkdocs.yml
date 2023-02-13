@@ -43,7 +43,7 @@ nav:
     - Planetary Sciences:
         - 'Download': './planetary-sciences-tutorials/01-download-ls-and-s2.md'
 
-copyright: Copyright - 2023 Fabian Faßnacht & Anika Sieber
+copyright: CC-BY-SA-4.0 license - FU-Berlin Fernerkundung und Geoinformatik 
 theme:
   features:
     - navigation.instant
