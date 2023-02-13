@@ -1,0 +1,3 @@
+[submodule "docs/qgis-tutorials"]
+	path = docs/qgis-tutorials
+	url = git@github.com:Remote-Sensing-at-FU-Berlin/qgis-tutorials.git
