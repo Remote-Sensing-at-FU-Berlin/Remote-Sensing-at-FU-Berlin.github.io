@@ -4,3 +4,6 @@
 [submodule "docs/planetary-sciences-tutorials"]
 	path = docs/planetary-sciences-tutorials
 	url = https://github.com/Remote-Sensing-at-FU-Berlin/planetary-sciences-tutorials
+[submodule "docs/arcgispro-tutorials"]
+	path = docs/arcgispro-tutorials
+	url = https://github.com/Remote-Sensing-at-FU-Berlin/arcgispro-tutorials
