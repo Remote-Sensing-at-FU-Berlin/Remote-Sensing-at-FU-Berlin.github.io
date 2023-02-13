@@ -3,7 +3,7 @@ site_name: Fernerkundung und Geoinformatik
 nav:
     
     - Geo. Informationssysteme:
-        - ArcMap:
+        - ArcGis Pro:
             - 'Bildinterpretation mit Google Earth': './arcmap-tutorials/bildinterpretation_mit_google_earth.md'
             - 'Einführung ArcGIS': './arcmap-tutorials/einfuerung_in_arcmap.md'
             - 'Kartenerstellung': './arcmap-tutorials/visualisierung_von_daten_und_kartenerstellung.md'

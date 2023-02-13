@@ -1,4 +1,4 @@
-# 0. Bildinterpretation mit Google Earth
+# Bildinterpretation mit Google Earth
 
 - **Lesen Sie sich dieses Handout ausführlich bis zum Ende durch** , **bevor** Sie mit der Übung beginnen!
     Sehr häufig klären sich Ihre aufkommenden Fragen in den nächsten Arbeitsschritten!
