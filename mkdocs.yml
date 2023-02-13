@@ -4,14 +4,14 @@ nav:
     
     - Geo. Informationssysteme:
         - ArcGis Pro:
-            - 'Bildinterpretation mit Google Earth': './arcgis-tutorials/bildinterpretation_mit_google_earth.md'
-            - 'Einführung ArcGIS': './arcgis-tutorials/einfuerung_in_arcmap.md'
-            - 'Kartenerstellung': './arcgis-tutorials/visualisierung_von_daten_und_kartenerstellung.md'
-            - 'Abfragen': './arcgis-tutorials/abfragen.md'
-            - 'Digitalisierung': './arcgis-tutorials/digitalisierung.md'
-            - 'Geoprozessierung und Projektionen': './arcgis-tutorials/geoprozessierung_und_projektionen.md'
-            - 'Interpolationen und Höhenmodelle': './arcgis-tutorials/interpolationen_und_hoehenmodelle.md'
-            - 'Abschlussaufgabe': './arcgis-tutorials/abschlussaufgabe.md'
+            - 'Bildinterpretation mit Google Earth': './arcgispro-tutorials/bildinterpretation_mit_google_earth.md'
+            - 'Einführung ArcGIS': './arcgispro-tutorials/einfuerung_in_arcmap.md'
+            - 'Kartenerstellung': './arcgispro-tutorials/visualisierung_von_daten_und_kartenerstellung.md'
+            - 'Abfragen': './arcgispro-tutorials/abfragen.md'
+            - 'Digitalisierung': './arcgispro-tutorials/digitalisierung.md'
+            - 'Geoprozessierung und Projektionen': './arcgispro-tutorials/geoprozessierung_und_projektionen.md'
+            - 'Interpolationen und Höhenmodelle': './arcgispro-tutorials/interpolationen_und_hoehenmodelle.md'
+            - 'Abschlussaufgabe': './arcgispro-tutorials/abschlussaufgabe.md'
         - QGIS:
             - 'GUI': './qgis-tutorials/01-GUI.md'
             - 'Vector Data': './qgis-tutorials/02-vector-data.md'
