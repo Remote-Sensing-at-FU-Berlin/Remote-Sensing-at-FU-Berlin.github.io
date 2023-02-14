@@ -55,6 +55,7 @@ theme:
     - navigation.top
     - search.highlight
     - navigation.footer
+    - content.code.copy
     
   logo: assets/logo.png
   name: material
