@@ -19,7 +19,7 @@ nav:
     
     - Project:
         - Subproject:
-            - 'Document name': './projectrepository/file_name.md'
+            - Document name: ./projectrepository/file_name.md
 ```
 3. Commit your changes
 
