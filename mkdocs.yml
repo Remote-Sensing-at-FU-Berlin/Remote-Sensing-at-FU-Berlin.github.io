@@ -57,6 +57,7 @@ theme:
     - navigation.footer
     - content.code.copy
     - toc.follow
+    - toc(permalink=true)
     
   logo: assets/logo.png
   name: material
