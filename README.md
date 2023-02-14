@@ -88,7 +88,7 @@ When you are satisfied, "commit" your changes. This will be updated automaticall
 - [Markdown](https://www.markdownguide.org/cheat-sheet/)
 - [Advanced Markdown for the website](https://squidfunk.github.io/mkdocs-material/reference/)
 
-- Latex Cheatsheet](https://tilburgsciencehub.com/building-blocks/collaborate-and-share-your-work/write-your-paper/amsmath-latex-cheatsheet/)
+- [Latex Cheatsheet](https://tilburgsciencehub.com/building-blocks/collaborate-and-share-your-work/write-your-paper/amsmath-latex-cheatsheet/)
 - [Official documentation](https://www.latex-project.org/help/documentation/usrguide.pdf)
 
 Have fun!
