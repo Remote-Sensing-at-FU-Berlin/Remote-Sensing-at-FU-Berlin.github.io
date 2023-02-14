@@ -21,7 +21,7 @@ nav:
         - Subproject:
             - 'Document name': './projectrepository/file_name.md'
 ```
-4. Commit your changes
+3. Commit your changes
 
 # Markdown
 ## Headings
@@ -70,7 +70,7 @@ This is a [link](https://remote-sensing-at-fu-berlin.github.io/arcgispro-tutoria
 ## Images
 Here I include an image that is in the "assets" folder. If I save the images in another folder, you have to specify the relative path accordingly.
 
-![](./assets/image.jpg)
+![](docs/assets/logo.png)
 
 ## Formulas
 Formulas can either be inserted as images or you can use the latex formatting:
