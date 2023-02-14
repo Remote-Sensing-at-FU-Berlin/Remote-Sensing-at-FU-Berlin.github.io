@@ -44,7 +44,7 @@ Das ist ein [Link](https://remote-sensing-at-fu-berlin.github.io/arcgispro-tutor
 ## Abbildungen
 Hier binde ich ein Bild ein, dass im "assets" Ordner liegt. Wenn ich die Bilder in einem anderen Ordner abspeichere, muss man entsprechend den relativen Pfad mit angeben.
 
-![](./assets/bild.jpg)
+![](./assets/logo.png)
 
 ## Formeln
 Formeln kann man entweder als Bilder einfügen oder man benutzt die Latex Formatierung:
