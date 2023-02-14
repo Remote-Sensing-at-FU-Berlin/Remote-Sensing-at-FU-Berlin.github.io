@@ -1,49 +1,47 @@
+---
 site_name: Fernerkundung und Geoinformatik
-
 nav:
-    
-    - Geo. Informationssysteme:
-        - ArcGis Pro:
-            - 'Bildinterpretation mit Google Earth': './arcgispro-tutorials/bildinterpretation_mit_google_earth.md'
-            - 'Einführung ArcGIS': './arcgispro-tutorials/einfuerung_in_arcmap.md'
-            - 'Kartenerstellung': './arcgispro-tutorials/visualisierung_von_daten_und_kartenerstellung.md'
-            - 'Abfragen': './arcgispro-tutorials/abfragen.md'
-            - 'Digitalisierung': './arcgispro-tutorials/digitalisierung.md'
-            - 'Geoprozessierung und Projektionen': './arcgispro-tutorials/geoprozessierung_und_projektionen.md'
-            - 'Interpolationen und Höhenmodelle': './arcgispro-tutorials/interpolationen_und_hoehenmodelle.md'
-            - 'Abschlussaufgabe': './arcgispro-tutorials/abschlussaufgabe.md'
-        - QGIS:
-            - 'GUI': './qgis-tutorials/01-GUI.md'
-            - 'Vector Data': './qgis-tutorials/02-vector-data.md'
-            - 'Raster Data': './qgis-tutorials/03-raster-data.md'
-            - 'General Tools': './qgis-tutorials/04-general-tools.md'
-            - 'Digitizing': './qgis-tutorials/05-digitizing.md'
-            - 'Selections': './qgis-tutorials/06-selections.md'
-            - 'Elevation': './qgis-tutorials/07-elevation.md'
-            - 'Map Making': './qgis-tutorials/08-map-making.md'
-            - 'Spatial Interpolation': './qgis-tutorials/09-spatial-interpolation.md'
-    - Fern. und digitale Bildverarbeitung:
-        - 'Google Earth': 'test.md'
-        - 'Erdas': 'erdas.md'
-        - 'Profile': 'profile.md'
-        - 'Kontrast': 'kontrast.md'
-        - 'Geometrische Korrektur': 'geometrische_korrektur.md'
-        - 'Vegetationsindizes': 'vegetationsindizes.md'
-        - 'Datenraumtransformationen': 'datenraumtransformationen.md'
-        - 'Unüberwachte Klassifikation': 'unueberwachte_klassifikation.md'
-        - 'Überwachte Klassifikation': 'ueberwachte_klassifikation.md'
-        - 'Validierung': 'Validierung.md'
-        - 'Abschlussaufgabe': 'abschlussaufgabe.md'
-    - Regionale Themen der Fern.:
-        - 'Test': 'test.md'
-    - Speziele Themen der Fern.:
-        - 'Test': 'test.md'
-    - Projektbezogenes Arbeiten:
-        - 'Test': 'test.md'
-    - Planetary Sciences:
-        - 'Download': './planetary-sciences-tutorials/01-download-ls-and-s2.md'
-
-copyright: CC-BY-SA-4.0 license - FU-Berlin Fernerkundung und Geoinformatik 
+  - Geo. Informationssysteme:
+      - ArcGis Pro:
+          - Bildinterpretation mit Google Earth: ./arcgispro-tutorials/bildinterpretation_mit_google_earth.md
+          - Einführung ArcGIS: ./arcgispro-tutorials/einfuerung_in_arcmap.md
+          - Kartenerstellung: ./arcgispro-tutorials/visualisierung_von_daten_und_kartenerstellung.md
+          - Abfragen: ./arcgispro-tutorials/abfragen.md
+          - Digitalisierung: ./arcgispro-tutorials/digitalisierung.md
+          - Geoprozessierung und Projektionen: ./arcgispro-tutorials/geoprozessierung_und_projektionen.md
+          - Interpolationen und Höhenmodelle: ./arcgispro-tutorials/interpolationen_und_hoehenmodelle.md
+          - Abschlussaufgabe: ./arcgispro-tutorials/abschlussaufgabe.md
+      - QGIS:
+          - GUI: ./qgis-tutorials/01-GUI.md
+          - Vector Data: ./qgis-tutorials/02-vector-data.md
+          - Raster Data: ./qgis-tutorials/03-raster-data.md
+          - General Tools: ./qgis-tutorials/04-general-tools.md
+          - Digitizing: ./qgis-tutorials/05-digitizing.md
+          - Selections: ./qgis-tutorials/06-selections.md
+          - Elevation: ./qgis-tutorials/07-elevation.md
+          - Map Making: ./qgis-tutorials/08-map-making.md
+          - Spatial Interpolation: ./qgis-tutorials/09-spatial-interpolation.md
+  - Fern. und digitale Bildverarbeitung:
+      - Google Earth: test.md
+      - Erdas: erdas.md
+      - Profile: profile.md
+      - Kontrast: kontrast.md
+      - Geometrische Korrektur: geometrische_korrektur.md
+      - Vegetationsindizes: vegetationsindizes.md
+      - Datenraumtransformationen: datenraumtransformationen.md
+      - Unüberwachte Klassifikation: unueberwachte_klassifikation.md
+      - Überwachte Klassifikation: ueberwachte_klassifikation.md
+      - Validierung: Validierung.md
+      - Abschlussaufgabe: abschlussaufgabe.md
+  - Regionale Themen der Fern.:
+      - Test: test.md
+  - Speziele Themen der Fern.:
+      - Test: test.md
+  - Projektbezogenes Arbeiten:
+      - Test: test.md
+  - Planetary Sciences:
+      - Download: ./planetary-sciences-tutorials/01-download-ls-and-s2.md
+copyright: CC-BY-SA-4.0 license - FU-Berlin Fernerkundung und Geoinformatik
 theme:
   features:
     - navigation.instant
@@ -56,18 +54,14 @@ theme:
     - search.highlight
     - navigation.footer
     - content.code.copy
-    
   logo: assets/logo.png
   name: material
-  language: de 
+  language: de
   palette:
     primary: white
     accent: light green
-
-
 extra:
   generator: false
-
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -76,7 +70,6 @@ markdown_extensions:
       permalink: true
   - pymdownx.arithmatex:
       generic: true
-
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
