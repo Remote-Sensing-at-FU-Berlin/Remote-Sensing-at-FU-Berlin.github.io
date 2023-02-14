@@ -23,7 +23,7 @@ nav:
             - 'Map Making': './qgis-tutorials/08-map-making.md'
             - 'Spatial Interpolation': './qgis-tutorials/09-spatial-interpolation.md'
     - Fern. und digitale Bildverarbeitung:
-        - 'Google Earth': 'google_earth.md'
+        - 'Google Earth': 'test.md'
         - 'Erdas': 'erdas.md'
         - 'Profile': 'profile.md'
         - 'Kontrast': 'kontrast.md'
