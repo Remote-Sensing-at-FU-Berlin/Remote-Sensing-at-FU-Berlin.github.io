@@ -47,7 +47,7 @@ Hier binde ich ein Bild ein, dass im "assets" Ordner liegt. Wenn ich die Bilder 
 ![](./assets/logo.png)
 
 ## Formeln
-Formeln kann man entweder als Bilder einfügen oder man benutzt die Latex Formatierung:
+Formeln kann man entweder als Bilder einfügen, oder man benutzt die Latex Formatierung:
 
 Gleichung in einer Zeile $A = \pi*r^{2}$   
 
