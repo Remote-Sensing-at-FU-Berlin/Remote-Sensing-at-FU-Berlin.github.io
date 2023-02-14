@@ -1,24 +1,41 @@
 name: mkdocs_build 
+
 on:
+  schedule:
+    - cron: '0 1 * * */1'
   workflow_dispatch:
   push:
     branches:
       - main
+
 permissions:
   contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with: 
-          submodules: recursive
+          submodules: true
+          token: ${{ secrets.PAT }}
+          
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - uses: actions/cache@v2
-        with:
-          key: ${{ github.ref }}
-          path: .cache
-      - run: pip install mkdocs-material 
-      - run: mkdocs gh-deploy --force
+      
+      - name: Git submodule update
+        run: |
+          git pull --recurse-submodules
+          git submodule update --remote --recursive
+      
+      - name: commit update
+        run: |
+          git config --global user.name ${{ secrets.USER }}
+          git config --global user.email ${{ secrets.EMAIL }}
+          git commit -am "automatic updated submodule references" && git push || echo "No changes to commit"
+      
+      - name: build website
+        run: |
+          pip install mkdocs-material
+          mkdocs gh-deploy --force
