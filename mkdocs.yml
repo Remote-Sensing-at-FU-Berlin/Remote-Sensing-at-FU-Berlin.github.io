@@ -1,21 +1,29 @@
 ---
 site_name: Fernerkundung und Geoinformatik
 nav:
-  - Geo. Informationssysteme:
-      - ArcGis Pro:
-          - Bildinterpretation mit Google Earth: ./gis/arcgispro/bildinterpretation_mit_google_earth.md
+  - Fabian:
       - QGIS:
-          - Getting to know the graphical user interface: ./gis/qgis/01-GUI.md
-          - Loading and visualizing Shapefiles / Vector data: ./gis/qgis/02-vector-data.md
-          - Loading and visualizing raster data: ./gis/qgis/03-raster-data.md
-          - Useful general tools: ./gis/qgis/04-general-tools.md
-          - Basic vector processing: ./gis/qgis/05-digitizing.md
-          - Spatial and semantic selection: ./gis/qgis/06-selections.md
-          - Working with elevation raster datasets: ./gis/qgis/07-elevation.md
-          - Making a map: ./gis/qgis/08-map-making.md
-          - Spatial interpolation: ./gis/qgis/09-spatial-interpolation.md
-  - Planetary Sciences:
-      - Download of Landsat and Sentinel satellite images: ./planetary-sciences/01-download-ls-and-s2.md
+          - Getting to know the graphical user interface: ./qgis/01-GUI.md
+          - Loading and visualizing Shapefiles / Vector data: ./qgis/02-vector-data.md
+          - Loading and visualizing raster data: ./qgis/03-raster-data.md
+          - Useful general tools: ./qgis/04-general-tools.md
+          - Basic vector processing: ./qgis/05-digitizing.md
+          - Spatial and semantic selection: ./qgis/06-selections.md
+          - Working with elevation raster datasets: ./qgis/07-elevation.md
+          - Making a map: ./qgis/08-map-making.md
+          - Spatial interpolation: ./qgis/09-spatial-interpolation.md
+      - R:
+        - lidR Lasercanning: ./1_Laserscanning_lidR/1_Laserscanning_lidR.md
+        - Tree species classification: ./treespeciesclassification/treespeciesclassification.md
+        - Analysing time series with BFAST and NPPHEN: ./BFAST/BFAST.md
+        - Calculation of Landscape Metrics from a Land-cover raster map in R: ./landscape_metrics/landscape_metrics.md
+        - Calculating semivariograms and Autocorrelograms: ./spatial_autocorrelation/spatial_autocorrelation.md
+      - GEE:
+        - Preparing time series data stacks with Google Earth Engine: ./MSRS_1_GEE_basics/MSRS_1_GEE_basics.md
+        - Preparing annual time series data stacks with Google Earth Engine and conducting time series analysis in R: ./MSRS_1_GEE_basics2/MSRS_1_GEE_basics2.md
+      - SNAP:
+        - Download of Landsat and Sentinel satellite images: ./planetary-sciences/01-download-ls-and-s2.md
+
 
 copyright: CC-BY-SA-4.0 license - FU-Berlin Fernerkundung und Geoinformatik
 
