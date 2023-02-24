@@ -42,7 +42,6 @@ theme:
     - search.highlight
     - content.action.edit
     - content.code.copy
-    - navigation.instant
     - navigation.tracking
     - navigation.tabs
     - navigation.sections
