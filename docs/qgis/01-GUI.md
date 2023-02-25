@@ -1,4 +1,4 @@
-﻿# Getting to know the QGIS graphical user interface
+﻿# Getting to know the QGIS graphical user interface Test
 
 **Abstract** 
 After completing this tutorial, the participant has an understanding of the Q-GIS graphical user interface, knows how to activate and deactivate windows, is familiar with the QGIS-toolboxes and is able to
