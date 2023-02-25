@@ -44,4 +44,4 @@ jobs:
               mkdocs-material \
       
       - name: build website
-        run: mkdocs gh-deploy --force  mkdocs gh-deploy --force
+        run: mkdocs gh-deploy --force
