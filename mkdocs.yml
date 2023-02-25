@@ -34,6 +34,8 @@ edit_uri: tree/main/docs
 repo_name: Remote-Sensing-at-FU-Berlin.github.io
 
 theme:
+  favicon: assets/favicon.png
+  logo: assets/logo.png
   icon:
     repo: fontawesome/brands/github
     edit: material/pencil 
@@ -49,7 +51,6 @@ theme:
     - navigation.path
     - navigation.top
     - navigation.footer
-  logo: logo.png
   name: material
   language: de
   palette:
