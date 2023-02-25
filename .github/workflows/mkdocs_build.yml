@@ -39,8 +39,9 @@ jobs:
           git config --global user.email ${{ secrets.EMAIL }}
           git commit -am "automatic updated submodule references" && git push || echo "No changes to commit"
       
+      - name: install plugins
+        run: pip install \
+              mkdocs-material \
+      
       - name: build website
-        run: |
-          pip install \
-            mkdocs-material \
-          mkdocs gh-deploy --force
+        run: mkdocs gh-deploy --force  mkdocs gh-deploy --force
