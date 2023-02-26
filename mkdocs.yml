@@ -71,6 +71,9 @@ markdown_extensions:
   - md_in_html
   - toc:
       permalink: true
+      title: Inhaltsverzeichnis
+      permalink_title: Link zu dieser Sektion
+      toc_depth: 3
   - tables
 
   # Python Markdown Extensions
