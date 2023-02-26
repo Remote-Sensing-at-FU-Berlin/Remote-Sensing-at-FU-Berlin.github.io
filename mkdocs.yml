@@ -14,16 +14,16 @@ nav:
           - Making a map: ./qgis/08-map-making.md
           - Spatial interpolation: ./qgis/09-spatial-interpolation.md
       - R:
-        - lidR Lasercanning: ./1_Laserscanning_lidR/1_Laserscanning_lidR.md
-        - Tree species classification: ./treespeciesclassification/treespeciesclassification.md
-        - Analysing time series with BFAST and NPPHEN: ./BFAST/BFAST.md
-        - Calculation of Landscape Metrics from a Land-cover raster map in R: ./landscape_metrics/landscape_metrics.md
-        - Calculating semivariograms and Autocorrelograms: ./spatial_autocorrelation/spatial_autocorrelation.md
+          - Getting started with processing laserscanning data: ./1_Laserscanning_lidR/1_Laserscanning_lidR.md
+          - Classification of tree species using hyperspectral data: ./treespeciesclassification/treespeciesclassification.md
+          - Analysing time series with BFAST and NPPHEN: ./BFAST/BFAST.md
+          - Calculation of Landscape Metrics from a Land-cover raster map: ./landscape_metrics/landscape_metrics.md
+          - Calculating semivariograms and Autocorrelograms: ./spatial_autocorrelation/spatial_autocorrelation.md
       - GEE:
-        - Preparing time series data stacks with Google Earth Engine: ./MSRS_1_GEE_basics/MSRS_1_GEE_basics.md
-        - Preparing annual time series data stacks with Google Earth Engine and conducting time series analysis in R: ./MSRS_1_GEE_basics2/MSRS_1_GEE_basics2.md
+          - Preparing time series data stacks: ./MSRS_1_GEE_basics/MSRS_1_GEE_basics.md
+          - Preparing annual time series data stacks and conducting time series analysis: ./MSRS_1_GEE_basics2/MSRS_1_GEE_basics2.md
       - SNAP:
-        - Download of Landsat and Sentinel satellite images: ./planetary-sciences/01-download-ls-and-s2.md
+          - Download of Landsat and Sentinel satellite images: ./planetary-sciences/01-download-ls-and-s2.md
 
 
 copyright: Copyright &copy; CC-BY-SA-4.0 license - FU-Berlin Fernerkundung und Geoinformatik
