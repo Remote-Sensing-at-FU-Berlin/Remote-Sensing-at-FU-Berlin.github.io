@@ -26,7 +26,7 @@ nav:
           - Download of Landsat and Sentinel satellite images: ./planetary-sciences/01-download-ls-and-s2.md
 
 
-copyright: Copyright &copy; CC-BY-SA-4.0 license - FU-Berlin Fernerkundung und Geoinformatik
+copyright: Copyright &copy; CC-BY-SA-4.0 license - Freie Universität Berlin Institute of Geographical Sciences Remote Sensing and Geoinformatics
 
 repo_url: https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/
 edit_uri: tree/main/docs
