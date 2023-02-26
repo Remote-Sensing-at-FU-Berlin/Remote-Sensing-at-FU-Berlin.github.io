@@ -42,6 +42,7 @@ theme:
     edit: material/pencil 
     view: material/eye
   features:
+    - toc.integrate
     - search.suggest
     - search.highlight
     - content.action.edit
