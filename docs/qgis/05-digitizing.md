@@ -1,4 +1,4 @@
-# Basic vector processing in QGIS
+# Basic vector processing
 
 **Abstract**
 

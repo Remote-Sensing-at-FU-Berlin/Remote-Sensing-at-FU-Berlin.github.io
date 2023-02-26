@@ -1,4 +1,4 @@
-# Spatial and semantic selection in QGIS
+# Spatial and semantic selection
 
 
 **Abstract**

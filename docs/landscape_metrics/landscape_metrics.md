@@ -1,4 +1,4 @@
-# Calculation of Landscape Metrics from a Land-cover raster map in R #
+# Calculation of Landscape Metrics from a Land-cover raster map #
 
 ## Overview ##
 

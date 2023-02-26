@@ -1,4 +1,4 @@
-# Making a map in QGIS
+# Making a map
 
 
 **Abstract**

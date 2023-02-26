@@ -1,5 +1,4 @@
-﻿
-# Download of Landsat and Sentinel satellite images
+﻿# Download of Landsat and Sentinel satellite images
 
 **Abstract** 
 In this Tutorial we will learn how to download multispectral satellite images of Landsat and Sentinel-2 sensors. We will also learn how to pre-process the satellite images in order to load them in QGIS or Python. For pre-processing Sentinel-2 images we will use the European Space Agency's BEAM software which you can download here:

@@ -1,4 +1,4 @@
-# Preparing time series data stacks with Google Earth Engine #
+# Preparing time series data stacks# #
 
 
 ## Overview ##

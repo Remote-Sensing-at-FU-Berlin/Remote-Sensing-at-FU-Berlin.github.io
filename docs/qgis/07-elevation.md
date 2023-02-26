@@ -1,4 +1,4 @@
-# Working with elevation raster datasets in QGIS
+# Working with elevation raster datasets
 
 **Abstract**
 

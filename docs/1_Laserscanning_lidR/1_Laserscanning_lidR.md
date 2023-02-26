@@ -1,4 +1,4 @@
-# Getting started with processing laserscanning data in R
+# Getting started with processing laserscanning data
 
 ## Overview
 

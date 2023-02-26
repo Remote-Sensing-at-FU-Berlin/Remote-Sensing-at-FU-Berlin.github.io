@@ -1,4 +1,4 @@
-﻿# Spatial interpolation in QGIS
+﻿# Spatial interpolation
 
 **Abstract**
 

@@ -1,4 +1,4 @@
-# Useful general tools in QGIS
+# Useful general tools
 
 
 **Abstract**

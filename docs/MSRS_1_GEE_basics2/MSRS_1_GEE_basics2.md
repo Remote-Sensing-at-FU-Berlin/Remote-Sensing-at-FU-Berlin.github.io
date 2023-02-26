@@ -1,4 +1,4 @@
-# Preparing annual time series data stacks with Google Earth Engine and conducting time series analysis in R#
+# Preparing annual time series data stacks and conducting time series analysis
 
 
 ## Overview
