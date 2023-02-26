@@ -49,8 +49,6 @@ theme:
     - content.code.copy
     - navigation.tracking
     - navigation.tabs
-    - navigation.sections
-    - navigation.expand
     - navigation.path
     - navigation.top
     - navigation.footer
