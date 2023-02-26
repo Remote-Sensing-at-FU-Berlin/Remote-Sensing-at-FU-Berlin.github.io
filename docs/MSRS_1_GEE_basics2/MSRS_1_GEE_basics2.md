@@ -1,7 +1,7 @@
-## Preparing annual time series data stacks with Google Earth Engine and conducting time series analysis in R##
+# Preparing annual time series data stacks with Google Earth Engine and conducting time series analysis in R#
 
 
-### Overview
+## Overview
 
 After getting to know the Google Earth Engine (GEE) in the last practical session of the course, you will today learn to use the GEE to manipulate the satellite image collections directly in the GEE cloud to derive an annual time series of Landsat NDVI values acquired only for certain months of a year. In comparison to what we learned last week, this requires some additional coding in the GEE environment. Exporting annual satellite image mosaics instead of simply exporting all available data (as we did last week), brings some advantages such as (a) the possibility to exclude seasonality from the signal, (b) to account for local data gaps by temporal interpolation and (c) to notably reduce the size of the exported data.
 
@@ -9,7 +9,7 @@ When preparing the material for this Tutorial, I came across a technical report 
 
 In the second part of the tutorial we will further process the the annual vegetation index time series in R to detect monotonic trends and change points. These steps were again mostly based on the analyses suggested in Pironkova et al. 2018 but I added one more analysis to conduct a Pettitt test to identify turning points. More information below.
 
-### Learning objectives
+## Learning objectives
 
 The learning objectives of this Tutorial include:
 
@@ -17,14 +17,14 @@ The learning objectives of this Tutorial include:
 - learn how to prepare and export annual vegetation index time series in the GEE (considering data only from certain phenological stages/time periods of the year)
 - applying simple time-series analysis tests and trends in R to full images (instead of to single pixels)
 
-### Datasets used in this Tutorial
+## Datasets used in this Tutorial
 
 The only dataset required in this Tutorial is a shapefile defining the boundary of the examined study area which is a grassland area on the Qinghai Tibetan Plateau in which notable grassland degradations took place over the last few decades. The Shapefile outlines the area of the winter pastures of a Tibetan village for which some in-depth studies have been conducted (see for example Li et al. 2017 - provided in ILIAS to some more detailed background information):
 
 -- add link to Shapefile here --
 
 
-### Step 1: Annual NDVI mosaics in the GEE
+## Step 1: Annual NDVI mosaics in the GEE
 
 Last week, we for the first time had a look at the GEE and I assume that you are all already familiar with the basic functionalities of the code editor. In the following, I will present step-by-step the code and functions that are necessary to derive annual mosaics of Landsat-based NDVI values. The code can of course easily be adapted to derive the same mosaics for other vegetation indices that can be derived from Landsat data.
 
@@ -259,7 +259,7 @@ Please run the code and export the resulting annual mosaic to your google drive.
 
 [https://drive.google.com/file/d/1pMELTPLLL9pwsQZ1uY72vgs11hutWBdm/view?usp=sharing](https://drive.google.com/file/d/1pMELTPLLL9pwsQZ1uY72vgs11hutWBdm/view?usp=sharing)
 
-### Step 2: Mann-Kenndal trend test and Theil Sen's slope
+## Step 2: Mann-Kenndal trend test and Theil Sen's slope
 
 As indicated above, large parts of the following code were again taken from the technical report of Pironkova et al. 2018. The code has been mostly prepared by Krystal Lan (lan.krystalt@gmail.com) and Ryan Whaley (rdgwhaley@gmail.com). I changed and added a few lines here and there.
 
@@ -415,7 +415,7 @@ This will show the following plot:
 The other results were stored to the harddisc and can either be loaded in R again or visualized in QGIS.
 
 
-### Step 3: Identify turning points
+## Step 3: Identify turning points
 
 As last step, we will analyse the annual NDVI mosaics to identify turning points using the pettitt-test. The pettitt test is a comparably simple test which is only able to identify the single, strongest turning point in a time series. We will continue using the already loaded datasets in R. To apply the test to the full raster-stack we will follow a different approach this time, as the due to the way the pettitt test is implemented in R, the calc()-function we applied above is not working smoothly with our dataset.
 

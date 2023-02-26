@@ -202,7 +202,7 @@ Since creating a transect plot requires several steps and we might be interested
 	}
 	
 
-### Ground classification
+## Ground classification
 
 Classification of ground points is an important step in processing point cloud data. Distinguishing between ground and non-ground points allows creation of a continuous model of terrain elevation often referred to as "digital terrain model" (DTM). DTMs are useful for many applications such as calculating the run-off in hydrological models, determining suitable positions for wind turbines or deriving aspect and slope information. Many algorithms to classify ground points have been reported in the literature and lidR currently provides two of them: Progressive Morphological Filter (PMF) and Cloth Simulation Function (CSF) usable with the function classify_ground(). The lidRplugins package provides an additional algorithm called Multiscale Curvature Classification (MCC).
 
@@ -256,7 +256,7 @@ This will result in the following plot:
 In this tutorial we only get to know one of the methods that is available in lidR to classify ground control points. If you at some point work with an own dataset and face problems in obtaining a high-quality ground classification, it might be worthwhile to examine the alternative methods of the package which are described with more details in the lidR book (see link at the beginning of this tutorial). 
 
 
-### Calculate a digital terrain model
+## Calculate a digital terrain model
 
 Generating a Digital Terrain Model (DTM) is usually the next step in processing that follows classification of ground points. Put simply, a DTM can be described as an “image” of the ground. Methods to generate DTMs have been intensively studied and several algorithms have been proposed for various terrain situations. DTMs are used for a variety of purposes in practice, such as determination of the catchment basins of water retention and stream flow, or the identification of drivable roads to access resources. It also enables users to normalize point clouds i.e. subtract the local terrain from the elevation of points to allow a manipulation of point clouds as if they were acquired on a flat surface.
 
@@ -264,7 +264,7 @@ The construction of a DTM starts with known or sampled ground points and uses va
 
 Below you will find the codes to run three interpolation methods and some information about each of the method.
 
-#### Triangular irregular network
+### Triangular irregular network
 
 This method is based on triangular irregular network (TIN) of ground point data to derive a bivariate function for each triangle, which is then used to estimate the values at unsampled locations (between known ground points).
 
@@ -285,7 +285,7 @@ This will result in the following plot:
 
 As you can see there are not many details visible. This is actually a good sign as we would normally assume that a digital terrain model in a forest is rather "smooth" surface since all LiDAR points related to object on the ground are "eliminated" during the ground-classification procedure. The only thing we can see in the figure is that a road is separating the study area into more or less two equally sized parts. The road becomes clearly visible since it is a flat area which interrupts the slightly inclined terrain. Let's have a look at the two other methods to interpolate the ground points.
 
-#### Invert distance weighting
+## Invert distance weighting
 
 Invert distance weighting (IDW) is one of the simplest and most readily available methods that can be applied to create DTMs. It is based on an assumption that the value at an unsampled point can be approximated as a weighted average of values at points within a certain cut-off distance d, or from a given number k of closest neighbours. Weights are usually inversely proportional to a power p of the distance between the location and the neighbour, which leads to the computing of an estimator.
 
@@ -301,7 +301,7 @@ This will result in the following plot:
 
 ![](assets/Fig11.png)
 
-#### Kriging
+## Kriging
 
 Kriging is the most advanced approach and utilizes advanced geostatistical interpolation methods that take into account the relationships between the returns and their respective distances from each other. lidR uses the package gstat to perform the kriging. This method is very advanced, difficult to manipulate, and extremely slow to compute, but probably provides the best results with minimal edge artifacts.
 
@@ -330,7 +330,7 @@ In our example dataset this is not very spectacular since we do not have a prono
 	
 
 
-### Normalize the LiDAR point cloud
+## Normalize the LiDAR point cloud
 
 In many application fields, we might be interested in extracting the height of objects from a LiDAR point cloud. And with height I am referring to the height of objects above the ground and not above sea level. For example, we might want to know how high certain buildings or trees are. With LiDAR data this information can be easily obtained for large areas and with a very good precision of a few centimeters. To convert a standard LiDAR point cloud to a normalized point cloud in which the Z value of each LiDAR point indicates the height of the point above ground, we can simply subtract the digital terrain model from the LiDAR point cloud.
 
@@ -390,7 +390,7 @@ And the corresponding plot confirms that now all ground plots have indeed a Z-va
 ![](assets/Fig16.png)	
 
 
-### Calculate digital surface models and canopy height models
+## Calculate digital surface models and canopy height models
 
 Digital Surface Models (DSM) and Canopy Height Models (CHM) are raster layers that represent - more or less - the highest elevation of ALS returns. In the case of a normalized point cloud, the derived surface represents the canopy height (for vegetated areas) and is referred to as CHM. When the original (non-normalized) point cloud with absolute elevations is used, the derived layer represents the elevation of the top of the canopy above sea level, and is referred to as DSM. Both surface models are derived using the same algorithms, with the only difference being the elevation values of the point cloud.
 
@@ -437,7 +437,7 @@ In our dataset, the differences are quite little.
 
 We are now coming towards the end of this tutorial and so far you have learned the most important basic processing steps for LiDAR / laserscanning data. To finish the tutorial we will have a brief look at two additional steps that are the starting points of most LiDAR-analyses conducted in vegetation and forest analyses. 
 
-### Individual tree detection
+## Individual tree detection
 
 Typically LiDAR analyses in forests either work on an individual tree level or in the so called area-based approach. In the latter, the basic unit of the analysis is a cell of a user-defined fixed size (e.g., 20 x 20 m). In the individual tree-based approach, the basic unit of the analysis is a single tree. Automatically delineating trees from a LiDAR point cloud is an own field of research and we will not go into details in this tutorial. However, the lidR package offers one standard algorithm to identify tree tops from a LiDAR point cloud which will be briefly explained below.
 
@@ -488,7 +488,7 @@ Identifying the optimal parameter is not an easy task and may require some sort 
 The detection of tree tops is normally only the first step for the individual tree delineation/segmentation since it does not yet allow us to identify the tree crown area. lidR provides function for this task as well, but we will not demonstrate this here with our example dataset. Amongst others because our dataset is missing a coordinate reference system (which first would have to be assigned) and the functions will not immediately work. However, feel free to also try out these functions by using the example datasets delivered with lidR. The corresponding data and instruction can be found in the lidR-book (see link at the beginning of the tutorial).
 
 	
-### Calculate point cloud metrics
+## Calculate point cloud metrics
 
 As very last step, we will get to know two important functions of the lidR package to calculate point cloud metrics. Point cloud metrics are an essential element of the area-based approach briefly mentioned above. The idea is that a regular grid of quadratic or hexagon-shaped polygons is overlayed with the point cloud. Then, in each grid-cell/polygon some metrics are calculated for the points located within the grid-cell/polygon. 
 

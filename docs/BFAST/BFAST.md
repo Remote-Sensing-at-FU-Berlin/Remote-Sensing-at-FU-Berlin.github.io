@@ -1,13 +1,13 @@
-## Analysing time series with BFAST and NPPHEN
+# Analysing time series with BFAST and NPPHEN
 
 
-### Overview
+## Overview
 
 In our last practical session for the topic of remote sensing-based time-series analysis, we will have a  look at two quite complex algorithms to analyse time series with a comparably high temporal resolution (typically monthly or less). The algorithms are BFAST and NPPHEN - both have already been introduced briefly during the theoretical lectures of the time-series chapter of the course.
 
 You will see that the algorithms are quite time-intensive and we will hence focus on comparably small datasets to keep the processing time manageable. On ILIAS, I will provide some papers that describe the algorithms with more details. In this tutorial I will mostly focus on how to get the algorithms running.
 
-### Learning objectives
+## Learning objectives
 
 The learning objectives of this Tutorial include:
 
@@ -15,13 +15,13 @@ The learning objectives of this Tutorial include:
 - applying BFAST and NPPHEN
 - understanding the most important outputs of both algorithms
 
-### Datasets used in this Tutorial
+## Datasets used in this Tutorial
 
 We will use the MODIS time series of Xining, we prepared during the first practical session of the time-series chapter of the course. In case you do not have the dataset available anymore, you can download the files here:
 
 [https://drive.google.com/drive/folders/1eGbvYMEQXicggUmC9I7vMiPbI6DE9HdP?usp=sharing](https://drive.google.com/drive/folders/1eGbvYMEQXicggUmC9I7vMiPbI6DE9HdP?usp=sharing)
 
-### Step 1: Preparing remote sensing time series for analysis with BFAST
+## Step 1: Preparing remote sensing time series for analysis with BFAST
 
 One of the most challenging steps for analysing data with the BFAST algorithm is that the time series have to be pre-processed into regular time series. In the case of remote sensing data, most of the time, the observations are not regular. Even though the satellite typically passes over a certain area at a fixed time interval, cloud cover prevents that the satellite collects a valid observation during every overflight. Hence, remote sensing time series often have data gaps and hence an irregular structure. In the case of Landsat data, we furthermore have data from several sensors, so that the time structure is at least for some periods even less regular.
 
@@ -136,7 +136,7 @@ Now we are already almost ready to run bfast. The last step, before we run it is
 If you are interested, you can also plot this new time series, but you will not see any real differences to the daily time series.
 
 
-### Step 2: Running BFAST for an individual pixel
+## Step 2: Running BFAST for an individual pixel
 
 We are now ready, to run BFAST. In the BFAST algorithm several parameters have to be defined. We can have a look at the help of the bfast function to find a bit more about the settings:
 
@@ -184,7 +184,7 @@ Which will result in:
 
 
 
-### Step 3: Running BFAST over a complete raster
+## Step 3: Running BFAST over a complete raster
 
 So far, we applied BFAST to a single pixel of a raster-time-series. In this step, we will use the "calc()" function to apply it to a smaller raster dataset. As we have seen before, BFAST is quite time-intensive, so we will apply it to a really small raster which we first have to create by spatially aggregating our already comparably small MODIS dataset by the factor of 10:
 
@@ -258,7 +258,7 @@ If you are interested, you can also try to apply BFAST to another study area and
 
 
 
-### Step 4: Exploring the NPPHEN algorithm
+## Step 4: Exploring the NPPHEN algorithm
 
 After BFAST we will now explore one more algorithm that accounts for the seasonal signal but in a slightly different approach. Instead of fitting a seasonal signal to the full time series, NPPHEN takes observations of the whole or a part of the time series (that is, from several years) and summarizes them into one general annual phenological cycle. This summary is accomplished by calculating a kernel-density-map in which for each date within a year, the probability of a given time-series value is defined.
 
@@ -411,7 +411,7 @@ This will result in:
 In this plot, the anomalies for the examined time-periods can be checked - however, the fact that there is a rather regular up- and down pattern makes me worry, that these results might not be fully correct. 
 
 
-### Additional time series functionalities
+## Additional time series functionalities
 
 While putting together the material for this Tutorial, I came across another r-package named "greenbrown" that could be interesting for those who became more interested in time-series analysis during the last weeks. It offers several functions that are similar to the ones, we got to know over the last weeks but may be even more suitable for some remote sensing applications. One option for the final assignment could be to provide a Tutorial (similar as the ones you have been working now throughout the course) about the functionalities offered in this packages and using an own illustrative dataset.
 

@@ -1,13 +1,13 @@
-## Preparing time series data stacks with Google Earth Engine ##
+# Preparing time series data stacks with Google Earth Engine #
 
 
-### Overview ###
+## Overview ##
 
 In this lecture you will learn how to use the Google Earth Engine (GEE) to extract time series of all available Landsat and MODIS data for a study area defined in a Polygon shapefile. Before we work with the actual code, I will provide some links to the official documentation of the Google Earth Engine, which you should read carefully. I decided to not reproduce all of this information in this tutorial as many of the contents on the official page are very well described and easy to understand.
 
 One important aspect of today's tutorial is that we will not use R to work within the GEE but java-script. However, there is no need for you to learn a new programming language from scratch. One efficient way to use the GEE is to simply copy & paste code snippets that can be found on the official GEE page and in online forums and then only adapt some smaller parts of the code to make them run with your data. Most of the basic processing chains in the GEE which are required to prepare datasets for further processing in R have been already implemented and are well documented in the internet. 
 
-### Learning objectives ###
+## Learning objectives ##
 
 Besides getting familiar with the Google Earth Engine itself, we will also learn some concrete processing steps within the GEE: 
 
@@ -21,19 +21,19 @@ Besides getting familiar with the Google Earth Engine itself, we will also learn
 In the later parts of the tutorial we will load the time series raster stacks exported from the GEE to R and convert the raster-data to time-series objects and we apply some basic tools on them.
 
 
-### Datasets used in this Tutorial ###
+## Datasets used in this Tutorial ##
 
 The only dataset used in this Tutorial is a shapefile defining the boundary of the examined study area which is the city Xining, in the Qinghai province in China. Xining is the province capital of Qinghai and has been rapidly expaning its area over the last few years. The Shapefile can be downloaded here:
 
 [https://drive.google.com/drive/folders/16OjLRl2HPM3_eiBklzRoHwDU3NQihpcS?usp=sharing](https://drive.google.com/drive/folders/16OjLRl2HPM3_eiBklzRoHwDU3NQihpcS?usp=sharing)
 
-### Short Overview of the Google Earth Engine ###
+## Short Overview of the Google Earth Engine ##
 
 First of all: What is the Google Earth Engine (GEE)? The GEE is an online platform developed and hosted by Google which provides several very interesting opportunities for conducting geospatial analyses using remote sensing and other geodata. The idea of the platform is that most of the data (particularly data with large file sizes) is already available directly on the platform and that the user does not have to download the files before processing. Furthermore, the GEE also provides processing power directly in the online platform. That means, it is not only possible to access large amounts of geodata online but it is also possible to directly work with the data in the google cloud. The big advantage of this is, is quite obvious. This constellation allows users such as scientists to process huge amounts of data with a super-computer which may not be available at their university and for sure not at their institute. The only thing that is required to access the GEE is a computer with internet access.
 
 While this sounds great at the beginning, there are also some shortcomings to this system. At the moment the GEE is by far not offering as many algorithms as for example R. However, Google offers an interface to Python which provides a similar amount of algorithms as R with direct access to the GEE and a lot of opportunities to work with the data. A second problem is that even though the service is free at the moment, this philosophy could change any moment- in case Google simply decides to not longer provide the GEE services for free. Another small issue is, that for downloading the processed data, it is required to have a Google Drive which in the cost-free version has limited storage space. Hence for processing large dataset, it might be necessary to sign-up for plans with extended data volume to download the results and hence some costs will be created by processing within the GEE. However, for the exercises we will conduct in this course, a normal google account should be sufficient to download the results.
 
-### Dataset in the GEE ###
+## Dataset in the GEE ##
 
 An overview over the geo-datasets that are directly available in the GEE can be found here:
 
@@ -56,7 +56,7 @@ The entry "Earth Engine Snippet" is the access-link/name under which we can acce
 
 As a first small exercise, try to find out what the corresponding Snippets are for Landsat 5 Surface Reflectance Data and one of the MODIS products in which NDVI is included and at a spatial resolution of 250 m. Please provide the answers in ILIAS (Aufgabe 9 - Code Snippets).
 
-### Step 1: Registering for the Google Earth Engine ###
+## Step 1: Registering for the Google Earth Engine ##
 
 If you don't have a Google Earth Engine account yet, you can sign-up here:
 
@@ -66,7 +66,7 @@ Simply press on the marked link and follow the instructions:
 
 ![](assets/gee_2.png)
 
-### Step 2: The Google Earth Documentation ###
+## Step 2: The Google Earth Documentation ##
 
 The official GEE documentation provides a rich amount of tutorials explaining the functionalities of the GEE from scratch. It is highly recommended to read some of the materials provided here to gather a first understanding how the GEE works and to develop a basic understanding of the java-script language being used in the GEE code editor. However, please be aware that many things can also be accomplished without understanding the java-script syntax completely but rather by modifying code-snippets as mentioned already above. The GEE documentation can be accessed here:
 
@@ -88,7 +88,7 @@ Some recommended Tutorials:
 
 These are just some recommended tutorials to get started with remote sensing data, but you will see that in the same documentation page, there will be loads of additional examples to also conduct more complex analyses directly within the GEE environment.
 
-### Step 3:  The GEE code Editor ###
+## Step 3:  The GEE code Editor ##
 
 After registering for the GEE you can access code editor (the main interface we will be using for working in the GEE) here:
 
@@ -101,7 +101,7 @@ This will lead to an interactive web-page which looks like this:
 The code editor window is separated into four major sections. In section 1 you can find all the Scripts, documentations and Assets (basically, data that the user uploads) connected to your user account. In section 2 the code you are currently working on will be displayed and in section 3 you wil be informed about the processing progress of your code (Console) and you can for example start the export of files (Tasks). Finally, in section 4, a world map is displayed and you will later on also learn how to display the data you have processed in the GEE on this map.
 
 
-### Step 4: Exporting a complete time series of MODIS NDVI data ###
+## Step 4: Exporting a complete time series of MODIS NDVI data ##
 
 In this first hands-on part of the tutorial, we will export a complete time series of MODIS NDVI products for a small area located at the border of the Qinghai Tibetan Plateau. The area covers parts of the city Xining in China. At this point, I am assuming that you have already played around with the Google Earth Engine by exploring some of the tutorials mentioned in Step 2.
 
@@ -256,7 +256,7 @@ We can now start the export of the raster stack to our Google Drive by clicking 
 
 
 
-### Step 5: Exporting a complete time series of Landsat 5, 7 and 8 data ###
+## Step 5: Exporting a complete time series of Landsat 5, 7 and 8 data ##
 
 After we managed to export all available NDVI MODIS images of the MODIS product MOD13Q1 for our area of interest, we will now try to accomplish the same but for the complete Landsat archive of the satellites Landsat 5, 7 and 8. The basic processing steps are the same, but the code itself is a bit more complex as we have to merge data from several image collections and also have to first calculate the NDVI from the original images.
 
@@ -424,7 +424,7 @@ Alternatively, you can also access the code via this link:
 After you have successfully executed the code and exported the file using the same work-flow as described for MODIS, you should also download the corresponding file (named LS\_NDVI\_all\_86\_20.tif) from your google drive to the same folder where you stored the MODIS raster. The two text-files containing the image acquisition dates for MODIS and Landsat should also be in the same folder.
 
 
-### Step 6: Exploring the exported data in R ###
+## Step 6: Exploring the exported data in R ##
 
 As final step in this tutorial, we will load the NDVI raster-stacks exported from the GEE in R and create time-series by merging the NDVI values with the image acquisition dates stored in the text-files. We will need the exported raster-files and the text-files. So please make sure that you have all data stored in a folder and know where this folder is.
 
@@ -607,7 +607,7 @@ This will in total lead to four plots:
 
 In the first and the third plot here, four trend lines are shown representing the first and the last NDVI value of the corresponding year (black and blue - could not find out yet which one is which) as well as the highest (red line) and lowest NDVI value (green line). In the second and forth plot, only the highest NDVI value of each year are depicted in a trend line. Here, the general increase in NDVI maxima is well depicted for the Landsat pixel, while a similar but weaker trend can be observed for the MODIS pixel.
 
-### Step 7: ILIAS Exercise  - find a pixel with decreasing vegetation trend or a pixel where vegetation disappeared completely ###
+## Step 7: ILIAS Exercise  - find a pixel with decreasing vegetation trend or a pixel where vegetation disappeared completely ##
 
 You know now, how to extract a NDVI time-series for an individual pixel and we have learned above how to also interpolate and plot the corresponding time series. As we have so far only seen the time series signal for two pixels (one Landsat and one MODIS), we will play around with this a bit more in this exercise. The objective of the exercise is to identify a Landsat or a MODIS pixel in which a either a declining NDVI trend can be observed or the trend suggests that a vegetation area (showing the typical seasonal NDVI signal) has been transformed to another land-cover type (for example a comparable stable urban or bare soil signal which should show constantly low NDVI values). Please try to find such a pixel by changing the code above. Once you identified a pixel, make a screenshot of the time series and upload it to ILLIAS 
 

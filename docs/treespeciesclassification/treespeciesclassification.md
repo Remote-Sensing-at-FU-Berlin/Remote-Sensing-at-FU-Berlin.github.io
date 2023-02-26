@@ -1,7 +1,7 @@
-## Classification of tree species using hyperspectral data ##
+# Classification of tree species using hyperspectral data #
 
 
-### Overview ###
+## Overview ##
 
 In this lecture you will learn how to use hyperspectral data in combination with a support vector machines (SVM) algorithm to create a tree species map from a hyperspectral HyMap image using a supervised classification. The learned steps will include:
 
@@ -16,7 +16,7 @@ The datasets applied in this tutorial are available here:
 
 [https://drive.google.com/file/d/1OkOcvNTDGR5PcBhress0pbwMP5wPqVui/view?usp=sharing](https://drive.google.com/file/d/1OkOcvNTDGR5PcBhress0pbwMP5wPqVui/view?usp=sharing)
 
-### Datasets used in this Tutorial ###
+## Datasets used in this Tutorial ##
 
 In this tutorial we will make use of an airborne hyperspectral or imaging spectroscopy image that was collected with the HyMap sensor (**HyMap\_125bands\_Karlsruhe2.tif**). This dataset is comparable to a multispectral image but contains a lot more bands which continuously cover the spectra wavelengths regions between approximately 400 and 2400 nm. The HyMap image shows a forested area in the North of the German city Karlsruhe. The dataset has been described with more details in the following publications: 
 
@@ -27,7 +27,7 @@ Ghosh, A.; Fassnacht, F. E.; Joshi, P. K.; Koch, B. (2014). A framework for mapp
 Additionally, a point-Shapefile is provided which contains sample points (reference positions) for 5 tree species (50 points per species, 250 in total) (**tree\_species\_KA.shp**). These reference positions were collected using visual interpretation of high-resolution images in combination with reference tree species maps provided by the local forest administration. These reference tree species maps are also provided as tif-files (**Reference\_information.tif; Reference\_information2.tif**). The latter can used for comparison with the classification maps produced in the tutorial. 
 
 
-### Step 1: Loading an visualizing the hyperspectral HyMap image and the reference dataset ###
+## Step 1: Loading an visualizing the hyperspectral HyMap image and the reference dataset ##
 
 As first step, load all necessary R packages by executing the following code:
 
@@ -193,7 +193,7 @@ This rather long code will lead to the following plot:
 
 This plot is a lot clearer. We can see the mean spectral signatures of all broadleaved tree species (Quercus robur, Quercus rubra and Fagus sylvatica) have a higher reflectance amplitude than the two coniferous species (Pinus sylvestris and Pseudotsuga Menziesii). We can also see that the SD-values of the spectral signatures of the individual species overlap quite notably. This suggests that the classification might not be that easy. But let us explore, what can be achieved.
 
-### Step 2: Tree species classification using the original HyMap bands ###
+## Step 2: Tree species classification using the original HyMap bands ##
 
 We will now prepare and run the first classification approach using all 125 bands of the HyMap image. For this, we first prepare two variables. One contains all the spectral signatures of the training data (**trainval**) and one that contains the corresponding response value (the information to which tree species the sample belongs - coded as a number between 1 and 5) (**treespec**).
 
@@ -269,7 +269,7 @@ This will result in the following tree species map:
 On the first glance, this map looks quite plausible. We can see that many of the stands from which we collected the training data (and we hence know, that they are composed of a single species) appear quite homogeneous in the classification map. The quality of the map could be examined with more details by loading the map into QGIS and compare it to the reference maps provided with the tutorial materials and maybe also by comparing the map with additional high-resolution Google or Bing maps which can be visualized in QGIS as well. 
 
 
-### Step 3: Tree species classification using PCA bands ###
+## Step 3: Tree species classification using PCA bands ##
 
 
 One way to improve the accuracy of supervised classifications, particularly if working with hyperspectral data are feature extraction methods as they allow to compress the feature space and hence reduce colinearity of predictors. In the following we will apply the well-known principal component analysis (PCA) to the hyperspectral image to reduce the original 125 bands to a smaller number of bands carrying most of the variability contained in the image.
@@ -359,7 +359,7 @@ Which will result in:
 
 This map looks quite similar as the one from the preceeding classification. This is no surprise as the classification accuracies were also similar.
 
-### Step 4: Tree species classification using a combination of feature selection (VSURF) and feature extraction (PCA) ###
+## Step 4: Tree species classification using a combination of feature selection (VSURF) and feature extraction (PCA) ##
 
 In this final step of the Tutorial, we will now add another step. We will use the first 30 components of the PCA as our starting input dataset. Then we will run a feature selection algorithm on these 30 components and use the selected components to train the SVM classification.
 
@@ -432,6 +432,6 @@ Which will result in the following map:
 
 We have now created three tree species maps using our hyperspectral image and the reference data. Feel free to have a closer look at the maps and think about how they differ and which one is agreeing best with the reference maps as well as with the visual impression when comparing the maps with high-resolution Google and Bing images in QGIS.
 
-### Exercise ###
+## Exercise ##
 
 If you want to practice a bit more with the code, try to run another classification applying the VSURF variable selection to the original 125 bands of HyMap. How does this affect the classification accuracy?

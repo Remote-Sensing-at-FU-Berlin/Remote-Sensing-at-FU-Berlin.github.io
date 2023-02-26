@@ -1,6 +1,6 @@
-## Calculation of Landscape Metrics from a Land-cover raster map in R ##
+# Calculation of Landscape Metrics from a Land-cover raster map in R #
 
-# Overview #
+## Overview ##
 
 In this lecture you will learn how to calculate landscape metrics from a land-cover map saved as a raster file in R. The idea is that you can later use the supervised classification results from the practical of the first day as input to this tutorial. However, for the tutorial itself, a dataset of four land-cover classification maps is provided. More details below.
 
@@ -13,7 +13,7 @@ The learned processing steps include:
 Besides R, we will also use QGIS in this tutorial.  In case you do not have QGIS installed, please download it at [https://qgis.org/en/site/forusers/download.html](https://qgis.org/en/site/forusers/download.html "QGIS") and install it - this should be straightforward and all the necessary instructions are given on the webpage.
 
 
-# Datasets used in this Tutorial #
+## Datasets used in this Tutorial ##
 
 In this tutorial we will use four land-cover maps that were created by a supervised classification. The four maps all show the same area around Karlsruhe with the same five land-use classes and at approximately the same point in time. However, the data from which the maps were derived differ and originate from three different satellite sensors:
 
@@ -27,7 +27,7 @@ The data are available here:
 
 [https://drive.google.com/drive/folders/1LULH7ur_wnZIcxlayWlE0EMbPElrAe0t?usp=sharing](https://drive.google.com/drive/folders/1LULH7ur_wnZIcxlayWlE0EMbPElrAe0t?usp=sharing "Dataset landscape metrics")
 
-# Step 1: Getting familiar with the dataset #
+## Step 1: Getting familiar with the dataset ##
 
 We will now first have a look at the data that we are working with. So please download the dataset given at the link above unzip the files and then open the QGIS project by double-clicking the file
 
@@ -46,7 +46,7 @@ The QGIS project shows the four land-cover classification maps we will be using 
 
 Please have a look also at the two other provided maps which have spatial resolutions between the two depicted datasets. Next, we will load the data into R and start calculating the landscape metrics for the complete image.
 
-# Step 2: Load the land cover maps to R and plot them #
+## Step 2: Load the land cover maps to R and plot them ##
 
 First, we will load all required packages. R will give you a warning message in case a package is not installed yet. If this is the case, please install the packages either through the main
 menu of Rstudio by selecting "Tools" => "Install packages" and then following the appearing dialogue, or by entering the corresponding R code
@@ -129,7 +129,7 @@ This will look like this:
 ![](assets/r_0_51.png)
 
 	
-# Step 3: Calculate landscape metrics for the entire image #
+## Step 3: Calculate landscape metrics for the entire image ##
 
 After successfully loading and plotting the images, we will now calculate the landscape metrics for each image. We will accomplish this using the SDMTools packages and the "ClassStat" and the "PatchStat" functions. The two functions only require the input raster (expected is a categorical raster file) and a user-defined cellsize, which in our case will be the spatial resolution of the corresponding satellite sensors. We can calculate the landscape metrics by running the following lines:
 
@@ -201,7 +201,7 @@ This will result in:
 
 We can see that even though we calculated the same metric, for the same class and the same landscape with the same extent, the differences in spatial resolution of the input datasets, leads to quite strong differences in mean patch area. The differences are stronger, the stronger the resolution differences are. However, this of course also depends on the applied metric and land-cover class. You can now try to make some more comparisons, by changing the variables **metric** and **luc_class** in the code and then re-run the plot command.
 
-# Step 4: Calculate landscape metrics for a grid #
+## Step 4: Calculate landscape metrics for a grid ##
 
 So far, we calculated a single landscape metric for the whole land-cover map. In our case, the landscape is still comparably small in size so calculating a single metric for the whole landscape, may make sense for some applications. However, in many other cases, we might either have a larger landscape at hand or we might be interested to also see how our landscape varies in terms of its metrics at a finer spatial grain as compared to the complete landscape. In the following, we will adjust the code used above to calculate landscape metrics for smaller sub-parts of the land-cover maps.
 

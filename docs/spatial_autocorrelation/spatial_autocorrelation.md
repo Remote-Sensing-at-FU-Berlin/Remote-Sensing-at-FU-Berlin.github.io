@@ -1,11 +1,11 @@
-## Calculating semivariograms and Autocorrelograms ##
+# Calculating semivariograms and Autocorrelograms #
 
-# Overview #
+## Overview ##
 
 In this lecture you will learn how to calculate a semivariogram and an autocorrelogram for a transect and you will get to know a function in R to derive a variogram from a raster image. The code-examples are mostly based on a Tutorial taken from the book "Learning Landscape Ecology" that is also available in ILIAS.
 
 
-# Datasets used in this Tutorial #
+## Datasets used in this Tutorial ##
 
 In this tutorial we will use one of the landscape metric-layers that we calculated in one of the earlier Tutorials as well as a Shapefile which contains the transect for which we will calculate the semivariogram and the autocorrelogram.
 
@@ -14,7 +14,7 @@ The data are available here:
 
 [https://drive.google.com/open?id=1ni4CKdlRaFO6JoJWuI_9qDb6R2GBE2S4](https://drive.google.com/open?id=1ni4CKdlRaFO6JoJWuI_9qDb6R2GBE2S4)
 
-# Step 1: Getting familiar with the dataset #
+## Step 1: Getting familiar with the dataset ##
 
 We will now first have a look at the data that we are working with. So please download the dataset given at the link above, unzip the files, and then open the QGIS project by double-clicking the file
 
@@ -29,7 +29,7 @@ As you can see we only have to datasets displayed: The landscape metric showing 
 
 In the following we will now extract the raster values for all pixels that the line intersects and use these pixel values to calculate a semivariogram and an autocorrelogram for the proportional forest cover.
 
-# Step 2: Calculating the Semivariogram #
+## Step 2: Calculating the Semivariogram ##
 
 We already learned in today's theoretical lecture how we calculate the mean semivariance Î³ for a lag distance of *h*. It is actually a quite simple formula where we first calculate the squared difference of all point pairs (*z(i)* and *z(i+h)*) that can be derived at a given lag-distance *h*. We then sum these squared differences and divide the sum by two times the number of point pairs at the given lag-distance *(2N(h)*):
 
@@ -164,7 +164,7 @@ This matches the curve depicted in the semi-variogram. Hence, at the given spati
 
 ![](assets/gis_2.png)
 
-# Step 3: Calculating the Autocorrelogram #
+## Step 3: Calculating the Autocorrelogram ##
 
 In this part of the tutorial, we will calculate the autocorrelogram. We will here take a slightly different approach and prepare a function to calculate autocorrelation along a simple transect. More detailed explanations of the function are given in the comments of the code. The function looks like this:
 
@@ -221,7 +221,7 @@ This will result in the following graph:
 As we can see, the curve is very similar to the semi-variogram but mirrored. One thing that might have to be discussed, is the fact that correlations can be positive and negative and hence the optimal lag-distance at which no spatial autocorrelation occurs anymore might be interpreted differently in this graph (the curve starts fluctuating around 0 at approximately 3500-4000 m instead of the maximum semi-variance that was achieved at 2500 m.
 
 
-# Step 4: Calculating a Semivariogram for a Raster-file #
+## Step 4: Calculating a Semivariogram for a Raster-file ##
 
 In the preceeding steps, we calculated the semivariogram and the autocorrelogram in a rather "manual" way, which helps to understand what steps are required to produce the final graphs. On the negative side, the methods we used above are only suitable for a 1D-transect. However, in remote sensing we are typically working with raster datasets and it is of course also possible to calculate variograms for 2D-environments. Then, the pixel-pairs are not only created in the 1D space but in the 2D space. The remaining calculations are the same.
 
