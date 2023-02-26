@@ -1,6 +1,7 @@
 ---
 site_name: Fernerkundung und Geoinformatik
 nav:
+  - Home: index.md
   - Fabian:
       - QGIS:
           - Getting to know the graphical user interface: ./qgis/01-GUI.md
