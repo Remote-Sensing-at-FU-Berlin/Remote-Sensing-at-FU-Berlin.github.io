@@ -24,8 +24,6 @@ nav:
           - Preparing annual time series data stacks and conducting time series analysis: ./MSRS_1_GEE_basics2/MSRS_1_GEE_basics2.md
       - SNAP:
           - Download of Landsat and Sentinel satellite images: ./planetary-sciences/01-download-ls-and-s2.md
-  - Schülerpraktikum:
-      - Handout: ./schuelerpraktikum/handout.md
 
 
 
