@@ -1,10 +1,17 @@
 ## Zeitplan
+
 9:00: Treff
+
 9:00 - 10:00: Gespräch
-10:00 - 10:30 : [[Praktikant#Einführung in Google Earth|Einführung in Google Earth]]
-10:30 - 12:00: [[Praktikant#Projektarbeit|Projektarbeit]]
+
+10:00 - 10:30 : [Einführung in Google Earth](https://remote-sensing-at-fu-berlin.github.io/schuelerpraktikum/handout/#einfuhrung-in-google-earth)
+
+10:30 - 12:00: [Projektarbeit](https://remote-sensing-at-fu-berlin.github.io/schuelerpraktikum/handout/#projektarbeit)
+
 12:00 - 12:30: Mittagpause
-12:30 - 14:00: [[Praktikant#Projektarbeit|Projektarbeit]]
+
+12:30 - 14:00: [Projektarbeit](https://remote-sensing-at-fu-berlin.github.io/schuelerpraktikum/handout/#projektarbeit)
+
 14:00 - 15:00: Druck und Praktikumsprotokoll
 
 ## Einführung in Google Earth
