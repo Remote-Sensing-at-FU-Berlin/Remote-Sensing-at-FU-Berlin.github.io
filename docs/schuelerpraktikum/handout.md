@@ -16,7 +16,7 @@
 
 ## Einführung in Google Earth
 
-Unser Praktikumsziel ist es eine Karte zu Landnutzungs und Landveränderungs eines Gebietes zu erstellen. Hierfür verwenden wir Google Earth Pro. Google Earth Pro ist eine Software, die einen virtuellen Globus darstellt. Sie kann Satellitenbilder mit Informationen überlagern und auf der Erde anzeigen. Es folgt eine kleine Einführung die die wichtigsten Werkzeuge dieses Programmes. Wenn weitere Fragen enstehen, sind wir für Sie da.
+Unser Praktikumsziel ist es eine Karte zu Landnutzungs und Landveränderungs eines Gebietes zu erstellen. Hierfür verwenden wir Google Earth Pro. Google Earth Pro ist eine Software, die einen virtuellen Globus darstellt. Sie kann Satellitenbilder mit Informationen überlagern und auf der Erde anzeigen. Es folgt eine kleine Einführung die die wichtigsten Werkzeuge dieses Programmes vorstellt. Wenn weitere Fragen enstehen, sind wir für Sie da.
 
 ### Zeitliche und räumliche Orientierung in Google Earth
 
