@@ -1,16 +1,23 @@
 Dieses Tutorial zeigt Schritt für Schritt, wie man bestimmte Aufgaben wie das Lesen von Shapefiles, das Erstellen von Puffern, das Zusammenführen von geometrischen Objekten, das Schneiden von Objekten und das Exportieren von Ergebnissen durchführt.
 
-Die benötigten Daten und R-Pakete sind:
+Die benötigten R-Pakete sind:
 
-- R-Pakete: sf, raster, dplyr
-- Shapefiles: 
+- sf
+- raster
+- dplyr
+
+
+Die benötigten Shapefiles sind: 
+
   -  bezirke_ortsteile.shp
   -  protected_areas_Berlin.shp
   -  straßen_berlin_haupt_utm.shp
   -  Wasserschutzgebiete_Berlin.shp
   -  Zufallspunkte_Berlin_1.shp
   -  Zufallspunkte_Berlin_2.shp
-- Raster: 
+
+Die benötigten Raster sind: 
+
   -  temperatur.tif
 
 ## Vorbereitung
