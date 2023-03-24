@@ -1,4 +1,4 @@
-Dieses Tutorial zeigt Schritt für Schritt, wie man bestimmte Aufgaben wie das Lesen von Shapefiles, das Erstellen von Puffern, das Zusammenführen von geometrischen Objekten, das Schneiden von Objekten und das Exportieren von Ergebnissen durchführt.
+Dieses Tutorial zeigt Schritt für Schritt, wie man bestimmte Aufgaben wie das Lesen von Shapefiles, das Erstellen von Puffern, das Zusammenführen von geometrischen Objekten, das Schneiden von Objekten, das reprojizieren von Objekten und das Exportieren von Ergebnissen durchführt.
 
 Die benötigten R-Pakete sind:
 
