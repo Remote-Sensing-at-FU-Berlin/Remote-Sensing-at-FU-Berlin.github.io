@@ -131,6 +131,26 @@ Das Raster `temperatur` wird auf das Polygonobjekt `dissolve` zugeschnitten und 
 clip_raster <- mask(temperatur, dissolve)
 ```
 
+### Reprojection des bezirke_ortsteile
+
+Print the original projection (Coordinate Reference System). Look in the 5. line for the current projection.
+
+```r
+bezirke_ortsteile 
+```
+
+Reproject bezirke_ortsteile. Replace 4326 with the desired EPSG code
+
+```r
+reproj <- st_transform(bezirke_ortsteile, 4326) 
+```
+
+Look in the 5. line. The projection is now WGS 84 which corresponds to the 4326 code.
+
+```r
+reproj
+```
+
 ## Export
 Im letzten Teil des Tutorials wird gezeigt, wie man die Ergebnisse in verschiedenen Formaten, wie Shapefiles oder Raster, exportieren kann.
 
@@ -144,6 +164,7 @@ st_write(merge, "merge.shp", overwrite = TRUE, append = TRUE)
 st_write(dissolve, "dissolve.shp", overwrite = TRUE, append = TRUE)
 st_write(union, "union.shp", overwrite = TRUE, append = TRUE)
 st_write(clip, "clip.shp", overwrite = TRUE, append = TRUE)
+st_write(reproj, "reproj.shp", overwrite = TRUE, append = TRUE)
 ```
 
 ### Export des Rasters clip
