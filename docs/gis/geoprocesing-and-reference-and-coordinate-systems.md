@@ -131,21 +131,21 @@ Das Raster `temperatur` wird auf das Polygonobjekt `dissolve` zugeschnitten und 
 clip_raster <- mask(temperatur, dissolve)
 ```
 
-### Reprojection des bezirke_ortsteile
+### Reprojection von bezirke_ortsteile
 
-Print the original projection (Coordinate Reference System). Look in the 5. line for the current projection.
+Gibt die ursprüngliche Projektion (Koordinatenreferenzsystem) aus. In der 5. Zeile finden Sie die aktuelle Projektion.
 
 ```r
 bezirke_ortsteile 
 ```
 
-Reproject bezirke_ortsteile. Replace 4326 with the desired EPSG code
+Reprojiziert bezirke_ortsteile. Ersetzen Sie 4326 durch den gewünschten EPSG-Code
 
 ```r
 reproj <- st_transform(bezirke_ortsteile, 4326) 
 ```
 
-Look in the 5. line. The projection is now WGS 84 which corresponds to the 4326 code.
+In der 5. Zeile finden Sie die neue Projektion, sie ist jetzt WGS 84, was dem Code 4326 entspricht.
 
 ```r
 reproj
