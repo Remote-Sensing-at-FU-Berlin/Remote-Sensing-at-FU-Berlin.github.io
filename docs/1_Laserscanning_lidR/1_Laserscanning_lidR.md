@@ -2,9 +2,7 @@
 
 ## Overview
 
-In this lecture you will learn how to load, visualize and process airborne laserscanning data in R using the lidR package. The focus will be on established procedures to create standard products such as digital terrain models, canopy height models as well as grids with LiDAR point metrics. You will also get to know a comparably simple method to identify trees from a LiDAR point cloud of a forested area.  Most of the contents of this tutorial base on the official documentation of the lidR package which can be found here:
-
-[https://r-lidar.github.io/lidRbook/](https://r-lidar.github.io/lidRbook/)
+In this lecture you will learn how to load, visualize and process airborne laserscanning data in R using the lidR package. The focus will be on established procedures to create standard products such as digital terrain models, canopy height models as well as grids with LiDAR point metrics. You will also get to know a comparably simple method to identify trees from a LiDAR point cloud of a forested area.  Most of the contents of this tutorial base on the official documentation of the lidR package which can be found [here.](https://r-lidar.github.io/lidRbook/)
 
 Some of the contents are directly copy & pasted while other parts are amended by information I deemed relevant. For anyone interested in this topic, I highly recommend to have a closer look at the link above and complete also the additional pratical parts provided there which are not covered in this tutorial.
 
