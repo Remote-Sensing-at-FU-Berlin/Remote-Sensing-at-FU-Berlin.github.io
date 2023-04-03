@@ -1,19 +1,3 @@
-## Zeitplan
-
-9:00: Treff
-
-9:00 - 10:00: Gespräch
-
-10:00 - 10:30 : [Einführung in Google Earth](https://remote-sensing-at-fu-berlin.github.io/schuelerpraktikum/handout/#einfuhrung-in-google-earth)
-
-10:30 - 12:00: [Projektarbeit](https://remote-sensing-at-fu-berlin.github.io/schuelerpraktikum/handout/#projektarbeit)
-
-12:00 - 12:30: Mittagpause
-
-12:30 - 14:00: [Projektarbeit](https://remote-sensing-at-fu-berlin.github.io/schuelerpraktikum/handout/#projektarbeit)
-
-14:00 - 15:00: Druck und Praktikumsprotokoll
-
 ## Einführung in Google Earth
 
 Unser Praktikumsziel ist es eine Karte zu Landnutzungs und Landveränderungs eines Gebietes zu erstellen. Hierfür verwenden wir Google Earth Pro. Google Earth Pro ist eine Software, die einen virtuellen Globus darstellt. Sie kann Satellitenbilder mit Informationen überlagern und auf der Erde anzeigen. Es folgt eine kleine Einführung die die wichtigsten Werkzeuge dieses Programmes vorstellt. Wenn weitere Fragen enstehen, sind wir für Sie da.
