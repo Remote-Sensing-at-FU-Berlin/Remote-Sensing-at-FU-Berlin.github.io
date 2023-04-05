@@ -83,7 +83,6 @@ markdown_extensions:
       permalink: true
       title: Inhaltsverzeichnis
       permalink_title: Link zu dieser Sektion
-      toc_depth: 2
   - tables
 
   # Python Markdown Extensions
