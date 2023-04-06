@@ -107,11 +107,12 @@ summary(bez_shp$area_km2)
 Anhand der Attribute kann eine Unterauswahl des Shapes erstellt werden. Anahnd der Spalte "BezirkName" kann z.B. der Bezirk Tempelhof-Schöneberg ausgewählt werden.
 
 Die Auswahl treffen wir mit einem logischen Ausdruck:
-* Wir wählen von der Datei bez_shp -> bez_shp
-* alle Spalten (Über eckige Klappern mit Komma) -> [XXX,]
-* Bei denen in der Spalte "BezirkName" -> bez_shp$BezirkName
-* Steht -> ==
-* "Tempelhof-Schöneberg"
+
+- Wir wählen von der Datei bez_shp -> bez_shp
+- alle Spalten (Über eckige Klappern mit Komma) -> [XXX,]
+- Bei denen in der Spalte "BezirkName" -> bez_shp$BezirkName
+- Steht -> ==
+- "Tempelhof-Schöneberg"
 
 ```
 bez_shp[bez_shp$BezirkName == "Tempelhof-Schöneberg",]
