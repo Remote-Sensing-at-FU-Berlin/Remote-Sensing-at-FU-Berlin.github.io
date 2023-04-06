@@ -102,7 +102,7 @@ max(bez_shp$area_km2)
 summary(bez_shp$area_km2)
 ```
 
-# 5\. Auswahl nach Attributen
+## 5\. Auswahl nach Attributen
 
 Anhand der Attribute kann eine Unterauswahl des Shapes erstellt werden. Anahnd der Spalte "BezirkName" kann z.B. der Bezirk Tempelhof-Schöneberg ausgewählt werden.
 
