@@ -2,16 +2,6 @@
 
 > **Important Note**: This guide is intended for those who want to make changes to the website's architecture or design. If you only need to perform regular updates or modifications, please refer to the [wiki](https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/wiki) instead.
 
-## Table of Contents
-
-- [Features](#features)
-
-
-- [Prerequisites](#prerequisites)
-
-
-- [Getting Started](#getting-started)
-
 ## Features
 
 
