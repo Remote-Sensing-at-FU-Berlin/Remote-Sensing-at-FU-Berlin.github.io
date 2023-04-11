@@ -83,4 +83,4 @@ git push origin main
 
 ## Optional
 
-Publish on your own, following this [tutorial](https://squidfunk.github.io/mkdocs-material/publishing-your-site/)
+Publish on your own, following this [tutorial](https://pages.github.com/)
