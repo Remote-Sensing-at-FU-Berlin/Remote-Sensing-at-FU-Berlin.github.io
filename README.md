@@ -35,12 +35,12 @@
 Before you start working on the website, ensure that you have the following prerequisites installed and set up on your system:
 
 
-1. **Python**: MkDocs is built with Python, so you'll need to have Python installed on your system. You can download Python from the official website: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+1. **[Python](https://www.python.org/downloads/)**: MkDocs is built with Python, so you'll need to have Python installed on your system.
 
 
 2. **pip**: pip is the package installer for Python. It usually comes bundled with the Python installation.
 
-3. **Git**: To clone the repository and manage version control, you'll need Git installed on your system. You can download Git from the official website: https://git-scm.com/downloads
+3. **[Git](https://git-scm.com/downloads)**: To clone the repository and manage version control, you'll need Git installed on your system. You can download Git from the official website: 
 
 4. **[MkDocs](https://www.mkdocs.org/)**: After installing Python and pip, you can install MkDocs by running the following command:
 
