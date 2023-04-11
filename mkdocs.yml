@@ -1,7 +1,7 @@
 ---
 site_name: REMOTE SENSING AND GEOINFORMATICS
 nav:
-  - Welcome: README.md
+  - Welcome: welcome.md
   - Prof. Dr. Fassnacht:
       - QGIS:
           - Getting to know the graphical user interface: ./qgis/01-GUI.md
