@@ -28,6 +28,8 @@
 
 - Automatic table of contents generation
 
+- Following design guidelines from **Freie Universität Berlin**
+
 
 ## Prerequisites
 
