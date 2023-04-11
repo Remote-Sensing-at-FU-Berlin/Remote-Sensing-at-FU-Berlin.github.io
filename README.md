@@ -42,13 +42,13 @@ Before you start working on the website, ensure that you have the following prer
 
 3. **Git**: To clone the repository and manage version control, you'll need Git installed on your system. You can download Git from the official website: https://git-scm.com/downloads
 
-4. **MkDocs**: After installing Python and pip, you can install MkDocs by running the following command:
+4. **[MkDocs](https://www.mkdocs.org/)**: After installing Python and pip, you can install MkDocs by running the following command:
 
 ```bash
 pip install mkdocs
 ```
 
-5. **Material for MkDocs**: is a theme for
+5. **[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)**: is a theme for
  MkDocs that provides a responsive and modern design. Install the theme 
 using the following command:
 
