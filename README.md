@@ -80,3 +80,7 @@ git add .
 git commit -m "Your commit message here"
 git push origin main
 ```
+
+## Optional
+
+Publish on your own, following this [tutorial](https://squidfunk.github.io/mkdocs-material/publishing-your-site/)
