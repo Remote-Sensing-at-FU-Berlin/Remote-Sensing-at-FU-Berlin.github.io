@@ -12,10 +12,18 @@ In diesem Skript wird
 ## 1\. Vorbereitung
 
 ### Laden nötiger Packages
-
 Folgende Packages werden benötigt:
 
-* sf
+* `sf`
+
+Wenn es noch nicht schon installiert ist, wird hier noch das benötigte `sf`package installiert: 
+
+```r
+if (!requireNamespace("sf", quietly = TRUE)) {
+  install.packages("sf")
+}
+```
+Und anschließend geladen:
 
 ```r
 library(sf)
