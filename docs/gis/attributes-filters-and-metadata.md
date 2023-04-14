@@ -9,7 +9,7 @@ In diesem Skript wird
 * eine Auswahl anhand von Attributen getroffen
 * eine Auswahl anhand räumlicher Beziehung getroffen
 
-## 1\. Vorbereitung
+## Vorbereitung
 
 ### Laden nötiger Packages
 Folgende Packages werden benötigt:
@@ -54,7 +54,7 @@ Und werfen einen kurzen Blick auf das Shapefile:
 plot(bez_shp)
 ```
 
-## 2\. Die Attributtabelle
+## Die Attributtabelle
 
 Wenn wir und die Datei anschauen sehen wir, dass sie die Daten der Attributtabelle sowie geometrische Informationen enthält.
 
@@ -72,7 +72,7 @@ st_drop_geometry(bez_shp)
 
 Da wir die eigentliche Datei bez_shp aber nicht überschrieben haben ist noch alles unverändert (mit Geometrieinformationen) vorhanden.
 
-## 3\. Geometrische Berechnungen / Flächenberechnung
+## Geometrische Berechnungen / Flächenberechnung
 
 Mit dem sf package können viele geometrische Berechnungen durchgeführt werden.
 
@@ -88,7 +88,7 @@ In der Console wird angezeigt, in welcher Einheit die Fläche berechnet wurde (U
 
 Da wir mit den Flächen weiter arbeiten wollen berechnen wir die Fläche noch einmal und speichern sie in der Attributtabelle in einer neuen Spalte. Wie bei einem data.frame kann über $ und ein neuer Spaltenname eine neue Spalte zu der Attributtabelle hinzugefügt werden.
 
-## 4\. Sonstige Berechnungen in der Attributtabelle
+## Sonstige Berechnungen in der Attributtabelle
 
 Mit der Berechneten Spalte können beliebige andere Rechenoperationen durchgeführt werden. Da die Zahlenwerte recht groß und unhandlich sind können sie z.B. von $m^2$ in $km^2$ umgerechnet werden. Auch diese Berechnung wird in einer neuen Spalte der Tabelle gespeichert.
 
@@ -110,7 +110,7 @@ max(bez_shp$area_km2)
 summary(bez_shp$area_km2)
 ```
 
-## 5\. Auswahl nach Attributen
+## Auswahl nach Attributen
 
 Anhand der Attribute kann eine Unterauswahl des Shapes erstellt werden. Anahnd der Spalte "BezirkName" kann z.B. der Bezirk Tempelhof-Schöneberg ausgewählt werden.
 
@@ -138,7 +138,7 @@ tempsch_shp <- bez_shp[bez_shp$BezirkName == "Tempelhof-Schöneberg",]
 bez_shp[bez_shp$area_km2 > 60,]
 ```
 
-## 6\. Auswahl anhand der Geometrie
+## Auswahl anhand der Geometrie
 
 Mit den Funktionen des sf-packages können auch geometrische Auswahlen getroffen werden. Eine Übersicht der Funktionen hierfür findet sich z.B. auf dem [Cheat sheet des packages](https://github.com/rstudio/cheatsheets/blob/main/sf.pdf).
 
