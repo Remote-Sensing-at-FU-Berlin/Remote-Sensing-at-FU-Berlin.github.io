@@ -3,7 +3,7 @@ Dieses Tutorial zeigt Schritt für Schritt, wie man bestimmte Aufgaben wie das L
 Die benötigten R-Pakete sind:
 
 - sf
-- raster
+- terra
 - dplyr
 
 
@@ -24,18 +24,11 @@ Die benötigten Raster sind:
 Im ersten Teil des Tutorials wird gezeigt, wie man die benötigten R-Pakete installiert und lädt. Es wird auch gezeigt, wie man das Arbeitsverzeichnis einstellt und Shapefiles und ein Raster in R einliest.
 
 ### Installieren der benötigten Pakete
-Wenn sie noch nicht schon installiert sind, werden hier drei `R-Pakete` installiert: `sf`, `raster`, und `dplyr`.
+Wenn sie noch nicht schon installiert sind, werden hier drei `R-Pakete` installiert: `sf`, `terra`, und `dplyr`.
 
 ```r
-if (!requireNamespace("sf", quietly = TRUE)) {
-  install.packages("sf")
-}
-if (!requireNamespace("raster", quietly = TRUE)) {
-  install.packages("raster")
-}
-if (!requireNamespace("dplyr", quietly = TRUE)) {
-  install.packages("dplyr")
-}
+pkgs <- c("sf", "dplyr", "terra")
+install.packages(pkgs[!pkgs %in% installed.packages()])
 ```
 
 ### Laden der benötigten Pakete
@@ -44,7 +37,7 @@ Nachdem die Pakete installiert wurden, müssen sie noch geladen werden.
 
 ```r
 library(sf)
-library(raster)
+library(terra)
 library(dplyr)
 ```
 
@@ -74,7 +67,7 @@ zufallspunkte_berlin_2 <- st_read("Zufallspunkte_Berlin_2.shp")
 Ein Raster im Arbeitsverzeichnis wird eingelesen und als `R-Objekt` gespeichert.
 
 ```r
-temperatur <- raster("temperatur.tif")
+temperatur <- terra::rast("temperatur.tif")
 ```
 
 ## Verarbeitung
@@ -101,10 +94,9 @@ merge <- st_union(zufallspunkte_berlin_1, zufallspunkte_berlin_2)
 Die Polygone im Shapefile `bezirke_ortsteile` werden nach `BEZNAME` gruppiert, dann zu einem Polygon vereinigt, als neues `R-Objekt` dissolve gespeichert und in das Polygonformat konvertiert.
 
 ```r
-dissolve <- bezirke_ortsteile %>%
-  group_by(BEZNAME) %>%
-  summarize(geometry = st_union(geometry)) %>%
-  st_cast("POLYGON")
+grouped_bezirke <- group_by(bezirke_ortsteile, BEZNAME)
+unionized_bezirke <- summarize(grouped_bezirke, geometry = st_union(geometry))
+dissolve <- st_cast(unionized_bezirke, "POLYGON")
 ```
 
 ### Union von Wasserschutzgebiete_Berlin und protected_areas_Berlin
@@ -128,7 +120,7 @@ clip <- st_intersection(protected_areas_berlin, dissolve[dissolve$BEZNAME == "St
 Das Raster `temperatur` wird auf das Polygonobjekt `dissolve` zugeschnitten und als neues `R-Objekt` `clip_raster` gespeichert.
 
 ```r
-clip_raster <- mask(temperatur, dissolve)
+clip_raster <- terra::mask(temperatur, dissolve)
 ```
 
 ### Reprojection von bezirke_ortsteile
@@ -172,7 +164,7 @@ st_write(reproj, "reproj.shp", overwrite = TRUE, append = TRUE)
 Das erstellte Raster `clip_raster` wird im Arbeitsverzeichnis als neue Datei gespeichert.
 
 ```r
-writeRaster(clip_raster, "clip_raster.tif", format="GTiff", overwrite = TRUE)
+terra::writeRaster(clip_raster, "clip_raster.tif", overwrite = TRUE)
 ```
 
 Hier werden die Ergebnisse der Verarbeitungsschritte als Shapefiles und Raster exportiert, die dann in anderen Anwendungen weiterverwendet werden können.
