@@ -67,7 +67,7 @@ zufallspunkte_berlin_2 <- st_read("Zufallspunkte_Berlin_2.shp")
 Ein Raster im Arbeitsverzeichnis wird eingelesen und als `R-Objekt` gespeichert.
 
 ```r
-temperatur <- terra::rast("temperatur.tif")
+temperatur <- rast("temperatur.tif")
 ```
 
 ## Verarbeitung
@@ -120,7 +120,7 @@ clip <- st_intersection(protected_areas_berlin, dissolve[dissolve$BEZNAME == "St
 Das Raster `temperatur` wird auf das Polygonobjekt `dissolve` zugeschnitten und als neues `R-Objekt` `clip_raster` gespeichert.
 
 ```r
-clip_raster <- terra::mask(temperatur, dissolve)
+clip_raster <- mask(temperatur, dissolve)
 ```
 
 ### Reprojection von bezirke_ortsteile
@@ -164,7 +164,7 @@ st_write(reproj, "reproj.shp", overwrite = TRUE, append = TRUE)
 Das erstellte Raster `clip_raster` wird im Arbeitsverzeichnis als neue Datei gespeichert.
 
 ```r
-terra::writeRaster(clip_raster, "clip_raster.tif", overwrite = TRUE)
+writeRaster(clip_raster, "clip_raster.tif", overwrite = TRUE)
 ```
 
 Hier werden die Ergebnisse der Verarbeitungsschritte als Shapefiles und Raster exportiert, die dann in anderen Anwendungen weiterverwendet werden können.
