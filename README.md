@@ -83,4 +83,4 @@ git push origin main
 
 ## Optional
 
-Publish on your own, following this [tutorial](https://pages.github.com/)
+Deploy on your own, following this [tutorial](https://pages.github.com/)
