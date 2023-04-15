@@ -49,7 +49,7 @@ Das Arbeitsverzeichnis wird auf den Pfad der Daten gesetzt. `PFAD-ZU-DATEN` muss
 setwd("PFAD-ZU-DATEN")
 ```
 
-### Einlesen der Shapefiles im Arbeitsverzeichnis
+### Einlesen der Shapefiles
 
 Hier werden mehrere Shapefiles im Arbeitsverzeichnis eingelesen und als `R-Objekte` gespeichert.
 
@@ -62,7 +62,7 @@ zufallspunkte_berlin_1 <- st_read("Zufallspunkte_Berlin_1.shp")
 zufallspunkte_berlin_2 <- st_read("Zufallspunkte_Berlin_2.shp")
 ```
 
-### Einlesen des Rasters im Arbeitsverzeichnis
+### Einlesen des Rasters
 
 Ein Raster im Arbeitsverzeichnis wird eingelesen und als `R-Objekt` gespeichert.
 
