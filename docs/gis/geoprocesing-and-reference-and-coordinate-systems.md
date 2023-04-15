@@ -73,7 +73,7 @@ temperatur <- rast("temperatur.tif")
 ## Verarbeitung
 Im zweiten Teil des Tutorials werden verschiedene Verarbeitungsschritte durchgeführt. Es werden beispielsweise Puffer erstellt, geometrische Objekte zusammengeführt, Objekte geschnitten und ein Raster maskiert.
 
-### Buffer von straßen_berlin_haupt_utm
+### Buffer
 
 Hier wird ein Buffer von der `straßen_berlin_haupt_utm` erstellt und als neues `R-Objekt` buffer gespeichert. Die Bufferbreite beträgt `100` Meter und wird in `dist` angegeben.
 
@@ -81,7 +81,7 @@ Hier wird ein Buffer von der `straßen_berlin_haupt_utm` erstellt und als neues 
 buffer <- st_buffer(straßen_berlin_haupt_utm, dist = 100)
 ```
 
-### Merge von Zufallspunkte_Berlin_1, Zufallspunkte_Berlin_2
+### Merge
 
 Die beiden Objekte `zufallspunkte_berlin_1` und `zufallspunkte_berlin_2` werden zu einem Objekt zusammengeführt und als neues `R-Objekt` merge gespeichert.
 
@@ -89,7 +89,7 @@ Die beiden Objekte `zufallspunkte_berlin_1` und `zufallspunkte_berlin_2` werden 
 merge <- st_union(zufallspunkte_berlin_1, zufallspunkte_berlin_2)
 ```
 
-### Dissolve von bezirke_ortsteile mit BEZNAME
+### Dissolve
 
 Die Polygone im Shapefile `bezirke_ortsteile` werden nach `BEZNAME` gruppiert, dann zu einem Polygon vereinigt, als neues `R-Objekt` dissolve gespeichert und in das Polygonformat konvertiert.
 
@@ -99,7 +99,7 @@ unionized_bezirke <- summarize(grouped_bezirke, geometry = st_union(geometry))
 dissolve <- st_cast(unionized_bezirke, "POLYGON")
 ```
 
-### Union von Wasserschutzgebiete_Berlin und protected_areas_Berlin
+### Union
 
 Die beiden Shapefiles `wasserschutzgebiete_berlin` und `protected_areas_berlin` werden zu einem Objekt zusammengeführt und als neues ``R-Objekt`` gespeichert.
 
@@ -107,15 +107,14 @@ Die beiden Shapefiles `wasserschutzgebiete_berlin` und `protected_areas_berlin` 
 union <- st_union(wasserschutzgebiete_berlin, protected_areas_berlin)
 ```
 
-### Clip von protected_areas_berlin des Objektes "Steglitz-Zehlendorf" aus dissolve
-
+### Clip eines Shapefiles
 Das Polygonobjekt `dissolve` wird nach dem Bezirk `Steglitz-Zehlendorf` gefiltert, und das Shapefile `protected_areas_berlin` wird dann auf das Polygonobjekt zugeschnitten und als neues `R-Objekt` clip gespeichert.
 
 ```r
 clip <- st_intersection(protected_areas_berlin, dissolve[dissolve$BEZNAME == "Steglitz-Zehlendorf", ])
 ```
 
-### Clip des temperatur Rasters mit dissolve
+### Clip eines Rasters
 
 Das Raster `temperatur` wird auf das Polygonobjekt `dissolve` zugeschnitten und als neues `R-Objekt` `clip_raster` gespeichert.
 
@@ -123,7 +122,7 @@ Das Raster `temperatur` wird auf das Polygonobjekt `dissolve` zugeschnitten und 
 clip_raster <- mask(temperatur, dissolve)
 ```
 
-### Reprojection von bezirke_ortsteile
+### Reprojection
 
 Gibt die ursprüngliche Projektion (Koordinatenreferenzsystem) aus. In der 5. Zeile finden Sie die aktuelle Projektion.
 
@@ -159,7 +158,7 @@ st_write(clip, "clip.shp", overwrite = TRUE, append = TRUE)
 st_write(reproj, "reproj.shp", overwrite = TRUE, append = TRUE)
 ```
 
-### Export des Rasters clip
+### Export des Rasters
 
 Das erstellte Raster `clip_raster` wird im Arbeitsverzeichnis als neue Datei gespeichert.
 
