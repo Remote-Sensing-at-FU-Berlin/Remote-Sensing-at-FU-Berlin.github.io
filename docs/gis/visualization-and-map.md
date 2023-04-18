@@ -6,9 +6,9 @@ Ergebnisse ausführt.
 
 Die benötigten R-Pakete sind:
   
-- sf
-- ggplot2
-- ggspatial
+- `sf`
+- `ggplot2`
+- `ggspatial`
 
 Die benötigten Shapefiles sind: 
   
@@ -22,7 +22,7 @@ einstellt und Shapefiles einliest.
 
 ### Installieren der benötigten Pakete
 Wenn sie noch nicht schon installiert sind, werden hier drei `R-Pakete` 
-installiert: `sf`, `raster`, und `dplyr`.
+installiert: `sf`, `ggplot2`, und `ggspatial`.
 
 ```r
 if (!requireNamespace("sf", quietly = TRUE)) {
