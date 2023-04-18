@@ -25,16 +25,10 @@ Wenn sie noch nicht schon installiert sind, werden hier drei `R-Pakete`
 installiert: `sf`, `ggplot2`, und `ggspatial`.
 
 ```r
-if (!requireNamespace("sf", quietly = TRUE)) {
-  install.packages("sf")
-}
-if (!requireNamespace("ggplot2", quietly = TRUE)) {
-  install.packages("ggplot2")
-}
-if (!requireNamespace("ggspatial", quietly = TRUE)) {
-  install.packages("ggspatial")
-}
+pkgs <- c("sf", "ggplot2", "ggspatial")
+install.packages(pkgs[!pkgs %in% installed.packages()])
 ```
+
 ### Laden der benötigten Pakete
 Nachdem die Pakete installiert wurden, müssen sie noch geladen werden.
 
