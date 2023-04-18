@@ -1,4 +1,4 @@
-Zum Abschluss der Sitzung wollen wir einen Teil der heute durchgeführten Operationen mit R wiederholen.
+Dieses Tutorial zeigt wie die Attributtabelle eines Shapefiles in R aufgerufen wird und wie wir einfache Rechnungen mit der Attributtabelle und der Geometrie eines Shapefiles durchführen können.
 
 In diesem Skript wird
 
