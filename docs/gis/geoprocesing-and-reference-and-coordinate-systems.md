@@ -2,10 +2,9 @@ Dieses Tutorial zeigt Schritt für Schritt, wie man bestimmte Aufgaben wie das L
 
 Die benötigten R-Pakete sind:
 
-- sf
-- terra
-- dplyr
-
+- `sf`
+- `terra`
+- `dplyr`
 
 Die benötigten Shapefiles sind: 
 
@@ -21,9 +20,11 @@ Die benötigten Raster sind:
   -  temperatur.tif
 
 ## Vorbereitung
+
 Im ersten Teil des Tutorials wird gezeigt, wie man die benötigten R-Pakete installiert und lädt. Es wird auch gezeigt, wie man das Arbeitsverzeichnis einstellt und Shapefiles und ein Raster in R einliest.
 
 ### Installieren der benötigten Pakete
+
 Wenn sie noch nicht schon installiert sind, werden hier drei `R-Pakete` installiert: `sf`, `terra`, und `dplyr`.
 
 ```r
