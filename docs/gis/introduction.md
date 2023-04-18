@@ -24,12 +24,8 @@ Der erste Teil des Tutorials zeigt, wie man die benötigten R-Pakete installiert
 Wenn sie noch nicht installiert sind, werden hier zwei R-Pakete installiert: `terra` und `rgdal`.
 
 ```r
-if (!requireNamespace("terra", quietly = TRUE)) {
-  install.packages("terra")
-}
-if (!requireNamespace("rgdal", quietly = TRUE)) {
-  install.packages("rgdal")
-}
+pkgs <- c("terra", "rgdal")
+install.packages(pkgs[!pkgs %in% installed.packages()])
 ```
 
 ### Laden der benötigten Pakete
