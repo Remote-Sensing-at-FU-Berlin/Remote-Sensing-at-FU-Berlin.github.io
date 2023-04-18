@@ -19,15 +19,14 @@ Folgende Packages werden benötigt:
 Wenn es noch nicht schon installiert ist, wird hier noch das benötigte `sf`package installiert: 
 
 ```r
-if (!requireNamespace("sf", quietly = TRUE)) {
-  install.packages("sf")
-}
+pkgs <- c("sf")
+install.packages(pkgs[!pkgs %in% installed.packages()])
 ```
+
 Und anschließend geladen:
 
 ```r
 library(sf)
-
 ```
 
 ### Einlesen der Daten
