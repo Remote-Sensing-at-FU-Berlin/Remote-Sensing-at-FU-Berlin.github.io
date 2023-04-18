@@ -6,6 +6,7 @@ Die benötigten R-Pakete sind:
 - `rgdal`
 
 Die benötigten Shapefiles (3x Vektordaten, 1x Rasterdaten) sind: 
+
 - bezirke_ortsteile.shp
 - bahnstationen.shp
 - wanderwege.shp
