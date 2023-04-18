@@ -3,7 +3,7 @@ Dieses Tutorial zeigt Schritt für Schritt, wie Geodaten in R eingelesen und in 
 Die benötigten R-Pakete sind:
 
 - `terra`
-- `rgdal
+- `rgdal`
 
 Die benötigten Shapefiles (3x Vektordaten, 1x Rasterdaten) sind: 
 - bezirke_ortsteile.shp
