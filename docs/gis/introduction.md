@@ -39,6 +39,9 @@ library(rgdal)
 ```
 ### Trouble shooting
 
+! Dieser Skriptteil wird nur benötigt wenn die oberen zwei Codeblöcke nicht funktioniert haben, auf privaten Rechnern ist das unwahrscheinlich. 
+Wenn beim Laden von `rgdal` keine Fehlermeldung erscheint ist "Das Arbeitsverzeichnis setzen" der nächste Schritt der ausgeführt wird. 
+
 Wenn das laden von `rgdal`auf diesem Weg nicht funktioniert (nach dem Befehl `library(rgdal)` zeigt R einen Fehler an) kann der folgende Code ausgeführt werden:
 
 ```r
@@ -52,6 +55,8 @@ install.packages("rgdal")
 library(rgdal)
 ```
 In diesem Code wird sicher gestellt, dass alle Packete aus dem gleichen Ordner geladen werden. Sind Packete in verschiedenen Ordern installiert funktionieren sie sonst möglicherweise nicht richtig.
+
+(Möglicherweise funktioniert auch dieser Weg noch nicht problemlos, wir arbeiten aber an einer Lösung und updaten den Code sobald sie gefunden ist :) )
 
 ### Das Arbeitsverzeichnis setzen
 
