@@ -37,6 +37,22 @@ Nachdem die Pakete installiert wurden, müssen sie noch geladen werden.
 library(terra)
 library(rgdal)
 ```
+### Trouble shooting
+
+Wenn das laden von `rgdal`auf diesem Weg nicht funktioniert (nach dem Befehl `library(rgdal)` zeigt R einen Fehler an) kann der folgende Code ausgeführt werden:
+
+```r
+myPaths <- .libPaths()   # get the paths
+myPaths <- c(myPaths[2], myPaths[1])  # switch them
+.libPaths(myPaths)  # reassign them
+myPaths <- c("C:/Program Files/R/R-4.2.1/library")  
+.libPaths()
+
+install.packages("rgdal")
+library(rgdal)
+```
+In diesem Code wird sicher gestellt, dass alle Packete aus dem gleichen Ordner geladen werden. Sind Packete in verschiedenen Ordern installiert funktionieren sie sonst möglicherweise nicht richtig.
+
 ### Das Arbeitsverzeichnis setzen
 
 Das Arbeitsverzeichnis wird auf den Pfad der Daten gesetzt. PFAD-ZU-DATEN muss angepasst werden. Wählen Sie hierfür den Pfad zum Ordner mit Ihren Daten, verwenden Sie /. Beachten Sie, dass auch dann eine Liste der Archive innerhalb des ausgewählten Verzeichnisses erstellt wird.
