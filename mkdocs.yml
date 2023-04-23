@@ -1,5 +1,5 @@
 ---
-site_name: REMOTE SENSING AND GEOINFORMATICS
+# Site navigation
 nav:
   - Welcome: README.md
   - Prof. Dr. Fassnacht:
@@ -32,16 +32,26 @@ nav:
           - Geoprocesing and reference and coordinate systems: ./gis/geoprocesing-and-reference-and-coordinate-systems.md
   - Other:
       - School internship: ./schuelerpraktikum/handout.md
-
-
+      
+      
+      
+      
+# Site information
+site_name: REMOTE SENSING AND GEOINFORMATICS
 copyright: Copyright &copy; CC-BY-SA-4.0 license - Freie Universität Berlin Institute of Geographical Sciences Remote Sensing and Geoinformatics
 
+
+
+
+# Repository connection
+repo_name: Remote-Sensing-at-FU-Berlin.github.io
 repo_url: https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/
 edit_uri: tree/main/docs
 
 
-repo_name: Remote-Sensing-at-FU-Berlin.github.io
 
+
+# Design and features
 theme:
   favicon: assets/favicon.png
   logo: assets/logo.png
@@ -68,9 +78,13 @@ theme:
 extra:
   generator: false
 
+
+
+
+# Markdown plugins
 markdown_extensions:
 
-  # Python Markdown
+  # Markdown
   - abbr
   - admonition
   - attr_list
@@ -83,7 +97,7 @@ markdown_extensions:
       permalink_title: Link zu dieser Sektion
   - tables
 
-  # Python Markdown Extensions
+  # Python Markdown
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
@@ -109,10 +123,19 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
+
+
+
+# Javascript plugins
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+
+
+
+# Other plugins
 plugins:
   - search
   - glightbox
