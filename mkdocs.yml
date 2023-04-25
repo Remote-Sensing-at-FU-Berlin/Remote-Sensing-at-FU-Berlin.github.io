@@ -26,6 +26,7 @@ nav:
           - Download of Landsat and Sentinel satellite images: ./planetary-sciences/01-download-ls-and-s2.md
   - GIS:
       - R:
+          - Installation: ./gis/installation.md 
           - Introduction: ./gis/introduction.md
           - Visualization and Map: ./gis/visualization-and-map.md
           - Attributes, Filters and Metadata: ./gis/attributes-filters-and-metadata.md
