@@ -36,6 +36,7 @@ Folgende Dateien werden im Working Directory benötigt:
 * Berlin_Bezirke.shp
 
 Wenn nötig: Setze das working directory auf den Ordner mit dem Shapefile. (Hier muss der eigene Pfad eingefügt werden!)
+Alternativ kann über die Tasten `STRG` + `Shift`(Großschreibtaste) + `H`ein Pop-Up Fenster geöffnet werden, in dem zum entsprechenden Ordner navigiert werden kann.
 
 ```r
 # setwd("H:/Some_path/Some_folder/04_Daten_Hausaufgabe")
