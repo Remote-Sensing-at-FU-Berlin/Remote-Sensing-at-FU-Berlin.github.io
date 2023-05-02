@@ -27,6 +27,16 @@ library(sf)
 library(mapview)
 ```
 
+Es kann sein, dass Sie in den PC-Pools einige Pakete neuinstallieren müssen, um `mapview` nutzen zu können:
+
+```r
+install.packages("leafpop")
+install.packages("brew")
+install.packages("svglite")
+install.packages("uuid")
+install.packages("yaml")
+```
+
 ### Das Arbeitsverzeichnis setzen
 Das Arbeitsverzeichnis wird auf den Pfad der Tabelle (Jungfernheide.csv) gesetzt. 
 `PATH TO DATA` muss angepasst werden. 
