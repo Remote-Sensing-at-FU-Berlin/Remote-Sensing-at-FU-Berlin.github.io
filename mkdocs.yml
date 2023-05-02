@@ -29,8 +29,8 @@ nav:
           - Installation: ./gis/installation.md 
           - Introduction: ./gis/introduction.md
           - Visualization and Map: ./gis/visualization-and-map.md
-          - Attributes, Filters and Metadata: ./gis/attributes-filters-and-metadata.md
           - Digitalization: ./gis/digitalization.md
+          - Attributes, Filters and Metadata: ./gis/attributes-filters-and-metadata.md
           - Geoprocesing and reference and coordinate systems: ./gis/geoprocesing-and-reference-and-coordinate-systems.md
   - Other:
       - School internship: ./schuelerpraktikum/handout.md
