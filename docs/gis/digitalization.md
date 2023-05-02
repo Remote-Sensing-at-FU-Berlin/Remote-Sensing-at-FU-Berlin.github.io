@@ -18,15 +18,6 @@ installiert: `sf` und `mapview`.
 pkgs <- c("sf", "mapview")
 install.packages(pkgs[!pkgs %in% installed.packages()])
 ```
-
-### Laden der benötigten Pakete
-Nachdem die Pakete installiert wurden, müssen sie noch geladen werden.
-
-```r
-library(sf)
-library(mapview)
-```
-
 Es kann sein, dass Sie in den PC-Pools einige Pakete neuinstallieren müssen, um `mapview` nutzen zu können:
 
 ```r
@@ -35,6 +26,14 @@ install.packages("brew")
 install.packages("svglite")
 install.packages("uuid")
 install.packages("yaml")
+```
+
+### Laden der benötigten Pakete
+Nachdem die Pakete installiert wurden, müssen sie noch geladen werden.
+
+```r
+library(sf)
+library(mapview)
 ```
 
 ### Das Arbeitsverzeichnis setzen
