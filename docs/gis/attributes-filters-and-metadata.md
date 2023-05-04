@@ -16,6 +16,8 @@ Folgende Packages werden benötigt:
 
 * `sf`
 
+Einen genaueren Überblick über das `sf`Package gibt es im Vorherigen Tutorial in diesem Ordner. Um einen Überblick über die verwendete Dateistruktur zu erhalten ist dieses Tutorial unbedingt empfehlenswert!
+
 Wenn es noch nicht schon installiert ist, wird hier noch das benötigte `sf`package installiert: 
 
 ```r
