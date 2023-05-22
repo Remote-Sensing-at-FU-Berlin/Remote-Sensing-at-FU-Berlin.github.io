@@ -10,7 +10,7 @@ Die benötigten Shapefiles sind:
 
   -  bezirke_ortsteile.shp
   -  protected_areas_Berlin.shp
-  -  straßen_berlin_haupt_utm.shp
+  -  strassen_berlin_haupt_utm.shp
   -  Wasserschutzgebiete_Berlin.shp
   -  Zufallspunkte_Berlin_1.shp
   -  Zufallspunkte_Berlin_2.shp
@@ -57,7 +57,7 @@ Hier werden mehrere Shapefiles im Arbeitsverzeichnis eingelesen und als `R-Objek
 ```r
 bezirke_ortsteile <- st_read("bezirke_ortsteile.shp")
 protected_areas_berlin <- st_read("protected_areas_Berlin.shp")
-straßen_berlin_haupt_utm <- st_read("straßen_berlin_haupt_utm.shp")
+strassen_berlin_haupt_utm <- st_read("strassen_berlin_haupt_utm.shp")
 wasserschutzgebiete_berlin <- st_read("Wasserschutzgebiete_Berlin.shp")
 zufallspunkte_berlin_1 <- st_read("Zufallspunkte_Berlin_1.shp")
 zufallspunkte_berlin_2 <- st_read("Zufallspunkte_Berlin_2.shp")
@@ -76,10 +76,10 @@ Im zweiten Teil des Tutorials werden verschiedene Verarbeitungsschritte durchgef
 
 ### Buffer
 
-Hier wird ein Buffer von der `straßen_berlin_haupt_utm` erstellt und als neues `R-Objekt` buffer gespeichert. Die Bufferbreite beträgt `100` Meter und wird in `dist` angegeben.
+Hier wird ein Buffer von der `strassen_berlin_haupt_utm` erstellt und als neues `R-Objekt` buffer gespeichert. Die Bufferbreite beträgt `100` Meter und wird in `dist` angegeben.
 
 ```r
-buffer <- st_buffer(straßen_berlin_haupt_utm, dist = 100)
+buffer <- st_buffer(strassen_berlin_haupt_utm, dist = 100)
 ```
 
 ### Merge
