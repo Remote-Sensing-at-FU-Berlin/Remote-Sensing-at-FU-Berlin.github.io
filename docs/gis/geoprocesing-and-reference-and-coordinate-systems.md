@@ -32,6 +32,8 @@ pkgs <- c("sf", "dplyr", "terra")
 install.packages(pkgs[!pkgs %in% installed.packages()])
 ```
 
+*Die Warnung kann ignoriert werden.*
+
 ### Laden der benötigten Pakete
 
 Nachdem die Pakete installiert wurden, müssen sie noch geladen werden.
@@ -90,6 +92,8 @@ Die beiden Objekte `zufallspunkte_berlin_1` und `zufallspunkte_berlin_2` werden 
 merge <- st_union(zufallspunkte_berlin_1, zufallspunkte_berlin_2)
 ```
 
+*Die Warnung kann ignoriert werden.*
+
 ### Dissolve
 
 Die Polygone im Shapefile `bezirke_ortsteile` werden nach `BEZNAME` gruppiert, dann zu einem Polygon vereinigt, als neues `R-Objekt` dissolve gespeichert und in das Polygonformat konvertiert.
@@ -100,6 +104,8 @@ unionized_bezirke <- summarize(grouped_bezirke, geometry = st_union(geometry))
 dissolve <- st_cast(unionized_bezirke, "POLYGON")
 ```
 
+*Die Warnung kann ignoriert werden.*
+
 ### Union
 
 Die beiden Shapefiles `wasserschutzgebiete_berlin` und `protected_areas_berlin` werden zu einem Objekt zusammengeführt und als neues ``R-Objekt`` gespeichert.
@@ -108,12 +114,16 @@ Die beiden Shapefiles `wasserschutzgebiete_berlin` und `protected_areas_berlin` 
 union <- st_union(wasserschutzgebiete_berlin, protected_areas_berlin)
 ```
 
+*Die Warnung kann ignoriert werden.*
+
 ### Clip eines Shapefiles
 Das Polygonobjekt `dissolve` wird nach dem Bezirk `Steglitz-Zehlendorf` gefiltert, und das Shapefile `protected_areas_berlin` wird dann auf das Polygonobjekt zugeschnitten und als neues `R-Objekt` clip gespeichert.
 
 ```r
 clip <- st_intersection(protected_areas_berlin, dissolve[dissolve$BEZNAME == "Steglitz-Zehlendorf", ])
 ```
+
+*Die Warnung kann ignoriert werden.*
 
 ### Clip eines Rasters
 
@@ -167,4 +177,4 @@ Das erstellte Raster `clip_raster` wird im Arbeitsverzeichnis als neue Datei ges
 writeRaster(clip_raster, "clip_raster.tif", overwrite = TRUE)
 ```
 
-Hier werden die Ergebnisse der Verarbeitungsschritte als Shapefiles und Raster exportiert, die dann in anderen Anwendungen weiterverwendet werden können.
+Die Resultate der Verarbeitungsschritte werden als Shapefiles und Raster exportiert, welche anschließend in anderen Anwendungen, wie beispielsweise ArcGIS Pro, weiterverwendet werden können. Beim Raster kann es vorkommen, dass eine Zentrierung auf den Layer notwendig ist, da dieser möglicherweise keine Projektion aufweist. Eine Zentrierung auf den Layer kann durch einen Rechtsklick auf den Layer und die Auswahl der Option "Zoom to Layer" erreicht werden.
