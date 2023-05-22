@@ -25,9 +25,10 @@ Im ersten Teil des Tutorials wird gezeigt, wie man die benötigten R-Pakete inst
 
 ### Installieren der benötigten Pakete
 
-Wenn sie noch nicht schon installiert sind, werden hier drei `R-Pakete` installiert: `sf`, `terra`, und `dplyr`.
+Falls die R-Pakete sf, terra und dplyr noch nicht installiert sind, werden diese hier installiert und bestehende Pakete auf den neuesten Stand gebracht. Bitte beachten Sie, dass dieser Vorgang etwas Zeit in Anspruch nehmen kann.
 
 ```r
+update.packages(ask = FALSE)
 pkgs <- c("sf", "dplyr", "terra")
 install.packages(pkgs[!pkgs %in% installed.packages()])
 ```
