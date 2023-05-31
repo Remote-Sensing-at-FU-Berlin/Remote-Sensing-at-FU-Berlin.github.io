@@ -72,6 +72,7 @@ theme:
     - navigation.path
     - navigation.top
     - navigation.footer
+    - navigation.instant
   name: material
   language: en
   palette:
