@@ -1,8 +1,10 @@
 Dieses Tutorial zeigt wie die Attributtabelle eines Shapefiles in R aufgerufen wird und wie wir einfache Rechnungen mit der Attributtabelle und der Geometrie eines Shapefiles durchführen können.
 
-In diesem Skript wird
+In diesem Skript werden
 
-* 
+* ein Shapefile anhand von Koordinateninformationen in einer Tabelle erstellt
+* das Shapefile mit einer Attributtabelle verbunden
+* die räumliche Verteilung von Messwerten mit Hilfe von Thiesenpolygonen in die Fläche gebraucht
 
 ## Vorbereitung
 
