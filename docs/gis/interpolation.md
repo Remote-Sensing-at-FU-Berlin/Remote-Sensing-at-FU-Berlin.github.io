@@ -14,7 +14,7 @@ Folgende Packages werden benötigt:
 * `sf`
 * `dplyr`
 * `rgdal`
-* `ggplot2
+* `ggplot2`
 * `deldir`
 
 Wenn es noch nicht schon installiert ist, wird hier noch das benötigte `sf`package, das `rgdal` und das `dplyr`package installiert: 
