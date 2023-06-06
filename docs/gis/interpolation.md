@@ -241,4 +241,8 @@ plot(thiessen_polygons, add= TRUE, main = "Thiessen-Polygone")
 Informationen zum einfärben der Thiesenpolygone finden sich hier: 
 https://gis.stackexchange.com/questions/136542/r-function-for-thiessen-polygons
 Sie sollen nach dem Jahreswert (in "stations", Spalte "Jahr") eingefärbt werden 
-Viel Erfolg! 
+Viel Erfolg!
+
+!!! info
+
+    Bitte beachten Sie, dass dieses Skript noch in Bearbeitung ist und weitere Schritte benötigt, um die Interpolation zu beenden.
