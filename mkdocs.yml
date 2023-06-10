@@ -35,6 +35,7 @@ nav:
           - Attributes, Filters and Metadata: ./gis/attributes-filters-and-metadata.md
           - Geoprocesing and reference and coordinate systems: ./gis/geoprocesing-and-reference-and-coordinate-systems.md
           - Interpolation: ./gis/interpolation.md
+          - Digital Elevation Models: ./gis/dem.md
   - Other:
       - School internship: ./schuelerpraktikum/handout.md
       
