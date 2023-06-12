@@ -1,5 +1,4 @@
-# Mapping Ellenberg values using a RandomForest regression and two types
-of optical remote sensing datasets
+# Mapping Ellenberg values using a RandomForest regression and two types of optical remote sensing datasets
 
 Fabian Fassnacht
 
