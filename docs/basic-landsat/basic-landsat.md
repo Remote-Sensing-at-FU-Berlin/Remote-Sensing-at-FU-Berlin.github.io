@@ -1,5 +1,5 @@
-Basic processing of Landsat data with R
-================
+# Basic processing of Landsat data with R
+
 Fabian Fassnacht
 
 ## Overview
