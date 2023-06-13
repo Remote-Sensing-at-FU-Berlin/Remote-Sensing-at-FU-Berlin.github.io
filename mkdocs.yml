@@ -17,6 +17,7 @@ nav:
           - Basic Landsat Processing: ./basic-landsat/basic-landsat.md
           - Random Forest Regression: ./random-forest-regression/random-forest-regression.md
           - Getting started with processing laserscanning data: ./1_Laserscanning_lidR/1_Laserscanning_lidR.md
+          - Radiative Transfer Model: ./radiative-transfer-model/radiative-transfer-model.md
           - Classification of tree species using hyperspectral data: ./treespeciesclassification/treespeciesclassification.md
           - Analysing time series with BFAST and NPPHEN: ./BFAST/BFAST.md
           - Calculation of Landscape Metrics from a Land-cover raster map: ./landscape_metrics/landscape_metrics.md
