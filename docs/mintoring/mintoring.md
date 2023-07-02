@@ -92,7 +92,7 @@ Für die Erstellung eines Kartenlayouts müsst ihr in ArcMap den sogenannten `La
 
 Dies könnt ihr in der Menüleiste unter `VIEW > LAYOUT VIEW` aktivieren.
 
-## Kartenlayout anpassen
+### Kartenlayout anpassen
 
 Wir wollen nun das Papierformat der Karte in ein **A3-Querformat** ändern.
 
