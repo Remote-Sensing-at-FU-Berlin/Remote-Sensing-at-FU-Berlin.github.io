@@ -1,12 +1,25 @@
 ## Einführung in ArcMAP
 
+Wir verwenden **ArcMap**. ArcMap wird verwendet, um geographische Informationen zu visualisieren, zu verwalten, zu erstellen, zu analysieren und zu teilen. Es ermöglicht Benutzern, Karten zu erstellen, geographische Daten zu bearbeiten, geographische Daten zu analysieren und schließlich Berichte und Karten zu erstellen.
+
+### Fragen und Probleme
+
+Solltet ihr während des Arbeitens mit ArcMap auf Probleme oder Fehler stoßen, seid ihr nicht allein. Wir stehen bereit, um euch bei Fragen oder Schwierigkeiten zu unterstützen.
+
+### Vorbereitung
+
 Legt einen **Ordner** auf Ihrem Computer an, in dem ihr alle Daten für unseren Kurs speichert (z.B. `...\Mintoring`).
 
-Bitte ladet die Daten hier ... herunter.
+Bitte ladet die Daten, mit denen wir heute arbeiten, von der FU-Box herunter . Klickt auf ein Thema um den Link dahin zu öffnen. Klickt dann auf den Button "Download", um den Datensatz auf euren Computer herunterzuladen.
+
+Die möglichen Themen sind:
+
+- Para
+- Mato Grosso
+- Rondonia
+- Acre
 
 ### ArcMAP
-
-Wir verwenden **ArcMap**.
 
 Öffnet ArcMap unter `Start > Programme > ArcGIS > ArcMap`.
 
@@ -125,7 +138,7 @@ In der **ArcMap-Menüleiste** findet ihr unter dem Reiter `Insert` die wichtigst
 
 #### Kartentitel
 
-Platziert unter `Insert > Title` einen Kartentitel in eure Karte.
+Platziert unter `Insert > Title` einen **Kartentitel** in eure Karte.
 
 Gebt der Karte eine geeignete Überschrift.
 
@@ -138,9 +151,9 @@ Platziert die Überschrift an einer geeigneten Stelle eurer Karte.
 
 Öffnet den `Legend Wizard` unter `Insert > Legend`.
 
-Über die mittleren Pfeiltasten können ihr den gewünschten Layer von `Map Layers` zu `Legend Items` verschieben. Es werden nur Legenden der Layer erzeugt, die in der `Legend Items`-Liste aufgeführt sind. Achtet darauf, dass der Layer unter `Legend Items` gelistet ist.
+Über die mittleren Pfeiltasten können ihr den gewünschten Layer von `Map Layers` zu `Legend Items` verschieben. Es werden nur **Legenden der Layer** erzeugt, die in der `Legend Items`-Liste aufgeführt sind. Achtet darauf, dass der Layer unter `Legend Items` gelistet ist.
 
-Platziert Sie die Legende an eine geeignete Stelle im Kartenrand.
+Platziert die Legende an eine geeignete Stelle im Kartenrand.
 
 Das Legendenmenü kann jederzeit mit Doppelklick auf die Legende wieder geöffnet werden. Die Einstellungsmöglichkeiten sind so vielfältig, dass wir das hier nicht alles detailliert beschreiben können.
 
@@ -150,13 +163,13 @@ Wichtig: Die Legendeneinträge werden automatisch angepasst, wenn zum Beispiel A
 
 Öffnet den `North Arrow Selector` unter `Insert > North Arrow`.
 
-Wählt einen passenden Nordpfeil aus und bestätigt mit `OK`.
+Wählt einen passenden **Nordpfeil** aus und bestätigt mit `OK`.
 
 #### Maßstab
 
 Öffnet den `Scale Bar Selector` unter `Insert > Scale Bar`.
 
-Wählt einen geeigneten Maßstab aus und bestätigt mit `OK`.
+Wählt einen **geeigneten Maßstab** aus und bestätigt mit `OK`.
 
 Platziert den Maßstab an einer geeigneten Stelle.
 
@@ -169,7 +182,7 @@ im `Table of Content`.
 
 Wählt den Reiter `Grids`.
 
-Erzeugt ein neues Koordinatensystem durch Klicken der Option `New Grid`.
+Erzeugt ein neues **Koordinatensystem** durch Klicken der Option `New Grid`.
 
 Wählt `Measured Grid: divides map into a grid of map units` und bestätigt mit `Weiter`.
 
@@ -189,7 +202,7 @@ Ihr könnt jederzeit Änderungen an der Darstellung des Koordinatensystems vorne
 
 #### Weitere Elemente
 
-Zusätzliche Karteninformationen (wie z.B. das Datum der Kartenerstellung, der Name des/r Kartenautors/in, Name des verwendeten
+**Zusätzliche Karteninformationen** (wie z.B. das Datum der Kartenerstellung, der Name des/r Kartenautors/in, Name des verwendeten
 Koordinatensystems etc.) können aber auch über `Insert > Text` in den Kartenrand eingefügt und dort auchverändert werden.
 
 Der Text sollte folgendes Enthalten:
@@ -202,10 +215,10 @@ Der Text sollte folgendes Enthalten:
 
 Wenn ihr mit eurer Darstellung der Karte zufrieden seid, wählt in der ArcMap- Menüleiste unter `File > Export Map`.
 
-Gebt den gewünschten Speicherort an und gebt der zu exportierenden Karte unter `Dateiname` die Bezeichnung `Bezirke_Berlins`.
+Gebt den gewünschten **Speicherort** an und gebt der zu **exportierenden Karte** unter `Dateiname` die Bezeichnung `Bezirke_Berlins`.
 
-Unter der Option `Dateityp` können ihr euch ein Bildformat aussuchen, in dem die Karte gespeichert wird. Wählt `JPG` oder `PDF`.
+Unter der Option `Dateityp` können ihr euch ein **Bildformat** aussuchen, in dem die Karte gespeichert wird. Wählt `JPG` oder `PDF`.
 
-Gebt unter `Resolution` eine Auflösung von 300 dpi an.
+Gebt unter `Resolution` eine **Auflösung** von 300 dpi an.
 
 Bestätigt mit `Speichern`.
