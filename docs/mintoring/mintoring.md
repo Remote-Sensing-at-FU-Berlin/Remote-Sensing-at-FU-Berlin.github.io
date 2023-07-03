@@ -13,20 +13,20 @@ Wir verwenden **ArcMap**.
 Bei dem sich öffnenden Fenster werdet ihr gefragt, ob ihr eine Vorlage öffnen möchten.
 Da wir ein neues Projekt anlegen, wählt bitte `CANCEL`.
 
-Ihr seht nun die ArcMap-Benutzeroberfläche.
+Ihr seht nun die **ArcMap-Benutzeroberfläche**.
 
 ### Definieren des Arbeitsverzeichnisses
 
-Wir müssen das Arbeitsverzeichniss definieren.
+Wir müssen das **Arbeitsverzeichniss** definieren.
 
 Geht dafür in der ArcMap- Menüleiste auf `GEOPROCESSING > ENVIRONMENTS > WORKSPACE` und gebt für für den `CURRENT WORKSPACE` und `SCRATCH
 WORKSPACE` euer Arbeitsverzeichnis an, in dem ihr eure Daten speichert (z.B. `...\Mintoring`).
 
-Klickt dafür auf das Ordnersymbol und navigiert zu eurem Ordner. Dazu müsst ihr zunächst mit `Connect to Folder` eine Verbindung mit dem Laufwerk, auf dem sich euer Ordner befindet, erstellen.
+Klickt dafür auf das Ordnersymbol und navigiert zu eurem Ordner. Dazu müsst ihr zunächst mit `Connect to Folder` eine Verbindung mit dem Laufwerk, auf dem sich **euer Ordner** befindet, erstellen.
 
 ### Daten öffnen und visualisieren in ArcMap
 
-Nun wollen wir die ersten Geodaten in ArcMap öffnen und visualisieren.
+Nun wollen wir die ersten **Geodaten** in ArcMap **öffnen und visualisieren**.
 
 In ArcMap werden Daten über `Add Data` geöffnet.
 
@@ -36,7 +36,7 @@ Die Daten erscheinen in ArcMap sowohl im **Kartenfenster** (rechts) als auch im 
 Der Datensatz, der im `Table of Contents` oben gelistet ist, liegt auch im Kartenfenster oben, d.h. er kann evtl. darunterliegende Datensätze verdecken.
 Ihr könnt die **Reihenfolge** der Datendarstellung im Kartenfenster verändern, indem ihr einen Datensatz im `Table of Contents` anklicken und an eine andere Position (nach unten/oben) verschiebt.
 
-Erkundet die Daten in Berlin mit den vorhandenen Werkzeugen in der Toolbar (**Zoom in, Zoom out, Pan/Verschieben, Full extent/volle räumliche
+Erkundet die Daten mit den vorhandenen Werkzeugen in der Toolbar (**Zoom in, Zoom out, Pan/Verschieben, Full extent/volle räumliche
 Ausdehnung, Fixed zoom in, Fixed zoom out**).
 
 ### Attributtabelle öffnen
@@ -52,12 +52,12 @@ Diese `Attributtabelle`kann in ArcMap über das `KONTEXTMENÜ (Rechtsklick auf d
 
 Um herauszufinden, welche Zeile der `Attributtabelle` für welches Geoobjekt (z.B. Ortsteil) im Kartenfenster steht,
 kann man die entsprechende Zeile selektieren. Klickt dafür hier in der `Attributtabelle` auf den Anfang der ersten Zeile.
-Der entsprechende Ortsteil ist nun sowohl in der `Attributtabelle` als auch im Kartenfenster selektiert.
+Das entsprechende Element ist nun sowohl in der `Attributtabelle` als auch im Kartenfenster selektiert.
 
 ### Anpassen der Datendarstellung
 
-Die graphische Darstellung der Daten, also deren Farb- und Formgestaltung, erfolgt nach dem Öffnen in ArcMap zufällig.
-Ziel ist es, die Daten so darzustellen, dass alle wichtigen Daten sichtbar, inhaltlich passend und gut voneinander unterscheidbar visualisiert werden.
+Die graphische Darstellung der Daten, also deren **Farb- und Formgestaltung**, erfolgt nach dem Öffnen in ArcMap zufällig.
+Ziel ist es, die Daten so darzustellen, dass alle wichtigen Daten **sichtbar**, **inhaltlich passend** und **gut voneinander unterscheidbar** visualisiert werden.
 
 Die einfache Visualisierung erfolgt über einen Doppelklick auf das jeweilige Symbol (Punkt bzw. Linie) unterhalb des Layernamens im `Table of Contents`.
 Es öffnet sich ein neues Fenster: `Symbol Selector`. In diesem kann die geometrische Form, deren Größe und Farbgestaltung für einen Layer ausgewählt werden.
@@ -74,19 +74,19 @@ Ihr könnt entweder eine Farbzuweisung über die `COLOR RAMP` auswählen oder mi
 
 Die Funktion, einen Layer transparent darzustellen, findet ihr im Fenster `LAYER PROPERTIES > DISPLAY > TRANSPARENT`.
 
-Bestätigt anschließend mit OK.
+Bestätigt anschließend mit `OK`.
 
 ### Speichern des ArcMap-Projekts
 
-Es ist es immer wichtig, eure Ergebnisse zu speichern. Sämtliche Veränderungen in der Darstellung der Daten im Kartenfenster, die wir vorgenommen haben, sollten in einem ArcMap-Projekt gespeichert werden.
+Es ist es immer wichtig, eure Ergebnisse zu **speichern**. Sämtliche Veränderungen in der Darstellung der Daten im Kartenfenster, die wir vorgenommen haben, sollten in einem ArcMap-Projekt gespeichert werden.
 
-Speichert euer ArcMap-Projekt in der Menüleiste unter `FILE > SAVE AS` in eurem Ordner mit dem Namen Mintoring.mxd
+Speichert euer ArcMap-Projekt in der Menüleiste unter `FILE > SAVE AS` in eurem Ordner mit dem Namen `Mintoring.mxd`
 
 ## Erstellen einer Karte
 
 ### Kartenlayout erstellen
 
-Wir wollen nun eine **Karte** erstellen. Dafür werden wir in einem ersten Schritt das Kartenlayout an unsere Wünsche anpassen.
+Wir wollen nun eine **Karte** erstellen. Dafür werden wir in einem ersten Schritt das **Kartenlayout** an unsere Wünsche anpassen.
 
 Für die Erstellung eines Kartenlayouts müsst ihr in ArcMap den sogenannten `Layout View` aktivieren. Bisher haben wir immer in der `Data View` gearbeitet und in dieser Darstellungsveränderungen für die Daten vorgenommen. Für die Anpassungen im Kartenlayout muss die `Layout View` aktiviert sein.
 
@@ -99,11 +99,11 @@ Wir wollen nun das Papierformat der Karte in ein **A3-Querformat** ändern.
 Ändert das voreingestellte Papierformat in der ArcMap-Menüleiste unter dem Reiter `File > Page and Print Setup`. Wählen Sie `Paper > Size` und wählen Sie ein A3-Format aus.
 
 Wählt unter `Paper > Orientation > Landscape` Querformat. Dadurch wechselt ihr das
-Seitenformat von Hoch- zu Querformat.
+Seitenformat von **Hoch- zu Querformat**.
 
 Ändert bei `Name` den Namen zu `Microsoft to PDF` und bestätigt mit `OK`.
 
-Im nächsten Schritt wollen wir den Kartenrahmen unserer Karte an das gewählte Papierformat anpassen.
+Im nächsten Schritt wollen wir den **Kartenrahmen** unserer Karte an das gewählte Papierformat anpassen.
 
 Öffnet in der ArcMap-Menüleiste unter `Customize > Toolbars > Layout` die Editierungswerkzeuge eurer Karte (falls die Layout-Toolbar nicht schon geöffnet sein sollte). Mit dieser Layout-Toolbar könnt ihr Elemente innerhalb Ihres Kartenlayouts verschieben und den Zoom für die Ansicht der Karte verändern.
 
@@ -117,7 +117,7 @@ Werkzeugleiste Tools (`Tools-Werkzeugleiste > Select Elements`) und klickt danac
 
 Der Kartenrahmen ist nun aktiviert (zu erkennen an der hellblau-schwarzen Strichelung und den Kästchen an den Eckpunkten) und kann verändert werden.
 
-Ihr könnt die **Position** des Kartenrahmens ändern, indem ihr in mit gedrückter linker Maustaste verschieben. Die Größe des Kartenrahmens könnt ihr durch die Eckpunkte verstellen.
+Ihr könnt die **Position des Kartenrahmens** ändern, indem ihr in mit gedrückter linker Maustaste verschieben. Die Größe des Kartenrahmens könnt ihr durch die Eckpunkte verstellen.
 
 ### Einfügen der erforderlichen Kartenelemente bzw. Kartenrandangaben
 
