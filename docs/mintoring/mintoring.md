@@ -10,14 +10,14 @@ Solltet ihr während des Arbeitens mit ArcMap auf Probleme oder Fehler stoßen, 
 
 Legt einen **Ordner** auf Ihrem Computer an, in dem ihr alle Daten für unseren Kurs speichert (z.B. `...\Mintoring`).
 
-Bitte ladet die Daten, mit denen wir heute arbeiten, von der FU-Box herunter . Klickt auf ein Thema um den Link dahin zu öffnen. Klickt dann auf den Button "Download", um den Datensatz auf euren Computer herunterzuladen.
+Bitte ladet die Daten, mit denen wir heute arbeiten, von der FU-Box herunter . Klickt auf ein Thema um den Link dahin zu öffnen. Klickt dann auf den Button "Download all files", um den Datensatz auf euren Computer herunterzuladen.
 
 Die möglichen Themen sind:
 
-- Para
-- Mato Grosso
-- Rondonia
-- Acre
+- [Para](https://box.fu-berlin.de/s/KN4a6YbTpaxwX7z)
+- [Mato Grosso](https://box.fu-berlin.de/s/4o26HCc4AL7xfBW)
+- [Rondonia](https://box.fu-berlin.de/s/AbMem5DG3rzwW5d)
+- [Acre](https://box.fu-berlin.de/s/Ptsk7tzmdTnRSss)
 
 ### ArcMAP
 
@@ -43,7 +43,7 @@ Nun wollen wir die ersten **Geodaten** in ArcMap **öffnen und visualisieren**.
 
 In ArcMap werden Daten über `Add Data` geöffnet.
 
-Öffnet die Dateien mit den Endungen `.shp`
+Öffnet die Dateien mit den Endungen `.shp` und `.tif`
 
 Die Daten erscheinen in ArcMap sowohl im **Kartenfenster** (rechts) als auch im **Table of Contents** (links) hierarchisch gelistet.
 Der Datensatz, der im `Table of Contents` oben gelistet ist, liegt auch im Kartenfenster oben, d.h. er kann evtl. darunterliegende Datensätze verdecken.
