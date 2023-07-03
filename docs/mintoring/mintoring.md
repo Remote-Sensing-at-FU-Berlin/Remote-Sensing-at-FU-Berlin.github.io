@@ -28,6 +28,8 @@ Da wir ein neues Projekt anlegen, wählt bitte `CANCEL`.
 
 Ihr seht nun die **ArcMap-Benutzeroberfläche**.
 
+![](1.png)
+
 ### Definieren des Arbeitsverzeichnisses
 
 Wir müssen das **Arbeitsverzeichniss** definieren.
@@ -36,6 +38,8 @@ Geht dafür in der ArcMap- Menüleiste auf `GEOPROCESSING > ENVIRONMENTS > WORKS
 WORKSPACE` euer Arbeitsverzeichnis an, in dem ihr eure Daten speichert (z.B. `...\Mintoring`).
 
 Klickt dafür auf das Ordnersymbol und navigiert zu eurem Ordner. Dazu müsst ihr zunächst mit `Connect to Folder` eine Verbindung mit dem Laufwerk, auf dem sich **euer Ordner** befindet, erstellen.
+
+![](2.png)
 
 ### Daten öffnen und visualisieren in ArcMap
 
@@ -52,6 +56,8 @@ Ihr könnt die **Reihenfolge** der Datendarstellung im Kartenfenster verändern,
 Erkundet die Daten mit den vorhandenen Werkzeugen in der Toolbar (**Zoom in, Zoom out, Pan/Verschieben, Full extent/volle räumliche
 Ausdehnung, Fixed zoom in, Fixed zoom out**).
 
+![](3.png)
+
 ### Attributtabelle öffnen
 
 **Vektordaten** sind dadurch charakterisiert, dass sie neben der geometrischen Information (wo genau liegen die Punkte/Flächen im Raum)
@@ -66,6 +72,8 @@ Diese `Attributtabelle`kann in ArcMap über das `KONTEXTMENÜ (Rechtsklick auf d
 Um herauszufinden, welche Zeile der `Attributtabelle` für welches Geoobjekt (z.B. Ortsteil) im Kartenfenster steht,
 kann man die entsprechende Zeile selektieren. Klickt dafür hier in der `Attributtabelle` auf den Anfang der ersten Zeile.
 Das entsprechende Element ist nun sowohl in der `Attributtabelle` als auch im Kartenfenster selektiert.
+
+![](4.png)
 
 ### Anpassen der Datendarstellung
 
@@ -88,6 +96,8 @@ Ihr könnt entweder eine Farbzuweisung über die `COLOR RAMP` auswählen oder mi
 Die Funktion, einen Layer transparent darzustellen, findet ihr im Fenster `LAYER PROPERTIES > DISPLAY > TRANSPARENT`.
 
 Bestätigt anschließend mit `OK`.
+
+![](5.png)
 
 ### Speichern des ArcMap-Projekts
 
@@ -116,6 +126,8 @@ Seitenformat von **Hoch- zu Querformat**.
 
 Ändert bei `Name` den Namen zu `Microsoft to PDF` und bestätigt mit `OK`.
 
+![](6.png)
+
 Im nächsten Schritt wollen wir den **Kartenrahmen** unserer Karte an das gewählte Papierformat anpassen.
 
 Öffnet in der ArcMap-Menüleiste unter `Customize > Toolbars > Layout` die Editierungswerkzeuge eurer Karte (falls die Layout-Toolbar nicht schon geöffnet sein sollte). Mit dieser Layout-Toolbar könnt ihr Elemente innerhalb Ihres Kartenlayouts verschieben und den Zoom für die Ansicht der Karte verändern.
@@ -127,6 +139,8 @@ im Layout wird durch ein schwarzes Rechteck angezeigt. Um den Kartenrahmen im `L
 
 Hinweis: Falls ihr bereits Werkzeuge aus der `Layout-Toolbar` ausprobiert haben solltet, könnt ihr den Kartenrahmen nicht direkt aktivieren. Bitte klickt dafür zuerst auf den schwarzen Pfeil in der ArcMap-
 Werkzeugleiste Tools (`Tools-Werkzeugleiste > Select Elements`) und klickt danach auf die Darstellung des Datensatzes.
+
+![](7.png)
 
 Der Kartenrahmen ist nun aktiviert (zu erkennen an der hellblau-schwarzen Strichelung und den Kästchen an den Eckpunkten) und kann verändert werden.
 
@@ -158,6 +172,8 @@ Platziert die Legende an eine geeignete Stelle im Kartenrand.
 Das Legendenmenü kann jederzeit mit Doppelklick auf die Legende wieder geöffnet werden. Die Einstellungsmöglichkeiten sind so vielfältig, dass wir das hier nicht alles detailliert beschreiben können.
 
 Wichtig: Die Legendeneinträge werden automatisch angepasst, wenn zum Beispiel Attributfarben und -einträge im `Symbology`-Menü (in der Data View!) verändert werden. Es können ebenso neue Geodaten in die Legende übernommen oder herausgelöscht werden.
+
+![](8.png)
 
 #### Nordpfeil
 
@@ -209,7 +225,7 @@ Der Text sollte folgendes Enthalten:
 
 - Authorinen
 - Datum
-- Quelle:
+- Quelle
 
 ### Exportieren der Karte als Bildformat
 
