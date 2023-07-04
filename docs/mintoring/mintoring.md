@@ -231,7 +231,7 @@ Der Text sollte folgendes Enthalten:
 
 Wenn ihr mit eurer Darstellung der Karte zufrieden seid, wählt in der ArcMap- Menüleiste unter `File > Export Map`.
 
-Gebt den gewünschten **Speicherort** an und gebt der zu **exportierenden Karte** unter `Dateiname` die Bezeichnung `Bezirke_Berlins`.
+Gebt den gewünschten **Speicherort** an und gebt der zu **exportierenden Karte** unter `Dateiname` einen Namen.
 
 Unter der Option `Dateityp` können ihr euch ein **Bildformat** aussuchen, in dem die Karte gespeichert wird. Wählt `JPG` oder `PDF`.
 
