@@ -1,0 +1,1355 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../08-map-making/">
+      
+      
+        <link rel="next" href="../../basic-landsat/basic-landsat/">
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>Spatial interpolation - REMOTE SENSING AND GEOINFORMATICS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-green">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#spatial-interpolation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="REMOTE SENSING AND GEOINFORMATICS" class="md-header__button md-logo" aria-label="REMOTE SENSING AND GEOINFORMATICS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            REMOTE SENSING AND GEOINFORMATICS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Spatial interpolation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Remote-Sensing-at-FU-Berlin.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Welcome
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-GUI/" class="md-tabs__link md-tabs__link--active">
+        Prof. Dr. Fassnacht
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gis/installation/" class="md-tabs__link">
+        GIS
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../schuelerpraktikum/handout/" class="md-tabs__link">
+        Other
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="REMOTE SENSING AND GEOINFORMATICS" class="md-nav__button md-logo" aria-label="REMOTE SENSING AND GEOINFORMATICS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    REMOTE SENSING AND GEOINFORMATICS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Remote-Sensing-at-FU-Berlin.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prof. Dr. Fassnacht
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prof. Dr. Fassnacht
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          QGIS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          QGIS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-GUI/" class="md-nav__link">
+        Getting to know the graphical user interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-vector-data/" class="md-nav__link">
+        Loading and visualizing Shapefiles / Vector data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-raster-data/" class="md-nav__link">
+        Loading and visualizing raster data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-general-tools/" class="md-nav__link">
+        Useful general tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-digitizing/" class="md-nav__link">
+        Basic vector processing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-selections/" class="md-nav__link">
+        Spatial and semantic selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-elevation/" class="md-nav__link">
+        Working with elevation raster datasets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-map-making/" class="md-nav__link">
+        Making a map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Spatial interpolation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Spatial interpolation
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loading-datasets-and-reprojecting" class="md-nav__link">
+    Loading Datasets and Reprojecting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idw-interpolation" class="md-nav__link">
+    IDW Interpolation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tin-interpolation" class="md-nav__link">
+    TIN Interpolation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    Exercise
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic-landsat/basic-landsat/" class="md-nav__link">
+        Basic Landsat Processing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../random-forest-regression/random-forest-regression/" class="md-nav__link">
+        Random Forest Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Laserscanning_lidR/1_Laserscanning_lidR/" class="md-nav__link">
+        Getting started with processing laserscanning data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiative-transfer-model/radiative-transfer-model/" class="md-nav__link">
+        Radiative Transfer Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../treespeciesclassification/treespeciesclassification/" class="md-nav__link">
+        Classification of tree species using hyperspectral data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BFAST/BFAST/" class="md-nav__link">
+        Analysing time series with BFAST and NPPHEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../landscape_metrics/landscape_metrics/" class="md-nav__link">
+        Calculation of Landscape Metrics from a Land-cover raster map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spatial_autocorrelation/spatial_autocorrelation/" class="md-nav__link">
+        Calculating semivariograms and Autocorrelograms
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          GEE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          GEE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MSRS_1_GEE_basics/MSRS_1_GEE_basics/" class="md-nav__link">
+        Preparing time series data stacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MSRS_1_GEE_basics2/MSRS_1_GEE_basics2/" class="md-nav__link">
+        Preparing annual time series data stacks and conducting time series analysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          SNAP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          SNAP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planetary-sciences/01-download-ls-and-s2/" class="md-nav__link">
+        Download of Landsat and Sentinel satellite images
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          GIS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GIS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/visualization-and-map/" class="md-nav__link">
+        Visualization and Map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/digitalization/" class="md-nav__link">
+        Digitalization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/attributes-filters-and-metadata/" class="md-nav__link">
+        Attributes, Filters and Metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/geoprocesing-and-reference-and-coordinate-systems/" class="md-nav__link">
+        Geoprocesing and reference and coordinate systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/interpolation/" class="md-nav__link">
+        Interpolation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/dem/" class="md-nav__link">
+        Digital Elevation Models
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Other
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Other
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schuelerpraktikum/handout/" class="md-nav__link">
+        School internship
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mintoring/mintoring/" class="md-nav__link">
+        Mintoring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/tree/main/docs/qgis/09-spatial-interpolation.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="spatial-interpolation">Spatial interpolation<a class="headerlink" href="#spatial-interpolation" title="Link zu dieser Sektion">&para;</a></h1>
+<p><strong>Abstract</strong></p>
+<p>After completing this tutorial you will know how to to derive a continuous surface of estimates from discrete points with measured values. This process is called interpolation. </p>
+<h2 id="loading-datasets-and-reprojecting">Loading Datasets and Reprojecting<a class="headerlink" href="#loading-datasets-and-reprojecting" title="Link zu dieser Sektion">&para;</a></h2>
+<p>In this tutorial we will learn how to interpolate punctual precipitation and elevation measurements. We will make use of a precipitation dataset provided by the "Centro Funzionale Multirischi della Protezione Civile Regione Campania§. This dataset contains measurements of annual precipitation from the year 2021 in mm/year. We will also use global elevation data provided by United States Geological Survey (USGS) and a dataset representing the NUTS (Nomenclature of territorial units for statistics) and Statistical regions provided by Eurostat.</p>
+<p>You can access the precipitation dataset and a shapefile of the outline of the land-masses of the study area here:</p>
+<p>https://drive.google.com/file/d/1xEZ7rflbptivMOpsOzOYHFQcQ4sePr_P/view?usp=share_link</p>
+<p>If we load the dataset in a common text-editor, the file should look as shown in Figure 1:</p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-0.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 1: The precipitation csv file." src="../assets/09-spatial-interpolation-0.png" /></a>
+  </p>
+<figcaption>Figure 1: The precipitation csv file.</figcaption>
+</figure>
+<p>We can see that the file contains 6 columns including the X and Y coordinates of the measurement stations, an ID, the annual precipitation value recorded at this station, the name of the station and it elevation.</p>
+<p>We will now load this data into QGIS, along with the Sentinel-2 satellite image.</p>
+<p>To do this,</p>
+<p><strong>we again first load the raster dataset “S2_Neapel_sm2.tif” and adapt the visualization settings to have a balanced view of all classes by using the channels R=3, G=2, B=1 and loading new max / min values using the “Symbology”- tab in the properties window. Then we additionally load the points stored in the file “data_interpolation.csv"</strong></p>
+<p>To load a text file as spatial layer in QGIS, we select “Layer” -&gt; “Add Layer” -&gt; “Add Delimited Text Layer...” from the main menu in QGIS as shown in Figure 1. This will open a new dialogue as shown in Figure 2.</p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 2: Loading a csv file." src="../assets/09-spatial-interpolation-1.png" /></a>
+  </p>
+<figcaption>Figure 2: Loading a csv file.</figcaption>
+</figure>
+<p>We now first select the “data_interpolation.csv” as input file in the field marked with “1”. Next we choose the file format "CSV" in the area marked with "2". This will tell QGIS how the individual columns in the csv-file are separated. Afterwards we set the Geometry Definition. The csv file contains point coordinates and we hence select the corresponding option (marked with "3"). To tell QGIS where the points are located, we have to define a x-field containing the x-coordinates (Longitude) and the y-field containing the y-coordinates (Latitude). Finally we set the coordinate reference system to EPSG:4326 - WGS 84 (see area marked with "5") and click Add. We select the EPSG:4326 system since the points in the csv file are stored as geographic coordinates.</p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 3: Adding a delimited Text." src="../assets/09-spatial-interpolation-2.png" /></a>
+  </p>
+<figcaption>Figure 3: Adding a delimited Text.</figcaption>
+</figure>
+<p>This should lead to a situation as depicted in Figure 4.</p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 4: After loading the two datasets." src="../assets/09-spatial-interpolation-3.png" /></a>
+  </p>
+<figcaption>Figure 4: After loading the two datasets.</figcaption>
+</figure>
+<p>We now have two datasets with different projections which we need to change in the next step to prepare the data for interpolation.</p>
+<p><strong>To reproject the point data stored in the geographic coordinate system, we select “Vector” -&gt; “Data Management Tools” -&gt; “Reproject Layer...” from the main menu in QGIS as shown in Figure 5. This will open a new dialogue as shown in Figure 5.</strong></p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 5: Reprojecting a vector layer." src="../assets/09-spatial-interpolation-4.png" /></a>
+  </p>
+<figcaption>Figure 5: Reprojecting a vector layer.</figcaption>
+</figure>
+<p>Here we can reproject the precipitation data by</p>
+<p><strong>first selecting the “data_interpolation” layer as input file in the field marked with “1”. After selecting the layer,  we set an output file in the field marked with “3” in Figure 6 and we need to specify a target CRS in the field marked “2”. In this case, we will select the CRS with the EPSG code 32633 which is the same CRS as currently defined for the satellite image. After defining the correct Target CRS we press “OK” and QGIS will re-project the point-vector layer and add it as a new layer. If you now check the CRS of the new layer by performing a right–click, selecting “Properties” and the “General” tab, you will see that the CRS is now also set to 32633.</strong></p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 6: Reproject layer." src="../assets/09-spatial-interpolation-5.png" /></a>
+  </p>
+<figcaption>Figure 6: Reproject layer.</figcaption>
+</figure>
+<h2 id="idw-interpolation">IDW Interpolation<a class="headerlink" href="#idw-interpolation" title="Link zu dieser Sektion">&para;</a></h2>
+<p>Wer are now ready to interpolate the precipitation values provided in the csv-file. We will use the extent of the satellite image as area for the interpolation. Interpolation results can vary significantly based on the method and parameters you choose. QGIS in its standard installation provides two interpolation methods: Triangulated Irregular Network (TIN) and Inverse Distance Weighting (IDW). For the first part of the tutorial we are using the IDW method.</p>
+<p>First from the Processing Toolbox search and locate the "Interpolation" -&gt; "IDW interpolation" tool as shown in Figure 7. (Remember in the main menu click "Processing" -&gt; "Toolbox" in case the toolbox is now shown). Double-click to launch it. </p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 7: Processing Toolbox." src="../assets/09-spatial-interpolation-6.png" /></a>
+  </p>
+<figcaption>Figure 7: Processing Toolbox.</figcaption>
+</figure>
+<p>In the new dialogue window we</p>
+<p><strong>first select the “data_interpolation_reproject” layer as input file in the field marked with “1” in Figure 8. After selecting the interpolation layer,  we select the interpolation attribute "Precipitat" marked with "2" and click on the plus symbol to add it to the attribute window below. Next we set the "Distance coefficent P" marked with "3".</strong> </p>
+<p>P is a important coefficcent in this method, because weights are proportional to the inverse of the distance (between the data point and the prediction location) raised to the power value P. So as mentioned above the result is dependent on this parameter.  As a result, as the distance increases, the weights decrease rapidly. The rate at which the weights decrease is dependent on the value of P. If P = 0, there is no decrease with distance, and because each weight is the same, the prediction will be the mean of all the data values in the search neighborhood. As P increases, the weights for distant points decrease rapidly. If the P value is very high, only the immediate surrounding points will influence the prediction.</p>
+<p><strong>After setting P (you may try some different values for that) we set the extent (marked with "4" in Figure 8). For this we calculate the extent from our satellite image. Next you can set the Pixel size marked with "5". Note that the pixel size will affect the calculation time. Before you run the algorithm you can name an output file in the field marked with "6".</strong></p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 8: IDW Interpolation dialogue." src="../assets/09-spatial-interpolation-7.png" /></a>
+  </p>
+<figcaption>Figure 8: IDW Interpolation dialogue.</figcaption>
+</figure>
+<p>The IDW interpolation tool will then output a black and white interpolated raster surface onto the map area as shown in Figure 9. Based on your P value and your pixel size it may look different.</p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 9: IDW interpolation result." src="../assets/09-spatial-interpolation-8.png" /></a>
+  </p>
+<figcaption>Figure 9: IDW interpolation result.</figcaption>
+</figure>
+<p>The next step is to clip the interpolation result to the land mass since we did not have any precipitation observation for the sea and we could assume that precipitation patterns differ over the sea. </p>
+<p>To clip the interpolation layer </p>
+<p><strong>we load the "Campania_boundaries.shp" as learned in earlier tutorials.</strong> </p>
+<p>This should lead to a situation as depicted in Figure 10.</p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 10: After loading the campania boundaries." src="../assets/09-spatial-interpolation-9.png" /></a>
+  </p>
+<figcaption>Figure 10: After loading the campania boundaries.</figcaption>
+</figure>
+<p>Next
+<strong>we select “Raster” -&gt; “Extraction” -&gt; “Clip Raster by Mask Layer...” from the main menu in QGIS as shown in Figure 11.</strong></p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 11: Opening the clipping tool." src="../assets/09-spatial-interpolation-10.png" /></a>
+  </p>
+<figcaption>Figure 11: Opening the clipping tool.</figcaption>
+</figure>
+<p>In the new dialogue window we</p>
+<p><strong>first select the “precipitation_idw_p5” layer as input file in the field marked with “1” in Figure 11. After selecting the input layer,  we select the Mask layer "Campania_boundaries" marked with "2" in Figure 12. As you can see in Figure 12 we are lucky that both layer have the same CRS, else we would have to reproject the layers before. Next we save the file in the field marked with "3" as a geoTIFF file.  Now click "Run"</strong></p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 12: Clip Raster by Mask Layer." src="../assets/09-spatial-interpolation-11.png" /></a>
+  </p>
+<figcaption>Figure 12: Clip Raster by Mask Layer.</figcaption>
+</figure>
+<p>The new clipped layer will be added to the canvas and only shows the land mass as depicted in Figure 13.</p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 13: Clipped Raster." src="../assets/09-spatial-interpolation-11.png" /></a>
+  </p>
+<figcaption>Figure 13: Clipped Raster.</figcaption>
+</figure>
+<p><strong>To make the visual appearance more pleasing, we can customize the symbology. To do it, right click the clipped raster result and select Properties (Or simply you can double click the layer name). The Layer Properties window will appear as shown in Figure 14. Select the Symbology tab marked with "1". In the Band Rendering option change the Render type to Singleband pseudocolor. (marked with "2") Then you can set your color ramp marked with "3". The color should fit to the object which is shown in a map. To classify you can set a classification mode (marked with"4") and the number of classes (marked with "5"), just explore if you want.</strong></p>
+<p>After modifying the colour ramp values to reflect the range of values in a suitable way click ‘apply’ and ‘ok’ and you will now have coloured map of the IDW interpolation surface for precipitation in mm/year as shown in Figure 14.</p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-13.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 14: Symbology." src="../assets/09-spatial-interpolation-13.png" /></a>
+  </p>
+<figcaption>Figure 14: Symbology.</figcaption>
+</figure>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-14.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 15: Result of the IDW interpolation." src="../assets/09-spatial-interpolation-14.png" /></a>
+  </p>
+<figcaption>Figure 15: Result of the IDW interpolation.</figcaption>
+</figure>
+<h2 id="tin-interpolation">TIN Interpolation<a class="headerlink" href="#tin-interpolation" title="Link zu dieser Sektion">&para;</a></h2>
+<p>Next, we will also try the second interpolation method which is available in the base-installation of QGIS, that is the Triangulated Irregular Network (TIN) method. This time we will not interpolate the precipitation data but the elevation point data which is also stored in the csv-file.</p>
+<p>First from the Processing Toolbox search and locate the "Interpolation" -&gt; "TIN interpolation" tool as shown in Figure 16.</p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-15.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 16: Processing Toolbox." src="../assets/09-spatial-interpolation-15.png" /></a>
+  </p>
+<figcaption>Figure 16: Processing Toolbox.</figcaption>
+</figure>
+<p>In the new dialogue window we</p>
+<p><strong>first select the “data_interpolation_reproject” layer as input file in the field marked with “1” in Figure 17. After selecting the interpolation layer,  we select the interpolation attribute "Elevation" (area marked with "2" in Figure 16) and click on the plus symbol to add it to the attribute window below. As a interpolation method we keep "linear". We set the extent by clicking the button marked with "3" to the extent from our satellite image. Next you can set the Pixel size marked with "4". Last we save the output as a .tif file by defining the filename in the field marked with "5" and run the algorithm.</strong></p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-16.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 17: TIN Interpolation dialogue." src="../assets/09-spatial-interpolation-16.png" /></a>
+  </p>
+<figcaption>Figure 17: TIN Interpolation dialogue.</figcaption>
+</figure>
+<p>The TIN interpolation tool will then output a black and white interpolated raster surface onto the map area as shown in Figure 18.</p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-17.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 18: TIN interpolation result." src="../assets/09-spatial-interpolation-17.png" /></a>
+  </p>
+<figcaption>Figure 18: TIN interpolation result.</figcaption>
+</figure>
+<p>In the next step we clip the land mass like we did before with the IDW interpolation. You should already know how to accomplish this by now. The new clipped layer will be added to the map area and only shows the land mass and the interpolated triangles as depicted in Figure 19.</p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-18.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 19: Clipped Raster." src="../assets/09-spatial-interpolation-18.png" /></a>
+  </p>
+<figcaption>Figure 19: Clipped Raster.</figcaption>
+</figure>
+<p>Now we can customize the symbology as we did for the output layer of the IDW interpolation. Feel free to modify the symbology as you like. One option is shown in Figure 20.</p>
+<figure>
+<p><a class="glightbox" href="../assets/09-spatial-interpolation-19.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 20: Result of the TIN interpolation." src="../assets/09-spatial-interpolation-19.png" /></a>
+  </p>
+<figcaption>Figure 20: Result of the TIN interpolation.</figcaption>
+</figure>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Link zu dieser Sektion">&para;</a></h2>
+<p>Run each interpolation method for the input layers for which you did not yet run it and play around a bit more with the settings. Have a look at the outputs and discuss which method with which settings you believe provides "most realistic looking" results. Prepare a simple map (using the skills you acquired in the last tutorial) containing the view of what you would consider best interpolation result you obtained during your trial runs.</p>
+<p>If you want to compare your results to a more sophisticated climate interpolation dataset, you can search for the so called "WorldClim" dataset and download the corresponding file for "annual precipitation", load it to QGIS and compare it with your own result.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../08-map-making/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Making a map" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Making a map
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../basic-landsat/basic-landsat/" class="md-footer__link md-footer__link--next" aria-label="Next: Basic Landsat Processing" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Basic Landsat Processing
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; CC-BY-SA-4.0 license - Freie Universität Berlin Institute of Geographical Sciences Remote Sensing and Geoinformatics
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "search.suggest", "search.highlight", "content.action.edit", "content.code.copy", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="../../javascripts/mathjax.js"></script>
+        
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

@@ -1,0 +1,1388 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../landscape_metrics/landscape_metrics/">
+      
+      
+        <link rel="next" href="../../MSRS_1_GEE_basics/MSRS_1_GEE_basics/">
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>Calculating semivariograms and Autocorrelograms - REMOTE SENSING AND GEOINFORMATICS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-green">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#calculating-semivariograms-and-autocorrelograms" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="REMOTE SENSING AND GEOINFORMATICS" class="md-header__button md-logo" aria-label="REMOTE SENSING AND GEOINFORMATICS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            REMOTE SENSING AND GEOINFORMATICS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Calculating semivariograms and Autocorrelograms
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Remote-Sensing-at-FU-Berlin.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Welcome
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../qgis/01-GUI/" class="md-tabs__link md-tabs__link--active">
+        Prof. Dr. Fassnacht
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gis/installation/" class="md-tabs__link">
+        GIS
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../schuelerpraktikum/handout/" class="md-tabs__link">
+        Other
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="REMOTE SENSING AND GEOINFORMATICS" class="md-nav__button md-logo" aria-label="REMOTE SENSING AND GEOINFORMATICS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    REMOTE SENSING AND GEOINFORMATICS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Remote-Sensing-at-FU-Berlin.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prof. Dr. Fassnacht
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prof. Dr. Fassnacht
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          QGIS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          QGIS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/01-GUI/" class="md-nav__link">
+        Getting to know the graphical user interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/02-vector-data/" class="md-nav__link">
+        Loading and visualizing Shapefiles / Vector data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/03-raster-data/" class="md-nav__link">
+        Loading and visualizing raster data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/04-general-tools/" class="md-nav__link">
+        Useful general tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/05-digitizing/" class="md-nav__link">
+        Basic vector processing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/06-selections/" class="md-nav__link">
+        Spatial and semantic selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/07-elevation/" class="md-nav__link">
+        Working with elevation raster datasets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/08-map-making/" class="md-nav__link">
+        Making a map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/09-spatial-interpolation/" class="md-nav__link">
+        Spatial interpolation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic-landsat/basic-landsat/" class="md-nav__link">
+        Basic Landsat Processing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../random-forest-regression/random-forest-regression/" class="md-nav__link">
+        Random Forest Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Laserscanning_lidR/1_Laserscanning_lidR/" class="md-nav__link">
+        Getting started with processing laserscanning data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiative-transfer-model/radiative-transfer-model/" class="md-nav__link">
+        Radiative Transfer Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../treespeciesclassification/treespeciesclassification/" class="md-nav__link">
+        Classification of tree species using hyperspectral data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BFAST/BFAST/" class="md-nav__link">
+        Analysing time series with BFAST and NPPHEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../landscape_metrics/landscape_metrics/" class="md-nav__link">
+        Calculation of Landscape Metrics from a Land-cover raster map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Calculating semivariograms and Autocorrelograms
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Calculating semivariograms and Autocorrelograms
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datasets-used-in-this-tutorial" class="md-nav__link">
+    Datasets used in this Tutorial
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-getting-familiar-with-the-dataset" class="md-nav__link">
+    Step 1: Getting familiar with the dataset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-calculating-the-semivariogram" class="md-nav__link">
+    Step 2: Calculating the Semivariogram
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-calculating-the-autocorrelogram" class="md-nav__link">
+    Step 3: Calculating the Autocorrelogram
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-calculating-a-semivariogram-for-a-raster-file" class="md-nav__link">
+    Step 4: Calculating a Semivariogram for a Raster-file
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          GEE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          GEE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MSRS_1_GEE_basics/MSRS_1_GEE_basics/" class="md-nav__link">
+        Preparing time series data stacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MSRS_1_GEE_basics2/MSRS_1_GEE_basics2/" class="md-nav__link">
+        Preparing annual time series data stacks and conducting time series analysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          SNAP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          SNAP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planetary-sciences/01-download-ls-and-s2/" class="md-nav__link">
+        Download of Landsat and Sentinel satellite images
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          GIS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GIS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/visualization-and-map/" class="md-nav__link">
+        Visualization and Map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/digitalization/" class="md-nav__link">
+        Digitalization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/attributes-filters-and-metadata/" class="md-nav__link">
+        Attributes, Filters and Metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/geoprocesing-and-reference-and-coordinate-systems/" class="md-nav__link">
+        Geoprocesing and reference and coordinate systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/interpolation/" class="md-nav__link">
+        Interpolation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/dem/" class="md-nav__link">
+        Digital Elevation Models
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Other
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Other
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schuelerpraktikum/handout/" class="md-nav__link">
+        School internship
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mintoring/mintoring/" class="md-nav__link">
+        Mintoring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/tree/main/docs/spatial_autocorrelation/spatial_autocorrelation.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="calculating-semivariograms-and-autocorrelograms">Calculating semivariograms and Autocorrelograms<a class="headerlink" href="#calculating-semivariograms-and-autocorrelograms" title="Link zu dieser Sektion">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Link zu dieser Sektion">&para;</a></h2>
+<p>In this lecture you will learn how to calculate a semivariogram and an autocorrelogram for a transect and you will get to know a function in R to derive a variogram from a raster image. The code-examples are mostly based on a Tutorial taken from the book "Learning Landscape Ecology" that is also available in ILIAS.</p>
+<h2 id="datasets-used-in-this-tutorial">Datasets used in this Tutorial<a class="headerlink" href="#datasets-used-in-this-tutorial" title="Link zu dieser Sektion">&para;</a></h2>
+<p>In this tutorial we will use one of the landscape metric-layers that we calculated in one of the earlier Tutorials as well as a Shapefile which contains the transect for which we will calculate the semivariogram and the autocorrelogram.</p>
+<p>The data are available here:</p>
+<p><a href="https://drive.google.com/open?id=1ni4CKdlRaFO6JoJWuI_9qDb6R2GBE2S4">https://drive.google.com/open?id=1ni4CKdlRaFO6JoJWuI_9qDb6R2GBE2S4</a></p>
+<h2 id="step-1-getting-familiar-with-the-dataset">Step 1: Getting familiar with the dataset<a class="headerlink" href="#step-1-getting-familiar-with-the-dataset" title="Link zu dieser Sektion">&para;</a></h2>
+<p>We will now first have a look at the data that we are working with. So please download the dataset given at the link above, unzip the files, and then open the QGIS project by double-clicking the file</p>
+<p><strong>overview.qgz</strong></p>
+<p>Now QGIS should open and show the following:</p>
+<p><a class="glightbox" href="../assets/gis_1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gis_1.png" /></a></p>
+<p>As you can see we only have to datasets displayed: The landscape metric showing the proportional forest cover from 0 to 1 (100%) and a transect that intersects the raster in East-West direction.</p>
+<p>In the following we will now extract the raster values for all pixels that the line intersects and use these pixel values to calculate a semivariogram and an autocorrelogram for the proportional forest cover.</p>
+<h2 id="step-2-calculating-the-semivariogram">Step 2: Calculating the Semivariogram<a class="headerlink" href="#step-2-calculating-the-semivariogram" title="Link zu dieser Sektion">&para;</a></h2>
+<p>We already learned in today's theoretical lecture how we calculate the mean semivariance Î³ for a lag distance of <em>h</em>. It is actually a quite simple formula where we first calculate the squared difference of all point pairs (<em>z(i)</em> and <em>z(i+h)</em>) that can be derived at a given lag-distance <em>h</em>. We then sum these squared differences and divide the sum by two times the number of point pairs at the given lag-distance <em>(2N(h)</em>):</p>
+<p><a class="glightbox" href="../assets/r_1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/r_1.png" /></a> </p>
+<p>A short reminder: the lag-distance is the distance between two points (or pixels). If we have a pixel size of 100 m then a lag distance of 100 m would mean that directly neighboring pixels are paired. If the lag distance would be 300 m then each pixel would be paired with pixels that are located 3 pixels away (in other words, there are two pixels inbetween the two pixels that will be paired). Remember also this graph:</p>
+<p><a class="glightbox" href="../assets/r_2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/r_2.png" /></a> </p>
+<p>By comparing the semi-variances of point pairs with different lag-distances, we can quantify/depict how the spatial distance influences the correlation between points. Remember, the semi-variance will be low (values show low variance and are hence very similar) for highly correlated values, while it will be high for point-pairs with low correlation.</p>
+<p>Before we proceed with the calculation of the semi-variance, we will have to load our datasets by running the following code:</p>
+<div class="highlight"><pre><span></span><code># load required packages (as usual, please install missing packages)
+require(raster)
+require(rgdal)
+require(usdm)
+
+# set working directory that contains the data
+setwd(&quot;D:/Multiskalige_FE/5_Practicals/Tag_4&quot;)
+
+# load tif file containing landscape metric (here prop. forest area in a 500 x 500 m area)
+img &lt;- stack(&quot;prop_forest_area.tif&quot;)
+
+# load shapefile (polyline) that contains the transect for which we want to calculate
+# the semivariogram and the autocorelogram
+shp &lt;- readOGR(&quot;.&quot;, &quot;transect_ka&quot;)
+</code></pre></div>
+<p>Next, we will intersect the raster-file with the transect and extract the values of the raster file for all pixels along the transect. We use the "unlist()" function as the extract command in this case will return a list. </p>
+<div class="highlight"><pre><span></span><code># overlay the shapefile-transect with the image and derive the raster values
+# as the extract command delivers a list, we use the unlist command to 
+# decompose the list to a vector file
+pr_for&lt;- unlist(extract(img, shp))
+</code></pre></div>
+<p>We can now have a look at the extracted values by running:</p>
+<div class="highlight"><pre><span></span><code>pr_for
+</code></pre></div>
+<p>This will show us:</p>
+<p><a class="glightbox" href="../assets/r_3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/r_3.png" /></a> </p>
+<p>These will be the values for which we calculate our semi-variogram. To do this, we will now first derive the spatial resolution of our image as this will determine the rythm of our lag-distances. It would not make sense to select for example a lag distance of 1 m if our pixel size is 10 m as we would not be able to build pairs with pixels that are only 1 m apart.</p>
+<div class="highlight"><pre><span></span><code># get the pixel size of the image using the res() command of the raster package
+res_img &lt;- res(img)[1]
+res_img
+</code></pre></div>
+<p>This will return a value of 500 which indicates that our raster dataset has a spatial resolution of 500 m. That means that our lag-distances will be 500, 1000, 1500, 2000,... and so on.</p>
+<p>We calculate a vector with the corresponding values using the following code:</p>
+<div class="highlight"><pre><span></span><code># create a vector file with the same length as the extracted values of the transect
+# which indicates the position on the transect. As each pixel is 500 m large, we use
+# steps of 500 m.
+tr_pos &lt;- seq(res_img, length(pr_for)*res_img, res_img)
+</code></pre></div>
+<p>These values at the same time indicate the position of each pixel on the transect.</p>
+<p>We will now calculate the semi-variance for the different lag-distances. Based on the function available in R, this requires several steps and the calculation might not be 100% intuitive at the first glance. However, when putting some thought into it, it should become quite clear.</p>
+<p>First, we calculate the distance of each pixel to all other pixels on the transect by running:</p>
+<div class="highlight"><pre><span></span><code># calculate the lag-distances between each point
+lag &lt;- dist(tr_pos)
+lag
+</code></pre></div>
+<p>This will result in a quite bix matrix looking like that:</p>
+<p><a class="glightbox" href="../assets/r_4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/r_4.png" /></a></p>
+<p>You can interpret this like this: the column named 1 represents the first pixel on the transect. In the rows you can then see the lag distance to each of the pixels that follows. The second column represents the second pixel on the transect, the third column the third pixel and so on. This matrix will help us later on to identify all point pairs with a unique lag distance. </p>
+<p>Next, we calculate the semivariance for all point pairs by running:</p>
+<div class="highlight"><pre><span></span><code>varTP &lt;- dist(pr_for)^2*.5
+varTP
+</code></pre></div>
+<p>This will result in a matrix with the same structure as our <strong>lag</strong>-matrix, we have just calculated, but of course the values are different.</p>
+<p>It is important to understand that we now already have all important inputs together to calculate the mean semivariances for all lag-distances. The two things that are still missing are: </p>
+<ol>
+<li>we have to split our <strong>varTP</strong> matrix to be able to treat the semi-variances for each lag-distance individually</li>
+<li>we have to calculate the mean semi-variance for each lag distance (the <strong>N</strong> in the formular has not been considered yet).</li>
+</ol>
+<p>We accomplish this by first running:</p>
+<div class="highlight"><pre><span></span><code># split the seminvariance values up depending on what spatial lag they occur at    
+TP.split&lt;-split(varTP,lag)     
+TP.split
+</code></pre></div>
+<p>Here we can now see the semi-variances for each lag-distance. In the figure below the last few entries are shown where we can see that the number of point pairs constantly decreases and that for the largest lag-distance (22000 m) only one point pair is available:</p>
+<p><a class="glightbox" href="../assets/r_5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/r_5.png" /></a></p>
+<p>Next, we calculate the mean semi-variance for each lag-distance by running:</p>
+<div class="highlight"><pre><span></span><code># compute the mean semivariance at each spatial lag
+TP.gamma &lt;- sapply(TP.split,mean) 
+TP.gamma
+</code></pre></div>
+<p>This simply calculates the mean value for each of the lines of values depicted in the preceeding figure.</p>
+<p>This will result in one value (the mean semi-variance) for each lag-distance:</p>
+<p><a class="glightbox" href="../assets/r_6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/r_6.png" /></a></p>
+<p>Now we have all the information to plot our semi-variogram by simply plotting the mean semivariance over the lag-distance.</p>
+<p>The corresponding code looks like this:</p>
+<div class="highlight"><pre><span></span><code># extract the values of the unique spatial lags
+lag.uni&lt;- as.numeric(names(TP.gamma))
+# visually examine the variogram for the landscape metric and the transect
+plot(lag.uni,TP.gamma,xlab=&#39;Spatial Lag (m)&#39;,ylab=&#39;Semivariance Forest prop. [%]&#39;,type=&#39;o&#39;) 
+abline(v=max(lag)/2,lwd=2,col=&#39;dodgerblue&#39;,lty=2)
+</code></pre></div>
+<p>The will lead to this graph:</p>
+<p><a class="glightbox" href="../assets/r_7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/r_7.png" /></a></p>
+<p>We have now plotted the semi-variogram across all possible lag-distances, however, as we discussed before, the large lag-distances have only very few points left and they might hence have a very limited reliability. Typically it is recommended to only consider lag-distances up to half of the maximum lag-distance. The corresponding lag-distance is marked with the blue dashed line in the graph.</p>
+<p>If we compare this graph with the original raster dataset, we can interpret the semi-variogram a bit. The maximum semivariance is reached at a lag-distance of 2500 m (or five pixels) - i we have a look at the raster dataset we can see that there are several elements of the landscape along the transect that are approximately 5 pixels long. There is a almost forest-free zone 6 pixels at the Eastern start of the transect, then there is a fully forest covered area which also covers 5 pixels, afterwards there is another forest-free zone of 4-5 pixels followed again by a sparsely forested areas with a length of about 6 pixels. At lag-distances smaller than these landscape element sizes, the correlation between the values will be high (the semi-variance low) while at larger lag-distances, they will get small.</p>
+<p>This matches the curve depicted in the semi-variogram. Hence, at the given spatial grain of 500 m, the landscape elements along our transect tend to change every 2500 m and even though there are some more fluctuation afterwards, we could be quite sure that if we take some sort of field measurements and make sure that each maesurement is at least 2500 m away from all other measurements, there should be no problem with spatial autocorrelation in the models we build from these data. </p>
+<p><a class="glightbox" href="../assets/gis_2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gis_2.png" /></a></p>
+<h2 id="step-3-calculating-the-autocorrelogram">Step 3: Calculating the Autocorrelogram<a class="headerlink" href="#step-3-calculating-the-autocorrelogram" title="Link zu dieser Sektion">&para;</a></h2>
+<p>In this part of the tutorial, we will calculate the autocorrelogram. We will here take a slightly different approach and prepare a function to calculate autocorrelation along a simple transect. More detailed explanations of the function are given in the comments of the code. The function looks like this:</p>
+<div class="highlight"><pre><span></span><code># The name of the function is &quot;a.cor&quot; and the it only requires one input variable x where
+# x is a vector containing the regular measurements along the transect
+a.cor&lt;-function(x){
+ ## This function computes autocorrelation of the variable x.
+ ## It is assumed that x is sampled along a linear, uniformly-spaced transect.
+ ## This function is not appropriate for computing spatial autocorrelation for 
+ ## more complex spatial arrangements of data.
+
+ # first compute the total size of x 
+ len&lt;-length(x)  
+ # create an empty output variable  
+ r&lt;-rep(NA,len-2) 
+ # loop through all the possible spatial lags (h)
+ for(h in 1:(len-2)){ 
+     # compute the autocorrelation at each lag
+     # in this case the correlation would be a simple Pearson&#39;s correlation
+     # by using clever subsetting of the vector files, the correlation will always
+     # be calculated for the correct point pairs
+     r[h] &lt;- cor(x[1:(len-h)],x[(1+h):len]) 
+  }
+ # print the output variable (which will be the value to be returned by the function)
+ r 
+}
+</code></pre></div>
+<p>If we run the code above, R will not yet perform an actual analysis yet, but will simple create the a new function called "<strong>a.cor</strong>"which is also visible in the environment window in RStudio (at the very bottom normally):</p>
+<p><a class="glightbox" href="../assets/r_8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/r_8.png" /></a></p>
+<p>We will now apply this function to our vector containing the proportional forest cover values along the transect:</p>
+<div class="highlight"><pre><span></span><code># now that we have our function we can compute the autorcorrelation for all possible lags
+correl&lt;-a.cor(pr_for)
+</code></pre></div>
+<p>This will return the correlation for all possible lag-distances of the given vector. Be aware that in this case, the code is not considering real metric distances but simply positions in the vector. As we are working with regular distances (each measurement on the transect is equally far away from the next measurement), this does not affect the results.</p>
+<p>This has to be considered when finally plotting the autocorrelogram. We use the variable <strong>tr_pos</strong> containing the lag-distances (created in Step 2) to define the lag distances on the x-axis. We can then plot the autocorrelogram using the following code:</p>
+<div class="highlight"><pre><span></span><code># plot the autocorrelogram 
+# we use tr_pos[1:43] as for the way we calculate the spatial autocorrelation no value is avaiable for the first and last lag-distances
+plot(tr_pos[1:43],correl,xlab=&#39;Spatial lag (m)&#39;,ylab=&#39;Autocorrelation&#39;,main=&#39;Forest Proportion&#39;,type=&#39;o&#39;)
+abline(v=max(tr_pos)/2,col=&#39;dodgerblue&#39;,lty=2,lwd=2)
+abline(h=0)
+</code></pre></div>
+<p>This will result in the following graph:</p>
+<p><a class="glightbox" href="../assets/r_10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/r_10.png" /></a></p>
+<p>As we can see, the curve is very similar to the semi-variogram but mirrored. One thing that might have to be discussed, is the fact that correlations can be positive and negative and hence the optimal lag-distance at which no spatial autocorrelation occurs anymore might be interpreted differently in this graph (the curve starts fluctuating around 0 at approximately 3500-4000 m instead of the maximum semi-variance that was achieved at 2500 m.</p>
+<h2 id="step-4-calculating-a-semivariogram-for-a-raster-file">Step 4: Calculating a Semivariogram for a Raster-file<a class="headerlink" href="#step-4-calculating-a-semivariogram-for-a-raster-file" title="Link zu dieser Sektion">&para;</a></h2>
+<p>In the preceeding steps, we calculated the semivariogram and the autocorrelogram in a rather "manual" way, which helps to understand what steps are required to produce the final graphs. On the negative side, the methods we used above are only suitable for a 1D-transect. However, in remote sensing we are typically working with raster datasets and it is of course also possible to calculate variograms for 2D-environments. Then, the pixel-pairs are not only created in the 1D space but in the 2D space. The remaining calculations are the same.</p>
+<p>In R, there is a package that allows to calculate Variograms for single-band raster layers. The code is really simple:</p>
+<div class="highlight"><pre><span></span><code>## calculate a variogram from a raster using the usdm package
+## the function has some additional settings that can be checked using
+## ?Variogram
+## in many cases the standard settings should be ok
+var_ras &lt;- Variogram(img[[1]])
+plot(var_ras)
+</code></pre></div>
+<p>Running this code, will lead to:</p>
+<p><a class="glightbox" href="../assets/r_9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/r_9.png" /></a></p>
+<p>As we can see, this variogram looks a lot smoother than the semi-variogram we computed for the transect. This might be due to the fact, that by considering more pixels in the raster, the number of point pairs is a lot higher and the semi-variogram is less influenced by the the particular landscape structure along the transect. When checking the information provided for the function <strong>Variogram()</strong> (by typing):</p>
+<div class="highlight"><pre><span></span><code>?Variogram
+</code></pre></div>
+<p>you will find out that the function actually is not using all pixels to calculate the semi-variogram but takes a random sample of pixels, representative of the raster layer. You can change the amount of pixels used during that step. It is also possible to change the lag-interval. In the standard setting, the pixel size is used, similarly as we did in the 1D-example above. However, it is possible to also use larger intervals. This might be relevant for analysing very high resolution images where not all possible lag-distances may have to be considered to get a meaningful diagram.</p>
+<p>This was the last part of the Tutorial and in ideal case, you will now have a better understanding what semi-variograms and auto-correlograms are and how they are computed. In the course, we will not get into more details about this topic, but this could be one setion of the course that could also be examined with more details in small experiment or literature search to hand in as final assignment.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../landscape_metrics/landscape_metrics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Calculation of Landscape Metrics from a Land-cover raster map" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Calculation of Landscape Metrics from a Land-cover raster map
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../MSRS_1_GEE_basics/MSRS_1_GEE_basics/" class="md-footer__link md-footer__link--next" aria-label="Next: Preparing time series data stacks" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Preparing time series data stacks
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; CC-BY-SA-4.0 license - Freie Universität Berlin Institute of Geographical Sciences Remote Sensing and Geoinformatics
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "search.suggest", "search.highlight", "content.action.edit", "content.code.copy", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="../../javascripts/mathjax.js"></script>
+        
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

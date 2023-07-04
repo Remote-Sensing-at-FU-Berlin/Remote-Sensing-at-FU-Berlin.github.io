@@ -1,0 +1,1379 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../05-digitizing/">
+      
+      
+        <link rel="next" href="../07-elevation/">
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>Spatial and semantic selection - REMOTE SENSING AND GEOINFORMATICS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-green">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#spatial-and-semantic-selection" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="REMOTE SENSING AND GEOINFORMATICS" class="md-header__button md-logo" aria-label="REMOTE SENSING AND GEOINFORMATICS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            REMOTE SENSING AND GEOINFORMATICS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Spatial and semantic selection
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Remote-Sensing-at-FU-Berlin.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Welcome
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-GUI/" class="md-tabs__link md-tabs__link--active">
+        Prof. Dr. Fassnacht
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gis/installation/" class="md-tabs__link">
+        GIS
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../schuelerpraktikum/handout/" class="md-tabs__link">
+        Other
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="REMOTE SENSING AND GEOINFORMATICS" class="md-nav__button md-logo" aria-label="REMOTE SENSING AND GEOINFORMATICS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    REMOTE SENSING AND GEOINFORMATICS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Remote-Sensing-at-FU-Berlin.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prof. Dr. Fassnacht
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prof. Dr. Fassnacht
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          QGIS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          QGIS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-GUI/" class="md-nav__link">
+        Getting to know the graphical user interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-vector-data/" class="md-nav__link">
+        Loading and visualizing Shapefiles / Vector data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-raster-data/" class="md-nav__link">
+        Loading and visualizing raster data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-general-tools/" class="md-nav__link">
+        Useful general tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-digitizing/" class="md-nav__link">
+        Basic vector processing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Spatial and semantic selection
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Spatial and semantic selection
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#performing-a-spatial-selection-spatial-query" class="md-nav__link">
+    Performing a spatial selection / spatial query
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extracting-the-selected-features-to-a-new-shapefile" class="md-nav__link">
+    Extracting the selected features to a new Shapefile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clipping-instead-of-selecting" class="md-nav__link">
+    Clipping instead of selecting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performing-a-query-on-the-attribute-table" class="md-nav__link">
+    Performing a query on the attribute table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-elevation/" class="md-nav__link">
+        Working with elevation raster datasets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-map-making/" class="md-nav__link">
+        Making a map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-spatial-interpolation/" class="md-nav__link">
+        Spatial interpolation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic-landsat/basic-landsat/" class="md-nav__link">
+        Basic Landsat Processing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../random-forest-regression/random-forest-regression/" class="md-nav__link">
+        Random Forest Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Laserscanning_lidR/1_Laserscanning_lidR/" class="md-nav__link">
+        Getting started with processing laserscanning data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiative-transfer-model/radiative-transfer-model/" class="md-nav__link">
+        Radiative Transfer Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../treespeciesclassification/treespeciesclassification/" class="md-nav__link">
+        Classification of tree species using hyperspectral data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BFAST/BFAST/" class="md-nav__link">
+        Analysing time series with BFAST and NPPHEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../landscape_metrics/landscape_metrics/" class="md-nav__link">
+        Calculation of Landscape Metrics from a Land-cover raster map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spatial_autocorrelation/spatial_autocorrelation/" class="md-nav__link">
+        Calculating semivariograms and Autocorrelograms
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          GEE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          GEE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MSRS_1_GEE_basics/MSRS_1_GEE_basics/" class="md-nav__link">
+        Preparing time series data stacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MSRS_1_GEE_basics2/MSRS_1_GEE_basics2/" class="md-nav__link">
+        Preparing annual time series data stacks and conducting time series analysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          SNAP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          SNAP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planetary-sciences/01-download-ls-and-s2/" class="md-nav__link">
+        Download of Landsat and Sentinel satellite images
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          GIS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GIS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/visualization-and-map/" class="md-nav__link">
+        Visualization and Map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/digitalization/" class="md-nav__link">
+        Digitalization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/attributes-filters-and-metadata/" class="md-nav__link">
+        Attributes, Filters and Metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/geoprocesing-and-reference-and-coordinate-systems/" class="md-nav__link">
+        Geoprocesing and reference and coordinate systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/interpolation/" class="md-nav__link">
+        Interpolation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/dem/" class="md-nav__link">
+        Digital Elevation Models
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Other
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Other
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schuelerpraktikum/handout/" class="md-nav__link">
+        School internship
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mintoring/mintoring/" class="md-nav__link">
+        Mintoring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/tree/main/docs/qgis/06-selections.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="spatial-and-semantic-selection">Spatial and semantic selection<a class="headerlink" href="#spatial-and-semantic-selection" title="Link zu dieser Sektion">&para;</a></h1>
+<p><strong>Abstract</strong></p>
+<p>After completing this tutorial you will know how to perform a spatial selection and a selection based on the contents of the attribute table of Shapefiles / vector files. Developed with QGIS version - Bialowieza 3.22.5</p>
+<p>In this Tutorial we will a new Shapefile named <strong>gis.osm_roads_free_1</strong> that you can download <a href="https://drive.google.com/file/d/1Fl30MTA_4i9DguX9uP10_KGaqFCN0Bim/view?usp=share_link">here</a></p>
+<p>Don't forget to unzip the Shapefile.</p>
+<h2 id="performing-a-spatial-selection-spatial-query">Performing a spatial selection / spatial query<a class="headerlink" href="#performing-a-spatial-selection-spatial-query" title="Link zu dieser Sektion">&para;</a></h2>
+<p>In this tutorial we will first learn how to perform a spatial selection, which means selecting a subset of spatial features of a vector shapefile based on their location. Then we will learn how we can select spatial features based on information stored in the attribute table.</p>
+<p>To start,</p>
+<p><strong>we again load the raster dataset “S2_Neapel_sm2.tif” located in the “Datasets/S2” folder and adapt the visualization settings to have a balanced view of all classes by using the channels R=3, G=2, B=1 and loading new max / min values using the “Symbology”-tab in the properties window.</strong></p>
+<p>Following the already known procedures, we will now create an empty Point shapefile by</p>
+<p><strong>selecting the menu “Layer” then “Create Layer” and “New Shapefile Layer”. Be careful to select the correct coordinate reference system and select “Point” as Shapefile Type. Then we will zoom into the area of the vulcano and create a new Point in the just created Point-Shapefile that is located in the center of the vulcano - by now you should already know how to accomplish this. We will then save our edits and stop the editing mode.</strong></p>
+<p>This should lead to a similar situation as shown in Figure 1. Next, we will load the Shapefile “gis.osm_roads_free_1” by</p>
+<p><strong>starting the dialogue to load a Shapefile (as already learned in Tutorial 2) and then navigating to the folder where you have saved the file provided above, select the file, and confirm with “open”.</strong></p>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 1: Adding a point to the center of the crater." src="../assets/06-selections-1.png" /></a>
+  </p>
+<figcaption>Figure 1: Adding a point to the center of the crater.</figcaption>
+</figure>
+<p>This will result in the situation shown in Figure 2. The newly loaded Shapefile contains information on the position and type of the transportation network of the area. We now assume that our vulcano is in the mood for some chaos and erupts. Due to the magma flow all roads in a distance of 5000 m from the crater get destroyed. To be able to plan restoration measures and support emergency activities, we want to automatically select all roads in a distance of 5000 m from the crater center.</p>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 2: Loaded road network layer." src="../assets/06-selections-2.png" /></a>
+  </p>
+<figcaption>Figure 2: Loaded road network layer.
+  </figcaption>
+</figure>
+<p>We will accomplish this, using a spatial selection which is also called a “spatial query”. In QGIS this requires two steps. First, we need to create a buffer around the crater center point, which we have created as first step of this Tutorial. Then we can automatically identify all spatial features of the ““gis.osm_roads_subset” layer that intersect with the buffer polygon.</p>
+<p>So as first step,</p>
+<p><strong>use the buffer tool, you already know, to create a buffer with a distance of 5000 m around the point located in the center of the crater. After adapting the visualization settings of the Buffer (increase thickness of the outline to 2; set filling to transparent; change outline colour to red) you should see a situation as shown in Figure 3</strong></p>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 3: Buffer in red over the road network layer." src="../assets/06-selections-3.png" /></a>
+  </p>
+<figcaption>Figure 3: Buffer in red over the road network layer.
+  </figcaption>
+</figure>
+<p>Next, we will learn two approaches to select all spatial features of the road network that are located within the buffer zone of the crater. For the first option, we will use</p>
+<p><strong>the “select by location” tool. This tool can be found in the toolbox under “Vector selection” -&gt; “Select by Location" as seen in Figure 4.</strong></p>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 4: Opening the “Spatial Query” dialogue." src="../assets/06-selections-4.png" /></a>
+  </p>
+<figcaption>Figure 4: Opening the “Spatial Query” dialogue.
+  </figcaption>
+</figure>
+<p><strong>this will open up a new dialogue as shown in Figure 5. In the new dialogue, we will parameterize the settings. We have to define the vector file from which we want to select some spatial features – in this case the road network layer – and we have to define the vector file which contains the spatial features which are used to define the area for selecting the spatial features - in our case the 5000 m buffer layer. We also have to define how the two vector files should interact to decide which features get selected. In this case we select “intersect” – this will select all spatial features of the road network layer that intersect with the buffer polygon. Finally, we select “Creating new Selection” to cancel all eventually earlier performed selections within the road network layer. If we now press “Run” we should create a situation as shown in Figure 6. As you can see, all roads located within the buffer are now selected and hence marked with yellow colour.</strong></p>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 5: The “Spatial query” dialogue." src="../assets/06-selections-5.png" /></a>
+  </p>
+<figcaption>Figure 5: The “Spatial query” dialogue.
+  </figcaption>
+</figure>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 6: Situation after performing the spatial query." src="../assets/06-selections-6.png" /></a>
+  </p>
+<figcaption>Figure 6: Situation after performing the spatial query.
+  </figcaption>
+</figure>
+<h2 id="extracting-the-selected-features-to-a-new-shapefile">Extracting the selected features to a new Shapefile<a class="headerlink" href="#extracting-the-selected-features-to-a-new-shapefile" title="Link zu dieser Sektion">&para;</a></h2>
+<p>Now there are two option to proceed. We could either perform some additional analyses on the selected feature while keeping them in the original Shapefile. Or alternatively, we could store the selected features in a new Shapefile and then continue our analyses with this new layer. We will follow the latter approach here. So, to store the selected features to a new Shapefile, we will</p>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 7: Saving the selected features to a new Shapefile." src="../assets/06-selections-7.png" /></a>
+  </p>
+<figcaption>Figure 7: Saving the selected features to a new Shapefile.
+  </figcaption>
+</figure>
+<p><strong>first close the spatial query dialogue. Then we will perform a right click on the “gis.osm_roads_free_1” layer and from the appearing menu we will select "Export" and then “Save Selected Features As...” (see Figure 7). This will open up a new window as shown in Figure 8. Here, we will define an output name (field marked with “1” in Figure 8 and activate the checkbox “Save only selected features” (if not already activated) to store only the spatial features that have just been selected with the spatial query. After pressing “OK” the new Shapefile will be stored and added to the list of layers. After de-activating the “gis.osm_roads_subset” layer and dragging the newly created layer to the top of the layer window section, you will see a situation as shown in Figure 9.</strong></p>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 8: The “Save As...” dialogue." src="../assets/06-selections-8.png" /></a>
+  </p>
+<figcaption>Figure 8: The “Save As...” dialogue.
+  </figcaption>
+</figure>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 9: Situation after the selected spatial features have been saved to a new Shapefile." src="../assets/06-selections-9.png" /></a>
+  </p>
+<figcaption>Figure 9: Situation after the selected spatial features have been saved to a new Shapefile.</figcaption>
+</figure>
+<h2 id="clipping-instead-of-selecting">Clipping instead of selecting<a class="headerlink" href="#clipping-instead-of-selecting" title="Link zu dieser Sektion">&para;</a></h2>
+<p>An alternative to the just described work-flow of first selecting the Polygons within the buffer and then to save the selected features as a new Shapefile, is to directly clip-out all spatial features located within the buffer zone. We will now follow this approach by applying the “Clip” tool. We can open the corresponding dialogue by</p>
+<p><strong>selecting “Vector” -&gt; “Geoprocessing Tools” -&gt; “Clip” from the main menu of QGIS as shown in Figure 10. This will open the “Clip tool” shown in Figure 11. Here, we have to define the “Input Layer” from which we want to create a subset, and the “Clip Layer” which will be used to define the spatial area for which a subset of the “Input Layer” will be created. In our case the “gis.osm_roads_free_1” layer will be the “Input Layer” and the “Buffer layer” will be the Clip Layer. We additionally define an output name (“Clipped”) for the new Shapefile and press “Run”.</strong> </p>
+<p>Then a new Shapefile will be created. After rearranging the layers a bit and changing the visualization settings, it becomes clear that this process has led to almost the same results as the preceding workflow. In Figure 12, the two Shapefiles are positioned on top of each other with one of the two layers having an outline with a larger line width. You can see that the two Shapefiles extracted using the Buffer-Shapefile with two different approaches match perfectly within the buffer zone, but the result from the first procedure has some road segments that expand over the buffer zone. This is because in the first procedure we did not use the buffer to cut intersecting line segments but we selected the "complete" line segments which intersected in any point with the buffer zone.</p>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 10: Opening the “Clip” tool." src="../assets/06-selections-10.png" /></a>
+  </p>
+<figcaption>Figure 10: Opening the “Clip” tool.</figcaption>
+</figure>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 11: The “Clip” tool dialogue." src="../assets/06-selections-11.png" /></a>
+  </p>
+<figcaption>Figure 11: The “Clip” tool dialogue.</figcaption>
+</figure>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-12.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 12: The two extracted subsets of the road network using the buffer Shapefile match perfectly. One of the two subsets is displayed in a wide orange line, and the second subset in a more narrow red line." src="../assets/06-selections-12.png" /></a>
+  </p>
+<figcaption>Figure 12: The two extracted subsets of the road network using the buffer Shapefile match perfectly. One of the two subsets is displayed in a wide orange line, and the second subset in a more narrow red line.</figcaption>
+</figure>
+<h2 id="performing-a-query-on-the-attribute-table">Performing a query on the attribute table<a class="headerlink" href="#performing-a-query-on-the-attribute-table" title="Link zu dieser Sektion">&para;</a></h2>
+<p>We have now a Shapefile containing all roads that have been affected by the eruption of the vulcano. Now we would like to have a closer look at the road types that have been affected. To do this, we will first open the attribute table of one of the two Shapefiles containing only the roads located in the buffer zone. We open the attribute table by</p>
+<p><strong>performing a right–click on the corresponding layer and selecting “Open attribute table”. This will open the attribute table as shown in Figure 13. The attribute table has 10 columns in total.</strong></p>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-13.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 13: The attribute table of the road layer." src="../assets/06-selections-13.png" /></a>
+  </p>
+<figcaption>Figure 13: The attribute table of the road layer.</figcaption>
+</figure>
+<p>Here, we will focus on the column named “fclass” which contains information about the type of road. Let us assume that the type of road is important for estimating the cost to restore the path systems after the eruption of the vulcano as well as to prioritize restoration works.</p>
+<p>So in the next step, we will create two more subsets from the Shapefile containing all affected roads. First, we will extract all spatial features that belong to the class “secondary” – which relate to the largest affected roads in the area. Then, we will extract all spatial features belonging to the classes containing the word “track” – there are in total 5 classes which contain the word “track”. Tracks are important for recreational activities and tourism.</p>
+<p>So let us first create a subset of all “secondary” roads. To do this, we</p>
+<p><strong>will perform a selection based on the fclass column using the tool “Select features using an expression” (marked with “1” in Figure 13). After clicking on the tool a new dialogue will appear which looks similar to the “Field calculator” we already got to know in Tutorial 5 (see Figure 14). With this tool, we can automatically select all features of the vector file that match a user–defined rule. In the given case we will set this rule to “fclass” = ’secondary’ as shown in 14. To enter this rule, we first open the menu called “Fields and Values” marked with “1” in Figure 14. Then we perform a double–click on the entry “fclass” as this is the column of the attribute table which we want to use to perform our selection. Now, “fclass” will appear in the “Expression” field on the left marked with “4”. To illustrate all unique entries of this column of the attribute table, we click the “all unique” button marked with “2”. If the "All UNique" button is not shwoing, you might have to additionally press "Show Values"-button first.  Now all different classes listed in the ”fclass” column will appear. Next, we click the “=” sign marked with “3” and then we double–click the entry ’secondary’ marked with “5”. We then press “Select Features” to query all entries of the attribute table and select all entries where our rule matches.</strong></p>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-14.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 14: The select features by expression tool." src="../assets/06-selections-14.png" /></a>
+  </p>
+<figcaption>Figure 14: The select features by expression tool.</figcaption>
+</figure>
+<p>As we can see from the results, there is only a single entry in the column “fclass” that belongs to the class “secondary”. This single spatial feature is a roundabout close to lower left border of the buffer zone (see Figure 15). It might be hidden below the outline of the buffer polygon. You can for sure find it, if </p>
+<p><strong>perform a right-click on the layer with the selected feature and use the "Zoom to Selection" option to zoom the current view to the selected polygon</strong></p>
+<p>As this is a rather small subset, we will try to additionally select all entries of the fclass column that belong to the class “tertiary” which is the next smaller category of roads. To do this,</p>
+<p><strong>we re–open the attribute table and the “Select features using an expression”. This time we will set the rule to “fclass” = ’secondary’ OR “fclass” = ’tertiary’ (see Figure 16). Then we press “select” and close the tool and the attribute table. The “OR” can either be directly typed into the ”Expression” field or it can be found from the menu “Operators”.</strong></p>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-15.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 15: Only a single spatial feature got selected." src="../assets/06-selections-15.png" /></a>
+  </p>
+<figcaption>Figure 15: Only a single spatial feature got selected.</figcaption>
+</figure>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-16.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 16: Adapting the selection rule to increase the subset." src="../assets/06-selections-16.png" /></a>
+  </p>
+<figcaption>Figure 16: Adapting the selection rule to increase the subset.</figcaption>
+</figure>
+<p>Now several more roads got selected as can be seen in Figure 17. We can now save this subset by</p>
+<p>**performing a right–click on the layer containing the spatial attributed located in the buffer zone and selecting "Export" -&gt; “Save Features As...”. Then we select an Output filename, make sure that the option “Save only selected features” is activated and press “OK”. ALternatively, you can directly use the "Save Selected Features AS..." button then the "Save only selected features” button should already be activated **</p>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-17.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 17: Spatial location of all “secondary” and “tertiary” roads within the buffer zone." src="../assets/06-selections-17.png" /></a>
+  </p>
+<figcaption>Figure 17: Spatial location of all “secondary” and “tertiary” roads within the buffer zone.</figcaption>
+</figure>
+<p>As a final step of this Tutorial we will save an additional subset with a slighly more complex rule. To do this, we</p>
+<p><strong>re–open the attribute table of the Shapefile containing the spatial features located in the buffer zone. Then we open the “Select features using an expression” tool as done before. Instead of naming a single class of the “fclass” column we will this time select all classes that contain the text-part “track”. To do this, we will set the rule to “fclass” LIKE ’%track%’ (see Figure 18). The operator “LIKE” can also be found in the “operator” menu as marked with “1” in Figure 18. This operator will search for all entries in the fclass column that contain the text–part “track” and will select it. The “%”–sign is a placeholder for any textparts that can come before or after the text–part ’track’. Then we press “Select”.</strong></p>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-18.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 18: Using the “LIKE” operator to construct a more complex selection rule." src="../assets/06-selections-18.png" /></a>
+  </p>
+<figcaption>Figure 18: Using the “LIKE” operator to construct a more complex selection rule.</figcaption>
+</figure>
+<p>With these settings a total of 109 spatial features gets selected (your total number of features might slightly differ depending how your center point for the crater and the corresponding buffer zone was defined). The locations of the selected features are shown in Figure 19. If we open the attribute table and scroll down a bit, we can see that all entries of the flcass column that contain the text–part “track” got selected, including for example the classes “track”, “track_grade1”, “track_grade2” and so on (see Figure 20).</p>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-19.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 19: Locations of all spatial features containing the text–part “track” in their fclass label." src="../assets/06-selections-19.png" /></a>
+  </p>
+<figcaption>Figure 19: Locations of all spatial features containing the text–part “track” in their fclass label.</figcaption>
+</figure>
+<figure>
+<p><a class="glightbox" href="../assets/06-selections-20.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Figure 20: All classes containing the text–part “track” got selected in the attribute table." src="../assets/06-selections-20.png" /></a>
+  </p>
+<figcaption>Figure 20: All classes containing the text–part “track” got selected in the attribute table.</figcaption>
+</figure>
+<h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Link zu dieser Sektion">&para;</a></h2>
+<p>To further practice the just learned skills, you should now complete the following exercises:</p>
+<ol>
+<li>
+<p>Build a subset of all spatial elements belonging to the class “footway” as defined in the “fclass” column of the road–layer within the buffer zone</p>
+</li>
+<li>
+<p>Create a subset of all spatial elements belonging to the class “residential” and having a length longer than 150 m.</p>
+</li>
+<li>
+<p>Adapt the visualization of the two newly created subsets. All footway-elements should be in red colour and with a line width of 3 points; all residential-elements should be in green colour and with a line width of 5 points. Only the satellite image and the two newly created subsets should be active in the display.</p>
+</li>
+<li>
+<p>Zoom to the buffer area and export the current view by selecting “Project” -&gt; “Save as Image” from the main menu of QGIS. This will be the proof that you have completed this Tutorial.</p>
+</li>
+</ol>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../05-digitizing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Basic vector processing" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Basic vector processing
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../07-elevation/" class="md-footer__link md-footer__link--next" aria-label="Next: Working with elevation raster datasets" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Working with elevation raster datasets
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; CC-BY-SA-4.0 license - Freie Universität Berlin Institute of Geographical Sciences Remote Sensing and Geoinformatics
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "search.suggest", "search.highlight", "content.action.edit", "content.code.copy", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="../../javascripts/mathjax.js"></script>
+        
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

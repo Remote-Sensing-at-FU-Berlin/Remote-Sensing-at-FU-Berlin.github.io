@@ -1,0 +1,1616 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../visualization-and-map/">
+      
+      
+        <link rel="next" href="../attributes-filters-and-metadata/">
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>Digitalization - REMOTE SENSING AND GEOINFORMATICS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-green">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vorbereitung" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="REMOTE SENSING AND GEOINFORMATICS" class="md-header__button md-logo" aria-label="REMOTE SENSING AND GEOINFORMATICS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            REMOTE SENSING AND GEOINFORMATICS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Digitalization
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Remote-Sensing-at-FU-Berlin.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Welcome
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../qgis/01-GUI/" class="md-tabs__link">
+        Prof. Dr. Fassnacht
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link md-tabs__link--active">
+        GIS
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../schuelerpraktikum/handout/" class="md-tabs__link">
+        Other
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="REMOTE SENSING AND GEOINFORMATICS" class="md-nav__button md-logo" aria-label="REMOTE SENSING AND GEOINFORMATICS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    REMOTE SENSING AND GEOINFORMATICS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Remote-Sensing-at-FU-Berlin.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prof. Dr. Fassnacht
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prof. Dr. Fassnacht
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          QGIS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          QGIS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/01-GUI/" class="md-nav__link">
+        Getting to know the graphical user interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/02-vector-data/" class="md-nav__link">
+        Loading and visualizing Shapefiles / Vector data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/03-raster-data/" class="md-nav__link">
+        Loading and visualizing raster data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/04-general-tools/" class="md-nav__link">
+        Useful general tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/05-digitizing/" class="md-nav__link">
+        Basic vector processing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/06-selections/" class="md-nav__link">
+        Spatial and semantic selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/07-elevation/" class="md-nav__link">
+        Working with elevation raster datasets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/08-map-making/" class="md-nav__link">
+        Making a map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/09-spatial-interpolation/" class="md-nav__link">
+        Spatial interpolation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic-landsat/basic-landsat/" class="md-nav__link">
+        Basic Landsat Processing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../random-forest-regression/random-forest-regression/" class="md-nav__link">
+        Random Forest Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Laserscanning_lidR/1_Laserscanning_lidR/" class="md-nav__link">
+        Getting started with processing laserscanning data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiative-transfer-model/radiative-transfer-model/" class="md-nav__link">
+        Radiative Transfer Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../treespeciesclassification/treespeciesclassification/" class="md-nav__link">
+        Classification of tree species using hyperspectral data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BFAST/BFAST/" class="md-nav__link">
+        Analysing time series with BFAST and NPPHEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../landscape_metrics/landscape_metrics/" class="md-nav__link">
+        Calculation of Landscape Metrics from a Land-cover raster map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spatial_autocorrelation/spatial_autocorrelation/" class="md-nav__link">
+        Calculating semivariograms and Autocorrelograms
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          GEE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          GEE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MSRS_1_GEE_basics/MSRS_1_GEE_basics/" class="md-nav__link">
+        Preparing time series data stacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MSRS_1_GEE_basics2/MSRS_1_GEE_basics2/" class="md-nav__link">
+        Preparing annual time series data stacks and conducting time series analysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          SNAP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          SNAP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planetary-sciences/01-download-ls-and-s2/" class="md-nav__link">
+        Download of Landsat and Sentinel satellite images
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          GIS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GIS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visualization-and-map/" class="md-nav__link">
+        Visualization and Map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Digitalization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Digitalization
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vorbereitung" class="md-nav__link">
+    Vorbereitung
+  </a>
+  
+    <nav class="md-nav" aria-label="Vorbereitung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installieren-der-benotigten-pakete" class="md-nav__link">
+    Installieren der benötigten Pakete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#laden-der-benotigten-pakete" class="md-nav__link">
+    Laden der benötigten Pakete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#das-arbeitsverzeichnis-setzen" class="md-nav__link">
+    Das Arbeitsverzeichnis setzen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#das-sf-paket" class="md-nav__link">
+    Das sf-Paket
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erstellen-von-vektor-layern" class="md-nav__link">
+    Erstellen von Vektor Layern
+  </a>
+  
+    <nav class="md-nav" aria-label="Erstellen von Vektor Layern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geometrie-sfg" class="md-nav__link">
+    Geometrie (sfg)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geometriespalte-sfc" class="md-nav__link">
+    Geometriespalte (sfc)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-sf" class="md-nav__link">
+    Layer (sf)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extrahieren-von-layer-eigenschaften" class="md-nav__link">
+    Extrahieren von Layer-Eigenschaften
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erstellen-eines-punkt-layers-aus-einer-tabelle" class="md-nav__link">
+    Erstellen eines Punkt-Layers aus einer Tabelle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sf-layer-eigenschaften" class="md-nav__link">
+    sf-Layer Eigenschaften
+  </a>
+  
+    <nav class="md-nav" aria-label="sf-Layer Eigenschaften">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dimensionen" class="md-nav__link">
+    Dimensionen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raumliche-eigenschaften" class="md-nav__link">
+    Räumliche Eigenschaften
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weiterfuhrende-informationen" class="md-nav__link">
+    Weiterführende Informationen
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../attributes-filters-and-metadata/" class="md-nav__link">
+        Attributes, Filters and Metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geoprocesing-and-reference-and-coordinate-systems/" class="md-nav__link">
+        Geoprocesing and reference and coordinate systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interpolation/" class="md-nav__link">
+        Interpolation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dem/" class="md-nav__link">
+        Digital Elevation Models
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Other
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Other
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schuelerpraktikum/handout/" class="md-nav__link">
+        School internship
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mintoring/mintoring/" class="md-nav__link">
+        Mintoring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/tree/main/docs/gis/digitalization.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Digitalization</h1>
+
+<p>In diesem Tutorial werden Sie die Datenstruktur von Vektor Layern kennenlernen: Punkte, Linien und Polygone. Außerdem werden Sie eigene Vektor Layer und Punkt Layer aus einer Tabelle erstellen und lernen wie Sie die einzelnen Elemente auswählen.</p>
+<p>Die benötigten R-Pakete sind:</p>
+<ul>
+<li><code>sf</code></li>
+<li><code>mapview</code></li>
+</ul>
+<p>Die benötige Tabelle ist:</p>
+<ul>
+<li>Jungfernheide.csv</li>
+</ul>
+<h2 id="vorbereitung">Vorbereitung<a class="headerlink" href="#vorbereitung" title="Link zu dieser Sektion">&para;</a></h2>
+<h3 id="installieren-der-benotigten-pakete">Installieren der benötigten Pakete<a class="headerlink" href="#installieren-der-benotigten-pakete" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Wenn sie noch nicht installiert sind, werden hier zwei <code>R-Pakete</code> 
+installiert: <code>sf</code> und <code>mapview</code>.</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">pkgs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;sf&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;mapview&quot;</span><span class="p">)</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="n">pkgs</span><span class="p">[</span><span class="o">!</span><span class="n">pkgs</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">installed.packages</span><span class="p">()])</span>
+</code></pre></div>
+Es kann sein, dass Sie in den PC-Pools einige Pakete neuinstallieren müssen, um <code>mapview</code> nutzen zu können:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;leafpop&quot;</span><span class="p">)</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;brew&quot;</span><span class="p">)</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;svglite&quot;</span><span class="p">)</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;uuid&quot;</span><span class="p">)</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;yaml&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="laden-der-benotigten-pakete">Laden der benötigten Pakete<a class="headerlink" href="#laden-der-benotigten-pakete" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Nachdem die Pakete installiert wurden, müssen sie noch geladen werden.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">sf</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">mapview</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="das-arbeitsverzeichnis-setzen">Das Arbeitsverzeichnis setzen<a class="headerlink" href="#das-arbeitsverzeichnis-setzen" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Das Arbeitsverzeichnis wird auf den Pfad der Tabelle (Jungfernheide.csv) gesetzt. 
+<code>PATH TO DATA</code> muss angepasst werden. 
+Beachten Sie, dass auch dann eine Liste der Archive innerhalb des ausgewählten Verzeichnisses erstellt wird.</p>
+<div class="highlight"><pre><span></span><code><span class="n">path</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;PFAD-ZU-DATEN&quot;</span>
+<span class="nf">setwd</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="nf">list.files</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">all.files</span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="das-sf-paket">Das <code>sf</code>-Paket<a class="headerlink" href="#das-sf-paket" title="Link zu dieser Sektion">&para;</a></h2>
+<p>Das <code>sf</code>-Paket gibt es seit 2016 und ist der neue Standard bei der Arbeit mit Vektor Layern in R. Eine der wichtigsten Neuerungen in <code>sf</code> ist eine vollständige Implementierung des Simple Features-Standards. Seit 2003 ist Simple Features weit verbreitet in räumlichen Datenbanken (wie PostGIS) und kommerziellen GIS (z.B. ESRI ArcGIS). Der Simple-Features-Standard definiert mehrere Arten von Geometrien, von denen sieben in der Welt der GIS und der Geodatenanalyse am häufigsten verwendet werden (z.B. point oder multipoint, siehe Kapitel Geometrie (sfg) ).</p>
+<p>Das Paket <code>sf</code> hat ein hierarchisches Klassensystem mit drei Klassen:</p>
+<ul>
+<li><code>sfg</code>: eine einzelne Geometrie</li>
+<li><code>sfc</code>: mehrere Geometrien (<code>sfg</code>) und CRS Informationen</li>
+<li><code>sf</code>: ein Layer bzw. Tabelle (<code>data.frame</code>) mit Attributen welche eine <code>sfc</code> Geometrie-Spalte beinhaltet</li>
+</ul>
+<h2 id="erstellen-von-vektor-layern">Erstellen von Vektor Layern<a class="headerlink" href="#erstellen-von-vektor-layern" title="Link zu dieser Sektion">&para;</a></h2>
+<p>Wie bereits erwähnt, hat das <code>sf</code>-Paket ein hierarchisches System von Datenstrukturen, das aus drei Klassen besteht, von einfach bis komplex: <code>sfg</code>, <code>sfc</code> und <code>sf</code>. In diesem Abschnitt werden wir ein Objekt jeder dieser drei Klassen erstellen, um mehr über sie zu erfahren.</p>
+<h3 id="geometrie-sfg">Geometrie (<code>sfg</code>)<a class="headerlink" href="#geometrie-sfg" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Objekte der Klasse <code>sfg</code>, das heißt, eine einzelne Geometrie, können mit der entsprechenden Funktion für jeden Geometrietyp erstellt werden:</p>
+<ul>
+<li><code>st_point</code></li>
+<li><code>st_multipoint</code></li>
+<li><code>st_linestring</code></li>
+<li><code>st_multilinestring</code></li>
+<li><code>st_polygon</code></li>
+<li><code>st_multipolygon</code></li>
+<li><code>st_geometrycollection</code></li>
+</ul>
+<p>Sie können nun <code>sfg</code> Geometrien erstellen, z.B. eine Punkt Geometrie mit dem Namen <code>pnt1</code>, indem Sie die <code>st_point</code> Funktion nutzen:</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">pnt1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">st_point</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">13.289679</span><span class="p">,</span><span class="w"> </span><span class="m">52.452526</span><span class="p">))</span>
+</code></pre></div>
+Das Printing eines <code>sfg</code>-Objekts in der Konsole ergibt seine WKT-Darstellung:
+<div class="highlight"><pre><span></span><code><span class="n">pnt1</span>
+<span class="c1">## POINT (13.28968 52.45253)</span>
+</code></pre></div>
+Die Klasse <code>sfg</code> beinhaltet drei Bestandteile:
+<div class="highlight"><pre><span></span><code><span class="nf">class</span><span class="p">(</span><span class="n">pnt1</span><span class="p">)</span>
+<span class="c1">## &quot;XY&quot;    &quot;POINT&quot; &quot;sfg&quot;</span>
+</code></pre></div>
+-   <code>"XY"</code>: Die Dimension z.B.: <code>"XY"</code>, <code>"XYZ"</code>, <code>"XYM"</code> oder <code>"XYZM"</code>. In den meisten Fällen werden Sie erstmal mit zwei-dimensionalen <code>"XY"</code>Geometrien arbeiten.
+-   <code>"POINT"</code>: Der Geometrie-Typ z.B. <code>"POINT"</code>, <code>"MULTIPOINT"</code>, etc.)
+-   <code>"sfg"</code>: Die allgemeine Klasse (<code>sfg</code> = Simple Feature Geometry)</p>
+<p>Hier ist ein weiteres Beispiel um ein <code>sfg</code> Objekt zu erstellen. Diesmal erstellen Sie eine <code>POLYGON</code> Geometrie mit dem Names <code>a</code>, indem Sie die <code>st_polygon</code> Funktion nutzen:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">st_polygon</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">7.5</span><span class="p">,</span><span class="m">7.5</span><span class="p">,</span><span class="m">0</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">-1</span><span class="p">,</span><span class="m">-1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">))))</span>
+<span class="n">a</span>
+<span class="c1">## POLYGON ((0 0, 0 -1, 7.5 -1, 7.5 0, 0 0))</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1">## &quot;XY&quot;      &quot;POLYGON&quot; &quot;sfg&quot;</span>
+</code></pre></div>
+<p>Wie Sie sehen konnten, erhalten Sie diesmal den Geometrie-Typ <code>POLYGON</code>.
+Eine einfache Methode der Darstellung bietet die Funktion <code>plot</code>:
+<div class="highlight"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;#0000FF33&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+</code></pre></div>
+Erstellen Sie ein weiteres <code>POLYGON</code> mit dem Namen <code>b</code>:
+<div class="highlight"><pre><span></span><code><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">st_polygon</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">0</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.5</span><span class="p">,</span><span class="m">-0.5</span><span class="p">,</span><span class="m">-0.5</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">))))</span>
+<span class="n">b</span>
+<span class="c1">## POLYGON ((0 1, 1 0, 2 0.5, 3 0, 4 0, 5 0.5, 6 -0.5, 7 -0.5, 7 1, 0 1))</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="c1">## [1] &quot;XY&quot;      &quot;POLYGON&quot; &quot;sfg&quot;</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;#FF000033&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+</code></pre></div>
+Sie können mit der Funktion <code>c</code> mehrere <code>sfg</code> Geometrien zu einer Geometrie zusammenfügen, zum Beispiel die beiden <code>POLYGONE</code> <code>a</code> und <code>b</code>:
+<div class="highlight"><pre><span></span><code><span class="n">ab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="n">ab</span>
+<span class="c1">## MULTIPOLYGON (((0 0, 0 -1, 7.5 -1, 7.5 0, 0 0)), ((0 1, 1 0, 2 0.5, 3 0, 4 0, 5 0.5, 6 -0.5, 7 -0.5, 7 1, 0 1)))</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">ab</span><span class="p">)</span>
+<span class="c1">## [1] &quot;XY&quot;           &quot;MULTIPOLYGON&quot; &quot;sfg&quot;</span>
+</code></pre></div>
+Beachten Sie, dass <code>c</code> immer eine einzige Geometrie zurückgibt, die sich aus den Geometrien zusammensetzt. Dies unterscheidet sich von der Sammlung der Geometrien in einer Geometriespalte (<code>sfc</code>), in der die Geometrien getrennt gehalten werden, was mit der Funktion <code>st_sfc</code> geschieht, zu sehen im nächsten Kapitel.
+<div class="highlight"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="n">ab</span><span class="p">,</span><span class="w"> </span><span class="n">border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;darkgreen&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;#00FF0033&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+</code></pre></div>
+Sie können mit Hilfe verschiedener Funktionen neue Geometrien berechnen. Im folgenden Beispiel wird der Schnittpunkt von <code>a</code> und <code>b</code> berechnet, wodurch eine neue Geometrie mit dem Namen <code>i</code> entsteht. Dazu nutzen Sie die Funktion <code>st_intersection</code>, diese und weitere Funktionen zur Berechnung von Geometrien werden Sie im Seminar zur Geoprozessierung weiter vertiefen.
+<div class="highlight"><pre><span></span><code><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">st_intersection</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+</code></pre></div>
+Dadurch haben Sie nun eine <code>GEOMETRYCOLLECTION</code> erzeugt:
+<div class="highlight"><pre><span></span><code><span class="n">i</span>
+<span class="c1">## GEOMETRYCOLLECTION (POLYGON ((7 0, 7 -0.5, 6 -0.5, 5.5 0, 7 0)), LINESTRING (4 0, 3 0), POINT (1 0))</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="c1">## [1] &quot;XY&quot;                 &quot;GEOMETRYCOLLECTION&quot; &quot;sfg&quot;</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;darkgrey&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+</code></pre></div></p>
+<h3 id="geometriespalte-sfc">Geometriespalte (<code>sfc</code>)<a class="headerlink" href="#geometriespalte-sfc" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Erstellen Sie zwei weitere Punkt Geometrien mit den Namen <code>pnt2</code> und <code>pnt3</code>:
+<div class="highlight"><pre><span></span><code><span class="n">pnt2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">st_point</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">13.393655</span><span class="p">,</span><span class="w"> </span><span class="m">52.517883</span><span class="p">))</span>
+<span class="n">pnt3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">st_point</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">13.351628</span><span class="p">,</span><span class="w"> </span><span class="m">52.545175</span><span class="p">))</span>
+</code></pre></div>
+Die erzeugten <code>sfg</code> Objekte können mit der Funktion <code>st_sfc</code> zu einem <code>sfc</code> Objekt zusammengefasst werden.
+Das <code>sfc</code> Objekt beinhaltet zusätzlich zu den Geometrien ein Coordinate Reference System (CRS). Mit dem <code>crs</code> Parameter der Funktion <code>st_sfc</code> können vier CRS-Typen genutzt werden:
+-   Ein EPSG code (z.B. <code>4326</code>)
+-   Ein PROJ4 string (z.B. <code>"+proj=longlat +datum=WGS84 +no_defs"</code>)
+-   Ein WKT string
+-   Ein <code>crs</code> Objekt eines anderen Layers, erzeugt durch <code>st_crs</code></p>
+<p>Sie können nun die drei erzeugten Punkt Geometrien, <code>pnt1</code>, <code>pnt2</code> und <code>pnt3</code>, zusammenfügen zu einem <code>sfc</code> Objekt mit dem Namen <code>geom</code>. Sie geben an, dass es sich bei den Koordinaten um Längen- und Breitengrade (WGS84) handelt und verwenden die einfachste der drei Methoden - einen EPSG-Code (<code>4326</code>):
+<div class="highlight"><pre><span></span><code><span class="n">geom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">st_sfc</span><span class="p">(</span><span class="n">pnt1</span><span class="p">,</span><span class="w"> </span><span class="n">pnt2</span><span class="p">,</span><span class="w"> </span><span class="n">pnt3</span><span class="p">,</span><span class="w"> </span><span class="n">crs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4326</span><span class="p">)</span>
+</code></pre></div>
+Die Zusammenfassung sieht so aus:
+<div class="highlight"><pre><span></span><code><span class="n">geom</span>
+<span class="c1">## Geometry set for 3 features </span>
+<span class="c1">## Geometry type: POINT</span>
+<span class="c1">## Dimension:     XY</span>
+<span class="c1">## Bounding box:  xmin: 52.45253 ymin: 13.28968 xmax: 52.54518 ymax: 13.39366</span>
+<span class="c1">## Geodetic CRS:  WGS 84</span>
+<span class="c1">## POINT (13.28968 52.45253)</span>
+<span class="c1">## POINT (13.39366 52.51788)</span>
+<span class="c1">## POINT (13.35163 52.54518)</span>
+</code></pre></div>
+Sie können sehen, dass neben den Geometrien selbst und den abgeleiteten Eigenschaften von Geometrie-Typ, Dimension und Begrenzungsrahmen die Geometriespalte die zusätzlichen Informationen über das CRS enthält.</p>
+<h3 id="layer-sf">Layer (<code>sf</code>)<a class="headerlink" href="#layer-sf" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Das <code>sfc</code> Objekt kann mit einem <code>data.frame</code> (die Attributtabelle) kombiniert werden, um ein <code>sf</code> Objekt zu erzeugen. Das vorher erzeugte <code>sfc</code> Objekt <code>geom</code> repräsentiert die Lage dreier Berliner Hochschulen. Sie erstellen nun einen <code>data.frame</code> mit nicht-räumlichen Eigenschaften der Hochschulen:
+<div class="highlight"><pre><span></span><code><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Freie Universität Berlin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Humboldt-Universität zu Berlin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Berliner Hochschule für Technik&quot;</span><span class="p">)</span>
+<span class="n">kurzname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;FU Berlin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;HU Berlin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;BHT&quot;</span><span class="p">)</span>
+<span class="n">hochschultyp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Universität&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Universität&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hochschule&quot;</span><span class="p">)</span>
+<span class="n">studierendenanzahl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">33.500</span><span class="p">,</span><span class="m">36.566</span><span class="p">,</span><span class="m">13.161</span><span class="p">)</span>
+<span class="n">dat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">data.frame</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">kurzname</span><span class="p">,</span><span class="w"> </span><span class="n">hochschultyp</span><span class="p">,</span><span class="w"> </span><span class="n">studierendenanzahl</span><span class="p">)</span>
+<span class="n">dat</span>
+<span class="c1">##                             name  kurzname hochschultyp studierendenanzahl</span>
+<span class="c1">## 1        Freie Universität Berlin FU Berlin  Universität             33.500</span>
+<span class="c1">## 2  Humboldt-Universität zu Berlin HU Berlin  Universität             36.566</span>
+<span class="c1">## 3 Berliner Hochschule für Technik       BHT   Hochschule             13.161</span>
+</code></pre></div>
+Sie können nun die Attributtabelle <code>dat</code> (<code>data.frame</code>) mit der Geometriespalte <code>geom</code> (<code>sfc</code>) zu einem <code>sf</code> Objekt mit dem Namen <code>layer</code> zusammenfügen. Nutzen Sie dafür die Funktion <code>st_sf</code>:
+<div class="highlight"><pre><span></span><code><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">st_sf</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span><span class="w"> </span><span class="n">geom</span><span class="p">)</span>
+</code></pre></div>
+Beachten Sie, dass die Reihenfolge der Zeilen von Attributtabelle und Geometriespalte übereinstimmen. Hier sehen Sie das Ergebnis:
+<div class="highlight"><pre><span></span><code><span class="n">layer</span>
+<span class="c1">## Simple feature collection with 3 features and 4 fields</span>
+<span class="c1">## Geometry type: POINT</span>
+<span class="c1">## Dimension:     XY</span>
+<span class="c1">## Bounding box:  xmin: 52.45253 ymin: 13.28968 xmax: 52.54518 ymax: 13.39366</span>
+<span class="c1">## Geodetic CRS:  WGS 84</span>
+<span class="c1">##                              name  kurzname hochschultyp studierendenanzahl</span>
+<span class="c1">## 1        Freie Universität Berlin FU Berlin  Universität             33.500</span>
+<span class="c1">## 2  Humboldt-Universität zu Berlin HU Berlin  Universität             36.566</span>
+<span class="c1">## 3 Berliner Hochschule für Technik       BHT   Hochschule             13.161</span>
+<span class="c1">##                        geom</span>
+<span class="c1">## 1 POINT (13.28968 52.45253)</span>
+<span class="c1">## 2 POINT (13.39366 52.51788)</span>
+<span class="c1">## 3 POINT (13.35163 52.54518)</span>
+</code></pre></div>
+Mit der Funktion <code>mapview</code> können Sie den Layer darstellen:
+<div class="highlight"><pre><span></span><code><span class="nf">mapviewOptions</span><span class="p">(</span><span class="n">fgb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="nf">mapview</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="extrahieren-von-layer-eigenschaften">Extrahieren von Layer-Eigenschaften<a class="headerlink" href="#extrahieren-von-layer-eigenschaften" title="Link zu dieser Sektion">&para;</a></h2>
+<p>Sie haben,
+-   mit einfachen Koordinaten begonnen
+-   diese zu einem Geometrie Objekt umgewandelt (<code>sfg</code>) mit Funktionen wie <code>st_point</code> und <code>st_polygon</code>
+-   die Geometrien zu einer Geometriespalte (<code>sfc</code>) zusammengefügt mit der Funktion <code>st_sfc</code> 
+-   Attribute hinzugefügt um ein <code>sf</code>-Layer zu erzeugen mit der Funktion <code>st_sf</code></p>
+<p>Manchmal ist es jedoch notwendig von einem existierenden Layer die einzelnen Komponenten zu erhateln.
+-   <code>sf</code> → Geometriespalte (<code>sfc</code>)
+-   <code>sf</code> → Attributtabelle (<code>data.frame</code>)
+-   <code>sf</code> → Koordinaten (<code>matrix</code>)</p>
+<p>Die Geometriespalte (<code>sfc</code>) erhalten Sie mit der Funktion <code>st_geometry</code>:
+<div class="highlight"><pre><span></span><code><span class="nf">st_geometry</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span>
+<span class="c1">## Geometry set for 3 features </span>
+<span class="c1">## Geometry type: POINT</span>
+<span class="c1">## Dimension:     XY</span>
+<span class="c1">## Bounding box:  xmin: 13.28968 ymin: 52.45253 xmax: 13.39366 ymax: 52.54518</span>
+<span class="c1">## Geodetic CRS:  WGS 84</span>
+<span class="c1">## POINT (13.28968 52.45253)</span>
+<span class="c1">## POINT (13.39366 52.51788)</span>
+<span class="c1">## POINT (13.35163 52.54518)</span>
+</code></pre></div>
+Die Attributtabelle erhalten Sie mit der Funktion <code>st_drop_geometry</code>:
+<div class="highlight"><pre><span></span><code><span class="nf">st_drop_geometry</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span>
+<span class="c1">##                              name  kurzname hochschultyp studierendenanzahl</span>
+<span class="c1">## 1        Freie Universität Berlin FU Berlin  Universität             33.500</span>
+<span class="c1">## 2  Humboldt-Universität zu Berlin HU Berlin  Universität             36.566</span>
+<span class="c1">## 3 Berliner Hochschule für Technik       BHT   Hochschule             13.161</span>
+</code></pre></div>
+Die Koordinaten von <code>sf</code>, <code>sfc</code> or <code>sfg</code> Objekten erhalten Sie mit der Funktion <code>st_coordinates</code>. Die Koordinaten sind in einer <code>matrix</code>:
+<div class="highlight"><pre><span></span><code><span class="nf">st_coordinates</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span>
+<span class="c1">##          X        Y</span>
+<span class="c1">## 1 13.28968 52.45253</span>
+<span class="c1">## 2 13.39366 52.51788</span>
+<span class="c1">## 3 13.35163 52.54518</span>
+</code></pre></div></p>
+<h2 id="erstellen-eines-punkt-layers-aus-einer-tabelle">Erstellen eines Punkt-Layers aus einer Tabelle<a class="headerlink" href="#erstellen-eines-punkt-layers-aus-einer-tabelle" title="Link zu dieser Sektion">&para;</a></h2>
+<p>Sie können Punkt-Layer aus Tabellen (<code>data.frame</code>) erstellen, mit Hilfe der Funktion <code>st_as_sf</code>. Die Tabelle benötigt dafür zwei Spalten mit X und Y Koordinaten. Die Funktion benötigt drei Argumente:
+-   <code>x</code>— <code>data.frame</code> der genutzt werden soll
+-   <code>coords</code>—Spaltennamen mit den Koordinaten (X, Y)
+-   <code>crs</code>—Das CRS (<code>NA</code> wenn nichts angegeben wird)</p>
+<p>Es wird <code>Jungfernheide.csv</code> als Beispiel genutzt. Die Tabelle hat zwei Spalten mit den Namen <code>loc.x.utm32</code> und <code>loc.y.utm32</code>. Die beiden Spalten beinhalten Koordinaten von Baumpositionen in UTM 32N CRS (EPSG code <code>32632</code>):
+<div class="highlight"><pre><span></span><code><span class="n">Jungfernheide</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;Jungfernheide.csv&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nf">head</span><span class="p">(</span><span class="n">Jungfernheide</span><span class="p">)</span>
+<span class="c1">##   X ID Baumart Bhd.1   Biomasse loc.x.utm32 loc.y.utm32</span>
+<span class="c1">## 1 1  1 Robinie  17.2   72.83773    791196.4     5829994</span>
+<span class="c1">## 2 2  2   Eiche  45.6 1102.23611    791197.4     5829985</span>
+<span class="c1">## 3 3  3 Robinie  13.7   38.16567    791195.8     5829991</span>
+<span class="c1">## 4 4  4 Robinie  19.0   96.63759    791193.4     5829989</span>
+<span class="c1">## 5 5  5 Robinie  11.0   20.45855    791193.2     5829994</span>
+<span class="c1">## 6 6  6   Eiche  60.0 2169.95400    791189.2     5829994</span>
+</code></pre></div>
+Diese Tabelle kann in einen <code>sf</code>-Layer transformiert werden mit der Funktion <code>st_as_sf</code>:
+<div class="highlight"><pre><span></span><code><span class="n">Jungfernheide</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">st_as_sf</span><span class="p">(</span><span class="n">Jungfernheide</span><span class="p">,</span><span class="w"> </span><span class="n">coords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;loc.x.utm32&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;loc.y.utm32&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">crs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">32632</span><span class="p">)</span>
+</code></pre></div>
+Beachten Sie die richtige Reihenfolge der Koordinaten X und dann Y. <code>32632</code> ist der EPSG code der UTM 32N Projektion.
+Der <code>sf</code>-Layer sieht dann so aus:
+<div class="highlight"><pre><span></span><code><span class="n">Jungfernheide</span>
+<span class="c1">## Simple feature collection with 10 features and 5 fields</span>
+<span class="c1">## Geometry type: POINT</span>
+<span class="c1">## Dimension:     XY</span>
+<span class="c1">## Bounding box:  xmin: 791185.7 ymin: 5829985 xmax: 791197.4 ymax: 5830006</span>
+<span class="c1">## Projected CRS: WGS 84 / UTM zone 32N</span>
+<span class="c1">##     X ID Baumart Bhd.1   Biomasse                 geometry</span>
+<span class="c1">## 1   1  1 Robinie  17.2   72.83773 POINT (791196.4 5829994)</span>
+<span class="c1">## 2   2  2   Eiche  45.6 1102.23611 POINT (791197.4 5829985)</span>
+<span class="c1">## 3   3  3 Robinie  13.7   38.16567 POINT (791195.8 5829991)</span>
+<span class="c1">## 4   4  4 Robinie  19.0   96.63759 POINT (791193.4 5829989)</span>
+<span class="c1">## 5   5  5 Robinie  11.0   20.45855 POINT (791193.2 5829994)</span>
+<span class="c1">## 6   6  6   Eiche  60.0 2169.95400 POINT (791189.2 5829994)</span>
+<span class="c1">## 7   7  7   Eiche  31.6  445.80534 POINT (791189.4 5830000)</span>
+<span class="c1">## 8   8  8 Robinie  17.0   70.45746 POINT (791188.9 5830002)</span>
+<span class="c1">## 9   9  9   Buche  15.5  104.71791 POINT (791185.7 5830006)</span>
+<span class="c1">## 10 10 10   Eiche  13.8   57.68557 POINT (791193.8 5830000)</span>
+</code></pre></div>
+Mit <code>mapview</code> können Sie den Layer darstellen. Der Parameter <code>zcol</code> kann genutzt werden um ein Attribut mit einer Farbskala darzustellen:
+<div class="highlight"><pre><span></span><code><span class="nf">mapview</span><span class="p">(</span><span class="n">Jungfernheide</span><span class="p">,</span><span class="w"> </span><span class="n">zcol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Biomasse&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="sf-layer-eigenschaften"><code>sf</code>-Layer Eigenschaften<a class="headerlink" href="#sf-layer-eigenschaften" title="Link zu dieser Sektion">&para;</a></h2>
+<h3 id="dimensionen">Dimensionen<a class="headerlink" href="#dimensionen" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Ein <code>sf</code>-Layer ist eine besondere Art von <code>data.frame</code>, welcher Geometrien beinhalten. Viele Funktionen die Sie bei einem <code>data.frame</code> nutzen können, funktionieren auch bei einem <code>sf</code>-Layer.</p>
+<p>Zum Beispiel können Sie mit der Funktion <code>nrow</code> die Anzahl der Zeilen bzw. der Features erhalten:
+<div class="highlight"><pre><span></span><code><span class="nf">nrow</span><span class="p">(</span><span class="n">Jungfernheide</span><span class="p">)</span>
+<span class="c1">## 10</span>
+</code></pre></div>
+Sie können mit der Funktion <code>ncol</code> die Anzahl der Spalten inklusive der Geometrien erhalten:
+<div class="highlight"><pre><span></span><code><span class="nf">ncol</span><span class="p">(</span><span class="n">Jungfernheide</span><span class="p">)</span>
+<span class="c1">## 6</span>
+</code></pre></div>
+Mit der Funktion <code>dim</code> erhalten Sie beides:
+<div class="highlight"><pre><span></span><code><span class="nf">dim</span><span class="p">(</span><span class="n">Jungfernheide</span><span class="p">)</span>
+<span class="c1">## 10 6</span>
+</code></pre></div></p>
+<h3 id="raumliche-eigenschaften">Räumliche Eigenschaften<a class="headerlink" href="#raumliche-eigenschaften" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Sie können die Funktion <code>st_bbox</code> nutzen um die Koordinaten für die räumliche Ausdehnung des <code>sf</code>-Layers zu erhalten:
+<div class="highlight"><pre><span></span><code><span class="nf">st_bbox</span><span class="p">(</span><span class="n">Jungfernheide</span><span class="p">)</span>
+<span class="c1">##      xmin      ymin      xmax      ymax </span>
+<span class="c1">##  791185.7 5829984.8  791197.4 5830005.7 </span>
+</code></pre></div>
+Mit der Funktion <code>st_crs</code> erhalten Sie Informationen zum Coordinate Reference System (CRS):
+<div class="highlight"><pre><span></span><code><span class="nf">st_crs</span><span class="p">(</span><span class="n">Jungfernheide</span><span class="p">)</span>
+<span class="c1">## Coordinate Reference System:</span>
+<span class="c1">##   User input: EPSG:32632 </span>
+<span class="c1">##   wkt:</span>
+<span class="c1">## PROJCRS[&quot;WGS 84 / UTM zone 32N&quot;,</span>
+<span class="c1">##     BASEGEOGCRS[&quot;WGS 84&quot;,</span>
+<span class="c1">##         DATUM[&quot;World Geodetic System 1984&quot;,</span>
+<span class="c1">##             ELLIPSOID[&quot;WGS 84&quot;,6378137,298.257223563,</span>
+<span class="c1">##                 LENGTHUNIT[&quot;metre&quot;,1]]],</span>
+<span class="c1">##         PRIMEM[&quot;Greenwich&quot;,0,</span>
+<span class="c1">##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],</span>
+<span class="c1">##         ID[&quot;EPSG&quot;,4326]],</span>
+<span class="c1">##     CONVERSION[&quot;UTM zone 32N&quot;,</span>
+<span class="c1">##         METHOD[&quot;Transverse Mercator&quot;,</span>
+<span class="c1">##             ID[&quot;EPSG&quot;,9807]],</span>
+<span class="c1">##         PARAMETER[&quot;Latitude of natural origin&quot;,0,</span>
+<span class="c1">##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],</span>
+<span class="c1">##             ID[&quot;EPSG&quot;,8801]],</span>
+<span class="c1">##         PARAMETER[&quot;Longitude of natural origin&quot;,9,</span>
+<span class="c1">##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],</span>
+<span class="c1">##             ID[&quot;EPSG&quot;,8802]],</span>
+<span class="c1">##         PARAMETER[&quot;False easting&quot;,500000,</span>
+<span class="c1">##             LENGTHUNIT[&quot;metre&quot;,1],</span>
+<span class="c1">##             ID[&quot;EPSG&quot;,8806]],</span>
+<span class="c1">##         PARAMETER[&quot;False northing&quot;,0,</span>
+<span class="c1">##             LENGTHUNIT[&quot;metre&quot;,1],</span>
+<span class="c1">##             ID[&quot;EPSG&quot;,8807]]],</span>
+<span class="c1">##     CS[Cartesian,2],</span>
+<span class="c1">##         AXIS[&quot;(E)&quot;,east,</span>
+<span class="c1">##             ORDER[1],</span>
+<span class="c1">##             LENGTHUNIT[&quot;metre&quot;,1]],</span>
+<span class="c1">##         AXIS[&quot;(N)&quot;,north,</span>
+<span class="c1">##             ORDER[2],</span>
+<span class="c1">##             LENGTHUNIT[&quot;metre&quot;,1]],</span>
+<span class="c1">##     USAGE[</span>
+<span class="c1">##         SCOPE[&quot;Engineering survey, topographic mapping.&quot;],</span>
+<span class="c1">##         AREA[&quot;Between 6Â°E and 12Â°E, northern hemisphere between equator and 84Â°N, onshore and offshore. Algeria. Austria. Cameroon. Denmark. Equatorial Guinea. France. Gabon. Germany. Italy. Libya. Liechtenstein. Monaco. Netherlands. Niger. Nigeria. Norway. Sao Tome and Principe. Svalbard. Sweden. Switzerland. Tunisia. Vatican City State.&quot;],</span>
+<span class="c1">##         BBOX[0,6,84,12]],</span>
+<span class="c1">##     ID[&quot;EPSG&quot;,32632]]</span>
+</code></pre></div></p>
+<h2 id="weiterfuhrende-informationen">Weiterführende Informationen<a class="headerlink" href="#weiterfuhrende-informationen" title="Link zu dieser Sektion">&para;</a></h2>
+<p>Das hier bereitgestellte Material stammt von den folgenden Seiten. Dort finden Sie auch noch weitere Informationen zu diesem und weiteren Themen:
+- https://cran.r-project.org/web/packages/sf/index.html
+- https://geobgu.xyz/r/index.html</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../visualization-and-map/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Visualization and Map" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Visualization and Map
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../attributes-filters-and-metadata/" class="md-footer__link md-footer__link--next" aria-label="Next: Attributes, Filters and Metadata" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Attributes, Filters and Metadata
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; CC-BY-SA-4.0 license - Freie Universität Berlin Institute of Geographical Sciences Remote Sensing and Geoinformatics
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "search.suggest", "search.highlight", "content.action.edit", "content.code.copy", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="../../javascripts/mathjax.js"></script>
+        
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

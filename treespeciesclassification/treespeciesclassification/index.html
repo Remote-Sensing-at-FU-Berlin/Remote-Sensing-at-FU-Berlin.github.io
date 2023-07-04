@@ -1,0 +1,1567 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../radiative-transfer-model/radiative-transfer-model/">
+      
+      
+        <link rel="next" href="../../BFAST/BFAST/">
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>Classification of tree species using hyperspectral data - REMOTE SENSING AND GEOINFORMATICS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-green">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#classification-of-tree-species-using-hyperspectral-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="REMOTE SENSING AND GEOINFORMATICS" class="md-header__button md-logo" aria-label="REMOTE SENSING AND GEOINFORMATICS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            REMOTE SENSING AND GEOINFORMATICS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Classification of tree species using hyperspectral data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Remote-Sensing-at-FU-Berlin.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Welcome
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../qgis/01-GUI/" class="md-tabs__link md-tabs__link--active">
+        Prof. Dr. Fassnacht
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gis/installation/" class="md-tabs__link">
+        GIS
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../schuelerpraktikum/handout/" class="md-tabs__link">
+        Other
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="REMOTE SENSING AND GEOINFORMATICS" class="md-nav__button md-logo" aria-label="REMOTE SENSING AND GEOINFORMATICS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    REMOTE SENSING AND GEOINFORMATICS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Remote-Sensing-at-FU-Berlin.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prof. Dr. Fassnacht
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prof. Dr. Fassnacht
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          QGIS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          QGIS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/01-GUI/" class="md-nav__link">
+        Getting to know the graphical user interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/02-vector-data/" class="md-nav__link">
+        Loading and visualizing Shapefiles / Vector data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/03-raster-data/" class="md-nav__link">
+        Loading and visualizing raster data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/04-general-tools/" class="md-nav__link">
+        Useful general tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/05-digitizing/" class="md-nav__link">
+        Basic vector processing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/06-selections/" class="md-nav__link">
+        Spatial and semantic selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/07-elevation/" class="md-nav__link">
+        Working with elevation raster datasets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/08-map-making/" class="md-nav__link">
+        Making a map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/09-spatial-interpolation/" class="md-nav__link">
+        Spatial interpolation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic-landsat/basic-landsat/" class="md-nav__link">
+        Basic Landsat Processing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../random-forest-regression/random-forest-regression/" class="md-nav__link">
+        Random Forest Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Laserscanning_lidR/1_Laserscanning_lidR/" class="md-nav__link">
+        Getting started with processing laserscanning data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiative-transfer-model/radiative-transfer-model/" class="md-nav__link">
+        Radiative Transfer Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Classification of tree species using hyperspectral data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Classification of tree species using hyperspectral data
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datasets-used-in-this-tutorial" class="md-nav__link">
+    Datasets used in this Tutorial
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-loading-an-visualizing-the-hyperspectral-hymap-image-and-the-reference-dataset" class="md-nav__link">
+    Step 1: Loading an visualizing the hyperspectral HyMap image and the reference dataset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-tree-species-classification-using-the-original-hymap-bands" class="md-nav__link">
+    Step 2: Tree species classification using the original HyMap bands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-tree-species-classification-using-pca-bands" class="md-nav__link">
+    Step 3: Tree species classification using PCA bands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-tree-species-classification-using-a-combination-of-feature-selection-vsurf-and-feature-extraction-pca" class="md-nav__link">
+    Step 4: Tree species classification using a combination of feature selection (VSURF) and feature extraction (PCA)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    Exercise
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BFAST/BFAST/" class="md-nav__link">
+        Analysing time series with BFAST and NPPHEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../landscape_metrics/landscape_metrics/" class="md-nav__link">
+        Calculation of Landscape Metrics from a Land-cover raster map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spatial_autocorrelation/spatial_autocorrelation/" class="md-nav__link">
+        Calculating semivariograms and Autocorrelograms
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          GEE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          GEE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MSRS_1_GEE_basics/MSRS_1_GEE_basics/" class="md-nav__link">
+        Preparing time series data stacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MSRS_1_GEE_basics2/MSRS_1_GEE_basics2/" class="md-nav__link">
+        Preparing annual time series data stacks and conducting time series analysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          SNAP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          SNAP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planetary-sciences/01-download-ls-and-s2/" class="md-nav__link">
+        Download of Landsat and Sentinel satellite images
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          GIS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GIS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/visualization-and-map/" class="md-nav__link">
+        Visualization and Map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/digitalization/" class="md-nav__link">
+        Digitalization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/attributes-filters-and-metadata/" class="md-nav__link">
+        Attributes, Filters and Metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/geoprocesing-and-reference-and-coordinate-systems/" class="md-nav__link">
+        Geoprocesing and reference and coordinate systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/interpolation/" class="md-nav__link">
+        Interpolation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/dem/" class="md-nav__link">
+        Digital Elevation Models
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Other
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Other
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schuelerpraktikum/handout/" class="md-nav__link">
+        School internship
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mintoring/mintoring/" class="md-nav__link">
+        Mintoring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/tree/main/docs/treespeciesclassification/treespeciesclassification.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="classification-of-tree-species-using-hyperspectral-data">Classification of tree species using hyperspectral data<a class="headerlink" href="#classification-of-tree-species-using-hyperspectral-data" title="Link zu dieser Sektion">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Link zu dieser Sektion">&para;</a></h2>
+<p>In this lecture you will learn how to use hyperspectral data in combination with a support vector machines (SVM) algorithm to create a tree species map from a hyperspectral HyMap image using a supervised classification. The learned steps will include:</p>
+<ul>
+<li>Loading a hyperspectral  image</li>
+<li>Visualizing a hyperspectral image and vegetation spectra extracted from pixels</li>
+<li>Conduct a supervised SVM classification using the original HyMap bands</li>
+<li>Applying a PCA transformation to the Hyperspectral image (feature extraction) </li>
+<li>Conduct a supervised SVM classification using the PCA components as input</li>
+<li>Apply an additional feature selection to the PCA components and conduct a supervised SVM classification using an automatically selected subset of the PCA components</li>
+</ul>
+<p>The datasets applied in this tutorial are available here:</p>
+<p><a href="https://drive.google.com/file/d/1OkOcvNTDGR5PcBhress0pbwMP5wPqVui/view?usp=sharing">https://drive.google.com/file/d/1OkOcvNTDGR5PcBhress0pbwMP5wPqVui/view?usp=sharing</a></p>
+<h2 id="datasets-used-in-this-tutorial">Datasets used in this Tutorial<a class="headerlink" href="#datasets-used-in-this-tutorial" title="Link zu dieser Sektion">&para;</a></h2>
+<p>In this tutorial we will make use of an airborne hyperspectral or imaging spectroscopy image that was collected with the HyMap sensor (<strong>HyMap_125bands_Karlsruhe2.tif</strong>). This dataset is comparable to a multispectral image but contains a lot more bands which continuously cover the spectra wavelengths regions between approximately 400 and 2400 nm. The HyMap image shows a forested area in the North of the German city Karlsruhe. The dataset has been described with more details in the following publications: </p>
+<p>Fassnacht, F. E.; Neumann, C.; Forster, M.; Buddenbaum, H.; Ghosh, A.; Clasen, A.; Joshi, P. K.; Koch, B. (2014). Comparison of feature reduction algorithms for classifying tree species with hyperspectral data on three central european test sites. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 7 (6), 2547–2561. doi:10.1109/JSTARS.2014.2329390</p>
+<p>Ghosh, A.; Fassnacht, F. E.; Joshi, P. K.; Koch, B. (2014). A framework for mapping tree species combining Hyperspectral and LiDAR data: role of selected classifiers and sensor across three spatial scales. International journal of applied earth observation and geoinformation, 26, 49–63. doi:10.1016/j.jag.2013.05.017</p>
+<p>Additionally, a point-Shapefile is provided which contains sample points (reference positions) for 5 tree species (50 points per species, 250 in total) (<strong>tree_species_KA.shp</strong>). These reference positions were collected using visual interpretation of high-resolution images in combination with reference tree species maps provided by the local forest administration. These reference tree species maps are also provided as tif-files (<strong>Reference_information.tif; Reference_information2.tif</strong>). The latter can used for comparison with the classification maps produced in the tutorial. </p>
+<h2 id="step-1-loading-an-visualizing-the-hyperspectral-hymap-image-and-the-reference-dataset">Step 1: Loading an visualizing the hyperspectral HyMap image and the reference dataset<a class="headerlink" href="#step-1-loading-an-visualizing-the-hyperspectral-hymap-image-and-the-reference-dataset" title="Link zu dieser Sektion">&para;</a></h2>
+<p>As first step, load all necessary R packages by executing the following code:</p>
+<div class="highlight"><pre><span></span><code>require(raster)
+require(e1071)
+require(caret)
+require(rgdal)
+require(matrixStats)
+require(RStoolbox)
+require(factoextra)
+require(VSURF)
+</code></pre></div>
+<p>R will give you a warning message in case a package is not installed yet. If this is the case, please install the packages either through the main menu of Rstudio by selecting <strong>"Tools" =&gt;</strong> <strong>"Install packages"</strong> and then following the appearing dialogue, or by entering the corresponding R code to install the packages into the console. E.g., to install the package "raster" use the code:</p>
+<div class="highlight"><pre><span></span><code>install.packages(&quot;raster&quot;)
+</code></pre></div>
+<p>After all packages are successfully installed, we will load the hyperspectral image and the shapefile containing the reference information. You should already be familiar with the corresponding code in R from earlier practicals of the course.</p>
+<div class="highlight"><pre><span></span><code># change directory (depends on where you stored your data)
+setwd(&quot;D:/Diplomado/Tut_superv_class_hyper/2_data&quot;)
+
+# load hyperspectral image
+hym_img &lt;- stack(&quot;HyMap_125bands_Karlsruhe2.tif&quot;)
+
+# load reference data
+ref &lt;- readOGR(&quot;.&quot;, &quot;tree_species_KA&quot;)
+</code></pre></div>
+<p>After loading the hyperspectral image, we can obtain some basic information about the data using some standard commands of the Raster package:</p>
+<div class="highlight"><pre><span></span><code># we can now obtain some information about the image using the following commands:
+
+# number of colums of the hyperspectral image
+ncol(hym_img)
+# number of rows of the hyperspectral image
+nrow(hym_img)
+# number of bands of the hyperspectral image
+length(hym_img@layers)
+# summary information of all bands
+hym_img@layers
+# summary information of a specific band, here band number 5
+hym_img@layers[5]
+# check the geographic extent of the image
+extent(hym_img)
+# check the defined coordinate system
+crs(hym_img)
+</code></pre></div>
+<p>While we do not exlicitly need these commands right now, it is still important to know them because you will regularly confront situations where you need them for processing your images in an effective way. Next, we will plot our hyperspectral image (<strong>hym_img</strong>) as well as the reference data stored in the loaded shapefile (<strong>ref</strong>).  You can see in the code below, that we will select the bands number 21, 14 and 7 to plot a RGB-composit of the hyperspectral image. This leads to an Color-Infrared-View of the image because the band 21 is located in the NIR, the band 14 in the red region and band 7 in the green region. We will furthermore plot the reference data on top of the image using the species information to color-code each sample. The species information is stored in the attribute table of the Shapefile in the column named "id" which can be accessed with the setting <strong>col=ref@data$id</strong>.</p>
+<div class="highlight"><pre><span></span><code># plot CIR view of hyperspectral image
+plotRGB(hym_img, r=21, g=14, b=7, stretch=&quot;hist&quot;)
+# add reference points
+par(new=T)
+plot(ref, col=ref@data$id, add=T)
+</code></pre></div>
+<p>This will result in the following plot:</p>
+<p><a class="glightbox" href="../assets/Tut_hyp_1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/Tut_hyp_1.png" /></a></p>
+<p>In the given plot, coniferous stands are depicted in green and broadleaved stands in red. This is because broadleaved stands have a higher reflectance in the near-infrared region than coniferous stands. You can also see that the reference points are depicted in different colors and are mostly crowded in individual forest stands. This is due to the fact, that these stands contain mostly a single species and can hence serve as reliable reference areas to collect samples that we will use to train the algorithm. In total, we consider five tree species, that we will introduce later on. Already now, we can see that one species (Fagus sylvatica) is not occurring in pure stands (this can be seen because pure stands appear just in green or just in red colors). You can see that all the dark blue samples are occurring in rather heterogeneous stands with mixed green and red areas.</p>
+<p>As next step, we will now extract the spectral values of the HyMap image at each of the 250 reference point locations. So we will have 50 spectral signatures for each tree species. To do this we run:</p>
+<div class="highlight"><pre><span></span><code># extract spectral signatures at the reference data points
+ref_data_tr &lt;- extract(hym_img, ref)
+</code></pre></div>
+<p>Depending on the performance of your computer, this will take a bit of time, as the image has quite a lot of bands. Once, we have extracted the values, we will transform the resulting data matrix into a data frame by running:</p>
+<div class="highlight"><pre><span></span><code>ref_data_tr &lt;- as.data.frame(ref_data_tr)
+</code></pre></div>
+<p>Now, we can have a look at the extracted spectral signature by running the plot command in a loop to plot all spectral signatures into the same plot window:</p>
+<div class="highlight"><pre><span></span><code># plot all spectra and color-code with species
+dev.off()
+for (i in 1:nrow(ref_data_tr)){
+
+  par(new=T) 
+  plot(1:125, ref_data_tr[i,], type=&quot;l&quot;, col=ref@data$id[i], ylim=c(0,6000), ylab=&quot;Reflectance&quot;, xlab=&quot;HyMap band&quot;)
+
+}
+</code></pre></div>
+<p>This will result in the following image:</p>
+<p><a class="glightbox" href="../assets/Tut_hyp_2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/Tut_hyp_2.png" /></a></p>
+<p>What is not optimal in this graph is that the x-axis does not show the wavelengths, but the band number of the HyMap sensor. This can be fixed by providing the center-wavelengths of HyMap instead as an array instead of the simple sequence from 1 to 125 (the code part is: <strong>1:125</strong>) as done at the moment. However, because it is not really relevant for this tutorial, we will not spend more time on this for now.</p>
+<p>In the plot, we used the species information to color-code the spectra, but as you can see this graph is quite chaotic, and it is hard to see where the spectra of one species ends and the spectra of another species start. All in all, there seems to be quite a heavy overlap between the spectral signatures of the five species. So let us try to make this plot a bit clearer by plotting the mean spectral signature of each species plus its standard deviations.</p>
+<p>We will need a bit more code to do this. There are definitely ways to code this with less lines of code, however, the solution given below makes the logical flow quite clear and may be easier to understand for people who are not yet professionals in R. For detailed information, please read the comments in the code.</p>
+<div class="highlight"><pre><span></span><code>##################################
+# plot mean + sd of each species
+##################################
+
+# The species information stored in the Shapefile is coded with numbers. Below you can see which species
+# belongs to which number code.
+
+# species:
+# id = 1 = Quercus robur/petreae (Common/Trembling Oak)
+# id = 2 = Pinus sylvestris (Pine) 
+# id = 3 = Quercus rubra (Red Oak)
+# id = 4 = Fagus sylvatica (European beech)
+# id = 5 = Pseudotsuga menziesii (Douglas fir)
+
+# in the first step, this information about the species will be attached to the dataframe
+# containing the spectral signatures at the reference plot locations:
+
+ref_data_tr$id &lt;- ref@data$id
+
+# now we are ready to calculate the mean and standard deviation (sd) spectral signatures of each species 
+# to save the mean and sd signatures, we create an empty list object    
+meansd &lt;- list()
+
+# then we run a loop in which we first build a subset of the spectral signatures dataframe so that the
+# subset only contains the spectra of a single species.
+for (i2 in 1:5){
+
+  # build subset of the dataframe where the species id = i2 
+  sp &lt;- ref_data_tr[ref_data_tr$id == i2,]
+  # from the remaining 50 spectral signatures of a single species, calculate the column mean and sd
+  means &lt;- colMeans2(as.matrix(sp[,1:125]))
+  sds &lt;- colSds(as.matrix(sp[,1:125]))
+  # bind the two arrays containing the mean and sd values
+  fin &lt;- cbind(means, sds)
+  # save them to the list
+  meansd[[i2]] &lt;- fin
+  # repeat with next species
+
+}
+
+# now we are able to plot the mean and sd values of the five species
+
+# close any currently open plot window
+dev.off()
+# plot an &quot;empty&quot; plot by setting the color to white. This is a trick to avoid overlapping axes-titles in the for-loop below
+plot(1:125, meansd[[1]][,1], type=&quot;l&quot;, col=&quot;white&quot;, ylim=c(0,6000), ylab=&quot;Reflectance [10000=100%]&quot;, xlab=&quot;# Band&quot;)
+# add a legend indicating the species names
+legend(&quot;topright&quot;, legend=c(&quot;Quercus robur&quot;, &quot;Pinus sylvestris&quot;, &quot;Quercus rubra&quot;, &quot;Fagus sylvatica&quot;, &quot;Pseudotsuga menziesii&quot;), col=c(1,2,3,4,5), lty=c(1,1,1,1,1))
+
+# plot the mean spectral signature as well as two additional signatures which show the mean - sd and mean + sd to create an interval in which most of the spectral signatures of the species are located.
+
+for (i3 in 1:5){
+
+
+  par(new=T)
+  # plot mean spectral signature
+  plot(1:125, meansd[[i3]][,1], type=&quot;l&quot;, col=i3, ylim=c(0,6000), add=T, lwd=2, axes=F, ann=F)
+  par(new=T)
+  # plot mean spectral signature + sd values
+  plot(1:125, meansd[[i3]][,1]+meansd[[i3]][,2], type=&quot;l&quot;, col=adjustcolor(i3, alpha.f=0.5), ylim=c(0,6000), add=T, lty=2, axes=F, ann=F)
+  par(new=T)
+  # plot mean spectral signature - sd values
+  plot(1:125, meansd[[i3]][,1]-meansd[[i3]][,2], type=&quot;l&quot;, col=adjustcolor(i3, alpha.f=0.5), ylim=c(0,6000), add=T, lty=2, axes=F, ann=F)
+
+
+}
+</code></pre></div>
+<p>This rather long code will lead to the following plot:</p>
+<p><a class="glightbox" href="../assets/Tut_hyp_3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/Tut_hyp_3.png" /></a></p>
+<p>This plot is a lot clearer. We can see the mean spectral signatures of all broadleaved tree species (Quercus robur, Quercus rubra and Fagus sylvatica) have a higher reflectance amplitude than the two coniferous species (Pinus sylvestris and Pseudotsuga Menziesii). We can also see that the SD-values of the spectral signatures of the individual species overlap quite notably. This suggests that the classification might not be that easy. But let us explore, what can be achieved.</p>
+<h2 id="step-2-tree-species-classification-using-the-original-hymap-bands">Step 2: Tree species classification using the original HyMap bands<a class="headerlink" href="#step-2-tree-species-classification-using-the-original-hymap-bands" title="Link zu dieser Sektion">&para;</a></h2>
+<p>We will now prepare and run the first classification approach using all 125 bands of the HyMap image. For this, we first prepare two variables. One contains all the spectral signatures of the training data (<strong>trainval</strong>) and one that contains the corresponding response value (the information to which tree species the sample belongs - coded as a number between 1 and 5) (<strong>treespec</strong>).</p>
+<div class="highlight"><pre><span></span><code>############################################
+# prepare classification using original bands
+############################################
+trainval &lt;- ref_data_tr[,1:125]
+treespec &lt;- ref_data_tr$id
+</code></pre></div>
+<p>As we can see, we obtain both of these variables from the <strong>ref_dara_tr</strong> dataframe which contains the spectral signature in columns 1 to 125 and the reference data in column 126 (the latter can also be directly accessed via the column name).</p>
+<p>Now we are ready to start the classification. As you might already know, machine learning algorithms such as support vector machines, typically require a parameter tuning. That is, we try to identify the optimal settings of the classification algorithm by splitting the dataset into several parts and then use some of these parts to train the classifier (with a set of parameters) and then validate them with another part which has not been used during training. By repeatedly varying the parameters, we can find a combination of parameters, that performs exceptionally well.</p>
+<p>In the case of SVM we can vary two parameters: gamma and cost. <strong>Gamma</strong> defines how flexible the so-called hyperplane is allowed to be. The hyperplane is basically the separation-"line" between the different classes in the feature space. On the other hand, <strong>cost</strong> describes how strongly the classifier punishes a wrongly classified sample. If cost and/or Gamma is too high, there is a risk of overfitting - however, by applying datasplits during the grid search, overfitted models will lead to bad performances. By using an automated grid-search which varies the gamma and cost values within a user-defined range, it is possible to automatically search for a good gamma/cost combination in R. The corresponding code looks like this (this might take a while to run, as a lot of different models are examined here): </p>
+<div class="highlight"><pre><span></span><code># set a seed to allow for reproducing the results
+set.seed(1173)
+# set a range of gamma and cost values to be tested in the parameter tuning
+gammat = seq(.1, .9, by = .1)
+costt = seq(1,128, by = 12)
+# check the parameters to be tested
+gammat
+costt   
+# run the parameter tuning
+tune1 &lt;- tune.svm(trainval, as.factor(treespec), gamma = gammat, cost=costt)
+# plot the results of the parameter tuning
+plot(tune1)
+</code></pre></div>
+<p>As you can see we will test 9 different values for gamma and 11 different cost-values. In theory, it would of course be possible to test even more combinations but the ones selected here are working quite well from our experience. However, feel free to try out some higher and lower values if you are interested in the results. The code above will lead to the following plot:</p>
+<p><a class="glightbox" href="../assets/Tut_hyp_4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/Tut_hyp_4.png" /></a></p>
+<p>This plot summarizes the performances obtained with the examined gamma and cost values. The legend is showing the error rate. So that means, the higher we set gamma, the larger the errors were during the parameter tuning. On the other hand, cost did not have a notable effect on the parameter tuning in the given example.</p>
+<p>We will now extract the best identified gamma and cost value by running:</p>
+<div class="highlight"><pre><span></span><code>gamma &lt;- tune1$best.parameters$gamma
+cost &lt;- tune1$best.parameters$cost
+</code></pre></div>
+<p>Then we are ready to train the SVM classification. We will train two different models, one model in which all available data will be used for training the model (maximizing the available information) and a second model which is additionally applying a 10-fold cross-validation which we can use to get an idea of how well the classification is able to classify the reference samples correctly.</p>
+<div class="highlight"><pre><span></span><code># train the model with all available samples
+model &lt;- svm(trainval, as.factor(treespec), gamma = gamma, cost = cost, probability = TRUE)
+# train model with 5-fold cross-validation to get first impression on accuracies
+model2 &lt;- svm(trainval, as.factor(treespec), gamma = gamma, cost = cost, probability = TRUE, cross=10)
+</code></pre></div>
+<p>This should run quite fast and we can not have a look at the model results by running:</p>
+<div class="highlight"><pre><span></span><code>summary(model2)
+</code></pre></div>
+<p>This should show something like this:</p>
+<p><a class="glightbox" href="../assets/Tut_hyp_5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/Tut_hyp_5.png" /></a></p>
+<p>So we can see that we have a mean overall accuracy of approximately 72%. This is not bad but also not really good. We can now also apply this classification model to the full image by running:</p>
+<div class="highlight"><pre><span></span><code># set output directory to save the classification map   
+setwd(&quot;D:/1_tree_species_Karlsruhe/2_data/results&quot;)
+# apply the classification model to the hyperspectral image using the predict function
+svmPred &lt;- predict(hym_img, model, filename=&quot;tree_spec_map.tif&quot;, na.rm=TRUE, progress=&#39;text&#39;, format=&#39;GTiff&#39;, datatype=&#39;INT1U&#39;,overwrite=TRUE)
+</code></pre></div>
+<p>This process may take a few minutes depending on the speed of your computer. We can then plot the predicted map using:</p>
+<div class="highlight"><pre><span></span><code># plot the resulting tree species map
+plot(svmPred)
+legend(&quot;topright&quot;, legend=c(&quot;1 = Quercus robur&quot;, &quot;2 = Pinus sylvestris&quot;, &quot;3 = Quercus rubra&quot;, &quot;4 = Fagus sylvatica&quot;, &quot;5 = Pseudotsuga menziesii&quot;))
+</code></pre></div>
+<p>This will result in the following tree species map:</p>
+<p><a class="glightbox" href="../assets/Tut_hyp_6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/Tut_hyp_6.png" /></a></p>
+<p>On the first glance, this map looks quite plausible. We can see that many of the stands from which we collected the training data (and we hence know, that they are composed of a single species) appear quite homogeneous in the classification map. The quality of the map could be examined with more details by loading the map into QGIS and compare it to the reference maps provided with the tutorial materials and maybe also by comparing the map with additional high-resolution Google or Bing maps which can be visualized in QGIS as well. </p>
+<h2 id="step-3-tree-species-classification-using-pca-bands">Step 3: Tree species classification using PCA bands<a class="headerlink" href="#step-3-tree-species-classification-using-pca-bands" title="Link zu dieser Sektion">&para;</a></h2>
+<p>One way to improve the accuracy of supervised classifications, particularly if working with hyperspectral data are feature extraction methods as they allow to compress the feature space and hence reduce colinearity of predictors. In the following we will apply the well-known principal component analysis (PCA) to the hyperspectral image to reduce the original 125 bands to a smaller number of bands carrying most of the variability contained in the image.</p>
+<p>To apply a PCA to a raster dataset, we can use the <strong>rasterPCA</strong> function of the RStoolbox package. The function actually uses only a subset of pixels to calculate the PCA transformation and then only applies the transformation to the full raster stack. In the example below, we use 1000 sample points. The more points are used, the longer the PCA calculation may last. We also set the spca parameter to TRUE to scale all the bands (this is not absolutely necessary but may be reasonable to do in our case as for example vegetation spectra have differing reflectance value ranges in the visual and near-infrared region; by scaling all value ranges of the bands, such constant differences are smoothed out). If you are interested whether this has any effect, you can also re-run the code later and switch off the spca parameter. To run the PCA in R we execute the following code (this may take a while!):</p>
+<div class="highlight"><pre><span></span><code>############################################
+# prepare classification using PCA
+############################################
+
+pca &lt;- rasterPCA(hym_img, nSamples=5000, spca=T)
+</code></pre></div>
+<p>From the resulting <strong>pca</strong> object, we can extract the transformation model:</p>
+<div class="highlight"><pre><span></span><code>pca_ras &lt;- pca$map
+</code></pre></div>
+<p>As well as the new raster stack containing the PCA components (125 components/raster layers sorted from high to low information content)</p>
+<div class="highlight"><pre><span></span><code>pca_mod &lt;- pca$model
+</code></pre></div>
+<p>To check how much of the overall variability the individual components are carrying, we can have a look at an eigenvalue scree plot using the <strong>fviz-eig</strong> function from the factoextra package:</p>
+<div class="highlight"><pre><span></span><code>fviz_eig(pca_mod)
+</code></pre></div>
+<p>This will result in the following plot:</p>
+<p><a class="glightbox" href="../assets/Tut_hyp_7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/Tut_hyp_7.png" /></a></p>
+<p>As we can see, the first seven components seem to already carry the vast majority of the variability in the hyperspectral image. Starting from the 8<sup>th</sup> component, the information content seems to be rather low. However, we can also check this by plotting the individual components. We can for example compare the first three components with the last three components by running:</p>
+<div class="highlight"><pre><span></span><code>x11()
+dev.off()
+par(mfrow=c(2,3))
+plot(pca_ras[[c(1:3, 123:125)]])
+</code></pre></div>
+<p>this will result in the following plot:</p>
+<p><a class="glightbox" href="../assets/Tut_hyp_8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/Tut_hyp_8.png" /></a></p>
+<p>As we can see, the first three PCs show quite a lot of variation related to the image contents. PC3 does not show too many patterns, due to a few outlayer value in the urban area (the green dot) - but PC3 actually still does contain a lot variation (this would become visible if the image stretched would be adapted). On the other hand, the last three PCs seem to only show random noise. Based on the combination of the eigenvalue plot above and this visual examination we can now decide how many of the PCs we want to use in our classification. For now, we will simply select the first 15 components assuming that most of the variability in the image is covered by these components. Hence, we extract the values of the first 15 PCs from the reference sample locations using:</p>
+<div class="highlight"><pre><span></span><code>trainval_pca &lt;- extract(pca_ras[[1:15]], ref)
+</code></pre></div>
+<p>Then, we run the same SVM classification as we did before, including also the parameter tuning:</p>
+<div class="highlight"><pre><span></span><code>set.seed(1173)
+# parameter tuning
+gammat = seq(.1, .9, by = .1)
+costt = seq(1,128, by = 12)
+tune2 &lt;- tune.svm(trainval_pca, as.factor(treespec), gamma = gammat, cost=costt)
+plot(tune2)
+# extract best parameters
+gamma2 &lt;- tune2$best.parameters$gamma
+cost2 &lt;- tune2$best.parameters$cost
+
+# train the model with all available samples
+model_pca &lt;- svm(trainval_pca, as.factor(treespec), gamma = gamma2, cost = cost2, probability = TRUE)
+# train model with 10-fold cross-validation to get first impression on accuracies
+model_pca2 &lt;- svm(trainval_pca, as.factor(treespec), gamma = gamma2, cost = cost2, probability = TRUE, cross=10)
+summary(model_pca2)
+</code></pre></div>
+<p>This will produce the following output (you will additionally see the plot from the parameter tuning, but you are already familiar with this step, so I will not repeat it here):</p>
+<p><a class="glightbox" href="../assets/Tut_hyp_9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/Tut_hyp_9.png" /></a></p>
+<p>As we can see, the classification accuracy using only the first 15 PCA components as input is slightly better than the accuracy we obtained using all hyperspectral bands. Your results might vary slightly, depending on how you set your seed value in the function set.seed().</p>
+<p>Finally, let us also produce a prediction map for this classification approach by running the following code:</p>
+<div class="highlight"><pre><span></span><code># set output directory
+setwd(&quot;D:/1_tree_species_Karlsruhe/2_data/results&quot;)
+# apply classifier to full image    
+svmPred_pca &lt;- predict(pca_ras[[1:15]], model_pca, filename=&quot;tree_spec_map_pca.tif&quot;, na.rm=TRUE, progress=&#39;text&#39;, format=&#39;GTiff&#39;, datatype=&#39;INT1U&#39;,overwrite=TRUE)
+</code></pre></div>
+<p>We can also have a look at this map by running:</p>
+<div class="highlight"><pre><span></span><code>dev.off()
+plot(svmPred_pca)
+legend(&quot;topright&quot;, legend=c(&quot;1 = Quercus robur&quot;, &quot;2 = Pinus sylvestris&quot;, &quot;3 = Quercus rubra&quot;, &quot;4 = Fagus sylvatica&quot;, &quot;5 = Pseudotsuga menz.&quot;))
+</code></pre></div>
+<p>Which will result in:</p>
+<p><a class="glightbox" href="../assets/Tut_hyp_10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/Tut_hyp_10.png" /></a></p>
+<p>This map looks quite similar as the one from the preceeding classification. This is no surprise as the classification accuracies were also similar.</p>
+<h2 id="step-4-tree-species-classification-using-a-combination-of-feature-selection-vsurf-and-feature-extraction-pca">Step 4: Tree species classification using a combination of feature selection (VSURF) and feature extraction (PCA)<a class="headerlink" href="#step-4-tree-species-classification-using-a-combination-of-feature-selection-vsurf-and-feature-extraction-pca" title="Link zu dieser Sektion">&para;</a></h2>
+<p>In this final step of the Tutorial, we will now add another step. We will use the first 30 components of the PCA as our starting input dataset. Then we will run a feature selection algorithm on these 30 components and use the selected components to train the SVM classification.</p>
+<p>First we select the first 30 components of the PCA raster stack and extract the corresponding values:</p>
+<div class="highlight"><pre><span></span><code>set.seed(23)
+pca_ras2 &lt;- pca_ras[[1:30]]
+trainval_pca2 &lt;- extract(pca_ras2, ref)
+</code></pre></div>
+<p>Then we run the feature selection algorithm VSURF. This algorithm is based on Random Forest and in some of our recent studies it performed quite well. Some more detailed descriptions on VSURF can be found in Genuer, R., Poggi, J.-M., Tuleau-Malot, C., 2015. VSURF: an r package for VariableSelection using random forests. R J. R Found. Statist. Comput. 7 (2), 19–33. Be aware that I set the option <strong>parallel</strong> to TRUE and <strong>ncores</strong> = 3. This means in this case, R will use 3 CPUs/cores to run the algorithm. In case your computer only has one core/CPU, you have to set parallel to FALSE. If you do not know how many cores your computer has, you can also try to run the code and if it fails, you can reduce the number of cores or deactivate the <strong>parallel</strong> setting.</p>
+<div class="highlight"><pre><span></span><code>vsurf_pca &lt;- VSURF(trainval_pca2, as.factor(treespec), ntree=500, parallel = T, ncores = 3)
+</code></pre></div>
+<p>The resulting vsurf_pca object contains three sets of selected variables. In the following we will focus on the predictor set optimized for prediction (see Tutorial 2 of this module for more information).
+The column ids of this set of selected variables can be accessed with the command:</p>
+<div class="highlight"><pre><span></span><code>vsurf_pca$varselect.pred
+</code></pre></div>
+<p>If we run it, we can see the following output:</p>
+<p><a class="glightbox" href="../assets/Tut_hyp_11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/Tut_hyp_11.png" /></a></p>
+<p>We can see that the first three PCs got selected but also some lower ranked PCs like 26 and 27.</p>
+<p>As next step, we will build a subset of our predictor feature space currently containing 30 PCs to a new dataframe containing only the 11 PCs selected by VSURF. For this we run:</p>
+<div class="highlight"><pre><span></span><code>trainval_vsurf &lt;- trainval_pca2[,vsurf_pca$varselect.pred]
+</code></pre></div>
+<p>These predictors are then used in the SVM classification workflow as we already know it from STEP 2 and 3:</p>
+<div class="highlight"><pre><span></span><code># run parameter tuning
+set.seed(1173)
+gammat = seq(.1, .9, by = .1)
+costt = seq(1,128, by = 12)
+tune3 &lt;- tune.svm(trainval_vsurf, as.factor(treespec), gamma = gammat, cost=costt)
+plot(tune3)
+
+# take best parameters
+gamma3 &lt;- tune3$best.parameters$gamma
+cost3 &lt;- tune3$best.parameters$cost
+
+
+# train the model with all available samples
+model_vsurf &lt;- svm(trainval_vsurf, as.factor(treespec), gamma = gamma3, cost = cost3, probability = TRUE)
+# train model with 5-fold cross-validation to get first impression on accuracies
+model_vsurf2 &lt;- svm(trainval_vsurf, as.factor(treespec), gamma = gamma3, cost = cost3, probability = TRUE, cross=10)
+summary(model_vsurf2)
+</code></pre></div>
+<p>This will result in the following output:</p>
+<p><a class="glightbox" href="../assets/Tut_hyp_12.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/Tut_hyp_12.png" /></a></p>
+<p>As we can see, we could increase the classification accuracy by almost 10% with this additional feature selection step. This is quite a lot! As last step, we can now also produce the corresponding classification map by running:</p>
+<div class="highlight"><pre><span></span><code># set output directory to save classification map
+setwd(&quot;D:/1_tree_species_Karlsruhe/2_data/results&quot;)
+# apply classifier to full image
+svmPred_vsurf &lt;- predict(pca_ras2[[vsurf_pca$varselect.pred]], model_vsurf, filename=&quot;tree_spec_map_vsurf.tif&quot;, na.rm=TRUE, progress=&#39;text&#39;, format=&#39;GTiff&#39;, datatype=&#39;INT1U&#39;,overwrite=TRUE)
+</code></pre></div>
+<p>And plot the map by running:</p>
+<div class="highlight"><pre><span></span><code>dev.off()
+plot(svmPred_vsurf)
+legend(&quot;topright&quot;, legend=c(&quot;1 = Quercus robur&quot;, &quot;2 = Pinus sylvestris&quot;, &quot;3 = Quercus rubra&quot;, &quot;4 = Fagus sylvatica&quot;, &quot;5 = Pseudotsuga menz.&quot;))
+</code></pre></div>
+<p>Which will result in the following map:</p>
+<p><a class="glightbox" href="../assets/Tut_hyp_13.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/Tut_hyp_13.png" /></a></p>
+<p>We have now created three tree species maps using our hyperspectral image and the reference data. Feel free to have a closer look at the maps and think about how they differ and which one is agreeing best with the reference maps as well as with the visual impression when comparing the maps with high-resolution Google and Bing images in QGIS.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Link zu dieser Sektion">&para;</a></h2>
+<p>If you want to practice a bit more with the code, try to run another classification applying the VSURF variable selection to the original 125 bands of HyMap. How does this affect the classification accuracy?</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../radiative-transfer-model/radiative-transfer-model/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Radiative Transfer Model" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Radiative Transfer Model
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../BFAST/BFAST/" class="md-footer__link md-footer__link--next" aria-label="Next: Analysing time series with BFAST and NPPHEN" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Analysing time series with BFAST and NPPHEN
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; CC-BY-SA-4.0 license - Freie Universität Berlin Institute of Geographical Sciences Remote Sensing and Geoinformatics
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "search.suggest", "search.highlight", "content.action.edit", "content.code.copy", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="../../javascripts/mathjax.js"></script>
+        
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

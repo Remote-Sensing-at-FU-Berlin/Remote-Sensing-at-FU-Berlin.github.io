@@ -1,0 +1,1748 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../spatial_autocorrelation/spatial_autocorrelation/">
+      
+      
+        <link rel="next" href="../../MSRS_1_GEE_basics2/MSRS_1_GEE_basics2/">
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>Preparing time series data stacks - REMOTE SENSING AND GEOINFORMATICS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-green">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#preparing-time-series-data-stacks" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="REMOTE SENSING AND GEOINFORMATICS" class="md-header__button md-logo" aria-label="REMOTE SENSING AND GEOINFORMATICS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            REMOTE SENSING AND GEOINFORMATICS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Preparing time series data stacks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Remote-Sensing-at-FU-Berlin.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Welcome
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../qgis/01-GUI/" class="md-tabs__link md-tabs__link--active">
+        Prof. Dr. Fassnacht
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gis/installation/" class="md-tabs__link">
+        GIS
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../schuelerpraktikum/handout/" class="md-tabs__link">
+        Other
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="REMOTE SENSING AND GEOINFORMATICS" class="md-nav__button md-logo" aria-label="REMOTE SENSING AND GEOINFORMATICS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    REMOTE SENSING AND GEOINFORMATICS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Remote-Sensing-at-FU-Berlin.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prof. Dr. Fassnacht
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prof. Dr. Fassnacht
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          QGIS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          QGIS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/01-GUI/" class="md-nav__link">
+        Getting to know the graphical user interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/02-vector-data/" class="md-nav__link">
+        Loading and visualizing Shapefiles / Vector data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/03-raster-data/" class="md-nav__link">
+        Loading and visualizing raster data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/04-general-tools/" class="md-nav__link">
+        Useful general tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/05-digitizing/" class="md-nav__link">
+        Basic vector processing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/06-selections/" class="md-nav__link">
+        Spatial and semantic selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/07-elevation/" class="md-nav__link">
+        Working with elevation raster datasets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/08-map-making/" class="md-nav__link">
+        Making a map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/09-spatial-interpolation/" class="md-nav__link">
+        Spatial interpolation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic-landsat/basic-landsat/" class="md-nav__link">
+        Basic Landsat Processing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../random-forest-regression/random-forest-regression/" class="md-nav__link">
+        Random Forest Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Laserscanning_lidR/1_Laserscanning_lidR/" class="md-nav__link">
+        Getting started with processing laserscanning data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiative-transfer-model/radiative-transfer-model/" class="md-nav__link">
+        Radiative Transfer Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../treespeciesclassification/treespeciesclassification/" class="md-nav__link">
+        Classification of tree species using hyperspectral data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BFAST/BFAST/" class="md-nav__link">
+        Analysing time series with BFAST and NPPHEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../landscape_metrics/landscape_metrics/" class="md-nav__link">
+        Calculation of Landscape Metrics from a Land-cover raster map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spatial_autocorrelation/spatial_autocorrelation/" class="md-nav__link">
+        Calculating semivariograms and Autocorrelograms
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          GEE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          GEE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Preparing time series data stacks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Preparing time series data stacks
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    Learning objectives
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datasets-used-in-this-tutorial" class="md-nav__link">
+    Datasets used in this Tutorial
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#short-overview-of-the-google-earth-engine" class="md-nav__link">
+    Short Overview of the Google Earth Engine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset-in-the-gee" class="md-nav__link">
+    Dataset in the GEE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-registering-for-the-google-earth-engine" class="md-nav__link">
+    Step 1: Registering for the Google Earth Engine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-the-google-earth-documentation" class="md-nav__link">
+    Step 2: The Google Earth Documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-the-gee-code-editor" class="md-nav__link">
+    Step 3:  The GEE code Editor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-exporting-a-complete-time-series-of-modis-ndvi-data" class="md-nav__link">
+    Step 4: Exporting a complete time series of MODIS NDVI data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-exporting-a-complete-time-series-of-landsat-5-7-and-8-data" class="md-nav__link">
+    Step 5: Exporting a complete time series of Landsat 5, 7 and 8 data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-exploring-the-exported-data-in-r" class="md-nav__link">
+    Step 6: Exploring the exported data in R
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-ilias-exercise-find-a-pixel-with-decreasing-vegetation-trend-or-a-pixel-where-vegetation-disappeared-completely" class="md-nav__link">
+    Step 7: ILIAS Exercise  - find a pixel with decreasing vegetation trend or a pixel where vegetation disappeared completely
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MSRS_1_GEE_basics2/MSRS_1_GEE_basics2/" class="md-nav__link">
+        Preparing annual time series data stacks and conducting time series analysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          SNAP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          SNAP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planetary-sciences/01-download-ls-and-s2/" class="md-nav__link">
+        Download of Landsat and Sentinel satellite images
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          GIS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GIS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/visualization-and-map/" class="md-nav__link">
+        Visualization and Map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/digitalization/" class="md-nav__link">
+        Digitalization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/attributes-filters-and-metadata/" class="md-nav__link">
+        Attributes, Filters and Metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/geoprocesing-and-reference-and-coordinate-systems/" class="md-nav__link">
+        Geoprocesing and reference and coordinate systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/interpolation/" class="md-nav__link">
+        Interpolation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/dem/" class="md-nav__link">
+        Digital Elevation Models
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Other
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Other
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schuelerpraktikum/handout/" class="md-nav__link">
+        School internship
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mintoring/mintoring/" class="md-nav__link">
+        Mintoring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/tree/main/docs/MSRS_1_GEE_basics/MSRS_1_GEE_basics.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="preparing-time-series-data-stacks">Preparing time series data stacks#<a class="headerlink" href="#preparing-time-series-data-stacks" title="Link zu dieser Sektion">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Link zu dieser Sektion">&para;</a></h2>
+<p>In this lecture you will learn how to use the Google Earth Engine (GEE) to extract time series of all available Landsat and MODIS data for a study area defined in a Polygon shapefile. Before we work with the actual code, I will provide some links to the official documentation of the Google Earth Engine, which you should read carefully. I decided to not reproduce all of this information in this tutorial as many of the contents on the official page are very well described and easy to understand.</p>
+<p>One important aspect of today's tutorial is that we will not use R to work within the GEE but java-script. However, there is no need for you to learn a new programming language from scratch. One efficient way to use the GEE is to simply copy &amp; paste code snippets that can be found on the official GEE page and in online forums and then only adapt some smaller parts of the code to make them run with your data. Most of the basic processing chains in the GEE which are required to prepare datasets for further processing in R have been already implemented and are well documented in the internet. </p>
+<h2 id="learning-objectives">Learning objectives<a class="headerlink" href="#learning-objectives" title="Link zu dieser Sektion">&para;</a></h2>
+<p>Besides getting familiar with the Google Earth Engine itself, we will also learn some concrete processing steps within the GEE: </p>
+<ul>
+<li>how to upload a Shapefile to the Google Earth Engine and use it as region of interest / study area</li>
+<li>load Landsat and MODIS image collections in the GEE</li>
+<li>select certain time-windows in the image collection</li>
+<li>perform cloud-masking on the image collection in the GEE</li>
+<li>calculate NDVI within Landsat image collections</li>
+<li>store the prepared NDVI time-series to a Google Drive</li>
+</ul>
+<p>In the later parts of the tutorial we will load the time series raster stacks exported from the GEE to R and convert the raster-data to time-series objects and we apply some basic tools on them.</p>
+<h2 id="datasets-used-in-this-tutorial">Datasets used in this Tutorial<a class="headerlink" href="#datasets-used-in-this-tutorial" title="Link zu dieser Sektion">&para;</a></h2>
+<p>The only dataset used in this Tutorial is a shapefile defining the boundary of the examined study area which is the city Xining, in the Qinghai province in China. Xining is the province capital of Qinghai and has been rapidly expaning its area over the last few years. The Shapefile can be downloaded here:</p>
+<p><a href="https://drive.google.com/drive/folders/16OjLRl2HPM3_eiBklzRoHwDU3NQihpcS?usp=sharing">https://drive.google.com/drive/folders/16OjLRl2HPM3_eiBklzRoHwDU3NQihpcS?usp=sharing</a></p>
+<h2 id="short-overview-of-the-google-earth-engine">Short Overview of the Google Earth Engine<a class="headerlink" href="#short-overview-of-the-google-earth-engine" title="Link zu dieser Sektion">&para;</a></h2>
+<p>First of all: What is the Google Earth Engine (GEE)? The GEE is an online platform developed and hosted by Google which provides several very interesting opportunities for conducting geospatial analyses using remote sensing and other geodata. The idea of the platform is that most of the data (particularly data with large file sizes) is already available directly on the platform and that the user does not have to download the files before processing. Furthermore, the GEE also provides processing power directly in the online platform. That means, it is not only possible to access large amounts of geodata online but it is also possible to directly work with the data in the google cloud. The big advantage of this is, is quite obvious. This constellation allows users such as scientists to process huge amounts of data with a super-computer which may not be available at their university and for sure not at their institute. The only thing that is required to access the GEE is a computer with internet access.</p>
+<p>While this sounds great at the beginning, there are also some shortcomings to this system. At the moment the GEE is by far not offering as many algorithms as for example R. However, Google offers an interface to Python which provides a similar amount of algorithms as R with direct access to the GEE and a lot of opportunities to work with the data. A second problem is that even though the service is free at the moment, this philosophy could change any moment- in case Google simply decides to not longer provide the GEE services for free. Another small issue is, that for downloading the processed data, it is required to have a Google Drive which in the cost-free version has limited storage space. Hence for processing large dataset, it might be necessary to sign-up for plans with extended data volume to download the results and hence some costs will be created by processing within the GEE. However, for the exercises we will conduct in this course, a normal google account should be sufficient to download the results.</p>
+<h2 id="dataset-in-the-gee">Dataset in the GEE<a class="headerlink" href="#dataset-in-the-gee" title="Link zu dieser Sektion">&para;</a></h2>
+<p>An overview over the geo-datasets that are directly available in the GEE can be found here:</p>
+<p><a href="https://developers.google.com/earth-engine/datasets">https://developers.google.com/earth-engine/datasets</a></p>
+<p>This should lead you to a webpage hat looks like this:</p>
+<p><a class="glightbox" href="../assets/gee_1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_1.png" /></a></p>
+<p>Take some time to browse the data catalogue! It is quite impressive how many of the typical remote sensing datasets are directly available in the GEE. Amongst others, the GEE hosts the complete Landsat archive of Landsat 4, 5, 7 and 8 as well as the Sentinel-2 archive and most parts of the Sentinel-1 data. You can also find MODIS data. Most of the data are not only available as raw data but also as higher-level data. That is, the images have already been pre-processed with the standard processing chains of the original data providers. This can save a lot of time, as most of the tiring, repetitive tasks have already been completed and the user can directly focus on analyzing the data.</p>
+<p>For accessing the individual datasets (called "collections") in the GEE code editor (will be explained below), it is necessary to know the exact name and access-link of each image collection. You can find the corresponding values when you select one of the datasets under the link provided above. For example if we want to access the Landsat 8 surface reflectance data (that is, an atmospheric correction has already been applied to the raw satellite data), we would find the correponding name/link here:</p>
+<p><a href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C01_T1_SR">https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C01_T1_SR</a></p>
+<p>The entry "Earth Engine Snippet" is the access-link/name under which we can access the LS 8 data within the GEE:</p>
+<p><strong>ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")</strong></p>
+<p>As a first small exercise, try to find out what the corresponding Snippets are for Landsat 5 Surface Reflectance Data and one of the MODIS products in which NDVI is included and at a spatial resolution of 250 m. Please provide the answers in ILIAS (Aufgabe 9 - Code Snippets).</p>
+<h2 id="step-1-registering-for-the-google-earth-engine">Step 1: Registering for the Google Earth Engine<a class="headerlink" href="#step-1-registering-for-the-google-earth-engine" title="Link zu dieser Sektion">&para;</a></h2>
+<p>If you don't have a Google Earth Engine account yet, you can sign-up here:</p>
+<p><a href="https://developers.google.com/earth-engine">https://developers.google.com/earth-engine</a></p>
+<p>Simply press on the marked link and follow the instructions:</p>
+<p><a class="glightbox" href="../assets/gee_2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_2.png" /></a></p>
+<h2 id="step-2-the-google-earth-documentation">Step 2: The Google Earth Documentation<a class="headerlink" href="#step-2-the-google-earth-documentation" title="Link zu dieser Sektion">&para;</a></h2>
+<p>The official GEE documentation provides a rich amount of tutorials explaining the functionalities of the GEE from scratch. It is highly recommended to read some of the materials provided here to gather a first understanding how the GEE works and to develop a basic understanding of the java-script language being used in the GEE code editor. However, please be aware that many things can also be accomplished without understanding the java-script syntax completely but rather by modifying code-snippets as mentioned already above. The GEE documentation can be accessed here:</p>
+<p><a href="https://developers.google.com/earth-engine/tutorials">https://developers.google.com/earth-engine/tutorials</a></p>
+<p>Some recommendable tutorials to play around with and get acquainted with the way the GEE works are linked below. Take some time and explore some of the tutorials - you will see it is quite interesting how fast data can be accessed and visualized. If you participated in the remote sensing course in the winter semester you will quickly understand how much more comfortable the data access in the GEE is, in comparison to downloading individual satellite images, pre-processing them and then loading them in R or another programming environment. Before starting with the Tutorials below, it might be worthwhile to have a quick look at Step 3 first were the GEE code editor is briefly introduced.</p>
+<p>Some recommended Tutorials:</p>
+<p><a href="https://developers.google.com/earth-engine/image_visualization">https://developers.google.com/earth-engine/image_visualization</a></p>
+<p><a href="https://developers.google.com/earth-engine/image_info">https://developers.google.com/earth-engine/image_info</a></p>
+<p><a href="https://developers.google.com/earth-engine/image_math">https://developers.google.com/earth-engine/image_math</a></p>
+<p><a href="https://developers.google.com/earth-engine/image_relational">https://developers.google.com/earth-engine/image_relational</a></p>
+<p><a href="https://developers.google.com/earth-engine/ic_filtering">https://developers.google.com/earth-engine/ic_filtering</a></p>
+<p>These are just some recommended tutorials to get started with remote sensing data, but you will see that in the same documentation page, there will be loads of additional examples to also conduct more complex analyses directly within the GEE environment.</p>
+<h2 id="step-3-the-gee-code-editor">Step 3:  The GEE code Editor<a class="headerlink" href="#step-3-the-gee-code-editor" title="Link zu dieser Sektion">&para;</a></h2>
+<p>After registering for the GEE you can access code editor (the main interface we will be using for working in the GEE) here:</p>
+<p><a href="https://code.earthengine.google.com/">https://code.earthengine.google.com/</a></p>
+<p>This will lead to an interactive web-page which looks like this:</p>
+<p><a class="glightbox" href="../assets/gee_3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_3.png" /></a></p>
+<p>The code editor window is separated into four major sections. In section 1 you can find all the Scripts, documentations and Assets (basically, data that the user uploads) connected to your user account. In section 2 the code you are currently working on will be displayed and in section 3 you wil be informed about the processing progress of your code (Console) and you can for example start the export of files (Tasks). Finally, in section 4, a world map is displayed and you will later on also learn how to display the data you have processed in the GEE on this map.</p>
+<h2 id="step-4-exporting-a-complete-time-series-of-modis-ndvi-data">Step 4: Exporting a complete time series of MODIS NDVI data<a class="headerlink" href="#step-4-exporting-a-complete-time-series-of-modis-ndvi-data" title="Link zu dieser Sektion">&para;</a></h2>
+<p>In this first hands-on part of the tutorial, we will export a complete time series of MODIS NDVI products for a small area located at the border of the Qinghai Tibetan Plateau. The area covers parts of the city Xining in China. At this point, I am assuming that you have already played around with the Google Earth Engine by exploring some of the tutorials mentioned in Step 2.</p>
+<p>As first step to perpare our work-flow we will upload the Shapefile provided in the "Datasets used in this Tutorial section". For this, we will select the tab Assets in section 1 of the code editor:</p>
+<p><a class="glightbox" href="../assets/gee_4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_4.png" /></a></p>
+<p>Then we will click the red NEW button and select "Shape files":</p>
+<p><a class="glightbox" href="../assets/gee_5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_5.png" /></a></p>
+<p>In the appearing window, we have to first select all the supported Shapefile sub-files (marked with 1) and then assign a name to the uploaded files, for example "Xining" (marked with 2). Then we can upload the files by pressing "UPLOAD" in the bottom right part of the window.</p>
+<p><a class="glightbox" href="../assets/gee_6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_6.png" /></a></p>
+<p>The files will then be uploaded to the Google Earth engine and saved in your list of asstes. You might have to press the "refresh" button next to the red "NEW" button to make the new asset named "Xining" appear in your list. We can now use the uploaded Shapefile for working with the GEE.</p>
+<p>In order to this, we have to import the asset into the script we are currently working on. We can do this by selecting the "arrow" button marked with 1 in the screenshot below.</p>
+<p><a class="glightbox" href="../assets/gee_7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_7.png" /></a></p>
+<p>After clicking the "arrow" button, the asset/Shapefile will be imported to t he current script and a new line will appear on the top of the script. We can define a name for the imported Shapefile by changing the default name "table" to some other term. In the given example, I changed the name to "AOI" - area of interest.</p>
+<p>In the following I will now provide the complete code for exporting MODIS NDVI data from the GEE - you can simply copy &amp; paste this code to the code editor window and you should be ready to run it. More detailed explanations can be found directly in the code and further below:</p>
+<div class="highlight"><pre><span></span><code>// Filter a MODIS image collection by date and region 
+// Calculate an NDVI
+// Export the NDVI time series to Google Drive
+
+
+// Step 1: Define the time period to be considered 
+var sdate = &#39;2000-01-01&#39;
+var edate = &#39;2020-05-25&#39;
+
+// Step 2: define functions requires for processing
+
+// ###################################
+// functions to perform cloud masking
+// ###################################
+
+var maskQA = function(image) {
+      return image.updateMask(image.select(&quot;SummaryQA&quot;).eq(0));
+    };
+
+// Step 3: Process the data
+
+// Load the MODIS collection and filter the collection for the
+// considered time period and the area of interest
+
+// ##############################################################
+// Load MODIS product MOD13Q1 (please check the specifications
+// in the GEE data catalogue)
+// ##############################################################
+var MODIS_VI = ee.ImageCollection(&quot;MODIS/006/MOD13Q1&quot;)
+    .filterDate(sdate, edate)
+    .filterBounds(AOI);
+
+// ##############################################################
+// Apply cloud masks to image collections
+// ##############################################################
+
+var MODIS_best = MODIS_VI.map(maskQA)
+print(MODIS_best)
+
+// ##############################################################
+// Select the NDVI band from the MODIS product 
+// ##############################################################
+
+var MODIS_ndvi = MODIS_best.select(&#39;NDVI&#39;);
+print(MODIS_ndvi)
+
+// ##############################################################
+// transform the NDVI image collection to a stack of bands so that they can
+// be exported to the Google Drive
+// ##############################################################
+var MODIS_ndvi_fin = MODIS_ndvi.toBands();
+
+// ##############################################################
+// Apply a work-around to access the image dates (see further instructions below)
+// ##############################################################
+
+function ymdList(imgcol){
+    var iter_func = function(image, newlist){
+        var date = ee.Number.parse(image.date().format(&quot;YYYYMMdd&quot;));
+        newlist = ee.List(newlist);
+        return ee.List(newlist.add(date))
+    };
+    return imgcol.iterate(iter_func, ee.List([]));
+}
+var dates = ymdList(MODIS_ndvi);
+
+print(dates);
+
+
+// ##############################################################
+// Export Landsat time series to GeoTiff (see further instructions below)
+// ##############################################################
+
+
+// Export a cloud-optimized GeoTIFF.
+Export.image.toDrive({
+  image: MODIS_ndvi_fin,
+  description: &#39;MODIS_all_00_20_sm&#39;,
+  scale: 250,
+  maxPixels: 5937315072,
+  region: AOI,
+  fileFormat: &#39;GeoTIFF&#39;,
+  formatOptions: {
+    cloudOptimized: true
+  }
+});
+</code></pre></div>
+<p>To successfully run this code, copy &amp; paste the complete code to the code editor window. Then click save or save as and the current script will be saved and appear in your list of scripts in section 1 of the code editor. Alternatively you can also access the code here:</p>
+<p><a href="https://code.earthengine.google.com/9468bf79e67904e6cb0a639aa3b7019b">https://code.earthengine.google.com/9468bf79e67904e6cb0a639aa3b7019b</a></p>
+<p>Be aware that you have to still define the Shapefile using your assets-list if you access the code via the link. After accessing and saving the script, you should be able to run the code by clicking Run.</p>
+<p>Once you pressed Run, new information will appear in the Console in section 3. </p>
+<p><a class="glightbox" href="../assets/gee_8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_8.png" /></a></p>
+<p>In the console, we can mostly find some information that was printed to the Console by the code-lines that start with the "print()" command. In this example, the two upper entries of the console simply allow us to see how many images have been processed/selected based on our definition: 465 images were available for the selected product and time-window. The last entry, is in our case the most important one, as this entry contains all the dates at which the satellite images were acquired. In this tutorial we will simply copy and paste the dates to a text-file by opening the list (click on the text marked with 1) and then mark all the entries and copy them</p>
+<p><a class="glightbox" href="../assets/gee_9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_9.png" /></a></p>
+<p>Then open the Windows Editor program:</p>
+<p><a class="glightbox" href="../assets/gee_10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_10.png" /></a></p>
+<p>And paste the entries to the text file:</p>
+<p><a class="glightbox" href="../assets/gee_11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_11.png" /></a></p>
+<p>And finally save this text-file to a folder in which we can find it again. Let's name it for example "dates_mod.txt". This is not a very elegant wy of exporting the acquisition dates but while preparing this Tutorial, I had troubles finding a straightforward solution directly in the GEE and as this workflow works, we will stick with it for now and I hope that by next year, I will have found a smoother option to accomplish this.</p>
+<p>With this step, we have saved the acquisition dates, but we did not yet export the corresponding images. We will now do this by selecting the "Tasks" tab in section 3 of the code editor (marked with 2):</p>
+<p><a class="glightbox" href="../assets/gee_8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_8.png" /></a></p>
+<p>We will then see a list of tasks that wait for being executed. In my case, there are several tasks from earlier scripts in the list, in your case there might only be on task which is named as the one in the top of my list - MODIS_all_00_20_sm:</p>
+<p><a class="glightbox" href="../assets/gee_12.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_12.png" /></a></p>
+<p>We can now start the export of the raster stack to our Google Drive by clicking the "RUN" button (marked with 1). This will open a new window in which we can define the spatial resolutiojn with which we want to export the images and a folder in our google drive in which the data shall be stored. We can also not define a folder, then the image will simply be exported to the parent folder of the Google Drive. Once you are happy with your settings click "RUN" and then you will have to wait a few minutes or up to a few hours (if the data is large) until the data appears in your Google Drive. In this example a file named "MODIS_all_00_20_sm.tif" will occur in your google drive. If you are not sure how to access your Google drive, please google it. Should be very easy to find. Then download the data from your google drive in a folder on your hard-disc which you will be able to find again (we will need the data in Step 6).</p>
+<p><a class="glightbox" href="../assets/gee_13.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_13.png" /></a></p>
+<h2 id="step-5-exporting-a-complete-time-series-of-landsat-5-7-and-8-data">Step 5: Exporting a complete time series of Landsat 5, 7 and 8 data<a class="headerlink" href="#step-5-exporting-a-complete-time-series-of-landsat-5-7-and-8-data" title="Link zu dieser Sektion">&para;</a></h2>
+<p>After we managed to export all available NDVI MODIS images of the MODIS product MOD13Q1 for our area of interest, we will now try to accomplish the same but for the complete Landsat archive of the satellites Landsat 5, 7 and 8. The basic processing steps are the same, but the code itself is a bit more complex as we have to merge data from several image collections and also have to first calculate the NDVI from the original images.</p>
+<p>We will again have to load the Shapefile available in our "Assets" list as we have just learned for the MODIS example and will also again have to apply the work-around described in Step 4 to export the image acquisition dates manually by copy and pasting the dates to a text-file. I will not go into details about these steps again but simply provide the code for exporting the Landsat raster stack below. There are more detailed comments provided in the code itself. In case there are more questions related to the code, please formulate them in the Forum and I will try to reply as soon as possible. Be aware, that the data exported in this step are a bit larger as in the MODIS example (550 MB vs. 2 MB) - hence the export from the GEE might take notably longer in the Landsat case.</p>
+<p>Here is the code that should be ready to run - please go through it carefully and try to understand what is happening. It is not of utmost important to understand each individual step, but rather to understand the coarse work-flow:</p>
+<div class="highlight"><pre><span></span><code>// Filter a Landsat image collection by date and region 
+// Calculate an NDVI
+// Export the NDVI time series to Google Drive
+
+
+// Define the time period to be considered 
+var sdate = &#39;1986-01-01&#39;
+var edate = &#39;2020-05-25&#39;
+
+// ####################################
+// functions to perform cloud masking
+// ####################################
+
+// Landsat 4+5+7
+
+var cloudMaskL457 = function(image) {
+  var qa = image.select(&#39;pixel_qa&#39;);
+  // If the cloud bit (5) is set and the cloud confidence (7) is high
+  // or the cloud shadow bit is set (3), then it&#39;s a bad pixel.
+  var cloud = qa.bitwiseAnd(1 &lt;&lt; 5)
+          .and(qa.bitwiseAnd(1 &lt;&lt; 7))
+          .or(qa.bitwiseAnd(1 &lt;&lt; 3))
+  // Remove edge pixels that don&#39;t occur in all bands
+  var mask2 = image.mask().reduce(ee.Reducer.min());
+  return image.updateMask(cloud.not()).updateMask(mask2);
+};
+
+// Landsat 8
+function maskL8sr(image) {
+  // Bits 3 and 5 are cloud shadow and cloud, respectively.
+  var cloudShadowBitMask = 1 &lt;&lt; 3;
+  var cloudsBitMask = 1 &lt;&lt; 5;
+
+  // Get the pixel QA band.
+  var qa = image.select(&#39;pixel_qa&#39;);
+
+  // Both flags should be set to zero, indicating clear conditions.
+  var mask = qa.bitwiseAnd(cloudShadowBitMask).eq(0)
+      .and(qa.bitwiseAnd(cloudsBitMask).eq(0));
+
+  // Return the masked image, scaled to reflectance, without the QA bands.
+  return image.updateMask(mask).divide(10000)
+      .select(&quot;B[0-9]*&quot;)
+      .copyProperties(image, [&quot;system:time_start&quot;]);
+}
+
+// #############################################
+// define function to calculate Landsat NDVI
+// separate function for Landsat 5+7 and Landsat 8
+// #############################################
+var addNDVI_LS8 = function(image) {
+  var ndvi = image.normalizedDifference([&#39;B5&#39;, &#39;B4&#39;]).rename(&#39;NDVI&#39;);
+  return image.addBands(ndvi);
+};
+
+var addNDVI_LS5_7 = function(image) {
+  var ndvi = image.normalizedDifference([&#39;B4&#39;, &#39;B3&#39;]).rename(&#39;NDVI&#39;);
+  return image.addBands(ndvi);
+};
+
+
+
+// ##############################################################
+// Load the Landsat image collection of Landsat 5, 7 and 8
+// ##############################################################
+var surfaceReflectanceL5 = ee.ImageCollection(&#39;LANDSAT/LT05/C01/T1_SR&#39;)
+    .filterDate(sdate, edate)
+    .filterBounds(AOI);
+var surfaceReflectanceL7 = ee.ImageCollection(&#39;LANDSAT/LE07/C01/T1_SR&#39;)
+    .filterDate(sdate, edate)
+    .filterBounds(AOI);
+var surfaceReflectanceL8 = ee.ImageCollection(&quot;LANDSAT/LC08/C01/T1_SR&quot;)
+    .filterDate(sdate, edate)
+    .filterBounds(AOI);
+
+// ##############################################################
+// Apply cloud masks to image collections
+// ##############################################################
+
+
+var LS5 = surfaceReflectanceL5
+    .map(cloudMaskL457);
+    //.median();
+print(LS5)
+
+var LS7= surfaceReflectanceL7
+    .map(cloudMaskL457);
+    //.median();
+print(LS7)
+
+var LS8 = surfaceReflectanceL8
+    .map(maskL8sr);
+    //.median();
+print(LS8)
+
+// ##############################################################
+// Calculate NDVI and merge Ls 5, 7, and 8
+// ##############################################################
+
+// merge Landsat image collection 5 to 7
+var LS_5_7 = LS5.merge(LS7)
+// calculate NDVI for merged collection
+var LS_5_7_NDVI = LS_5_7.map(addNDVI_LS5_7).select(&#39;NDVI&#39;);
+print(LS_5_7_NDVI, &quot;LS_5_7_NDVI&quot;);
+
+// calculate NDVI for Landsat 8 collection
+var LS8_NDVI = LS8.map(addNDVI_LS8).select(&#39;NDVI&#39;);
+print(LS8_NDVI, &quot;LS8_NDVI&quot;);
+
+// merge all NDVI data
+var LS_NDVI_all = LS_5_7_NDVI.merge(LS8_NDVI)
+print(LS_NDVI_all, &quot;LS_NDVI_all&quot;);
+
+// transform collection to bands
+var LS_NDVI_all_fin = LS_NDVI_all.toBands();
+// crop bands to AOI
+var LS_NDVI_all_clip = LS_NDVI_all_fin.clip(AOI);
+
+// extract acquisition dates
+function ymdList(imgcol){
+    var iter_func = function(image, newlist){
+        var date = ee.Number.parse(image.date().format(&quot;YYYYMMdd&quot;));
+        newlist = ee.List(newlist);
+        return ee.List(newlist.add(date))
+    };
+    return imgcol.iterate(iter_func, ee.List([]));
+}
+var dates = ymdList(LS_NDVI_all);
+
+// print acquisition dates
+print(dates);
+
+
+
+// ##############################################################
+// Export Landsat time series to GeoTiff
+// ##############################################################
+
+
+// Export a cloud-optimized GeoTIFF.
+Export.image.toDrive({
+  image: LS_NDVI_all_clip,
+  description: &#39;LS_NDVI_all_86_20&#39;,
+  scale: 30,
+  maxPixels: 5937315072,
+  region: AOI,
+  fileFormat: &#39;GeoTIFF&#39;,
+  formatOptions: {
+    cloudOptimized: true
+  }
+});
+</code></pre></div>
+<p>Alternatively, you can also access the code via this link:</p>
+<p><a href="https://code.earthengine.google.com/82beb77c79bea6813967a6ad07056c7e">https://code.earthengine.google.com/82beb77c79bea6813967a6ad07056c7e</a></p>
+<p>After you have successfully executed the code and exported the file using the same work-flow as described for MODIS, you should also download the corresponding file (named LS_NDVI_all_86_20.tif) from your google drive to the same folder where you stored the MODIS raster. The two text-files containing the image acquisition dates for MODIS and Landsat should also be in the same folder.</p>
+<h2 id="step-6-exploring-the-exported-data-in-r">Step 6: Exploring the exported data in R<a class="headerlink" href="#step-6-exploring-the-exported-data-in-r" title="Link zu dieser Sektion">&para;</a></h2>
+<p>As final step in this tutorial, we will load the NDVI raster-stacks exported from the GEE in R and create time-series by merging the NDVI values with the image acquisition dates stored in the text-files. We will need the exported raster-files and the text-files. So please make sure that you have all data stored in a folder and know where this folder is.</p>
+<p>Next, we open RStudio and load the required packages:</p>
+<div class="highlight"><pre><span></span><code># load required packages
+require(raster)
+require(xts)
+require(zoo)
+</code></pre></div>
+<p>In case some packages are missing, please install them (you should know how to do this by now, if not, please check the older Tutorials). Next, we will load the raster-files containing the MODIS and Landsat time series:</p>
+<div class="highlight"><pre><span></span><code>###
+# load raster-stacks exported from the Google Earth Engine
+###
+
+# set working directory
+setwd(&quot;D:/Multiskalige_FE/5_Practicals/1_GEE_basics_v2&quot;)
+# load Landsat time series with images from 1986-2020
+ls_ndvi &lt;- brick(&quot;LS_NDVI_all_86_20.tif&quot;)
+nlayers(ls_ndvi)
+# load MODIS time series with images from 2000-2020
+mod_ndvi &lt;- brick(&quot;MODIS_all_00_20_sm.tif&quot;)
+nlayers(mod_ndvi)
+</code></pre></div>
+<p>Be aware, that this time, we use the brick() command instead of the stack() command to load the raster files. This command will allow to access the raster-files in a slightly different way which increases the speed to access all raster-layers of an individual pixel (which in our case refers to a time-series). If you want to see the difference, you can re-run the code using the stack() command instead of the brick() command and you will see that one of code lines will run very slow (find out which one if you are interested!).</p>
+<p>After loading the raster stacks, we will also load the text-files containing the image acquisition dates, we copy &amp; pasted from the GEE console. We will use the following code to do this:</p>
+<div class="highlight"><pre><span></span><code>###
+# load corresponding dates of the time series
+###
+
+# Landsat
+
+# read table
+ls_dat &lt;- read.table(&quot;dates_ls.txt&quot;)
+# drop every second line (containing only the id)
+ls_dat_fin &lt;- ls_dat[seq(2, nrow(ls_dat),2),]
+# transform remaining rows from factor to character
+ls_dat_fin2 &lt;- as.character(ls_dat_fin)
+# transform character-expression to dates
+ls_dat_for &lt;- as.Date(ls_dat_fin2, format = c(&quot;%Y%m%d&quot;))
+
+# MODIS
+
+# read table
+m_dat &lt;- read.table(&quot;dates_mod.txt&quot;)
+# drop every second line (containing only the id)
+m_dat_fin &lt;- m_dat[seq(2, nrow(m_dat),2),]
+# transform remaining rows from factor to character
+m_dat_fin2 &lt;- as.character(m_dat_fin)
+# transform character-expression to dates
+m_dat_for &lt;- as.Date(m_dat_fin2, format = c(&quot;%Y%m%d&quot;))
+</code></pre></div>
+<p>Be aware that R has an own data-type for dates. To transform the entries of the text-files into a vector containing only dates, we have to follow several processing steps as indicated in the code above. First we load the text-file into a variable. In this stage, the imported file looks like this:</p>
+<p><a class="glightbox" href="../assets/gee_14.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_14.png" /></a></p>
+<p>That is, we  have the ID in one row and the actual acquisition dates in the format: YYYYMMDD in every second row. Hence, we are only interested in every second row of our variable. That is we we run the code:</p>
+<div class="highlight"><pre><span></span><code>ls_dat_fin &lt;- ls_dat[seq(2, nrow(ls_dat),2),]
+</code></pre></div>
+<p>which will then lead to the following output:</p>
+<p><a class="glightbox" href="../assets/gee_15.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_15.png" /></a></p>
+<p>We now only have the acquisition dates in the variable, but as we can see the current vector is still in the wrong format. The information on "Levels" indicates that the data type of the vector is currently "factor". We hence first transform the vector to "character" and then to a "date" vector using the lines:  </p>
+<div class="highlight"><pre><span></span><code># transform remaining rows from factor to character
+ls_dat_fin2 &lt;- as.character(ls_dat_fin)
+# transform character-expression to dates
+ls_dat_for &lt;- as.Date(ls_dat_fin2, format = c(&quot;%Y%m%d&quot;))
+</code></pre></div>
+<p>Now, we have prepared the acquisition dates in a way, so that they can be used to create time-series objects. But before we will do this, we will have a quick look at the raster data we exported from the Google Earth Engine. We will use a for-loop to plot some of the NDVI images of the time series. We will not plot all images, as this would take a really long time (particularly for the Landsat data which generally requires a lot more time to plot the individual NDVI images). Be aware that you can stop the ploting-loop at any time by pressing the little "stop" button in RStudio. We will plot 10 of the Landsat scenes and 40 of the MODIS scenes. Depending on the speed of your computer this may take a while. Have a look at the images that appear and reflect what you are seeing.</p>
+<div class="highlight"><pre><span></span><code>###
+# have a brief look on the data by plotting the individual time series
+# raster of MODIS and some selected scenes of Landsat
+###
+
+# plot selected Landsat NDVI rasters
+
+for(i in 420:430){
+
+  plot(ls_ndvi[[i]], main=ls_dat_for[i], zlim=c(-0.5,1))
+
+}
+
+# plot MODIS NDVI rasters
+
+for(i in 1:40){
+
+  plot(mod_ndvi[[i]], main=m_dat_for[i], zlim=c(-5000,10000))
+
+}
+</code></pre></div>
+<p>Probably most of you observed at least two things: 1. The plotted raster data in many cases showed data gaps with NA or 0 values; 2. The NDVI images show quite clear seasonal signals with a lot more positive NDVI values during the summer months. Both of these observations are quite typical for dense time series of remote sensing data. Due to cloud cover and snow, there are many missing values included. Particularly, if no temporal mosaicing is conducted. The latter we will learn next week. We will now have a closer look at the seasonal signal by plotting NDVI time series of individual pixels. To do this, we first extract the complete NDVI time series of one MODIS and one Landsat pixel:</p>
+<div class="highlight"><pre><span></span><code>###
+# extract NDVI time series for individual pixels
+###
+
+# extract Landsat pixel (here row 45, column 56)
+ls_ts &lt;- as.vector(ls_ndvi[45,56])
+
+# MODIS (here, row 1, column 1)
+m_ts &lt;- as.vector(mod_ndvi[1,1])
+m_ts[m_ts==0] &lt;- NA
+</code></pre></div>
+<p>You could easily modify the codes above to select different pixels and explore how the corresponding time-series look like. In case of the MODIS pixels, a value of 0 indicates a masked pixel which had a low data quality due to cloud-cover or snow. We hence set al values of 0 to NA.</p>
+<p>Next, we will create time series objects. Time series objects are a special kind of data type in R which typically contain some sort of observational values (in our case NDVI values) and corresponding time stamps (which in our case were prepared from the text files as described above). There are different packages in R that allow creating time series objects. Here, we use the xtc package. A summary of the most important xtc commands can be found here:</p>
+<p><a href="https://drive.google.com/open?id=1sAe2GalxPk2T3Ce8R53Zz5fqooY9Katt">https://drive.google.com/open?id=1sAe2GalxPk2T3Ce8R53Zz5fqooY9Katt</a></p>
+<p>To create the time series object, we first create a dataframe containing the NDVI values of the pixel and the time-stamps and subsequently create the xtc object:</p>
+<div class="highlight"><pre><span></span><code># prepare dataframe with NDVI values and dates
+ls.df &lt;- data.frame(ls_ts, ls_dat_for)
+m.df &lt;- data.frame(m_ts, m_dat_for)
+
+# create time series object
+ls.NDVI.ts &lt;- xts(ls.df$ls_ts, order.by=ls.df$ls_dat_for)
+mod.NDVI.ts &lt;- xts(m.df$m_ts, order.by=m.df$m_dat_for)
+</code></pre></div>
+<p>Next, we will plot the prepared time-series datasets:</p>
+<div class="highlight"><pre><span></span><code># plot the time series
+plot(ls.NDVI.ts)
+plot(mod.NDVI.ts)
+</code></pre></div>
+<p>This will lead to the following graphs:</p>
+<p><a class="glightbox" href="../assets/gee_16.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_16.png" /></a>
+<a class="glightbox" href="../assets/gee_17.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_17.png" /></a></p>
+<p>As we can see, both time series show a quite clear seasonal signal. The MODIS time series is notably shorter than the Landsat time series. Be aware that the two time series do not represent the exact same location and should hence not be directly compared. They are just meant to be a random example. Even though, you could adapt the code and extract a time series for pixels that are actually overlapping. The signal is most likely not directly comparable anyway as the MODIS pixels are a lot bigger than the Landsat pixels (250 m x 250 m vs. 30 m x 30 m). To get a better understanding of how the time series actually looks like, we can interpolate the gaps in the time series using some standard processing options offered by the xtc package:</p>
+<div class="highlight"><pre><span></span><code>###
+# work with time-series object
+###
+
+# interpolate missing values
+
+ls.NDVI.ts.ip &lt;- na.approx(ls.NDVI.ts)
+plot(ls.NDVI.ts.ip)
+
+mod.NDVI.ts.ip &lt;- na.approx(mod.NDVI.ts)
+plot(mod.NDVI.ts.ip)
+</code></pre></div>
+<p>Running this code will lead to the two following graphs:</p>
+<p><a class="glightbox" href="../assets/gee_18.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_18.png" /></a>
+<a class="glightbox" href="../assets/gee_19.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_19.png" /></a></p>
+<p>The interpolated time series look a lot smoother and it seems even possible to observe some trends in these new graphs. In the NDVI time series there seems to be one outlier in 2016 which does not seem to be very realistic and is most likely some sort of artefact in the raw data which was not detected by the automated pre-processing routines. In both time series, there seems to be an overall trend to increasing NDVI values. We can try to depict this trend a bit clearer by converting the high-frequency time series of approximately one observation every 16 days to an annual time-series. We can do this with the following code:</p>
+<div class="highlight"><pre><span></span><code># convert time series to yearly values
+ls.NDVI.ts.y &lt;- to.yearly(ls.NDVI.ts)
+mod.NDVI.ts.y &lt;- to.yearly(mod.NDVI.ts)
+
+# plot yearly time series
+
+plot(ls.NDVI.ts.y)
+plot(ls.NDVI.ts.y$ls.NDVI.ts.High)
+
+plot(mod.NDVI.ts.y)
+plot(mod.NDVI.ts.y$mod.NDVI.ts.High)
+</code></pre></div>
+<p>This will in total lead to four plots:</p>
+<p><a class="glightbox" href="../assets/gee_20.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_20.png" /></a>
+<a class="glightbox" href="../assets/gee_21.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_21.png" /></a>
+<a class="glightbox" href="../assets/gee_22.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_22.png" /></a>
+<a class="glightbox" href="../assets/gee_23.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/gee_23.png" /></a></p>
+<p>In the first and the third plot here, four trend lines are shown representing the first and the last NDVI value of the corresponding year (black and blue - could not find out yet which one is which) as well as the highest (red line) and lowest NDVI value (green line). In the second and forth plot, only the highest NDVI value of each year are depicted in a trend line. Here, the general increase in NDVI maxima is well depicted for the Landsat pixel, while a similar but weaker trend can be observed for the MODIS pixel.</p>
+<h2 id="step-7-ilias-exercise-find-a-pixel-with-decreasing-vegetation-trend-or-a-pixel-where-vegetation-disappeared-completely">Step 7: ILIAS Exercise  - find a pixel with decreasing vegetation trend or a pixel where vegetation disappeared completely<a class="headerlink" href="#step-7-ilias-exercise-find-a-pixel-with-decreasing-vegetation-trend-or-a-pixel-where-vegetation-disappeared-completely" title="Link zu dieser Sektion">&para;</a></h2>
+<p>You know now, how to extract a NDVI time-series for an individual pixel and we have learned above how to also interpolate and plot the corresponding time series. As we have so far only seen the time series signal for two pixels (one Landsat and one MODIS), we will play around with this a bit more in this exercise. The objective of the exercise is to identify a Landsat or a MODIS pixel in which a either a declining NDVI trend can be observed or the trend suggests that a vegetation area (showing the typical seasonal NDVI signal) has been transformed to another land-cover type (for example a comparable stable urban or bare soil signal which should show constantly low NDVI values). Please try to find such a pixel by changing the code above. Once you identified a pixel, make a screenshot of the time series and upload it to ILLIAS </p>
+<p>With this, we reach the end of this first Tutorial on remote sensing time-series analysis. Next week, we will learn how to directly prepare annual time-series datasets in the GEE engine and get to know some algorithms for analyzing (remote sensing based) time series objects in R.  </p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../spatial_autocorrelation/spatial_autocorrelation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Calculating semivariograms and Autocorrelograms" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Calculating semivariograms and Autocorrelograms
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../MSRS_1_GEE_basics2/MSRS_1_GEE_basics2/" class="md-footer__link md-footer__link--next" aria-label="Next: Preparing annual time series data stacks and conducting time series analysis" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Preparing annual time series data stacks and conducting time series analysis
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; CC-BY-SA-4.0 license - Freie Universität Berlin Institute of Geographical Sciences Remote Sensing and Geoinformatics
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "search.suggest", "search.highlight", "content.action.edit", "content.code.copy", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="../../javascripts/mathjax.js"></script>
+        
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

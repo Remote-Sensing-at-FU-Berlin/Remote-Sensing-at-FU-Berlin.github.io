@@ -1,0 +1,1453 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../schuelerpraktikum/handout/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>Mintoring - REMOTE SENSING AND GEOINFORMATICS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-green">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#einfuhrung-in-arcmap" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="REMOTE SENSING AND GEOINFORMATICS" class="md-header__button md-logo" aria-label="REMOTE SENSING AND GEOINFORMATICS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            REMOTE SENSING AND GEOINFORMATICS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mintoring
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Remote-Sensing-at-FU-Berlin.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Welcome
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../qgis/01-GUI/" class="md-tabs__link">
+        Prof. Dr. Fassnacht
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gis/installation/" class="md-tabs__link">
+        GIS
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../schuelerpraktikum/handout/" class="md-tabs__link md-tabs__link--active">
+        Other
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="REMOTE SENSING AND GEOINFORMATICS" class="md-nav__button md-logo" aria-label="REMOTE SENSING AND GEOINFORMATICS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    REMOTE SENSING AND GEOINFORMATICS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Remote-Sensing-at-FU-Berlin.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prof. Dr. Fassnacht
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prof. Dr. Fassnacht
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          QGIS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          QGIS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/01-GUI/" class="md-nav__link">
+        Getting to know the graphical user interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/02-vector-data/" class="md-nav__link">
+        Loading and visualizing Shapefiles / Vector data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/03-raster-data/" class="md-nav__link">
+        Loading and visualizing raster data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/04-general-tools/" class="md-nav__link">
+        Useful general tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/05-digitizing/" class="md-nav__link">
+        Basic vector processing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/06-selections/" class="md-nav__link">
+        Spatial and semantic selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/07-elevation/" class="md-nav__link">
+        Working with elevation raster datasets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/08-map-making/" class="md-nav__link">
+        Making a map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/09-spatial-interpolation/" class="md-nav__link">
+        Spatial interpolation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic-landsat/basic-landsat/" class="md-nav__link">
+        Basic Landsat Processing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../random-forest-regression/random-forest-regression/" class="md-nav__link">
+        Random Forest Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Laserscanning_lidR/1_Laserscanning_lidR/" class="md-nav__link">
+        Getting started with processing laserscanning data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiative-transfer-model/radiative-transfer-model/" class="md-nav__link">
+        Radiative Transfer Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../treespeciesclassification/treespeciesclassification/" class="md-nav__link">
+        Classification of tree species using hyperspectral data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BFAST/BFAST/" class="md-nav__link">
+        Analysing time series with BFAST and NPPHEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../landscape_metrics/landscape_metrics/" class="md-nav__link">
+        Calculation of Landscape Metrics from a Land-cover raster map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spatial_autocorrelation/spatial_autocorrelation/" class="md-nav__link">
+        Calculating semivariograms and Autocorrelograms
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          GEE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          GEE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MSRS_1_GEE_basics/MSRS_1_GEE_basics/" class="md-nav__link">
+        Preparing time series data stacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MSRS_1_GEE_basics2/MSRS_1_GEE_basics2/" class="md-nav__link">
+        Preparing annual time series data stacks and conducting time series analysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          SNAP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          SNAP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planetary-sciences/01-download-ls-and-s2/" class="md-nav__link">
+        Download of Landsat and Sentinel satellite images
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          GIS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GIS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/visualization-and-map/" class="md-nav__link">
+        Visualization and Map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/digitalization/" class="md-nav__link">
+        Digitalization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/attributes-filters-and-metadata/" class="md-nav__link">
+        Attributes, Filters and Metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/geoprocesing-and-reference-and-coordinate-systems/" class="md-nav__link">
+        Geoprocesing and reference and coordinate systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/interpolation/" class="md-nav__link">
+        Interpolation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/dem/" class="md-nav__link">
+        Digital Elevation Models
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Other
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Other
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schuelerpraktikum/handout/" class="md-nav__link">
+        School internship
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Mintoring
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Mintoring
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#einfuhrung-in-arcmap" class="md-nav__link">
+    Einführung in ArcMAP
+  </a>
+  
+    <nav class="md-nav" aria-label="Einführung in ArcMAP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fragen-und-probleme" class="md-nav__link">
+    Fragen und Probleme
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vorbereitung" class="md-nav__link">
+    Vorbereitung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arcmap" class="md-nav__link">
+    ArcMAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definieren-des-arbeitsverzeichnisses" class="md-nav__link">
+    Definieren des Arbeitsverzeichnisses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daten-offnen-und-visualisieren-in-arcmap" class="md-nav__link">
+    Daten öffnen und visualisieren in ArcMap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributtabelle-offnen" class="md-nav__link">
+    Attributtabelle öffnen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anpassen-der-datendarstellung" class="md-nav__link">
+    Anpassen der Datendarstellung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#speichern-des-arcmap-projekts" class="md-nav__link">
+    Speichern des ArcMap-Projekts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erstellen-einer-karte" class="md-nav__link">
+    Erstellen einer Karte
+  </a>
+  
+    <nav class="md-nav" aria-label="Erstellen einer Karte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kartenlayout-erstellen" class="md-nav__link">
+    Kartenlayout erstellen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kartenlayout-anpassen" class="md-nav__link">
+    Kartenlayout anpassen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#einfugen-der-erforderlichen-kartenelemente-bzw-kartenrandangaben" class="md-nav__link">
+    Einfügen der erforderlichen Kartenelemente bzw. Kartenrandangaben
+  </a>
+  
+    <nav class="md-nav" aria-label="Einfügen der erforderlichen Kartenelemente bzw. Kartenrandangaben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kartentitel" class="md-nav__link">
+    Kartentitel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legende" class="md-nav__link">
+    Legende
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nordpfeil" class="md-nav__link">
+    Nordpfeil
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mastab" class="md-nav__link">
+    Maßstab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#koordinatensystem" class="md-nav__link">
+    Koordinatensystem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weitere-elemente" class="md-nav__link">
+    Weitere Elemente
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exportieren-der-karte-als-bildformat" class="md-nav__link">
+    Exportieren der Karte als Bildformat
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/tree/main/docs/mintoring/mintoring.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Mintoring</h1>
+
+<h2 id="einfuhrung-in-arcmap">Einführung in ArcMAP<a class="headerlink" href="#einfuhrung-in-arcmap" title="Link zu dieser Sektion">&para;</a></h2>
+<p>Wir verwenden <strong>ArcMap</strong>. ArcMap wird verwendet, um geographische Informationen zu visualisieren, zu verwalten, zu erstellen, zu analysieren und zu teilen. Es ermöglicht Benutzern, Karten zu erstellen, geographische Daten zu bearbeiten, geographische Daten zu analysieren und schließlich Berichte und Karten zu erstellen.</p>
+<h3 id="fragen-und-probleme">Fragen und Probleme<a class="headerlink" href="#fragen-und-probleme" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Solltet ihr während des Arbeitens mit ArcMap auf Probleme oder Fehler stoßen, seid ihr nicht allein. Wir stehen bereit, um euch bei Fragen oder Schwierigkeiten zu unterstützen.</p>
+<h3 id="vorbereitung">Vorbereitung<a class="headerlink" href="#vorbereitung" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Legt einen <strong>Ordner</strong> auf Ihrem Computer an, in dem ihr alle Daten für unseren Kurs speichert (z.B. <code>...\Mintoring</code>).</p>
+<p>Bitte ladet die Daten, mit denen wir heute arbeiten, von der FU-Box herunter . Klickt auf ein Thema um den Link dahin zu öffnen. Klickt dann auf den Button "Download all files", um den Datensatz auf euren Computer herunterzuladen.</p>
+<p>Die möglichen Themen sind:</p>
+<ul>
+<li><a href="https://box.fu-berlin.de/s/KN4a6YbTpaxwX7z">Para</a></li>
+<li><a href="https://box.fu-berlin.de/s/4o26HCc4AL7xfBW">Mato Grosso</a></li>
+<li><a href="https://box.fu-berlin.de/s/AbMem5DG3rzwW5d">Rondonia</a></li>
+<li><a href="https://box.fu-berlin.de/s/Ptsk7tzmdTnRSss">Acre</a></li>
+</ul>
+<h3 id="arcmap">ArcMAP<a class="headerlink" href="#arcmap" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Öffnet ArcMap unter <code>Start &gt; Programme &gt; ArcGIS &gt; ArcMap</code>.</p>
+<p>Bei dem sich öffnenden Fenster werdet ihr gefragt, ob ihr eine Vorlage öffnen möchten.
+Da wir ein neues Projekt anlegen, wählt bitte <code>CANCEL</code>.</p>
+<p>Ihr seht nun die <strong>ArcMap-Benutzeroberfläche</strong>.</p>
+<p><a class="glightbox" href="../1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../1.png" /></a></p>
+<h3 id="definieren-des-arbeitsverzeichnisses">Definieren des Arbeitsverzeichnisses<a class="headerlink" href="#definieren-des-arbeitsverzeichnisses" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Wir müssen das <strong>Arbeitsverzeichniss</strong> definieren.</p>
+<p>Geht dafür in der ArcMap- Menüleiste auf <code>GEOPROCESSING &gt; ENVIRONMENTS &gt; WORKSPACE</code> und gebt für für den <code>CURRENT WORKSPACE</code> und <code>SCRATCH
+WORKSPACE</code> euer Arbeitsverzeichnis an, in dem ihr eure Daten speichert (z.B. <code>...\Mintoring</code>).</p>
+<p>Klickt dafür auf das Ordnersymbol und navigiert zu eurem Ordner. Dazu müsst ihr zunächst mit <code>Connect to Folder</code> eine Verbindung mit dem Laufwerk, auf dem sich <strong>euer Ordner</strong> befindet, erstellen.</p>
+<p><a class="glightbox" href="2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="2.png" /></a></p>
+<h3 id="daten-offnen-und-visualisieren-in-arcmap">Daten öffnen und visualisieren in ArcMap<a class="headerlink" href="#daten-offnen-und-visualisieren-in-arcmap" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Nun wollen wir die ersten <strong>Geodaten</strong> in ArcMap <strong>öffnen und visualisieren</strong>.</p>
+<p>In ArcMap werden Daten über <code>Add Data</code> geöffnet.</p>
+<p>Öffnet die Dateien mit den Endungen <code>.shp</code> und <code>.tif</code></p>
+<p>Die Daten erscheinen in ArcMap sowohl im <strong>Kartenfenster</strong> (rechts) als auch im <strong>Table of Contents</strong> (links) hierarchisch gelistet.
+Der Datensatz, der im <code>Table of Contents</code> oben gelistet ist, liegt auch im Kartenfenster oben, d.h. er kann evtl. darunterliegende Datensätze verdecken.
+Ihr könnt die <strong>Reihenfolge</strong> der Datendarstellung im Kartenfenster verändern, indem ihr einen Datensatz im <code>Table of Contents</code> anklicken und an eine andere Position (nach unten/oben) verschiebt.</p>
+<p>Erkundet die Daten mit den vorhandenen Werkzeugen in der Toolbar (<strong>Zoom in, Zoom out, Pan/Verschieben, Full extent/volle räumliche
+Ausdehnung, Fixed zoom in, Fixed zoom out</strong>).</p>
+<p><a class="glightbox" href="../3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../3.png" /></a></p>
+<h3 id="attributtabelle-offnen">Attributtabelle öffnen<a class="headerlink" href="#attributtabelle-offnen" title="Link zu dieser Sektion">&para;</a></h3>
+<p><strong>Vektordaten</strong> sind dadurch charakterisiert, dass sie neben der geometrischen Information (wo genau liegen die Punkte/Flächen im Raum)
+auch <strong>Sachdaten</strong> enthalten können. Diese Sachdaten sind über die <code>Attributtabelle</code> direkt mit der räumlichen Information verknüpft.
+Beispielsweise wäre die Umrandung eines Bezirkes im Raum eine räumliche/geometrische Information.
+Die Einwohnerzahl für den jewiligen Bezirk, oder auch der Name des Bezirkes wären Sachinformationen/Sachdaten</p>
+<p>Diese <code>Attributtabelle</code>kann in ArcMap über das <code>KONTEXTMENÜ (Rechtsklick auf den entsprechenden Datensatz im Table of Contents) &gt; OPEN ATTRIBUTE TABLE</code> angeschaut werden.</p>
+<p>Öffnet die <code>Attributtabelle</code> eurer Daten und seht euch die enthaltenen Sachdaten an.</p>
+<p>Um herauszufinden, welche Zeile der <code>Attributtabelle</code> für welches Geoobjekt (z.B. Ortsteil) im Kartenfenster steht,
+kann man die entsprechende Zeile selektieren. Klickt dafür hier in der <code>Attributtabelle</code> auf den Anfang der ersten Zeile.
+Das entsprechende Element ist nun sowohl in der <code>Attributtabelle</code> als auch im Kartenfenster selektiert.</p>
+<p><a class="glightbox" href="../4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../4.png" /></a></p>
+<h3 id="anpassen-der-datendarstellung">Anpassen der Datendarstellung<a class="headerlink" href="#anpassen-der-datendarstellung" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Die graphische Darstellung der Daten, also deren <strong>Farb- und Formgestaltung</strong>, erfolgt nach dem Öffnen in ArcMap zufällig.
+Ziel ist es, die Daten so darzustellen, dass alle wichtigen Daten <strong>sichtbar</strong>, <strong>inhaltlich passend</strong> und <strong>gut voneinander unterscheidbar</strong> visualisiert werden.</p>
+<p>Die einfache Visualisierung erfolgt über einen Doppelklick auf das jeweilige Symbol (Punkt bzw. Linie) unterhalb des Layernamens im <code>Table of Contents</code>.
+Es öffnet sich ein neues Fenster: <code>Symbol Selector</code>. In diesem kann die geometrische Form, deren Größe und Farbgestaltung für einen Layer ausgewählt werden.</p>
+<p>Für die Visualisierung ist eine Darstellung nach dessen Eigenschaften in der <code>Attributtabelle</code> erforderlich.</p>
+<p>Diese Visualisierung erfolgt über das <code>KONTEXTMENÜ (Rechtsklick auf den entsprechenden Datensatz im Table of Contents) &gt; PROPERTIES</code> ein neues Fenster öffnet sich: <code>LAYER PROPERTIES &gt; SYMBOLOGY</code>.</p>
+<p>Wählt nun auf der linken Seite unter <code>Show</code> die Option <code>CATEGORIES &gt; UNIQUE VALUES</code>.</p>
+<p>Unter <code>VALUE FIELD</code> könnt ihr eine der Spalten der <code>Attributtabelle</code> auswählen.</p>
+<p>Ihr könnt entweder eine Farbzuweisung über die <code>COLOR RAMP</code> auswählen oder mit einem Doppelklick auf das Farbkästchen zu jedem Attribut eigene Farben für das jeweilige Attribut auswählen.</p>
+<p>Die Funktion, einen Layer transparent darzustellen, findet ihr im Fenster <code>LAYER PROPERTIES &gt; DISPLAY &gt; TRANSPARENT</code>.</p>
+<p>Bestätigt anschließend mit <code>OK</code>.</p>
+<p><a class="glightbox" href="../5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../5.png" /></a></p>
+<h3 id="speichern-des-arcmap-projekts">Speichern des ArcMap-Projekts<a class="headerlink" href="#speichern-des-arcmap-projekts" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Es ist es immer wichtig, eure Ergebnisse zu <strong>speichern</strong>. Sämtliche Veränderungen in der Darstellung der Daten im Kartenfenster, die wir vorgenommen haben, sollten in einem ArcMap-Projekt gespeichert werden.</p>
+<p>Speichert euer ArcMap-Projekt in der Menüleiste unter <code>FILE &gt; SAVE AS</code> in eurem Ordner mit dem Namen <code>Mintoring.mxd</code></p>
+<h2 id="erstellen-einer-karte">Erstellen einer Karte<a class="headerlink" href="#erstellen-einer-karte" title="Link zu dieser Sektion">&para;</a></h2>
+<h3 id="kartenlayout-erstellen">Kartenlayout erstellen<a class="headerlink" href="#kartenlayout-erstellen" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Wir wollen nun eine <strong>Karte</strong> erstellen. Dafür werden wir in einem ersten Schritt das <strong>Kartenlayout</strong> an unsere Wünsche anpassen.</p>
+<p>Für die Erstellung eines Kartenlayouts müsst ihr in ArcMap den sogenannten <code>Layout View</code> aktivieren. Bisher haben wir immer in der <code>Data View</code> gearbeitet und in dieser Darstellungsveränderungen für die Daten vorgenommen. Für die Anpassungen im Kartenlayout muss die <code>Layout View</code> aktiviert sein.</p>
+<p>Dies könnt ihr in der Menüleiste unter <code>VIEW &gt; LAYOUT VIEW</code> aktivieren.</p>
+<h3 id="kartenlayout-anpassen">Kartenlayout anpassen<a class="headerlink" href="#kartenlayout-anpassen" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Wir wollen nun das Papierformat der Karte in ein <strong>A3-Querformat</strong> ändern.</p>
+<p>Ändert das voreingestellte Papierformat in der ArcMap-Menüleiste unter dem Reiter <code>File &gt; Page and Print Setup</code>. Wählen Sie <code>Paper &gt; Size</code> und wählen Sie ein A3-Format aus.</p>
+<p>Wählt unter <code>Paper &gt; Orientation &gt; Landscape</code> Querformat. Dadurch wechselt ihr das
+Seitenformat von <strong>Hoch- zu Querformat</strong>.</p>
+<p>Ändert bei <code>Name</code> den Namen zu <code>Microsoft to PDF</code> und bestätigt mit <code>OK</code>.</p>
+<p><a class="glightbox" href="../6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../6.png" /></a></p>
+<p>Im nächsten Schritt wollen wir den <strong>Kartenrahmen</strong> unserer Karte an das gewählte Papierformat anpassen.</p>
+<p>Öffnet in der ArcMap-Menüleiste unter <code>Customize &gt; Toolbars &gt; Layout</code> die Editierungswerkzeuge eurer Karte (falls die Layout-Toolbar nicht schon geöffnet sein sollte). Mit dieser Layout-Toolbar könnt ihr Elemente innerhalb Ihres Kartenlayouts verschieben und den Zoom für die Ansicht der Karte verändern.</p>
+<p>Setz den <strong>Zoom</strong> für euer Papierformat auf <code>50%</code>.</p>
+<p>Ihr könnt nun den Kartenrahmen eurer Karte anpassen. Die Platzierung des Kartenrahmens
+im Layout wird durch ein schwarzes Rechteck angezeigt. Um den Kartenrahmen im <code>Layout View</code> anzupassen, klickt mit der rechten Maustaste auf die Darstellung des Datensatzes.</p>
+<p>Hinweis: Falls ihr bereits Werkzeuge aus der <code>Layout-Toolbar</code> ausprobiert haben solltet, könnt ihr den Kartenrahmen nicht direkt aktivieren. Bitte klickt dafür zuerst auf den schwarzen Pfeil in der ArcMap-
+Werkzeugleiste Tools (<code>Tools-Werkzeugleiste &gt; Select Elements</code>) und klickt danach auf die Darstellung des Datensatzes.</p>
+<p><a class="glightbox" href="../7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../7.png" /></a></p>
+<p>Der Kartenrahmen ist nun aktiviert (zu erkennen an der hellblau-schwarzen Strichelung und den Kästchen an den Eckpunkten) und kann verändert werden.</p>
+<p>Ihr könnt die <strong>Position des Kartenrahmens</strong> ändern, indem ihr in mit gedrückter linker Maustaste verschieben. Die Größe des Kartenrahmens könnt ihr durch die Eckpunkte verstellen.</p>
+<h3 id="einfugen-der-erforderlichen-kartenelemente-bzw-kartenrandangaben">Einfügen der erforderlichen Kartenelemente bzw. Kartenrandangaben<a class="headerlink" href="#einfugen-der-erforderlichen-kartenelemente-bzw-kartenrandangaben" title="Link zu dieser Sektion">&para;</a></h3>
+<p>In der <strong>ArcMap-Menüleiste</strong> findet ihr unter dem Reiter <code>Insert</code> die wichtigsten Kartenelemente, die ihr in eurer Karte verwenden solltet.</p>
+<h4 id="kartentitel">Kartentitel<a class="headerlink" href="#kartentitel" title="Link zu dieser Sektion">&para;</a></h4>
+<p>Platziert unter <code>Insert &gt; Title</code> einen <strong>Kartentitel</strong> in eure Karte.</p>
+<p>Gebt der Karte eine geeignete Überschrift.</p>
+<p>Ihr könnt das Textformat der Überschrift durch einen Doppelklick auf den Titel jederzeit
+formatieren.</p>
+<p>Platziert die Überschrift an einer geeigneten Stelle eurer Karte.</p>
+<h4 id="legende">Legende<a class="headerlink" href="#legende" title="Link zu dieser Sektion">&para;</a></h4>
+<p>Öffnet den <code>Legend Wizard</code> unter <code>Insert &gt; Legend</code>.</p>
+<p>Über die mittleren Pfeiltasten können ihr den gewünschten Layer von <code>Map Layers</code> zu <code>Legend Items</code> verschieben. Es werden nur <strong>Legenden der Layer</strong> erzeugt, die in der <code>Legend Items</code>-Liste aufgeführt sind. Achtet darauf, dass der Layer unter <code>Legend Items</code> gelistet ist.</p>
+<p>Platziert die Legende an eine geeignete Stelle im Kartenrand.</p>
+<p>Das Legendenmenü kann jederzeit mit Doppelklick auf die Legende wieder geöffnet werden. Die Einstellungsmöglichkeiten sind so vielfältig, dass wir das hier nicht alles detailliert beschreiben können.</p>
+<p>Wichtig: Die Legendeneinträge werden automatisch angepasst, wenn zum Beispiel Attributfarben und -einträge im <code>Symbology</code>-Menü (in der Data View!) verändert werden. Es können ebenso neue Geodaten in die Legende übernommen oder herausgelöscht werden.</p>
+<p><a class="glightbox" href="../8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../8.png" /></a></p>
+<h4 id="nordpfeil">Nordpfeil<a class="headerlink" href="#nordpfeil" title="Link zu dieser Sektion">&para;</a></h4>
+<p>Öffnet den <code>North Arrow Selector</code> unter <code>Insert &gt; North Arrow</code>.</p>
+<p>Wählt einen passenden <strong>Nordpfeil</strong> aus und bestätigt mit <code>OK</code>.</p>
+<h4 id="mastab">Maßstab<a class="headerlink" href="#mastab" title="Link zu dieser Sektion">&para;</a></h4>
+<p>Öffnet den <code>Scale Bar Selector</code> unter <code>Insert &gt; Scale Bar</code>.</p>
+<p>Wählt einen <strong>geeigneten Maßstab</strong> aus und bestätigt mit <code>OK</code>.</p>
+<p>Platziert den Maßstab an einer geeigneten Stelle.</p>
+<p>Ihr könnt den Maßstab jederzeit durch einen Doppelklick anpassen.</p>
+<h4 id="koordinatensystem">Koordinatensystem<a class="headerlink" href="#koordinatensystem" title="Link zu dieser Sektion">&para;</a></h4>
+<p>Öffnen Sie die <code>Data Frame Properties</code> durch einen Doppelklick auf das Layer Symbol
+im <code>Table of Content</code>.</p>
+<p>Wählt den Reiter <code>Grids</code>.</p>
+<p>Erzeugt ein neues <strong>Koordinatensystem</strong> durch Klicken der Option <code>New Grid</code>.</p>
+<p>Wählt <code>Measured Grid: divides map into a grid of map units</code> und bestätigt mit <code>Weiter</code>.</p>
+<p>Wählt <code>Appearance</code> die Option <code>Labels only</code>. Setzt den Abstand unter <code>Intervals</code> für die X-
+und die Y-Achse auf <code>10000 Meters</code>, um in diesem Abstand Koordinaten am Kartenrand
+einzufügen. Bestätigt mit <code>Weiter</code>.</p>
+<p>Behaltet die Voreinstellungen bei und bestätigt mit <code>Weiter</code>.</p>
+<p>Bestätigt zuletzt mit <code>Finish</code>.</p>
+<p>Bestätigt nun eure Anpassungen in den Data Frame Properties mit <code>Übernehmen</code> und
+anschließend <code>OK</code>.</p>
+<p>Ihr könnt jederzeit Änderungen an der Darstellung des Koordinatensystems vornehmen. Dazu
+öffnet durch einen Doppelklick auf das Layers-Symbol im <code>Table of Contents</code> die <code>Data Frame Properties</code>. Unter dem Reiter <code>Grids</code> könnt ihr euer Koordinatensystem auswählen und über <code>Properties</code> anpassen.</p>
+<h4 id="weitere-elemente">Weitere Elemente<a class="headerlink" href="#weitere-elemente" title="Link zu dieser Sektion">&para;</a></h4>
+<p><strong>Zusätzliche Karteninformationen</strong> (wie z.B. das Datum der Kartenerstellung, der Name des/r Kartenautors/in, Name des verwendeten
+Koordinatensystems etc.) können aber auch über <code>Insert &gt; Text</code> in den Kartenrand eingefügt und dort auchverändert werden.</p>
+<p>Der Text sollte folgendes Enthalten:</p>
+<ul>
+<li>Authorinen</li>
+<li>Datum</li>
+<li>Quelle</li>
+</ul>
+<h3 id="exportieren-der-karte-als-bildformat">Exportieren der Karte als Bildformat<a class="headerlink" href="#exportieren-der-karte-als-bildformat" title="Link zu dieser Sektion">&para;</a></h3>
+<p>Wenn ihr mit eurer Darstellung der Karte zufrieden seid, wählt in der ArcMap- Menüleiste unter <code>File &gt; Export Map</code>.</p>
+<p>Gebt den gewünschten <strong>Speicherort</strong> an und gebt der zu <strong>exportierenden Karte</strong> unter <code>Dateiname</code> einen Namen.</p>
+<p>Unter der Option <code>Dateityp</code> können ihr euch ein <strong>Bildformat</strong> aussuchen, in dem die Karte gespeichert wird. Wählt <code>JPG</code> oder <code>PDF</code>.</p>
+<p>Gebt unter <code>Resolution</code> eine <strong>Auflösung</strong> von 300 dpi an.</p>
+<p>Bestätigt mit <code>Speichern</code>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../schuelerpraktikum/handout/" class="md-footer__link md-footer__link--prev" aria-label="Previous: School internship" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                School internship
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; CC-BY-SA-4.0 license - Freie Universität Berlin Institute of Geographical Sciences Remote Sensing and Geoinformatics
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "search.suggest", "search.highlight", "content.action.edit", "content.code.copy", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="../../javascripts/mathjax.js"></script>
+        
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

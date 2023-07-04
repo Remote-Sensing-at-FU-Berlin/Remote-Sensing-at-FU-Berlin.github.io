@@ -1,0 +1,1934 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../qgis/09-spatial-interpolation/">
+      
+      
+        <link rel="next" href="../../random-forest-regression/random-forest-regression/">
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>Basic Landsat Processing - REMOTE SENSING AND GEOINFORMATICS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-green">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#basic-processing-of-landsat-data-with-r" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="REMOTE SENSING AND GEOINFORMATICS" class="md-header__button md-logo" aria-label="REMOTE SENSING AND GEOINFORMATICS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            REMOTE SENSING AND GEOINFORMATICS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Basic Landsat Processing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Remote-Sensing-at-FU-Berlin.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Welcome
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../qgis/01-GUI/" class="md-tabs__link md-tabs__link--active">
+        Prof. Dr. Fassnacht
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gis/installation/" class="md-tabs__link">
+        GIS
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../schuelerpraktikum/handout/" class="md-tabs__link">
+        Other
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="REMOTE SENSING AND GEOINFORMATICS" class="md-nav__button md-logo" aria-label="REMOTE SENSING AND GEOINFORMATICS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    REMOTE SENSING AND GEOINFORMATICS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Remote-Sensing-at-FU-Berlin.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prof. Dr. Fassnacht
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prof. Dr. Fassnacht
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          QGIS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          QGIS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/01-GUI/" class="md-nav__link">
+        Getting to know the graphical user interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/02-vector-data/" class="md-nav__link">
+        Loading and visualizing Shapefiles / Vector data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/03-raster-data/" class="md-nav__link">
+        Loading and visualizing raster data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/04-general-tools/" class="md-nav__link">
+        Useful general tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/05-digitizing/" class="md-nav__link">
+        Basic vector processing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/06-selections/" class="md-nav__link">
+        Spatial and semantic selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/07-elevation/" class="md-nav__link">
+        Working with elevation raster datasets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/08-map-making/" class="md-nav__link">
+        Making a map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qgis/09-spatial-interpolation/" class="md-nav__link">
+        Spatial interpolation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Basic Landsat Processing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Basic Landsat Processing
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datasets-used-in-this-tutorial" class="md-nav__link">
+    Datasets used in this Tutorial
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-loading-landsat-data" class="md-nav__link">
+    Step 1: Loading Landsat data
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Loading Landsat data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-2-visualizing-landsat-data" class="md-nav__link">
+    Step 2: Visualizing Landsat data
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2: Visualizing Landsat data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-explore-visualization-settings" class="md-nav__link">
+    Exercise: Explore visualization settings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-clipping-landsat-data" class="md-nav__link">
+    Step 3: Clipping Landsat data
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: Clipping Landsat data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approach-1-clipping-to-the-maximum-extent" class="md-nav__link">
+    Approach 1: Clipping to the maximum extent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approach-2-clipping-to-the-exact-outline-of-the-shapefile" class="md-nav__link">
+    Approach 2: Clipping to the exact outline of the Shapefile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-clipping" class="md-nav__link">
+    Exercise: Clipping
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-applying-a-cloud-mask" class="md-nav__link">
+    STEP 4: Applying a cloud mask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-simple-change-detection-using-image-differencing" class="md-nav__link">
+    STEP 5: Simple change detection using image differencing
+  </a>
+  
+    <nav class="md-nav" aria-label="STEP 5: Simple change detection using image differencing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nir-difference-image" class="md-nav__link">
+    NIR difference image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ndvi-difference-image" class="md-nav__link">
+    NDVI difference image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-unsupervised-classification" class="md-nav__link">
+    STEP 5: Unsupervised classification
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../random-forest-regression/random-forest-regression/" class="md-nav__link">
+        Random Forest Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Laserscanning_lidR/1_Laserscanning_lidR/" class="md-nav__link">
+        Getting started with processing laserscanning data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../radiative-transfer-model/radiative-transfer-model/" class="md-nav__link">
+        Radiative Transfer Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../treespeciesclassification/treespeciesclassification/" class="md-nav__link">
+        Classification of tree species using hyperspectral data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BFAST/BFAST/" class="md-nav__link">
+        Analysing time series with BFAST and NPPHEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../landscape_metrics/landscape_metrics/" class="md-nav__link">
+        Calculation of Landscape Metrics from a Land-cover raster map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spatial_autocorrelation/spatial_autocorrelation/" class="md-nav__link">
+        Calculating semivariograms and Autocorrelograms
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          GEE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          GEE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MSRS_1_GEE_basics/MSRS_1_GEE_basics/" class="md-nav__link">
+        Preparing time series data stacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MSRS_1_GEE_basics2/MSRS_1_GEE_basics2/" class="md-nav__link">
+        Preparing annual time series data stacks and conducting time series analysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          SNAP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          SNAP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planetary-sciences/01-download-ls-and-s2/" class="md-nav__link">
+        Download of Landsat and Sentinel satellite images
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          GIS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GIS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/visualization-and-map/" class="md-nav__link">
+        Visualization and Map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/digitalization/" class="md-nav__link">
+        Digitalization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/attributes-filters-and-metadata/" class="md-nav__link">
+        Attributes, Filters and Metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/geoprocesing-and-reference-and-coordinate-systems/" class="md-nav__link">
+        Geoprocesing and reference and coordinate systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/interpolation/" class="md-nav__link">
+        Interpolation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gis/dem/" class="md-nav__link">
+        Digital Elevation Models
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Other
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Other
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schuelerpraktikum/handout/" class="md-nav__link">
+        School internship
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mintoring/mintoring/" class="md-nav__link">
+        Mintoring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/Remote-Sensing-at-FU-Berlin/Remote-Sensing-at-FU-Berlin.github.io/tree/main/docs/basic-landsat/basic-landsat.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="basic-processing-of-landsat-data-with-r">Basic processing of Landsat data with R<a class="headerlink" href="#basic-processing-of-landsat-data-with-r" title="Link zu dieser Sektion">&para;</a></h1>
+<p>Fabian Fassnacht</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Link zu dieser Sektion">&para;</a></h2>
+<p>In this lecture you will learn the basic handling of Landsat data (as
+one example of multispectral satellite data). The learned processing
+steps include:</p>
+<ul>
+<li>Loading Landsat data</li>
+<li>Visualizing Landsat data</li>
+<li>Clipping Landsat data with a Shapefile</li>
+<li>Masking Landsat data</li>
+<li>Calculating Vegetation indices</li>
+<li>Unsupervised classification of Landsat data</li>
+</ul>
+<p>The datasets applied in this tutorial are available here:
+<a href="https://drive.google.com/open?id=1goGeRNGYaMSUBR7st7SOQ5P7GqxQPmP6">https://drive.google.com/open?id=1goGeRNGYaMSUBR7st7SOQ5P7GqxQPmP6</a></p>
+<h2 id="datasets-used-in-this-tutorial">Datasets used in this Tutorial<a class="headerlink" href="#datasets-used-in-this-tutorial" title="Link zu dieser Sektion">&para;</a></h2>
+<p>In this tutorial we will use two Landsat-8 scenes. To be more precise,
+we will make use of the Landsat 8 surface reflectance product which can
+be downloaded from the USGS earth explorer webpage
+<a href="https://earthexplorer.usgs.gov/">https://earthexplorer.usgs.gov/</a> . How to download the corresponding
+images will be demonstrated in the course.</p>
+<p>Detailed information about the structure of the datasets can be found
+here: <a href="https://www.usgs.gov/landsat-missions/product-information">https://www.usgs.gov/landsat-missions/product-information</a></p>
+<h2 id="step-1-loading-landsat-data">Step 1: Loading Landsat data<a class="headerlink" href="#step-1-loading-landsat-data" title="Link zu dieser Sektion">&para;</a></h2>
+<p>As first step, load all necessary R packages by executing the following
+code:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="s">&quot;terra&quot;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&quot;sf&quot;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&quot;caret&quot;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&quot;foreign&quot;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&quot;kernlab&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>R will raise an error in case a package is not installed yet. If this is
+the case, please install the packages either through the main menu of
+Rstudio by selecting <strong>“Tools” =></strong> <strong>“Install packages”</strong> and then
+following the appearing dialogue, or by entering the corresponding R
+code to install the packages into the console. E.g., to install the
+package “terra” use the code:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;terra&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>After all packages are successfully installed, load the images using two
+steps. First, save the complete file-paths of all Landsat bands into a
+text-variable using the command:</p>
+<div class="highlight"><pre><span></span><code><span class="n">bandnames</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list.files</span><span class="p">(</span><span class="s">&quot;/home/florian/tutorials-fabian/basic-landsat/Landsat/D239&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;\\.tif$&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">full.names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">)</span>
+<span class="n">bandnames</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[1] &quot;/home/florian/tutorials-fabian/basic-landsat/Landsat/D239/LC81900282015239LGN00_sr_band2.tif&quot;
+[2] &quot;/home/florian/tutorials-fabian/basic-landsat/Landsat/D239/LC81900282015239LGN00_sr_band3.tif&quot;
+[3] &quot;/home/florian/tutorials-fabian/basic-landsat/Landsat/D239/LC81900282015239LGN00_sr_band4.tif&quot;
+[4] &quot;/home/florian/tutorials-fabian/basic-landsat/Landsat/D239/LC81900282015239LGN00_sr_band5.tif&quot;
+[5] &quot;/home/florian/tutorials-fabian/basic-landsat/Landsat/D239/LC81900282015239LGN00_sr_band6.tif&quot;
+[6] &quot;/home/florian/tutorials-fabian/basic-landsat/Landsat/D239/LC81900282015239LGN00_sr_band7.tif&quot;
+</code></pre></div>
+<p>The file-path given in the code above should be changed to match the
+path where you are storing the corresponding files on your computer.
+Next, apply the “rast” command of the raster package to load the image
+into an R raster object:</p>
+<div class="highlight"><pre><span></span><code><span class="n">ls_d239</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rast</span><span class="p">(</span><span class="n">bandnames</span><span class="p">)</span>
+</code></pre></div>
+<p>The stack command does not yet load the whole dataset into the memory
+but just reads the meta-data of the file and establishes links to the
+data on the hard drive. Finally, run the variable name to obtain a
+summary of the raster file:</p>
+<div class="highlight"><pre><span></span><code><span class="n">ls_d239</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>class       : SpatRaster 
+dimensions  : 7941, 7821, 6  (nrow, ncol, nlyr)
+resolution  : 30, 30  (x, y)
+extent      : 395685, 630315, 4977585, 5215815  (xmin, xmax, ymin, ymax)
+coord. ref. : WGS 84 / UTM zone 33N (EPSG:32633) 
+sources     : LC81900282015239LGN00_sr_band2.tif  
+              LC81900282015239LGN00_sr_band3.tif  
+              LC81900282015239LGN00_sr_band4.tif  
+              ... and 3 more source(s)
+names       : band ~tance, band ~tance, band ~tance, band ~tance, band ~tance, band ~tance
+</code></pre></div>
+<p>The displayed information tells you mostly something about the meta-data
+of the raster file.</p>
+<p>Be aware that this procedure of loading a Landsat image will only work
+if the downloaded Landsat reflectance product has already been extracted
+from the compressed file and relevant GeoTiff-files containing the
+spectral information of the individual bands were stored into a separate
+folder. In our case, the folder <strong>D239</strong> contains the following folders
+and files:</p>
+<div class="highlight"><pre><span></span><code>D239/
+├── LC81900282015239LGN00_sr_band4.tif
+├── LC81900282015239LGN00_sr_band3.tif
+├── other
+│   └── LC81900282015239LGN00_sr_band1.tif
+├── LC81900282015239LGN00_sr_band2.tif
+├── LC81900282015239LGN00_sr_band5.tif
+├── LC81900282015239LGN00_sr_band7.tif
+├── cl_mask
+│   ├── LC81900282015239LGN00_cfmask_conf.tif
+│   ├── LC81900282015239LGN00_cfmask.tif.aux.xml
+│   ├── LC81900282015239LGN00.xml
+│   └── LC81900282015239LGN00_cfmask.tif
+├── LC81900282015239LGN00_sr_band6.tif
+└── composit
+</code></pre></div>
+<p>On the lowest level, all relevant bands for the Landsat 8 scene are
+stored (<em>band2 - band7</em>.tif), in the folder <strong>“cl_mask”</strong>, a tif-file
+containing the results of the fmask-cloud masking algorithm that is
+applied during the creation of the Landsat-8 reflectance product is
+stores. The <strong>“other”</strong> folder contains the the *band.tif file which is
+not applied here, as it mostly serves for the atmospheric correction.
+The <strong>“composit”</strong> folder is currently empty but will be used to save a
+new tif-file which contains all the 6 considered Landsat-bands in a
+single file. This folder structure was created manually in the given
+case to ease the handling of the data in the tutorial. Be aware that you
+will have to conduct these steps yourself once you are working with your
+own datasets.</p>
+<h3 id="step-2-visualizing-landsat-data">Step 2: Visualizing Landsat data<a class="headerlink" href="#step-2-visualizing-landsat-data" title="Link zu dieser Sektion">&para;</a></h3>
+<p>After loading the Landsat scene, we would like to have a first glance
+how the image looks like. There are two basic options for plotting the
+satellite scene in R. The first option uses the code:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="n">ls_d239</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-7-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-7-1.png" width="100%" /></a></p>
+<p>In some cases, executing the above code may result in an error message
+that the margins are too small to plot the data. The solution to this
+problem is to first open a pop-up plotting window in R and then execute
+the plot commant. This works by using the following code.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">x11</span><span class="p">()</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">ls_d239</span><span class="p">)</span>
+</code></pre></div>
+<p>While this plot gives us some information about how the individual bands
+of the satellite scene look like, they are still somehow disappointing,
+as we normally would prefer to see a true-color-visualization of the
+satellite scene. That is, a visualization that imitates the impression
+that we create with our visual perception.</p>
+<p>For such a plot we need a different plotting command which is provided
+by the <code>raster</code> package:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">plotRGB</span><span class="p">(</span><span class="n">ls_d239</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">stretch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hist&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>The plotRGB command requires several settings as seen in the code. The
+first variable is the image to be plotted. Then we have to define which
+bands of the image should be plotted as the three available colors r =
+red, g = green, b = blue. In our case, we assign the correct Landsat
+bands to the the corresponding visualization colors. That is, we assign
+the Landsat band collecting information about light in the red portion
+of the spectrum to the red visualization, the green Landsat channel to
+the green visualization and the blue Landsat channel to the blue
+visualization. Finally, we have to define a method for stretching the
+image (pixel) values to the available visualization range. In our case
+we tell the plotting command to use a histogram (“hist”) created by a
+representative sample of pixels of the image to automatically find a
+suitable stretch-setting. More detailed information about the plotRGB
+command can be obtained using the help-function of R which can be
+accessed for the plotRGB command using.</p>
+<div class="highlight"><pre><span></span><code><span class="o">?</span><span class="n">plotRGB</span>
+</code></pre></div>
+<p>Running the command with these settings will result in an image as shown
+below. This image more or less matches our visual perception (that is,
+what we would see when we would fly across this area with an airplane or
+a space rocket and the atmosphere would be very clear).</p>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-11-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-11-1.png" width="100%" /></a></p>
+<p>Such images can directly be interpreted - green areas typically refer to
+vegetation, blue areas to water and the white areas to snow or in this
+case clouds.</p>
+<p>While these settings are great, as we can directly interpret the
+information, there is one additional combination of bands that is
+frequently used in studies related to vegetation. As we have learned in
+the course, vegetation has a very strong reflection in the near-infrared
+portion of the light. However, so far this information is not used in
+the visualization as we currently only use the red, the green and the
+blue channel of the Landsat image. We will now change this by replacing
+the red-channel with the near-infrared channel, the green with the red
+channel and the blue with the green channel. The corresponding command
+looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">plotRGB</span><span class="p">(</span><span class="n">ls_d239</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">stretch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hist&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-12-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-12-1.png" width="100%" /></a></p>
+<p>In this image, vegetation now appear in red colors while greenish areas
+indicate areas without vegetation. Water bodies will appear very dark as
+most of the electromagnet radiation is absorbed by water in the
+near-infrared portion of the light while the highest reflection of water
+occurs in the blue channel which is not considered in this visualization
+option.</p>
+<h4 id="exercise-explore-visualization-settings">Exercise: Explore visualization settings<a class="headerlink" href="#exercise-explore-visualization-settings" title="Link zu dieser Sektion">&para;</a></h4>
+<p>To practise a bit the so far learned commands, try to load the second
+image provided in the downloaded data (stored in the folder
+<strong>Landsat/D310</strong>). Store the second image in a variable named
+<strong>ls_d310</strong>. Try to play around a bit more with the <code>plotRGB</code> command
+and try out differing visualization settings (for example modify the
+channels used for plotting and see how the image colors change).</p>
+<h3 id="step-3-clipping-landsat-data">Step 3: Clipping Landsat data<a class="headerlink" href="#step-3-clipping-landsat-data" title="Link zu dieser Sektion">&para;</a></h3>
+<h4 id="approach-1-clipping-to-the-maximum-extent">Approach 1: Clipping to the maximum extent<a class="headerlink" href="#approach-1-clipping-to-the-maximum-extent" title="Link zu dieser Sektion">&para;</a></h4>
+<p>Quite often our area of interest is smaller than a complete Landsat
+scene which covers several thousand square kilometers. In this part of
+the Tutorial, we will hence learn how to clip-out a part of the Landsat
+scene using a polygon-shapefile.</p>
+<p>As first step, we will set our current working directory and load the
+shapefile by executing the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># set wd to shapefile</span>
+<span class="nf">setwd</span><span class="p">(</span><span class="s">&quot;D:/remote_sensing/Landsat&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># load Shapefile </span>
+<span class="n">vec</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">st_read</span><span class="p">(</span><span class="s">&quot;Shape/area2.shp&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Reading layer `area2&#39; from data source 
+  `\\wsl.localhost\Ubuntu-20.04\home\florian\tutorials-fabian\basic-landsat\Landsat\Shape\area2.shp&#39; 
+  using driver `ESRI Shapefile&#39;
+Simple feature collection with 1 feature and 1 field
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 444890.7 ymin: 5087373 xmax: 482293.5 ymax: 5119092
+Projected CRS: WGS 84 / UTM zone 33N
+</code></pre></div>
+<p>A basic summary of the loaded shapefile can be obtained by simply
+running its variable name. In our case:</p>
+<div class="highlight"><pre><span></span><code><span class="n">vec</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Simple feature collection with 1 feature and 1 field
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 444890.7 ymin: 5087373 xmax: 482293.5 ymax: 5119092
+Projected CRS: WGS 84 / UTM zone 33N
+  id                       geometry
+1  1 POLYGON ((461942.5 5119092,...
+</code></pre></div>
+<p>Next, we will plot the shapefile over the Landsat image to see whether
+the two datasets match and which part of the satellite scene we will
+clip. This required the following commands:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">plotRGB</span><span class="p">(</span><span class="n">ls_d239</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">stretch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hist&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-16-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-16-1.png" width="100%" /></a></p>
+<p>We can now clearly see that the shapefile overlaps with the image and we
+should hence be able to use it to clip the Landsat dataset.</p>
+<p>In this first step, we will use the maximum extent of the shapefile
+polygon to clip the satellite image. There is also another option to
+clip the image using the exact shape of the polygon, but we will have a
+look at this option later.</p>
+<p>For the first approach, we will first derive the extent of the Shapefile
+using the command:</p>
+<div class="highlight"><pre><span></span><code><span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">st_bbox</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+</code></pre></div>
+<p>If we enter the variable name in the console/execute the respective code
+chunk, we can see in the console output the maximum extent that is
+covered by the shapefile.</p>
+<div class="highlight"><pre><span></span><code><span class="n">e</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>     xmin      ymin      xmax      ymax 
+ 444890.7 5087372.7  482293.5 5119091.6
+</code></pre></div>
+<p>In the next step, we will use this extent-variable to clip the satellite
+scene:</p>
+<div class="highlight"><pre><span></span><code><span class="n">ls_d239_clip</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">crop</span><span class="p">(</span><span class="n">ls_d239</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Output/ls_d239_clipped.tif&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">overwrite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</code></pre></div>
+<p>This process will now clip the Landsat scene using the extent stored in
+the variable e and save the clipped image into the variable ls_d239
+_clip. Additionally, a new tif-file will be created on the hard-disk
+and stored into the last defined path (in the example, we switch the
+folder before running the clip command to control where the clippped
+files are stored).</p>
+<p>After the clipping, we can have a look at the clipped satellite scene
+using the plotRGB command. We can now see, that area covered by the
+clipped satellite scene is a lot smaller than our original scene. On the
+other hand, more details become visible in the plotted image.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">plotRGB</span><span class="p">(</span><span class="n">ls_d239_clip</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">stretch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hist&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-20-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-20-1.png" width="100%" /></a></p>
+<h4 id="approach-2-clipping-to-the-exact-outline-of-the-shapefile">Approach 2: Clipping to the exact outline of the Shapefile<a class="headerlink" href="#approach-2-clipping-to-the-exact-outline-of-the-shapefile" title="Link zu dieser Sektion">&para;</a></h4>
+<p>To clip the raster file to the exact shape of the polygon, only one
+additional step is required. Basically, the clipping procedure remains
+the same but after the image has been clipped to the rectangular extent
+of the shapefile, the remainding pixels that are not located within the
+polygon are masked out using the <code>mask</code> command of the <em>raster</em> package.
+The results in the following code:</p>
+<div class="highlight"><pre><span></span><code><span class="n">ls_d239_clip2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mask</span><span class="p">(</span><span class="n">ls_d239_clip</span><span class="p">,</span><span class="w"> </span><span class="n">vec</span><span class="p">)</span>
+</code></pre></div>
+<p>The masking procedure may take quite a long time depending on the
+computer’s performance. In the end the image should look like this:</p>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-22-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-22-1.png" width="100%" /></a></p>
+<h4 id="exercise-clipping">Exercise: Clipping<a class="headerlink" href="#exercise-clipping" title="Link zu dieser Sektion">&para;</a></h4>
+<p>To practise the clipping procedure, try to implement the code to also
+clip the second Landsat image (from the folder <strong>D310</strong>) using the same
+R commands. We will use the clipped version of this second image (which
+should look like the image below) in the next Step.</p>
+<h3 id="step-4-applying-a-cloud-mask">STEP 4: Applying a cloud mask<a class="headerlink" href="#step-4-applying-a-cloud-mask" title="Link zu dieser Sektion">&para;</a></h3>
+<p>In this next step, we will make use of the cloud-mask product that is
+routinely delivered with the Landsat 8 surface reflectance product. The
+cloud-mask product is currently stored in the folder
+<strong>Landsat/D310/cl_mask</strong>. As only the second Landsat image (<strong>D310</strong>) is
+affected by some clouds, we will use this scene as example.</p>
+<p>To load the cloud-mask we will use the already familiar code to load a
+raster image:</p>
+<div class="highlight"><pre><span></span><code><span class="n">d310_mask</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rast</span><span class="p">(</span><span class="s">&quot;D310/cl_mask/LC81910282015310LGN00_cfmask.tif&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>We can have a look at the just loaded data by plotting the raster using:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="n">d310_mask</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-24-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-24-1.png" width="100%" /></a></p>
+<p>Be aware that it makes no sense to use the <code>plotRGB</code> command here, as
+the cloud-mask raster contains only a single raster layer/channel.</p>
+<p>We can see that the cloud-mask layer contains five different values in
+our case. To understand what each of the 5 classes exactly mean, it is
+necessary to refer to the Landsat 8 surface reflectance guide (Link
+provided above).</p>
+<p>To make the masking-process more effective, we will now first clip the
+cloud-mask to the same extent as the already clipped Landsat images.
+Therefore, we will use the same commands as just learned:</p>
+<div class="highlight"><pre><span></span><code><span class="n">d310_mask_clip</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">crop</span><span class="p">(</span><span class="n">d310_mask</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="n">d310_mask_clip2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mask</span><span class="p">(</span><span class="n">d310_mask_clip</span><span class="p">,</span><span class="w"> </span><span class="n">vec</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">d310_mask_clip2</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-25-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-25-1.png" width="100%" /></a></p>
+<p>This leads to the following image:</p>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-26-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-26-1.png" width="100%" /></a></p>
+<p>we can infer, that the value 3 seems to indicate cloud-cover, value 2
+cloud-shadows and value 1 water bodies. Clear pixels are indicated by a
+value of 0. Please be aware that these values may change depending on
+the version of the surface reflectance product applied. It is highly
+recommended to double-check this information in the corresponding
+product guide.</p>
+<p>As next step, we will have to mask our the clouds, or alternatively, all
+pixels that are neither clear nor water. In this case, we will follow
+the latter approach. To achieve this, we will first create a binary mask
+from the cloud-cover layer using the command:</p>
+<div class="highlight"><pre><span></span><code><span class="n">d310_mask_clip_bin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">d310_mask_clip2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">1</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">d310_mask_clip_bin</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-27-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-27-1.png" width="100%" /></a></p>
+<p>In this new layer, all areas affected by clouds or cloud-cover are now
+marked with a value of 1 while all pixels being either clear of water
+bodies have a value of 0.</p>
+<p>Now, we can apply this mask to the original clipped Landsat image using
+the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="n">d310_masked</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mask</span><span class="p">(</span><span class="n">ls_d310_clip2</span><span class="p">,</span><span class="w"> </span><span class="n">d310_mask_clip_bin</span><span class="p">,</span><span class="w"> </span><span class="n">maskvalue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w">  </span><span class="n">updatevalue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NA</span><span class="p">)</span>
+<span class="nf">plotRGB</span><span class="p">(</span><span class="n">d310_masked</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">stretch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hist&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-29-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-29-1.png" width="100%" /></a></p>
+<p>!! Be aware that you have to create the ls_d310_clip2 image first by
+adapting the code above provided for the d239 image as mentioned in the
+exercise - this code is not included here!! This will lead to a new
+version of the Landsat image where all cloud-affected pixels were masked
+out by replacing all values in the Landsat image with NA (=not
+available).</p>
+<p>To save this image, we can either define a filename in the
+<code>mask</code>-function as done before in the <code>crop</code>-function or we can use a
+separate command:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">writeRaster</span><span class="p">(</span><span class="n">d310_masked</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="o">=</span><span class="s">&quot;Landsat8_D310_cloud_masked.tif&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">format</span><span class="o">=</span><span class="s">&quot;GTiff&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>We may want to change the current path to an output folder before saving
+the raster file. You can use the <code>setwd</code>-function to achieve this.</p>
+<h3 id="step-5-simple-change-detection-using-image-differencing">STEP 5: Simple change detection using image differencing<a class="headerlink" href="#step-5-simple-change-detection-using-image-differencing" title="Link zu dieser Sektion">&para;</a></h3>
+<p>In this step, we will use simple arithmetic operations to perform a
+change detection using the two Landsat images. “Change detection” is a
+general term for a big family of methodical approaches to identify areas
+in images that have changed from one acquisition date to another. As
+heard in the theoretical lecture, such changes can be due to various
+reasons, including phenological changes, land-use or and/or land-cover
+changes, catastropic events, natural succession, and so on.</p>
+<h4 id="nir-difference-image">NIR difference image<a class="headerlink" href="#nir-difference-image" title="Link zu dieser Sektion">&para;</a></h4>
+<p>We will start with the probably simplest change detection approach:
+Image differencing.</p>
+<p>Image differencing bases on the assumption that changes occuring between
+two image acquisition dates can be identified by simply substracting one
+image from the other image. Areas that did not change should have very
+similar reflectance values and the difference image should hence depict
+a value close to zero.</p>
+<p>On the contrary, if changes have occurred, the difference image will
+depict values that are clearly deviating from zero.</p>
+<p>So let us try this with our two Landsat images. One thing we have to
+consider is that we cannot simply substract a complete image from the
+other but we should rather work on an individual channel level. Here, we
+will hence first extract the near-infrared (nir) channel of both images
+and then substract the second image from the first. To extract the nir
+channel we use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">nir_d239</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ls_d239_clip2</span><span class="p">[[</span><span class="m">4</span><span class="p">]]</span>
+<span class="n">nir_d310</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">d310_masked</span><span class="p">[[</span><span class="m">4</span><span class="p">]]</span>
+</code></pre></div>
+<p>By using the doubled squared brackets <code>[[]]</code>, we can access individual
+bands of a raster stack. After extracting the nir bands, we can
+calculate and plot the difference image using:</p>
+<div class="highlight"><pre><span></span><code><span class="n">nir_diff</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">nir_d239</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nir_d310</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">nir_diff</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-32-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-32-1.png" width="100%" /></a></p>
+<p>Most of the values of the image are comparably close to zero, as
+indicated by the greenish colours, however, there are also some parts in
+the image that show clear changes (see for example the yellow area
+marked with the red box). A difference of around -5000 is very
+remarkable as the overall valid value range of the Landsat data lays
+between 0 and 10000 (10000 indicating a reflectance of 100% which is
+normally by far not reached by natural surfaces). If we want to make
+more details visible in the plot, we also have the option to change the
+plotted range of values and hence increase the contrast for lower
+vlaues.</p>
+<p>We can do this modifying the <code>plot</code>-command. By providing user-defined
+limits for the z-dimension (=pixel values) we can force the plot command
+to use its full color range to plot values between the given two values.
+Values lower than -2000 and higher than 2000 will no further be
+separable. This results in a new plot which looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="n">nir_diff</span><span class="p">,</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-2000</span><span class="p">,</span><span class="m">2000</span><span class="p">))</span>
+</code></pre></div>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-33-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-33-1.png" width="100%" /></a></p>
+<p>It now becomes clear that actually quite many areas showed a notable
+difference between the first and second image as now shown by the green
+colors which indicate a positive difference in most areas. This seems to
+be a plausible result as most of our satellite scene is dominated by
+vegetation and the first image’s acquisition date was day 239 = 27<sup>th</sup> of
+August (late summer) and second image’s acquisition date was day 310 =
+6<sup>th</sup> of November (autumn). Hence, the reduction of reflectance in the nir
+channel is most likely connected to the senescence of the leaves of most
+parts of the vegetation which most likely began shortly after the first
+image was acquired.</p>
+<h4 id="ndvi-difference-image">NDVI difference image<a class="headerlink" href="#ndvi-difference-image" title="Link zu dieser Sektion">&para;</a></h4>
+<p>We will now further verify these results by repeating the analysis but
+replacing the nir channels with normalized difference vegetation index
+(NDVI) images. The NDVI is probably the most famous metric obtained from
+optical remote sensing data that is frequently used as a general measure
+of photosynthetic activity / vegetation abundance. The NDVI is often
+also referred to as a “Vegetation Index”. More information about the
+NDVI can for example be found under the following links:</p>
+<p><a href="https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index">https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index</a></p>
+<p><a href="https://earthobservatory.nasa.gov/Features/MeasuringVegetation/measuring_vegetation_2.php">https://earthobservatory.nasa.gov/Features/MeasuringVegetation/measuring_vegetation_2.php</a></p>
+<p>One important information given in both articles found via the links is
+the formula to calculate the NDVI. The formula is defined as:</p>
+<p>NDVI = (<strong>Refl</strong> NIR - <strong>Refl</strong> RED) / (<strong>Refl</strong> NIR + <strong>Refl</strong> RED)</p>
+<p>These kind of equations are referred to as “normalized differences”. One
+key-advantage of these normalized differences is that the value range of
+vegetation indices calculated in these manners are standardized between
+-1 and 1.</p>
+<p>To calculate NDVIs from our Landsat images we execute the following
+code:</p>
+<div class="highlight"><pre><span></span><code><span class="n">ndvi_d239</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="n">ls_d239_clip2</span><span class="p">[[</span><span class="m">4</span><span class="p">]]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ls_d239_clip2</span><span class="p">[[</span><span class="m">3</span><span class="p">]])</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">ls_d239_clip2</span><span class="p">[[</span><span class="m">4</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ls_d239_clip2</span><span class="p">[[</span><span class="m">3</span><span class="p">]])</span>
+<span class="n">ndvi_d310</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="n">d310_masked</span><span class="p">[[</span><span class="m">4</span><span class="p">]]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">d310_masked</span><span class="p">[[</span><span class="m">3</span><span class="p">]])</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">d310_masked</span><span class="p">[[</span><span class="m">4</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d310_masked</span><span class="p">[[</span><span class="m">3</span><span class="p">]])</span>
+</code></pre></div>
+<p>Then we can have a look at the two NDVI images - we again adapt the
+z-lim range and furthermore add a new command to plot the two plots
+side-by-side:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">ndvi_d239</span><span class="p">,</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-0.5</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Day 239&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">ndvi_d310</span><span class="p">,</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-0.5</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Day 310&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-35-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-35-1.png" width="100%" /></a></p>
+<p>We can now calculate and plot the NDVI difference image by running:</p>
+<div class="highlight"><pre><span></span><code><span class="n">ndvi_diff</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ndvi_d239</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ndvi_d310</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">ndvi_diff</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-36-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-36-1.png" width="100%" /></a></p>
+<p>As a final step, we will now identify areas that show a very high NDVI
+difference by applying a threshold. That is, we will build a binary mask
+in which all areas that have a NDVI difference > 0.5 will be displayed
+as 1 and all other values as 0. In this case, we will use the
+<code>abs</code>-function (returning absolute values) to consider both negative and
+positive differences. We run the following code:</p>
+<div class="highlight"><pre><span></span><code><span class="n">ndvi_gt_0_5</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="n">ndvi_diff</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0.5</span><span class="w"> </span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">ndvi_gt_0_5</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-37-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-37-1.png" width="100%" /></a></p>
+<p>In this image, the grey areas have a NDVI difference smaller than 0.5
+while the green areas have NDVI differences that are higher than 0.5.
+The white areas refer to the NAs in the second image due to cloud-cover.</p>
+<h3 id="step-5-unsupervised-classification">STEP 5: Unsupervised classification<a class="headerlink" href="#step-5-unsupervised-classification" title="Link zu dieser Sektion">&para;</a></h3>
+<p>As last part of this first Tutorial, we will apply an unsupervised
+classification to one of the Landsat scenes. An unsupervised
+classification is sometimes also referred to a clustering process and
+attempts to sort the observations of a dataset into meaningful classes.
+The number of classes is normally user-defined and can either be a fixed
+number or a range with a defined minimum and maximum number of classes.
+In our case, we will apply a very common algorithm called k-means.</p>
+<p>The function is called <code>kmeans</code> in R and was originally not developed to
+particularly work with raster data. However, there is a small
+work-around so that we can still apply it to our datasets. This
+work-around bases on a transformation of our raster-dataset to a
+dataframe (a table). Then the kmeans-algorithm is applied to the table,
+and the results of the clustering are re-transformed to a raster
+dataset.</p>
+<p>Let’s start by trying to run the following code, which will convert the
+raster-object to a data.frame and then run the kmeans-algorithm to
+classify all pixel-values into 12 classes. This attempt will result in
+an error message:</p>
+<div class="highlight"><pre><span></span><code><span class="n">class1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">kmeans</span><span class="p">(</span><span class="nf">values</span><span class="p">(</span><span class="n">ls_d239_clip2</span><span class="p">),</span><span class="w"> </span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="n">iter.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">nstart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Error in do_one(nmeth): NA/NaN/Inf in foreign function call (arg 1)
+</code></pre></div>
+<p>The reason for this is, that our raster data contains some NA values
+(the areas we masked out before). We can verify that our dataset
+contains NA values by running the following command. This command is a
+nested command, we use the <code>values</code>-function to access only the pixel
+values of the raster-dataset (and ignore the other properties of the
+raster object), then we apply the <code>is.na</code> function to check for each
+raster value whether it is NA or not. Finally, we use the
+<code>table</code>-function to translate the output of the <code>is.na</code>-function (which
+is table with as many entries as the raster dataset has pixels) into a
+contingency table that returns to counts of each factor level (in this
+case there are only two differing values/factors: TRUE and FALSE).</p>
+<div class="highlight"><pre><span></span><code><span class="nf">table</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="nf">values</span><span class="p">(</span><span class="n">ls_d239_clip2</span><span class="p">)))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>  FALSE    TRUE 
+3975594 3932880
+</code></pre></div>
+<p>So we now know, that the NAs are problematic for the kmeeans algorithm.
+We will hence remove them from our dataset. As first step, we will copy
+our image into a new variable to not change the original image. This can
+be achieved using the code:</p>
+<div class="highlight"><pre><span></span><code><span class="n">d239_no_na</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ls_d239_clip2</span>
+</code></pre></div>
+<p>Then we replace all NA values of the image with the value 99999 by
+running:</p>
+<div class="highlight"><pre><span></span><code><span class="n">d239_no_na</span><span class="p">[</span><span class="nf">is.na</span><span class="p">(</span><span class="n">d239_no_na</span><span class="p">)]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">99999</span>
+</code></pre></div>
+<p>After running this code, we can recheck the NA situation:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">table</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="nf">values</span><span class="p">(</span><span class="n">d239_no_na</span><span class="p">)))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>  FALSE 
+7908474
+</code></pre></div>
+<p>Hence, we have cleaned the dataset from all NA values. We will now try
+to re-run the kmeans-algorithm by executing:</p>
+<div class="highlight"><pre><span></span><code><span class="n">class1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">kmeans</span><span class="p">(</span><span class="nf">values</span><span class="p">(</span><span class="n">d239_no_na</span><span class="p">),</span><span class="w"> </span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="n">iter.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">nstart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Warning: Quick-TRANSfer stage steps exceeded maximum (= 65903950)
+
+Warning: Quick-TRANSfer stage steps exceeded maximum (= 65903950)
+
+Warning: Quick-TRANSfer stage steps exceeded maximum (= 65903950)
+
+Warning: Quick-TRANSfer stage steps exceeded maximum (= 65903950)
+
+Warning: Quick-TRANSfer stage steps exceeded maximum (= 65903950)
+
+Warning: Quick-TRANSfer stage steps exceeded maximum (= 65903950)
+
+Warning: Quick-TRANSfer stage steps exceeded maximum (= 65903950)
+
+Warning: Quick-TRANSfer stage steps exceeded maximum (= 65903950)
+
+Warning: Quick-TRANSfer stage steps exceeded maximum (= 65903950)
+
+Warning: Quick-TRANSfer stage steps exceeded maximum (= 65903950)
+</code></pre></div>
+<p>This time, no error message will occur. It could be that some warning
+messages are printed, but we will ignore these for the moment. After the
+kmeans-algorithm is completed, we will have a new object called
+<strong>class1</strong>. We can have a closer look at the structure of this oject
+using:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">str</span><span class="p">(</span><span class="n">class1</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>List of 9
+ $ cluster     : int [1:1318079] 5 5 5 5 5 5 5 5 5 5 ...
+ $ centers     : num [1:12, 1:6] 226 446 195 140 99999 ...
+  ..- attr(*, &quot;dimnames&quot;)=List of 2
+  .. ..$ : chr [1:12] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+  .. ..$ : chr [1:6] &quot;band 2 surface reflectance&quot; &quot;band 3 surface reflectance&quot; &quot;band 4 surface reflectance&quot; &quot;band 5 surface reflectance&quot; ...
+ $ totss       : num 1.93e+16
+ $ withinss    : num [1:12] 8.09e+09 1.12e+10 8.71e+09 6.06e+09 0.00 ...
+ $ tot.withinss: num 1.03e+11
+ $ betweenss   : num 1.93e+16
+ $ size        : int [1:12] 88597 58792 96301 89760 655480 64082 40683 33522 99524 48251 ...
+ $ iter        : int 6
+ $ ifault      : int 4
+ - attr(*, &quot;class&quot;)= chr &quot;kmeans&quot;
+</code></pre></div>
+<p>For us particularly interesting are the entries <strong>cluster</strong> and
+<strong>centers</strong>. The former contains our classification results, that is,
+the id of the cluster to which each pixel has been assigned to. On the
+other hand, the <strong>centers</strong> entry contains more detailed information
+about the individual clusters by providing information about the
+center-value for each band of the image. That is why this entry has 12
+rows (12 clusters) and 6 columns (the six Landsat bands).</p>
+<p>We can access the individual entries of the classification object by
+running for example:</p>
+<div class="highlight"><pre><span></span><code><span class="n">class1</span><span class="o">$</span><span class="n">centers</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>   band 2 surface reflectance band 3 surface reflectance
+1                    225.6454                   510.4789
+2                    446.1949                   723.2456
+3                    194.6154                   411.0923
+4                    140.2428                   271.8800
+5                  99999.0000                 99999.0000
+6                    357.9282                   678.7050
+7                    141.2791                   246.4923
+8                    772.3029                  1067.4584
+9                    157.9903                   324.4146
+10                   236.7611                   595.0691
+11                   542.2179                   768.3518
+12                  1651.8839                  2062.4436
+   band 4 surface reflectance band 5 surface reflectance
+1                    307.3049                   4005.596
+2                    678.8755                   2922.859
+3                    264.4924                   3415.379
+4                    174.7124                   2322.434
+5                  99999.0000                  99999.000
+6                    521.5220                   3657.036
+7                    164.7161                   1700.249
+8                   1196.4875                   2479.018
+9                    206.6848                   2864.566
+10                   320.9607                   4655.109
+11                   821.8914                   2107.473
+12                  2260.3994                   3019.539
+   band 6 surface reflectance band 7 surface reflectance
+1                    1842.184                   824.2505
+2                    2045.522                  1277.2916
+3                    1641.249                   733.5452
+4                    1116.494                   492.2882
+5                   99999.000                 99999.0000
+6                    2178.126                  1155.5191
+7                     801.146                   365.9835
+8                    2409.593                  1875.2611
+9                    1393.526                   612.7526
+10                   2048.759                   914.1775
+11                   1795.237                  1326.0242
+12                   3119.702                  2575.5781
+</code></pre></div>
+<p>The values from your own run, are likely to deviate from the ones you
+can see depicted here as the kmeans-algorithm contains a random
+component. That means, each run of the kmeans-algorithm will result in a
+slightly differing outcome. This can be addressed by using the
+<code>set.seed</code>-function. But this will be discussed with more details in a
+later Tutorial.</p>
+<p>As next step, we will now retransform the classification results of the
+kmeans-algorithm to a raster image. The easiest way to do this is to
+overwrite the values of a band from the original image. We can achieve
+this by first copying a band of the original image into a new variable:</p>
+<div class="highlight"><pre><span></span><code><span class="n">class1_out</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ls_d239_clip2</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+</code></pre></div>
+<p>And then overwriting the values of this band with the clustering
+results. The result is a new raster image indicating the cluster id
+(cluster 1- cluster 12) of each pixel:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">values</span><span class="p">(</span><span class="n">class1_out</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">class1</span><span class="o">$</span><span class="n">cluster</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">class1_out</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" href="../basic-landsat_files/figure-gfm/unnamed-chunk-47-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../basic-landsat_files/figure-gfm/unnamed-chunk-47-1.png" width="100%" /></a></p>
+<p>We can now save this raster file using:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">writeRaster</span><span class="p">(</span><span class="n">class1_out</span><span class="p">,</span><span class="s">&quot;12_classes_ls5.tif&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">overwrite</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+</code></pre></div>
+<p>As next step, we can open the original image as well as the results of
+the unsupervised classification in QGIS and examine whether we can
+allocate the individual clusters to land-cover types.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../qgis/09-spatial-interpolation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Spatial interpolation" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Spatial interpolation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../random-forest-regression/random-forest-regression/" class="md-footer__link md-footer__link--next" aria-label="Next: Random Forest Regression" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Random Forest Regression
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; CC-BY-SA-4.0 license - Freie Universität Berlin Institute of Geographical Sciences Remote Sensing and Geoinformatics
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "search.suggest", "search.highlight", "content.action.edit", "content.code.copy", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="../../javascripts/mathjax.js"></script>
+        
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
